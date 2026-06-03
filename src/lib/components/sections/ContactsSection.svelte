@@ -16,8 +16,8 @@
 						<span class="font-normal text-brand-accent italic">и складской выдачи</span>
 					</h2>
 					<p class="mb-8 text-sm leading-relaxed text-brand-gray">
-						Офис продаж и центральный склад ООО «МегаПак» находятся на одной территории в Москве
-						для мгновенной выписки документов и отгрузки транспорта.
+						Офис продаж и центральный склад ООО «МегаПак» находятся на одной территории в Москве для
+						мгновенной выписки документов и отгрузки транспорта.
 					</p>
 
 					<!-- Bullet info -->
@@ -29,7 +29,9 @@
 								📍
 							</div>
 							<div class="flex flex-col">
-								<span class="text-[10px] tracking-wider text-brand-gray uppercase">Адрес комплекса</span>
+								<span class="text-[10px] tracking-wider text-brand-gray uppercase"
+									>Адрес комплекса</span
+								>
 								<span class="mt-1 text-sm font-semibold text-brand-dark"
 									>109429, г. Москва, ул. Верхние Поля, дом 61</span
 								>
@@ -59,7 +61,9 @@
 								✉️
 							</div>
 							<div class="flex flex-col">
-								<span class="text-[10px] tracking-wider text-brand-gray uppercase">Прямой E-mail</span>
+								<span class="text-[10px] tracking-wider text-brand-gray uppercase"
+									>Прямой E-mail</span
+								>
 								<span class="mt-1 text-sm font-semibold text-brand-accent hover:underline"
 									>zakaz@megapaks.ru</span
 								>
@@ -79,12 +83,10 @@
 			<!-- B2B Request Form (Right - col-span-7) -->
 			<div class="double-bezel lg:col-span-7">
 				<div class="double-bezel-inner p-8">
-					<h3 class="mb-2 font-serif text-xl font-light text-brand-dark">
-						Направить запрос на КП
-					</h3>
+					<h3 class="mb-2 font-serif text-xl font-light text-brand-dark">Направить запрос на КП</h3>
 					<p class="mb-6 text-xs text-brand-gray">
-						Прикрепите реквизиты компании, и дежурный менеджер сбыта выставит официальный счет с
-						НДС в течение 15 минут.
+						Прикрепите реквизиты компании, и дежурный менеджер сбыта выставит официальный счет с НДС
+						в течение 15 минут.
 					</p>
 
 					<form

@@ -10,21 +10,24 @@
 	let { children } = $props();
 
 	onMount(() => {
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('visible');
-				}
-			});
-		}, {
-			threshold: 0.05,
-			rootMargin: '0px 0px -40px 0px'
-		});
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			},
+			{
+				threshold: 0.05,
+				rootMargin: '0px 0px -40px 0px'
+			}
+		);
 
 		// We use a small timeout to ensure elements are mounted and routes are fully loaded
 		const setupObserver = () => {
 			const elements = document.querySelectorAll('.reveal-on-scroll');
-			elements.forEach(el => observer.observe(el));
+			elements.forEach((el) => observer.observe(el));
 		};
 
 		setTimeout(setupObserver, 100);
@@ -38,8 +41,14 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<title>МегаПак — Высокоточная Промышленная Пластиковая Тара</title>
-	<meta name="description" content="ООО «МегаПак» — ведущий производитель и поставщик сертифицированной полимерной тары в Москве. Пластиковые бочки, штабелируемые канистры и еврокубы (IBC) оптом по стандартам ГОСТ и ООН." />
-	<meta name="keywords" content="пластиковая тара, пластиковые бочки, пластиковые канистры, еврокубы, IBC контейнеры, МегаПак, megapaks, упаковка москва, полимерная тара" />
+	<meta
+		name="description"
+		content="ООО «МегаПак» — ведущий производитель и поставщик сертифицированной полимерной тары в Москве. Пластиковые бочки, штабелируемые канистры и еврокубы (IBC) оптом по стандартам ГОСТ и ООН."
+	/>
+	<meta
+		name="keywords"
+		content="пластиковая тара, пластиковые бочки, пластиковые канистры, еврокубы, IBC контейнеры, МегаПак, megapaks, упаковка москва, полимерная тара"
+	/>
 </svelte:head>
 
 <div class="noise-bg min-h-screen selection:bg-brand-accent-light selection:text-brand-accent">
@@ -48,4 +57,3 @@
 	<Footer />
 	<ContactsModal />
 </div>
-

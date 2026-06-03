@@ -61,10 +61,10 @@
 >
 	<div class="pointer-events-auto mx-auto flex w-full max-w-[1440px] justify-center px-4">
 		<nav
-			class="flex w-full max-w-none items-center justify-between rounded-2xl border border-white/10 bg-brand-dark/75 px-6 py-3 backdrop-blur-2xl transition-all duration-500 {scrolled ||
+			class="flex w-full max-w-none items-center justify-between rounded-2xl border border-white/10 bg-brand-dark/90 px-6 py-3 backdrop-blur-2xl transition-all duration-500 {scrolled ||
 			mobileMenuOpen
-				? 'border-white/20 bg-brand-dark/85 shadow-lg'
-				: 'shadow-md'}"
+				? 'border-white/20 bg-brand-dark/95 shadow-2xl shadow-black/50'
+				: 'shadow-xl shadow-black/30'}"
 		>
 			<a href="#home" class="group flex items-center gap-2">
 				<img
@@ -81,7 +81,7 @@
 						href="#{item.id}"
 						class="rounded-lg px-3 py-1.5 text-[11px] font-medium tracking-wider uppercase transition-all duration-300 {activeSection ===
 						item.id
-							? 'bg-white/10 text-white'
+							? 'bg-gradient-to-r from-white/15 to-white/5 text-brand-accent-light'
 							: 'text-neutral-300 hover:bg-white/5 hover:text-white'}"
 					>
 						{item.label}
@@ -146,7 +146,7 @@
 		<!-- Mobile Menu Overlay -->
 		<div
 			transition:fade={{ duration: 200 }}
-			class="fixed inset-0 z-40 flex flex-col justify-between bg-brand-dark/90 px-6 pt-28 pb-10 backdrop-blur-2xl md:hidden"
+			class="fixed inset-0 z-40 flex flex-col justify-between bg-brand-dark/95 px-6 pt-28 pb-10 backdrop-blur-2xl md:hidden"
 		>
 			<!-- Links List -->
 			<div class="flex flex-col gap-6">

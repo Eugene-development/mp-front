@@ -284,7 +284,9 @@
 							{#if volumeDiscount > 0}
 								<div class="flex justify-between">
 									<span class="text-brand-accent">Скидка за объем ({volumeDiscount * 100}%):</span>
-									<span class="font-bold text-brand-accent">-{totalDiscountAmount.toLocaleString()} ₽</span>
+									<span class="font-bold text-brand-accent"
+										>-{totalDiscountAmount.toLocaleString()} ₽</span
+									>
 								</div>
 							{/if}
 							{#if isUrgent}

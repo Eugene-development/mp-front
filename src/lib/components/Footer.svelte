@@ -8,10 +8,10 @@
 					<img
 						src="/images/megapack-logo.svg"
 						alt="МЕГАПАК"
-						class="h-8 w-auto transition-transform duration-300 group-hover:scale-[0.98] invert"
+						class="h-8 w-auto invert transition-transform duration-300 group-hover:scale-[0.98]"
 					/>
 				</a>
-				<p class="max-w-xs text-[10px] leading-relaxed text-neutral-400">
+				<p class="max-w-xs text-xs leading-relaxed text-neutral-400">
 					Промышленная разработка, крупносерийный выдув и комплексная дистрибуция промышленной
 					полимерной тары по всей России.
 				</p>
@@ -19,8 +19,8 @@
 
 			<!-- Column 2: Products -->
 			<div class="md:col-span-3">
-				<h4 class="mb-4 text-[10px] font-bold tracking-wider text-white uppercase">НОМЕНКЛАТУРА</h4>
-				<ul class="space-y-2 text-[10px] text-neutral-400">
+				<h4 class="mb-4 text-xs font-bold tracking-wider text-white uppercase">НОМЕНКЛАТУРА</h4>
+				<ul class="space-y-2 text-xs text-neutral-400">
 					<li>
 						<a href="#catalog" class="transition-colors duration-200 hover:text-white"
 							>Пластиковые бочки L-Ring</a
@@ -56,8 +56,8 @@
 
 			<!-- Column 3: Quality -->
 			<div class="md:col-span-2">
-				<h4 class="mb-4 text-[10px] font-bold tracking-wider text-white uppercase">РЕШЕНИЯ</h4>
-				<ul class="space-y-2 text-[10px] text-neutral-400">
+				<h4 class="mb-4 text-xs font-bold tracking-wider text-white uppercase">РЕШЕНИЯ</h4>
+				<ul class="space-y-2 text-xs text-neutral-400">
 					<li>
 						<a href="#specs" class="transition-colors duration-200 hover:text-white"
 							>UN Сертификация</a
@@ -88,8 +88,8 @@
 
 			<!-- Column 4: Contacts quick -->
 			<div class="md:col-span-3">
-				<h4 class="mb-4 text-[10px] font-bold tracking-wider text-white uppercase">ОФИС СБЫТА</h4>
-				<ul class="space-y-2 text-[10px] text-neutral-400">
+				<h4 class="mb-4 text-xs font-bold tracking-wider text-white uppercase">ОФИС СБЫТА</h4>
+				<ul class="space-y-2 text-xs text-neutral-400">
 					<li class="flex items-center gap-2">
 						<span>📞</span> <span class="font-bold text-white">8 (903) 749-17-24</span>
 					</li>
@@ -105,7 +105,7 @@
 
 		<!-- Copyright & Legal -->
 		<div
-			class="flex flex-col items-center justify-between border-t border-white/5 pt-8 text-[9px] text-neutral-500 sm:flex-row"
+			class="flex flex-col items-center justify-between border-t border-white/5 pt-8 text-[11px] text-neutral-500 sm:flex-row"
 		>
 			<span
 				>© 2026 ООО «МегаПак» (megapaks.ru). Все права защищены. Производственная площадка
