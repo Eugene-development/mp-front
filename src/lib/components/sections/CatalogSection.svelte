@@ -7,7 +7,7 @@
 				>Наш ассортимент</span
 			>
 			<h2 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-5xl">
-				Промышленный каталог <span class="italic">МегаПак</span>
+				Промышленный каталог
 			</h2>
 			<p class="mt-4 max-w-xl text-sm leading-relaxed text-brand-gray">
 				Все емкости изготовлены на высокотехнологичных выдувных машинах из химически стойкого

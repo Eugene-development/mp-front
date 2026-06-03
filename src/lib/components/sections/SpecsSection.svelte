@@ -7,7 +7,7 @@
 				>Контроль качества</span
 			>
 			<h2
-				class="font-serif text-3xl leading-tight font-light tracking-tight text-brand-dark md:text-5xl"
+				class="font-serif text-3xl leading-tight font-light tracking-tight text-brand-dark md:text-4xl"
 			>
 				Стандарты герметичности <br />
 				<span class="font-normal text-brand-accent italic">и безопасности</span>
@@ -37,9 +37,8 @@
 					class="double-bezel-inner relative overflow-hidden rounded-2xl bg-neutral-900 p-8 text-white"
 				>
 					<!-- Matrix table for structural engineering quality -->
-					<span
-						class="mb-4 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-						>ENGINEERING PROTOCOL DATA</span
+					<span class="mb-4 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
+						>Данные по протоколу</span
 					>
 					<h3 class="mb-6 font-serif text-lg font-light text-white">
 						Технические нормативы тары МегаПак

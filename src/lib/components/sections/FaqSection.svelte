@@ -37,10 +37,10 @@
 			>FAQ</span
 		>
 		<h2 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-5xl">
-			Ответы на B2B вопросы
+			Ответы на ваши вопросы
 		</h2>
 		<p class="mt-4 max-w-lg text-xs leading-relaxed text-brand-gray">
-			Подробная информация о работе завода МегаПак, условиях поставок по безналичному расчету и
+			Подробная информация о работе компании МегаПак, условиях поставок по безналичному расчету и
 			техническому сопровождению тары.
 		</p>
 	</div>

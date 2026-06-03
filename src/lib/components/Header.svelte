@@ -10,7 +10,7 @@
 			scrolled = window.scrollY > 20;
 
 			// Highlight active menu item based on viewport scroll position
-			const sections = ['home', 'catalog', 'specs', 'calculator', 'faq', 'contacts'];
+			const sections = ['home', 'about', 'catalog', 'specs', 'calculator', 'faq', 'contacts'];
 			for (const section of sections) {
 				const el = document.getElementById(section);
 				if (el) {
@@ -54,7 +54,7 @@
 
 			<!-- Nav links -->
 			<div class="hidden items-center gap-1 md:flex">
-				{#each [{ id: 'home', label: 'Главная' }, { id: 'catalog', label: 'Каталог' }, { id: 'specs', label: 'Стандарты' }, { id: 'calculator', label: 'Расчет' }, { id: 'faq', label: 'Вопросы' }] as item}
+				{#each [{ id: 'home', label: 'Главная' }, { id: 'about', label: 'О нас' }, { id: 'catalog', label: 'Каталог' }, { id: 'specs', label: 'Стандарты' }, { id: 'calculator', label: 'Расчет' }, { id: 'faq', label: 'Вопросы' }] as item}
 					<a
 						href="#{item.id}"
 						class="rounded-lg px-3 py-1.5 text-[11px] font-medium tracking-wider uppercase transition-all duration-300 {activeSection ===

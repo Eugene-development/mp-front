@@ -89,7 +89,7 @@
 				</a>
 				<a
 					href="#catalog"
-					class="rounded-xl border border-brand-divider px-6 py-3.5 text-xs font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:border-brand-gray/30 hover:bg-neutral-50"
+					class="hidden md:inline-block rounded-xl border border-brand-divider px-6 py-3.5 text-xs font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:border-brand-gray/30 hover:bg-neutral-50"
 				>
 					Смотреть каталог
 				</a>
