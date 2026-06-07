@@ -7,8 +7,8 @@
 				<div>
 					<span
 						class="mb-4 inline-block rounded-full border border-brand-divider bg-neutral-100 px-3 py-1 text-[9px] font-bold tracking-widest text-brand-gray uppercase"
-						>Контакты завода</span
-					>
+						>Контакты
+					</span>
 					<h2
 						class="mb-6 font-serif text-3xl leading-tight font-light tracking-tight text-brand-dark md:text-5xl"
 					>
@@ -49,7 +49,7 @@
 									>Отдел сбыта и логистики</span
 								>
 								<span class="mt-1 text-sm font-semibold text-brand-dark"
-									>8 (903) 749-17-24 / 8 (499) 490-61-45</span
+									>8 (499) 490-61-45 / 8 (903) 749-17-24</span
 								>
 							</div>
 						</div>
@@ -65,7 +65,7 @@
 									>Прямой E-mail</span
 								>
 								<span class="mt-1 text-sm font-semibold text-brand-accent hover:underline"
-									>zakaz@megapaks.ru</span
+									>zakaz@megapak.top</span
 								>
 							</div>
 						</div>

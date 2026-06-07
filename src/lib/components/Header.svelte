@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { contactsModal } from '../modalState.svelte.js';
 	import { fade } from 'svelte/transition';
+	import { page } from '$app/state';
 
 	let activeSection = $state('home');
 	let scrolled = $state(false);
@@ -26,9 +27,38 @@
 		};
 	});
 
+	$effect(() => {
+		if (page.url.pathname === '/contacts') {
+			activeSection = 'contacts';
+		} else if (page.url.pathname === '/about') {
+			activeSection = 'about';
+		} else {
+			const sections = ['home', 'about', 'catalog', 'specs', 'calculator', 'faq', 'contacts'];
+			for (const section of sections) {
+				const el = document.getElementById(section);
+				if (el) {
+					const rect = el.getBoundingClientRect();
+					if (rect.top <= 120 && rect.bottom >= 120) {
+						activeSection = section;
+						break;
+					}
+				}
+			}
+		}
+	});
+
 	onMount(() => {
 		const handleScroll = () => {
 			scrolled = window.scrollY > 20;
+
+			if (page.url.pathname === '/contacts') {
+				activeSection = 'contacts';
+				return;
+			}
+			if (page.url.pathname === '/about') {
+				activeSection = 'about';
+				return;
+			}
 
 			// Highlight active menu item based on viewport scroll position
 			const sections = ['home', 'about', 'catalog', 'specs', 'calculator', 'faq', 'contacts'];
@@ -66,7 +96,7 @@
 				? 'border-white/20 bg-brand-dark/95 shadow-2xl shadow-black/50'
 				: 'shadow-xl shadow-black/30'}"
 		>
-			<a href="#home" class="group flex items-center gap-2">
+			<a href="/#home" class="group flex items-center gap-2">
 				<img
 					src="/images/megapack-logo.svg"
 					alt="МЕГАПАК"
@@ -76,9 +106,15 @@
 
 			<!-- Nav links -->
 			<div class="hidden items-center gap-1 md:flex">
-				{#each [{ id: 'home', label: 'Главная' }, { id: 'about', label: 'О нас' }, { id: 'catalog', label: 'Каталог' }, { id: 'specs', label: 'Стандарты' }, { id: 'calculator', label: 'Расчет' }, { id: 'faq', label: 'Вопросы' }] as item}
+				{#each [
+					{ id: 'home', label: 'Главная', path: '/#home' },
+					{ id: 'about', label: 'О нас', path: '/about' },
+					{ id: 'catalog', label: 'Каталог', path: '/#catalog' },
+					{ id: 'specs', label: 'Стандарты', path: '/#specs' },
+					{ id: 'contacts', label: 'Контакты', path: '/contacts' }
+				] as item}
 					<a
-						href="#{item.id}"
+						href={item.path}
 						class="rounded-lg px-3 py-1.5 text-[11px] font-medium tracking-wider uppercase transition-all duration-300 {activeSection ===
 						item.id
 							? 'bg-gradient-to-r from-white/15 to-white/5 text-brand-accent-light'
@@ -89,31 +125,14 @@
 				{/each}
 			</div>
 
-			<!-- Technical Contact Button -->
-			<button
-				onclick={() => contactsModal.open()}
-				class="group relative hidden cursor-pointer items-center gap-2 rounded-xl border border-white/10 bg-neutral-950 px-4 py-2 text-xs font-semibold tracking-wider text-white uppercase transition-all duration-500 hover:bg-neutral-900 active:scale-[0.98] md:flex"
+			<!-- City Phone Link -->
+			<a
+				href="tel:+74994906145"
+				class="group relative hidden cursor-pointer items-center gap-2 rounded-xl border border-white/10 bg-neutral-950 px-4 py-2 text-xs font-bold tracking-wider text-white transition-all duration-500 hover:bg-neutral-900 hover:border-white/20 active:scale-[0.98] md:flex"
 			>
-				<span>Контакты</span>
-				<span
-					class="flex h-5 w-5 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-0.5"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="2.5"
-						stroke="currentColor"
-						class="h-2.5 w-2.5 text-white"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-						/>
-					</svg>
-				</span>
-			</button>
+				<span>📞</span>
+				<span>8 (499) 490-61-45</span>
+			</a>
 
 			<!-- Hamburger Button -->
 			<button
@@ -150,9 +169,15 @@
 		>
 			<!-- Links List -->
 			<div class="flex flex-col gap-6">
-				{#each [{ id: 'home', label: 'Главная' }, { id: 'about', label: 'О нас' }, { id: 'catalog', label: 'Каталог' }, { id: 'specs', label: 'Стандарты' }, { id: 'calculator', label: 'Расчет' }, { id: 'faq', label: 'Вопросы' }] as item}
+				{#each [
+					{ id: 'home', label: 'Главная', path: '/#home' },
+					{ id: 'about', label: 'О нас', path: '/about' },
+					{ id: 'catalog', label: 'Каталог', path: '/#catalog' },
+					{ id: 'specs', label: 'Стандарты', path: '/#specs' },
+					{ id: 'contacts', label: 'Контакты', path: '/contacts' }
+				] as item}
 					<a
-						href="#{item.id}"
+						href={item.path}
 						onclick={closeMobileMenu}
 						class="border-b border-white/10 pb-4 text-lg font-medium tracking-wider uppercase transition-colors duration-300 {activeSection ===
 						item.id
@@ -176,19 +201,17 @@
 					<div class="flex items-center gap-2">
 						<span>✉️</span>
 						<a
-							href="mailto:zakaz@megapaks.ru"
+							href="mailto:zakaz@megapak.top"
 							class="font-semibold text-white hover:text-brand-accent"
 						>
-							zakaz@megapaks.ru
+							zakaz@megapak.top
 						</a>
 					</div>
 				</div>
 
-				<button
-					onclick={() => {
-						closeMobileMenu();
-						contactsModal.open();
-					}}
+				<a
+					href="/contacts"
+					onclick={closeMobileMenu}
 					class="group relative flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-white py-3 text-xs font-semibold tracking-wider text-brand-dark uppercase transition-all duration-500 hover:bg-neutral-100 active:scale-[0.98]"
 				>
 					<span>Связаться с нами</span>
@@ -210,7 +233,7 @@
 							/>
 						</svg>
 					</span>
-				</button>
+				</a>
 			</div>
 		</div>
 	{/if}
