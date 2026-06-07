@@ -24,7 +24,7 @@
 	<AboutSection />
 	<CatalogSection />
 	<SpecsSection />
-	<CalculatorSection />
+	<!-- <CalculatorSection /> -->
 	<FaqSection />
 	<ContactsSection />
 </main>

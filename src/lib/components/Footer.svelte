@@ -25,32 +25,32 @@
 				<h4 class="mb-4 text-xs font-bold tracking-wider text-white uppercase">НОМЕНКЛАТУРА</h4>
 				<ul class="space-y-2 text-xs text-neutral-400">
 					<li>
-						<a href="/#catalog" class="transition-colors duration-200 hover:text-white"
+						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
 							>Пластиковые бочки L-Ring</a
 						>
 					</li>
 					<li>
-						<a href="/#catalog" class="transition-colors duration-200 hover:text-white"
+						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
 							>Бочки с открытой горловиной</a
 						>
 					</li>
 					<li>
-						<a href="/#catalog" class="transition-colors duration-200 hover:text-white"
+						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
 							>Штабелируемые канистры</a
 						>
 					</li>
 					<li>
-						<a href="/#catalog" class="transition-colors duration-200 hover:text-white"
+						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
 							>Канистры под ГСМ и масла</a
 						>
 					</li>
 					<li>
-						<a href="/#catalog" class="transition-colors duration-200 hover:text-white"
+						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
 							>Еврокубы IBC на поддонах</a
 						>
 					</li>
 					<li>
-						<a href="/#catalog" class="transition-colors duration-200 hover:text-white"
+						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
 							>Термочехлы и ТЭНы подогрева</a
 						>
 					</li>
@@ -67,17 +67,22 @@
 						>
 					</li>
 					<li>
-						<a href="/#specs" class="transition-colors duration-200 hover:text-white"
+						<a href="/applications" class="transition-colors duration-200 hover:text-white"
+							>Применение тары</a
+						>
+					</li>
+					<li>
+						<a href="/specs" class="transition-colors duration-200 hover:text-white"
 							>ГОСТ Нормативы</a
 						>
 					</li>
 					<li>
-						<a href="/#catalog" class="transition-colors duration-200 hover:text-white"
+						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
 							>Брендирование тары</a
 						>
 					</li>
 					<li>
-						<a href="/#specs" class="transition-colors duration-200 hover:text-white"
+						<a href="/specs" class="transition-colors duration-200 hover:text-white"
 							>Контроль герметичности</a
 						>
 					</li>
@@ -123,7 +128,7 @@
 				Москве.</span
 			>
 			<div class="mt-4 flex gap-4 sm:mt-0">
-				<a href="/#specs" class="hover:text-neutral-300">Техническая документация</a>
+				<a href="/specs" class="hover:text-neutral-300">Техническая документация</a>
 				<a href="/#home" class="hover:text-neutral-300">Политика конфиденциальности</a>
 			</div>
 		</div>

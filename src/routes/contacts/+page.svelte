@@ -63,7 +63,7 @@
 									109429, г. Москва, ул. Верхние Поля, дом 61
 								</span>
 								<span class="mt-0.5 text-xs text-brand-gray">
-									Sales office and logistics terminal on-site
+									Офис продаж и логистический комплекс на одной территории
 								</span>
 							</div>
 						</div>

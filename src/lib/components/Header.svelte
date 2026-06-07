@@ -32,46 +32,20 @@
 			activeSection = 'contacts';
 		} else if (page.url.pathname === '/about') {
 			activeSection = 'about';
+		} else if (page.url.pathname === '/applications') {
+			activeSection = 'applications';
+		} else if (page.url.pathname === '/catalog') {
+			activeSection = 'catalog';
+		} else if (page.url.pathname === '/specs') {
+			activeSection = 'specs';
 		} else {
-			const sections = ['home', 'about', 'catalog', 'specs', 'calculator', 'faq', 'contacts'];
-			for (const section of sections) {
-				const el = document.getElementById(section);
-				if (el) {
-					const rect = el.getBoundingClientRect();
-					if (rect.top <= 120 && rect.bottom >= 120) {
-						activeSection = section;
-						break;
-					}
-				}
-			}
+			activeSection = 'home';
 		}
 	});
 
 	onMount(() => {
 		const handleScroll = () => {
 			scrolled = window.scrollY > 20;
-
-			if (page.url.pathname === '/contacts') {
-				activeSection = 'contacts';
-				return;
-			}
-			if (page.url.pathname === '/about') {
-				activeSection = 'about';
-				return;
-			}
-
-			// Highlight active menu item based on viewport scroll position
-			const sections = ['home', 'about', 'catalog', 'specs', 'calculator', 'faq', 'contacts'];
-			for (const section of sections) {
-				const el = document.getElementById(section);
-				if (el) {
-					const rect = el.getBoundingClientRect();
-					if (rect.top <= 120 && rect.bottom >= 120) {
-						activeSection = section;
-						break;
-					}
-				}
-			}
 		};
 
 		window.addEventListener('scroll', handleScroll);
@@ -109,8 +83,9 @@
 				{#each [
 					{ id: 'home', label: 'Главная', path: '/#home' },
 					{ id: 'about', label: 'О нас', path: '/about' },
-					{ id: 'catalog', label: 'Каталог', path: '/#catalog' },
-					{ id: 'specs', label: 'Стандарты', path: '/#specs' },
+					{ id: 'catalog', label: 'Каталог', path: '/catalog' },
+					{ id: 'specs', label: 'Стандарты', path: '/specs' },
+					{ id: 'applications', label: 'Применение', path: '/applications' },
 					{ id: 'contacts', label: 'Контакты', path: '/contacts' }
 				] as item}
 					<a
@@ -165,32 +140,61 @@
 		<!-- Mobile Menu Overlay -->
 		<div
 			transition:fade={{ duration: 200 }}
-			class="fixed inset-0 z-40 flex flex-col justify-between bg-brand-dark/95 px-6 pt-28 pb-10 backdrop-blur-2xl md:hidden"
+			class="fixed inset-0 z-[100] flex flex-col justify-between bg-brand-dark/98 px-6 pt-16 pb-10 backdrop-blur-2xl md:hidden"
 		>
+			<!-- Mobile Header Row -->
+			<div class="flex items-center justify-between pb-6 border-b border-white/10">
+				<a href="/#home" onclick={closeMobileMenu} class="group flex items-center gap-2">
+					<img
+						src="/images/megapack-logo.svg"
+						alt="МЕГАПАК"
+						class="h-8 w-auto invert transition-transform duration-300"
+					/>
+				</a>
+				<button
+					onclick={closeMobileMenu}
+					class="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-brand-dark transition-all duration-300 hover:bg-neutral-100 active:scale-95 shadow-lg"
+					aria-label="Закрыть меню"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="2.5"
+						stroke="currentColor"
+						class="h-5 w-5"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+
+
 			<!-- Links List -->
-			<div class="flex flex-col gap-6">
+			<div class="flex flex-col gap-5 mt-6 overflow-y-auto">
 				{#each [
 					{ id: 'home', label: 'Главная', path: '/#home' },
 					{ id: 'about', label: 'О нас', path: '/about' },
-					{ id: 'catalog', label: 'Каталог', path: '/#catalog' },
-					{ id: 'specs', label: 'Стандарты', path: '/#specs' },
+					{ id: 'catalog', label: 'Каталог', path: '/catalog' },
+					{ id: 'specs', label: 'Стандарты', path: '/specs' },
+					{ id: 'applications', label: 'Применение', path: '/applications' },
 					{ id: 'contacts', label: 'Контакты', path: '/contacts' }
 				] as item}
 					<a
 						href={item.path}
 						onclick={closeMobileMenu}
-						class="border-b border-white/10 pb-4 text-lg font-medium tracking-wider uppercase transition-colors duration-300 {activeSection ===
+						class="border-b border-white/5 pb-3 text-base font-medium tracking-wider uppercase transition-colors duration-300 {activeSection ===
 						item.id
 							? 'font-semibold text-brand-accent'
-							: 'text-neutral-400 hover:text-white'}"
+							: 'text-neutral-300 hover:text-white'}"
 					>
 						{item.label}
 					</a>
 				{/each}
 			</div>
 
-			<!-- Bottom area with contact details & button -->
-			<div class="flex flex-col gap-6 border-t border-white/10 pt-6">
+			<!-- Bottom area with contact details -->
+			<div class="flex flex-col gap-6 border-t border-white/10 pt-6 mt-auto">
 				<div class="flex flex-col gap-2 text-xs text-neutral-400">
 					<div class="flex items-center gap-2">
 						<span>📞</span>
@@ -208,32 +212,6 @@
 						</a>
 					</div>
 				</div>
-
-				<a
-					href="/contacts"
-					onclick={closeMobileMenu}
-					class="group relative flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-white py-3 text-xs font-semibold tracking-wider text-brand-dark uppercase transition-all duration-500 hover:bg-neutral-100 active:scale-[0.98]"
-				>
-					<span>Связаться с нами</span>
-					<span
-						class="flex h-5 w-5 items-center justify-center rounded-full bg-brand-dark/10 transition-transform duration-500 group-hover:translate-x-0.5"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="2.5"
-							stroke="currentColor"
-							class="h-2.5 w-2.5 text-brand-dark"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-							/>
-						</svg>
-					</span>
-				</a>
 			</div>
 		</div>
 	{/if}
