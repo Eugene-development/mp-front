@@ -136,19 +136,29 @@
 				</h1>
 
 				<p
-					class="mb-8 max-w-xl animate-fade-up text-sm leading-relaxed text-brand-gray md:text-base"
+					class="mb-4 max-w-xl animate-fade-up text-sm leading-relaxed text-brand-gray md:text-base"
 					style="animation-delay: 200ms;"
 				>
 					ООО «МегаПак» — производство и прямые поставки сертифицированной упаковки высшего класса
 					герметичности. Канистры, бочки и еврокубы для хранения нефтехимии, масел и пищевых сред.
 				</p>
 
-				<div class="flex animate-fade-up flex-wrap gap-4" style="animation-delay: 300ms;">
+				<p
+					class="mb-8 max-w-xl animate-fade-up text-sm leading-relaxed text-brand-gray md:text-base"
+					style="animation-delay: 200ms;"
+				>
+					Работаем с физическими и юридическими лицами.
+				</p>
+
+				<div
+					class="flex animate-fade-up flex-wrap items-center gap-4"
+					style="animation-delay: 300ms;"
+				>
 					<a
 						href="#calculator"
 						class="group flex items-center gap-3 rounded-xl bg-brand-dark px-6 py-3.5 text-xs font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 					>
-						<span>Сформировать заказ</span>
+						<span>Заказать тару</span>
 						<span
 							class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
 						>
@@ -170,7 +180,7 @@
 					</a>
 					<a
 						href="#catalog"
-						class="hidden rounded-xl border border-brand-divider px-6 py-3.5 text-xs font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:border-brand-gray/30 hover:bg-neutral-50 md:inline-block"
+						class="hidden items-center justify-center rounded-xl border border-brand-divider px-6 py-3.5 text-xs font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:border-brand-gray/30 hover:bg-neutral-50 md:inline-flex"
 					>
 						Смотреть каталог
 					</a>
@@ -182,7 +192,7 @@
 					style="animation-delay: 400ms;"
 				>
 					<div class="flex flex-col">
-						<span class="font-serif text-2xl font-light text-brand-dark">15+</span>
+						<span class="font-serif text-2xl font-light text-brand-dark">12+</span>
 						<span class="mt-1 text-[9px] tracking-wider text-brand-gray uppercase"
 							>Лет на рынке</span
 						>

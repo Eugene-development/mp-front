@@ -70,7 +70,7 @@
 				? 'border-white/20 bg-brand-dark/95 shadow-2xl shadow-black/50'
 				: 'shadow-xl shadow-black/30'}"
 		>
-			<a href="/#home" class="group flex items-center gap-2">
+			<a href="/" class="group flex items-center gap-2">
 				<img
 					src="/images/megapack-logo.svg"
 					alt="МЕГАПАК"
@@ -81,7 +81,7 @@
 			<!-- Nav links -->
 			<div class="hidden items-center gap-1 md:flex">
 				{#each [
-					{ id: 'home', label: 'Главная', path: '/#home' },
+					{ id: 'home', label: 'Главная', path: '/' },
 					{ id: 'about', label: 'О нас', path: '/about' },
 					{ id: 'catalog', label: 'Каталог', path: '/catalog' },
 					{ id: 'specs', label: 'Стандарты', path: '/specs' },
@@ -144,7 +144,7 @@
 		>
 			<!-- Mobile Header Row -->
 			<div class="flex items-center justify-between pb-6 border-b border-white/10">
-				<a href="/#home" onclick={closeMobileMenu} class="group flex items-center gap-2">
+				<a href="/" onclick={closeMobileMenu} class="group flex items-center gap-2">
 					<img
 						src="/images/megapack-logo.svg"
 						alt="МЕГАПАК"
@@ -173,7 +173,7 @@
 			<!-- Links List -->
 			<div class="flex flex-col gap-5 mt-6 overflow-y-auto">
 				{#each [
-					{ id: 'home', label: 'Главная', path: '/#home' },
+					{ id: 'home', label: 'Главная', path: '/' },
 					{ id: 'about', label: 'О нас', path: '/about' },
 					{ id: 'catalog', label: 'Каталог', path: '/catalog' },
 					{ id: 'specs', label: 'Стандарты', path: '/specs' },
@@ -205,10 +205,10 @@
 					<div class="flex items-center gap-2">
 						<span>✉️</span>
 						<a
-							href="mailto:zakaz@megapak.top"
+							href="mailto:info@megapak.top"
 							class="font-semibold text-white hover:text-brand-accent"
 						>
-							zakaz@megapak.top
+							info@megapak.top
 						</a>
 					</div>
 				</div>

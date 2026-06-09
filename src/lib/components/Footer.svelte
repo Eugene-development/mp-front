@@ -4,7 +4,7 @@
 		<div class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-12">
 			<!-- Column 1: Brand -->
 			<div class="flex flex-col items-start md:col-span-4">
-				<a href="/#home" class="group mb-6 flex items-center gap-2">
+				<a href="/" class="group mb-6 flex items-center gap-2">
 					<img
 						src="/images/megapack-logo.svg"
 						alt="МЕГАПАК"
@@ -105,7 +105,7 @@
 						<span>📞</span> <span class="font-bold text-white">8 (903) 749-17-24</span>
 					</li>
 					<li class="flex items-center gap-2">
-						<span>✉️</span> <span class="font-bold text-white">zakaz@megapak.top</span>
+						<span>✉️</span> <span class="font-bold text-white">info@megapak.top</span>
 					</li>
 					<li class="flex items-center gap-2">
 						<span>📍</span> <span>Москва, ул. Верхние Поля, 61</span>
@@ -129,7 +129,7 @@
 			>
 			<div class="mt-4 flex gap-4 sm:mt-0">
 				<a href="/specs" class="hover:text-neutral-300">Техническая документация</a>
-				<a href="/#home" class="hover:text-neutral-300">Политика конфиденциальности</a>
+				<a href="/" class="hover:text-neutral-300">Политика конфиденциальности</a>
 			</div>
 		</div>
 	</div>

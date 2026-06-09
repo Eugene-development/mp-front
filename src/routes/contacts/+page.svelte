@@ -91,8 +91,8 @@
 							</div>
 							<div class="flex flex-col">
 								<span class="text-[9px] font-bold tracking-wider text-brand-gray uppercase">Для коммерческих запросов</span>
-								<a href="mailto:zakaz@megapak.top" class="mt-1 text-sm font-semibold text-brand-accent hover:underline">
-									zakaz@megapak.top
+								<a href="mailto:info@megapak.top" class="mt-1 text-sm font-semibold text-brand-accent hover:underline">
+									info@megapak.top
 								</a>
 								<span class="mt-0.5 text-[10px] text-brand-gray">
 									Обработка писем в течение 15 минут

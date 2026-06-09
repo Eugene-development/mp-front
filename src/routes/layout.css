@@ -19,7 +19,7 @@
 
 	--ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
 
-	--animate-fade-up: fade-up 0.8s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+	--animate-fade-up: fade-up 0.8s cubic-bezier(0.32, 0.72, 0, 1) both;
 	--animate-ambient-slow: ambient-slow 25s infinite alternate;
 
 	@keyframes fade-up {
