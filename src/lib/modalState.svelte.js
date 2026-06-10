@@ -1,7 +1,9 @@
-class ContactsModalState {
+class ModalState {
 	isOpen = $state(false);
+	initialComment = $state('');
 
-	open() {
+	open(comment = '') {
+		this.initialComment = comment;
 		this.isOpen = true;
 	}
 
@@ -10,4 +12,6 @@ class ContactsModalState {
 	}
 }
 
-export const contactsModal = new ContactsModalState();
+export const contactsModal = new ModalState();
+export const orderModal = new ModalState();
+export const priceModal = new ModalState();

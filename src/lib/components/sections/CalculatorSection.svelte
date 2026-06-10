@@ -1,4 +1,6 @@
 <script>
+	import { orderModal } from '../../modalState.svelte.js';
+
 	// Svelte 5 Runes for Calculator State
 	let selectedProduct = $state('drum');
 	let selectedVolume = $state('227');
@@ -78,6 +80,8 @@
 		let volNum = parseFloat(selectedVolume) || 1000;
 		return Math.round(volNum * quantity);
 	});
+
+	let calculatedSpec = $derived(`Заказ тары через калькулятор:\n- Тип: ${currentProductInfo.name}\n- Объем/Параметры: ${selectedVolume} л\n- Количество: ${quantity} шт.\n- Логотип компании: ${hasLogo ? 'Да' : 'Нет'}\n- Повышенная плотность: ${highDensity ? 'Да' : 'Нет'}\n- Срочная отгрузка: ${isUrgent ? 'Да' : 'Нет'}\n- Общий литраж: ${totalLiters.toLocaleString()} л\n- Предварительная стоимость (с НДС): ${totalPrice.toLocaleString()} ₽`);
 </script>
 
 <!-- Interactive B2B Custom Quote Calculator Section -->
@@ -309,9 +313,9 @@
 							<span class="font-mono text-sm text-neutral-300">₽</span>
 						</div>
 
-						<a
-							href="#contacts"
-							class="group flex w-full items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-xs font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:bg-neutral-100 active:scale-[0.98]"
+						<button
+							onclick={() => orderModal.open(calculatedSpec)}
+							class="group flex w-full items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-xs font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:bg-neutral-100 active:scale-[0.98] cursor-pointer"
 						>
 							<span>Отправить заявку</span>
 							<span
@@ -332,7 +336,7 @@
 									/>
 								</svg>
 							</span>
-						</a>
+						</button>
 						<span class="mt-3 block text-center text-[8px] leading-relaxed text-neutral-500">
 							Указана предварительная цена. Окончательная стоимость зависит от адреса доставки и
 							условий оплаты.

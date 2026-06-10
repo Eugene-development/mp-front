@@ -1,3 +1,7 @@
+<script>
+	import { orderModal, priceModal } from '../../modalState.svelte.js';
+</script>
+
 <section id="home" class="relative w-full overflow-hidden">
 	<!-- Background abstract lines -->
 	<div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
@@ -154,11 +158,11 @@
 					class="flex animate-fade-up flex-wrap items-center gap-4"
 					style="animation-delay: 300ms;"
 				>
-					<a
-						href="#calculator"
-						class="group flex items-center gap-3 rounded-xl bg-brand-dark px-6 py-3.5 text-xs font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
+					<button
+						onclick={() => priceModal.open('Запрос цены с первого экрана главной страницы')}
+						class="group flex h-[52px] items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-xs font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98] cursor-pointer"
 					>
-						<span>Заказать тару</span>
+						<span>Узнать актуальную цену</span>
 						<span
 							class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
 						>
@@ -177,13 +181,13 @@
 								/>
 							</svg>
 						</span>
-					</a>
-					<a
-						href="#catalog"
-						class="hidden items-center justify-center rounded-xl border border-brand-divider px-6 py-3.5 text-xs font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:border-brand-gray/30 hover:bg-neutral-50 md:inline-flex"
+					</button>
+					<button
+						onclick={() => orderModal.open()}
+						class="flex h-[52px] items-center justify-center rounded-xl border border-brand-accent/30 bg-brand-accent-light/70 px-6 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 hover:bg-brand-accent-light hover:border-brand-accent/50 cursor-pointer"
 					>
-						Смотреть каталог
-					</a>
+						<span>Заказать тару</span>
+					</button>
 				</div>
 
 				<!-- Visual trust metrics -->

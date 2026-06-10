@@ -1,5 +1,5 @@
 <script>
-	// Page logic and state
+	import { orderModal } from '$lib/modalState.svelte.js';
 </script>
 
 <svelte:head>
@@ -177,9 +177,12 @@
 							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[10px] text-brand-gray"
 						>
 							<span>Сертификаты соответствия ГОСТ в наличии.</span>
-							<a href="/contacts" class="font-bold text-brand-accent hover:underline"
-								>Запросить счет с НДС ↗</a
+							<button
+								onclick={() => orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
+								class="font-bold text-brand-accent hover:underline cursor-pointer bg-transparent border-0 p-0"
 							>
+								Запросить счет с НДС ↗
+							</button>
 						</div>
 					</div>
 				</div>
@@ -332,9 +335,12 @@
 							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[10px] text-brand-gray"
 						>
 							<span>Канистры комплектуются герметичными крышками с уплотнительным кольцом.</span>
-							<a href="/contacts" class="font-bold text-brand-accent hover:underline"
-								>Получить прайс-лист ↗</a
+							<button
+								onclick={() => orderModal.open('Запрос прайс-листа на полимерные канистры')}
+								class="font-bold text-brand-accent hover:underline cursor-pointer bg-transparent border-0 p-0"
 							>
+								Получить прайс-лист ↗
+							</button>
 						</div>
 					</div>
 				</div>
@@ -467,9 +473,12 @@
 							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[10px] text-brand-gray"
 						>
 							<span>Для вязких грузов рекомендуем термочехлы и ТЭНы подогрева.</span>
-							<a href="/contacts" class="font-bold text-brand-accent hover:underline"
-								>Запросить КП на еврокубы ↗</a
+							<button
+								onclick={() => orderModal.open('Запрос КП на еврокубы (IBC-контейнеры) 1000 литров')}
+								class="font-bold text-brand-accent hover:underline cursor-pointer bg-transparent border-0 p-0"
 							>
+								Запросить КП на еврокубы ↗
+							</button>
 						</div>
 					</div>
 				</div>

@@ -1,16 +1,25 @@
 <script>
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
-	import { onMount } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
+	import { onDestroy } from 'svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import InfoBanner from '$lib/components/InfoBanner.svelte';
 	import ContactsModal from '$lib/components/ContactsModal.svelte';
+	import OrderModal from '$lib/components/OrderModal.svelte';
+	import PriceRequestModal from '$lib/components/PriceRequestModal.svelte';
 
 	let { children } = $props();
 
-	onMount(() => {
-		const observer = new IntersectionObserver(
+	let observer;
+
+	afterNavigate(() => {
+		if (observer) {
+			observer.disconnect();
+		}
+
+		observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
@@ -31,10 +40,12 @@
 		};
 
 		setTimeout(setupObserver, 100);
+	});
 
-		return () => {
+	onDestroy(() => {
+		if (observer) {
 			observer.disconnect();
-		};
+		}
 	});
 </script>
 
@@ -56,4 +67,6 @@
 	{@render children()}
 	<Footer />
 	<ContactsModal />
+	<OrderModal />
+	<PriceRequestModal />
 </div>
