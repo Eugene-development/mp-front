@@ -160,7 +160,7 @@
 				>
 					<button
 						onclick={() => priceModal.open('Запрос цены с первого экрана главной страницы')}
-						class="group flex h-[52px] items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-xs font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98] cursor-pointer"
+						class="group flex h-[52px] cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-xs font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 					>
 						<span>Узнать актуальную цену</span>
 						<span
@@ -184,7 +184,7 @@
 					</button>
 					<button
 						onclick={() => orderModal.open()}
-						class="flex h-[52px] items-center justify-center rounded-xl border border-brand-accent/30 bg-brand-accent-light/70 px-6 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 hover:bg-brand-accent-light hover:border-brand-accent/50 cursor-pointer"
+						class="flex h-[52px] cursor-pointer items-center justify-center rounded-xl border border-brand-accent/30 bg-brand-accent-light/70 px-6 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 hover:border-brand-accent/50 hover:bg-brand-accent-light"
 					>
 						<span>Заказать тару</span>
 					</button>
@@ -250,7 +250,7 @@
 						<!-- Centered main product graphics -->
 						<div class="relative z-10 flex h-full max-h-[420px] items-center justify-center py-6">
 							<img
-								src="/images/megapak_eurocube.png"
+								src="https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg"
 								alt="Еврокуб МегаПак"
 								class="h-full max-h-[380px] object-contain drop-shadow-xl transition-transform duration-700 ease-spring hover:scale-105"
 							/>

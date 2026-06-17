@@ -90,12 +90,17 @@
 <svelte:window onkeydown={handleKeydown} />
 
 {#if orderModal.isOpen}
-	<!-- Backdrop with modern blur and dark overlay -->
 	<div
 		transition:fade={{ duration: 250 }}
 		class="fixed inset-0 z-[100] flex items-center justify-center bg-brand-dark/50 px-4 backdrop-blur-md"
-		onclick={handleClose}
-		onkeydown={() => {}}
+		onclick={(e) => {
+			if (e.target === e.currentTarget) handleClose();
+		}}
+		onkeydown={(e) => {
+			if (e.key === 'Enter' || e.key === ' ') {
+				handleClose();
+			}
+		}}
 		role="button"
 		tabindex="0"
 	>
@@ -103,9 +108,6 @@
 		<div
 			transition:scale={{ duration: 300, start: 0.95, opacity: 0 }}
 			class="double-bezel relative w-full max-w-lg overflow-hidden shadow-2xl"
-			onclick={(e) => e.stopPropagation()}
-			onkeydown={() => {}}
-			role="document"
 		>
 			<div class="double-bezel-inner p-6 sm:p-8">
 				<!-- Custom Close Button -->
