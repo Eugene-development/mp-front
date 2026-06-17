@@ -36,9 +36,9 @@
 					<h3 class="text-xs font-semibold tracking-wider text-brand-dark uppercase">
 						Мощности завода
 					</h3>
-					<p class="mt-2 text-[10px] leading-relaxed text-brand-gray">
-						Автоматизированные линии выдува и формования последнего поколения обеспечивают высокую
-						скорость и точность геометрии.
+					<p class="mt-2 text-[12px] leading-relaxed text-brand-gray">
+						Современные линии выдува и формования обеспечивают высокую скорость производства и
+						точность геометрии изделий
 					</p>
 				</div>
 			</div>
@@ -49,9 +49,9 @@
 					<h3 class="text-xs font-semibold tracking-wider text-brand-dark uppercase">
 						Стандарты ГОСТ
 					</h3>
-					<p class="mt-2 text-[10px] leading-relaxed text-brand-gray">
-						Тара сертифицирована для перевозки опасных (ГОСТ) грузов классов I, II и III, выдерживая
-						избыточное давление.
+					<p class="mt-2 text-[12px] leading-relaxed text-brand-gray">
+						Тара сертифицирована для перевозки опасных грузов классов I, II и III, выдерживая
+						значительное избыточное давление
 					</p>
 				</div>
 			</div>
@@ -62,9 +62,9 @@
 					<h3 class="text-xs font-semibold tracking-wider text-brand-dark uppercase">
 						Чистое сырье
 					</h3>
-					<p class="mt-2 text-[10px] leading-relaxed text-brand-gray">
+					<p class="mt-2 text-[12px] leading-relaxed text-brand-gray">
 						Используем исключительно первичный полиэтилен высокой плотности (HDPE) от ведущих
-						нефтехимических заводов.
+						нефтехимических заводов
 					</p>
 				</div>
 			</div>
@@ -75,9 +75,9 @@
 					<h3 class="text-xs font-semibold tracking-wider text-brand-dark uppercase">
 						B2B Условия
 					</h3>
-					<p class="mt-2 text-[10px] leading-relaxed text-brand-gray">
+					<p class="mt-2 text-[12px] leading-relaxed text-brand-gray">
 						Гибкое ценообразование, работа по безналичному расчету с НДС, отгрузка и выписка
-						документов на одной территории.
+						документов на одной территории
 					</p>
 				</div>
 			</div>
