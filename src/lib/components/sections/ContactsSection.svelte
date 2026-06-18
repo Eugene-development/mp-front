@@ -195,7 +195,7 @@
 										type="text"
 										required
 										bind:value={companyName}
-										placeholder="Например: ООО &quot;Ромашка&quot;"
+										placeholder="ООО &quot;Ромашка&quot;"
 										class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 									/>
 								</div>
