@@ -1,5 +1,5 @@
 <script>
-	// Page logic and state
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 </script>
 
 <svelte:head>
@@ -28,13 +28,7 @@
 <main class="relative z-10 mx-auto max-w-[1440px] px-4 pt-32 pb-24 md:pt-36">
 	<!-- Breadcrumbs and Title -->
 	<div class="mb-12 md:mb-16">
-		<div
-			class="mb-4 flex items-center gap-2 text-[10px] font-bold tracking-widest text-brand-gray uppercase"
-		>
-			<a href="/" class="transition-colors duration-300 hover:text-brand-dark">Главная</a>
-			<span>/</span>
-			<span class="text-brand-accent">Контакты</span>
-		</div>
+		<Breadcrumbs items={[{ name: 'Контакты' }]} />
 		<h1
 			class="font-serif text-3xl leading-tight font-light tracking-tight text-brand-dark md:text-6xl"
 		>

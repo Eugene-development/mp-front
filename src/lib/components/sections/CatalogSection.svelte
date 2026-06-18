@@ -44,9 +44,10 @@
 									грузов) и с полностью открывающейся широкой горловиной под стяжной хомут.
 								</p>
 								<p class="mb-6 text-sm leading-relaxed text-brand-gray">
-									Классическая промышленная упаковка объемом от 48 до 227 литров. Поставляется в
-									двух исполнениях: L-Ring с несъемной верхней крышкой (идеально для наливных
-									грузов) и с полностью открывающейся широкой горловиной под стяжной хомут.
+									Бочки оснащаются оригинальными фирменными крышками с резьбой в два витка и
+									прокладкой, обеспечивающей герметичность соединения. При необходимости вы сможете
+									использовать тару в соответствии с группой 2 по ГОСТ 26319-84 (коррозионная
+									активность степени 2 и 3).
 								</p>
 							</div>
 
@@ -66,12 +67,12 @@
 							class="flex h-[240px] min-w-[200px] flex-col items-center justify-center rounded-2xl border border-brand-divider/50 bg-brand-bg/50 p-6 md:h-auto"
 						>
 							<img
-								src="/images/megapak_drum.png"
+								src="https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg"
 								alt="Бочка МегаПак"
 								class="mb-4 h-full max-h-[180px] object-contain drop-shadow-lg transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
 							/>
 							<img
-								src="/images/megapak_drum.png"
+								src="https://storage.yandexcloud.net/megapak-top/products/bochka-2.jpg"
 								alt="Бочка МегаПак"
 								class="h-full max-h-[180px] object-contain drop-shadow-lg transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
 							/>
@@ -101,7 +102,7 @@
 
 						<div class="flex items-center justify-center py-6">
 							<img
-								src="/images/megapak_bucket.png"
+								src="https://storage.yandexcloud.net/megapak-top/products/vedro-1.jpg"
 								alt="Ведро МегаПак"
 								class="h-[200px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
 							/>
@@ -140,18 +141,19 @@
 
 						<div class="flex items-center justify-center space-x-4 py-6">
 							<img
-								src="/images/megapak_jars_tubes.png"
-								alt="Упаковка МегаПак"
+								src="https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg"
+								alt="Канистра"
+								class="h-[140px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
+							/>
+
+							<img
+								src="https://storage.yandexcloud.net/megapak-top/products/banka.jpg"
+								alt="Банка"
 								class="h-[140px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
 							/>
 							<img
-								src="/images/megapak_jars_tubes.png"
-								alt="Упаковка МегаПак"
-								class="h-[140px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
-							/>
-							<img
-								src="/images/megapak_jars_tubes.png"
-								alt="Упаковка МегаПак"
+								src="https://storage.yandexcloud.net/megapak-top/products/tuba.jpg"
+								alt="Туба"
 								class="h-[140px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
 							/>
 						</div>
@@ -192,7 +194,9 @@
 									подогревающими ТЭНами.
 								</p>
 								<p class="mt-3 text-sm leading-relaxed text-brand-gray">
-									Обеспечивают максимальную безопасность и надежность при хранении и транспортировке агрессивных химикатов, масел и жидких пищевых продуктов. Контейнеры оснащены заливной горловиной и надежным сливным краном для удобства эксплуатации.
+									Обеспечивают максимальную безопасность и надежность при хранении и транспортировке
+									агрессивных химикатов, масел и жидких пищевых продуктов. Контейнеры оснащены
+									заливной горловиной и надежным сливным краном для удобства эксплуатации.
 								</p>
 							</div>
 
@@ -200,12 +204,12 @@
 								class="flex h-[180px] min-w-[180px] flex-col items-center justify-center rounded-2xl border border-brand-divider/50 bg-brand-bg/50 p-4 md:h-auto"
 							>
 								<img
-									src="/images/megapak_eurocube.png"
+									src="https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg"
 									alt="Еврокуб МегаПак"
 									class="h-full max-h-[160px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
 								/>
 								<img
-									src="/images/megapak_eurocube.png"
+									src="https://storage.yandexcloud.net/megapak-top/products/image-tank-2.jpg"
 									alt="Еврокуб МегаПак"
 									class="mt-4 h-full max-h-[160px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
 								/>

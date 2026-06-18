@@ -1,5 +1,6 @@
 <script>
 	import { orderModal } from '$lib/modalState.svelte.js';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 </script>
 
 <svelte:head>
@@ -28,13 +29,7 @@
 <main class="relative z-10 mx-auto max-w-[1440px] px-4 pt-32 pb-24 md:pt-36">
 	<!-- Breadcrumbs and Header -->
 	<div class="mb-16">
-		<div
-			class="mb-4 flex items-center gap-2 text-[14px] font-bold tracking-widest text-brand-gray uppercase"
-		>
-			<a href="/" class="transition-colors duration-300 hover:text-brand-dark">Главная</a>
-			<span>/</span>
-			<span class="text-brand-accent">Каталог</span>
-		</div>
+		<Breadcrumbs items={[{ name: 'Каталог' }]} />
 		<h1
 			class="font-serif text-4xl leading-tight font-light tracking-tight text-brand-dark md:text-6xl"
 		>
@@ -42,8 +37,9 @@
 			<span class="font-normal text-brand-accent italic">и варианты его применения</span>
 		</h1>
 		<p class="mt-4 max-w-2xl text-sm leading-relaxed text-brand-gray">
-			Вся продукция ООО «МегаПак» изготавливается на высокотехнологичных выдувных машинах из
-			химически стойкого высокомолекулярного полиэтилена низкого давления HDPE.
+			Вся продукция для ООО «МегаПак» изготавливается на высокотехнологичных выдувных машинах из
+			химически стойкого высокомолекулярного полиэтилена низкого давления HDPE, поэтому мы
+			гарантируем высокое качество предлагаемой продукции.
 		</p>
 	</div>
 
@@ -82,10 +78,15 @@
 						</div>
 
 						<div
-							class="mt-8 flex items-center justify-center rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-6"
+							class="mt-8 flex items-center justify-center space-x-4 rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-6"
 						>
 							<img
-								src="/images/megapak_drum.png"
+								src="https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg"
+								alt="Пластиковые бочки"
+								class="h-[180px] object-contain drop-shadow-lg transition-transform duration-700 hover:scale-[1.03]"
+							/>
+							<img
+								src="https://storage.yandexcloud.net/megapak-top/products/bochka-2.jpg"
 								alt="Пластиковые бочки"
 								class="h-[180px] object-contain drop-shadow-lg transition-transform duration-700 hover:scale-[1.03]"
 							/>
@@ -177,13 +178,21 @@
 							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[14px] text-brand-gray"
 						>
 							<span>Сертификаты соответствия ГОСТ в наличии.</span>
-							<button
-								onclick={() =>
-									orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
-								class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
-							>
-								Запросить счет с НДС ↗
-							</button>
+							<div class="flex items-center gap-4">
+								<a
+									href="/specs"
+									class="font-bold text-brand-gray hover:text-brand-dark hover:underline"
+								>
+									Подробнее
+								</a>
+								<button
+									onclick={() =>
+										orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
+									class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
+								>
+									Запросить счет с НДС ↗
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -225,7 +234,7 @@
 							class="mt-8 flex items-center justify-center rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-6"
 						>
 							<img
-								src="/images/megapak_canister.png"
+								src="https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg"
 								alt="Полимерные канистры"
 								class="h-[180px] object-contain drop-shadow-lg transition-transform duration-700 hover:scale-[1.03]"
 							/>
@@ -335,13 +344,21 @@
 						<div
 							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[14px] text-brand-gray"
 						>
-							<span>Канистры комплектуются герметичными крышками с уплотнительным кольцом.</span>
-							<button
-								onclick={() => orderModal.open('Запрос прайс-листа на полимерные канистры')}
-								class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
-							>
-								Получить прайс-лист ↗
-							</button>
+							<span>Комплектуются крышками с уплотнительным кольцом</span>
+							<div class="flex items-center gap-4">
+								<a
+									href="/specs"
+									class="font-bold text-brand-gray hover:text-brand-dark hover:underline"
+								>
+									Подробнее
+								</a>
+								<button
+									onclick={() => orderModal.open('Запрос счета с НДС на полимерные канистры')}
+									class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
+								>
+									Запросить счет с НДС ↗
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -366,7 +383,7 @@
 								<span
 									class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase"
 								>
-									Сертифицировано UN
+									Сертифицировано
 								</span>
 							</div>
 							<h2 class="font-serif text-2xl leading-snug font-light text-brand-dark md:text-3xl">
@@ -383,7 +400,7 @@
 							class="mt-8 flex items-center justify-center rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-6"
 						>
 							<img
-								src="/images/megapak_eurocube.png"
+								src="https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg"
 								alt="Еврокуб 1000л"
 								class="h-[180px] object-contain drop-shadow-lg transition-transform duration-700 hover:scale-[1.03]"
 							/>
@@ -472,16 +489,7 @@
 
 						<div
 							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[14px] text-brand-gray"
-						>
-							<span>Для вязких грузов рекомендуем термочехлы и ТЭНы подогрева.</span>
-							<button
-								onclick={() =>
-									orderModal.open('Запрос КП на еврокубы (IBC-контейнеры) 1000 литров')}
-								class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
-							>
-								Запросить КП на еврокубы ↗
-							</button>
-						</div>
+						></div>
 					</div>
 				</div>
 			</div>
