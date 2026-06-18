@@ -92,11 +92,10 @@
 								>
 								<span class="font-mono text-[9px] text-brand-gray">Герметичные</span>
 							</div>
-							<h3 class="mb-3 font-serif text-xl font-light text-brand-dark">
-								Вёдра с крышкой
-							</h3>
+							<h3 class="mb-3 font-serif text-xl font-light text-brand-dark">Вёдра с крышкой</h3>
 							<p class="text-sm leading-relaxed text-brand-gray">
-								Прочные пластиковые ведра от 1 до 32 литров с герметичной крышкой и контрольным замком первого вскрытия. Оснащены пластиковой или металлической ручкой.
+								Прочные пластиковые ведра от 1 до 32 литров с герметичной крышкой и контрольным
+								замком первого вскрытия. Оснащены пластиковой или металлической ручкой.
 							</p>
 						</div>
 
@@ -134,15 +133,26 @@
 								Канистры, банки и тубы
 							</h3>
 							<p class="text-sm leading-relaxed text-brand-gray">
-								Мелкая и средняя тара объемом от 0.1 до 10 литров. Разнообразные форм-факторы для фасовки бытовой химии, косметики, строительных и автохимических материалов.
+								Мелкая и средняя тара объемом от 0.1 до 10 литров. Разнообразные форм-факторы для
+								фасовки бытовой химии, косметики, строительных и автохимических материалов.
 							</p>
 						</div>
 
-						<div class="flex items-center justify-center py-6">
+						<div class="flex items-center justify-center space-x-4 py-6">
 							<img
 								src="/images/megapak_jars_tubes.png"
 								alt="Упаковка МегаПак"
-								class="h-[180px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
+								class="h-[140px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
+							/>
+							<img
+								src="/images/megapak_jars_tubes.png"
+								alt="Упаковка МегаПак"
+								class="h-[140px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
+							/>
+							<img
+								src="/images/megapak_jars_tubes.png"
+								alt="Упаковка МегаПак"
+								class="h-[140px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
 							/>
 						</div>
 
@@ -160,12 +170,12 @@
 			<div class="reveal-on-scroll group flex flex-col md:col-span-7">
 				<div class="double-bezel flex h-full flex-col">
 					<div class="double-bezel-inner flex h-full flex-col justify-between p-8">
-						<div class="flex flex-col md:flex-row items-stretch gap-8">
+						<div class="flex flex-col items-stretch gap-8 md:flex-row">
 							<div class="flex-1">
 								<div class="mb-4 flex items-center gap-2">
 									<span
 										class="rounded bg-amber-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-amber-800 uppercase"
-										>Сертификат UN</span
+										>Сертификат ГОСТ</span
 									>
 									<span
 										class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase"
@@ -176,15 +186,28 @@
 									Еврокубы (IBC-контейнеры)
 								</h3>
 								<p class="text-sm leading-relaxed text-brand-gray">
-									Транспортировочные резервуары объемом 1000 литров в защитной оцинкованной обрешетке. Доступны на деревянном, металлическом и пластиковом поддоне. Предоставляем специализированные утепленные термочехлы и модификации с подогревающими ТЭНами.
+									Транспортировочные резервуары объемом 1000 литров в защитной оцинкованной
+									обрешетке. Доступны на деревянном, металлическом и пластиковом поддоне.
+									Предоставляем специализированные утепленные термочехлы и модификации с
+									подогревающими ТЭНами.
+								</p>
+								<p class="mt-3 text-sm leading-relaxed text-brand-gray">
+									Обеспечивают максимальную безопасность и надежность при хранении и транспортировке агрессивных химикатов, масел и жидких пищевых продуктов. Контейнеры оснащены заливной горловиной и надежным сливным краном для удобства эксплуатации.
 								</p>
 							</div>
 
-							<div class="flex h-[180px] min-w-[180px] flex-col items-center justify-center rounded-2xl border border-brand-divider/50 bg-brand-bg/50 p-4 md:h-auto">
+							<div
+								class="flex h-[180px] min-w-[180px] flex-col items-center justify-center rounded-2xl border border-brand-divider/50 bg-brand-bg/50 p-4 md:h-auto"
+							>
 								<img
 									src="/images/megapak_eurocube.png"
 									alt="Еврокуб МегаПак"
 									class="h-full max-h-[160px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
+								/>
+								<img
+									src="/images/megapak_eurocube.png"
+									alt="Еврокуб МегаПак"
+									class="mt-4 h-full max-h-[160px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
 								/>
 							</div>
 						</div>

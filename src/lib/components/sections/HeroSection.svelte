@@ -243,7 +243,7 @@
 							</div>
 							<span
 								class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-wider text-brand-dark uppercase"
-								>UN CLASS 31HA1/Y</span
+								>ГОСТ</span
 							>
 						</div>
 
