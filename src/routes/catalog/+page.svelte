@@ -105,7 +105,11 @@
 							<button
 								type="button"
 								class="cursor-zoom-in border-0 bg-transparent p-0 transition-transform duration-700 hover:scale-[1.03] focus:outline-none"
-								onclick={() => openImageModal('https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg', 'Пластиковая бочка L-Ring (несъемная крышка)')}
+								onclick={() =>
+									openImageModal(
+										'https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg',
+										'Пластиковая бочка L-Ring (несъемная крышка)'
+									)}
 							>
 								<img
 									src="https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg"
@@ -116,7 +120,11 @@
 							<button
 								type="button"
 								class="cursor-zoom-in border-0 bg-transparent p-0 transition-transform duration-700 hover:scale-[1.03] focus:outline-none"
-								onclick={() => openImageModal('https://storage.yandexcloud.net/megapak-top/products/bochka-2.jpg', 'Пластиковая бочка Open Top (открытая крышка с хомутом)')}
+								onclick={() =>
+									openImageModal(
+										'https://storage.yandexcloud.net/megapak-top/products/bochka-2.jpg',
+										'Пластиковая бочка Open Top (открытая крышка с хомутом)'
+									)}
 							>
 								<img
 									src="https://storage.yandexcloud.net/megapak-top/products/bochka-2.jpg"
@@ -270,7 +278,11 @@
 							<button
 								type="button"
 								class="cursor-zoom-in border-0 bg-transparent p-0 transition-transform duration-700 hover:scale-[1.03] focus:outline-none"
-								onclick={() => openImageModal('https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg', 'Полимерная канистра')}
+								onclick={() =>
+									openImageModal(
+										'https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg',
+										'Полимерная канистра'
+									)}
 							>
 								<img
 									src="https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg"
@@ -444,7 +456,11 @@
 							<button
 								type="button"
 								class="cursor-zoom-in border-0 bg-transparent p-0 transition-transform duration-700 hover:scale-[1.03] focus:outline-none"
-								onclick={() => openImageModal('https://storage.yandexcloud.net/megapak-top/products/vedro-1.jpg', 'Пластиковое ведро с герметичной крышкой')}
+								onclick={() =>
+									openImageModal(
+										'https://storage.yandexcloud.net/megapak-top/products/vedro-1.jpg',
+										'Пластиковое ведро с герметичной крышкой'
+									)}
 							>
 								<img
 									src="https://storage.yandexcloud.net/megapak-top/products/vedro-1.jpg"
@@ -595,7 +611,11 @@
 							<button
 								type="button"
 								class="cursor-zoom-in border-0 bg-transparent p-0 transition-transform duration-700 hover:scale-[1.03] focus:outline-none"
-								onclick={() => openImageModal('https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg', 'Еврокуб (IBC-контейнер) 1000 литров')}
+								onclick={() =>
+									openImageModal(
+										'https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg',
+										'Еврокуб (IBC-контейнер) 1000 литров'
+									)}
 							>
 								<img
 									src="https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg"
@@ -729,16 +749,16 @@
 		<!-- Animated Premium Image Container -->
 		<div
 			transition:scale={{ duration: 250, start: 0.95, opacity: 0 }}
-			class="double-bezel relative max-w-[90vw] max-h-[85vh] overflow-hidden shadow-2xl"
+			class="double-bezel relative max-h-[85vh] max-w-[90vw] overflow-hidden shadow-2xl"
 			onclick={(e) => e.stopPropagation()}
 			onkeydown={(e) => e.stopPropagation()}
 			role="none"
 		>
-			<div class="double-bezel-inner p-2 sm:p-4 bg-white/95">
+			<div class="double-bezel-inner bg-white/95 p-2 sm:p-4">
 				<!-- Close Button -->
 				<button
 					onclick={closeImageModal}
-					class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full border border-brand-divider bg-neutral-100 text-brand-gray transition-all duration-300 hover:bg-neutral-200 hover:text-brand-dark active:scale-95 z-10"
+					class="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-brand-divider bg-neutral-100 text-brand-gray transition-all duration-300 hover:bg-neutral-200 hover:text-brand-dark active:scale-95"
 					aria-label="Закрыть"
 				>
 					<svg
@@ -755,10 +775,12 @@
 				<img
 					src={activeImage}
 					alt={activeImageAlt}
-					class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-inner"
+					class="max-h-[75vh] max-w-full rounded-lg object-contain shadow-inner"
 				/>
 				{#if activeImageAlt}
-					<p class="mt-4 text-center font-serif text-sm font-light tracking-wide text-brand-dark">{activeImageAlt}</p>
+					<p class="mt-4 text-center font-serif text-sm font-light tracking-wide text-brand-dark">
+						{activeImageAlt}
+					</p>
 				{/if}
 			</div>
 		</div>
