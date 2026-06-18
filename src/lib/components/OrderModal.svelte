@@ -15,7 +15,7 @@
 	let contactPhone = $state('');
 	let contactEmail = $state('');
 	let orderComment = $state('');
-	
+
 	let isSubmitting = $state(false);
 	let isSuccess = $state(false);
 	let error = $state('');
@@ -40,7 +40,7 @@
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
-					'Accept': 'application/json'
+					Accept: 'application/json'
 				},
 				body: JSON.stringify({
 					company_name: companyName.trim(),
@@ -129,13 +129,18 @@
 				</button>
 
 				{#if isSuccess}
-					<div transition:fade class="flex flex-col items-center justify-center text-center py-12">
-						<div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-brand-accent-light text-brand-accent text-3xl animate-bounce">
+					<div transition:fade class="flex flex-col items-center justify-center py-12 text-center">
+						<div
+							class="mb-6 flex h-16 w-16 animate-bounce items-center justify-center rounded-full bg-brand-accent-light text-3xl text-brand-accent"
+						>
 							✓
 						</div>
-						<h3 class="mb-3 font-serif text-2xl font-light text-brand-dark">Запрос успешно отправлен!</h3>
+						<h3 class="mb-3 font-serif text-2xl font-light text-brand-dark">
+							Запрос успешно отправлен!
+						</h3>
 						<p class="mb-8 max-w-sm text-sm leading-relaxed text-brand-gray">
-							Спасибо! Дежурный менеджер сбыта уже получил вашу спецификацию и подготовит счет с НДС в течение 15 минут.
+							Спасибо! Дежурный менеджер сбыта уже получил вашу спецификацию и подготовит счет с НДС
+							в течение 15 минут.
 						</p>
 						<button
 							onclick={handleClose}
@@ -257,8 +262,19 @@
 							{#if isSubmitting}
 								<span class="flex items-center gap-2">
 									<svg class="h-4 w-4 animate-spin text-white" fill="none" viewBox="0 0 24 24">
-										<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-										<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+										<circle
+											class="opacity-25"
+											cx="12"
+											cy="12"
+											r="10"
+											stroke="currentColor"
+											stroke-width="4"
+										></circle>
+										<path
+											class="opacity-75"
+											fill="currentColor"
+											d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+										></path>
 									</svg>
 									Отправка...
 								</span>

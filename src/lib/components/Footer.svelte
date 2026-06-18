@@ -12,10 +12,12 @@
 					/>
 				</a>
 				<p class="max-w-xs text-sm leading-relaxed text-neutral-400">
-					Промышленная разработка, крупносерийный выдув и комплексная дистрибуция промышленной
-					полимерной тары по всей России.
+					Промышленная разработка, крупносерийный выдув и дистрибуция промышленной полимерной тары
 				</p>
-				<a href="/about" class="mt-4 inline-block text-sm font-semibold text-brand-accent-light hover:underline transition-colors duration-300">
+				<a
+					href="/about"
+					class="mt-4 inline-block text-sm font-semibold text-brand-accent-light transition-colors duration-300 hover:underline"
+				>
 					Подробнее о нас →
 				</a>
 			</div>
@@ -46,7 +48,7 @@
 					</li>
 					<li>
 						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
-							>Еврокубы IBC на поддонах</a
+							>Еврокубы IBC</a
 						>
 					</li>
 					<li>
@@ -77,18 +79,8 @@
 						>
 					</li>
 					<li>
-						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
-							>Брендирование тары</a
-						>
-					</li>
-					<li>
 						<a href="/specs" class="transition-colors duration-200 hover:text-white"
 							>Контроль герметичности</a
-						>
-					</li>
-					<li>
-						<a href="/#calculator" class="transition-colors duration-200 hover:text-white"
-							>Оптовый калькулятор</a
 						>
 					</li>
 				</ul>
@@ -111,7 +103,10 @@
 						<span>📍</span> <span>Москва, ул. Верхние Поля, 61</span>
 					</li>
 					<li class="pt-2">
-						<a href="/contacts" class="inline-flex items-center gap-1 rounded bg-white/5 px-2.5 py-1 text-[10px] font-semibold text-brand-accent-light hover:bg-white/10 transition-colors duration-300">
+						<a
+							href="/contacts"
+							class="inline-flex items-center gap-1 rounded bg-white/5 px-2.5 py-1 text-[10px] font-semibold text-brand-accent-light transition-colors duration-300 hover:bg-white/10"
+						>
 							Открыть страницу контактов →
 						</a>
 					</li>

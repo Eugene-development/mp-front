@@ -67,7 +67,7 @@
 								</span>
 							</div>
 							<h2 class="font-serif text-2xl leading-snug font-light text-brand-dark md:text-3xl">
-								Пластиковые бочки и барабаны
+								Пластиковые бочки
 							</h2>
 							<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 								Классическая промышленная упаковка объемом от 48 до 227 литров. Поставляется в двух
@@ -177,14 +177,14 @@
 						<div
 							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[14px] text-brand-gray"
 						>
-							<span>Сертификаты соответствия ГОСТ в наличии.</span>
+							<span>Сертификаты соответствия ГОСТ в наличии</span>
 							<div class="flex items-center gap-4">
-								<a
+								<!-- <a
 									href="/specs"
 									class="font-bold text-brand-gray hover:text-brand-dark hover:underline"
 								>
 									Подробнее
-								</a>
+								</a> -->
 								<button
 									onclick={() =>
 										orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
@@ -346,12 +346,12 @@
 						>
 							<span>Комплектуются крышками с уплотнительным кольцом</span>
 							<div class="flex items-center gap-4">
-								<a
+								<!-- <a
 									href="/specs"
 									class="font-bold text-brand-gray hover:text-brand-dark hover:underline"
 								>
 									Подробнее
-								</a>
+								</a> -->
 								<button
 									onclick={() => orderModal.open('Запрос счета с НДС на полимерные канистры')}
 									class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
@@ -489,7 +489,24 @@
 
 						<div
 							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[14px] text-brand-gray"
-						></div>
+						>
+							<span>Для вязких грузов рекомендуем термочехлы и ТЭНы подогрева.</span>
+							<div class="flex items-center gap-4">
+								<!-- <a
+									href="/specs"
+									class="font-bold text-brand-gray hover:text-brand-dark hover:underline"
+								>
+									Подробнее
+								</a> -->
+								<button
+									onclick={() =>
+										orderModal.open('Запрос счета с НДС на еврокубы (IBC-контейнеры) 1000 литров')}
+									class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
+								>
+									Запросить счет с НДС ↗
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

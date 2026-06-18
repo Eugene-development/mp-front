@@ -81,7 +81,9 @@
 		return Math.round(volNum * quantity);
 	});
 
-	let calculatedSpec = $derived(`Заказ тары через калькулятор:\n- Тип: ${currentProductInfo.name}\n- Объем/Параметры: ${selectedVolume} л\n- Количество: ${quantity} шт.\n- Логотип компании: ${hasLogo ? 'Да' : 'Нет'}\n- Повышенная плотность: ${highDensity ? 'Да' : 'Нет'}\n- Срочная отгрузка: ${isUrgent ? 'Да' : 'Нет'}\n- Общий литраж: ${totalLiters.toLocaleString()} л\n- Предварительная стоимость (с НДС): ${totalPrice.toLocaleString()} ₽`);
+	let calculatedSpec = $derived(
+		`Заказ тары через калькулятор:\n- Тип: ${currentProductInfo.name}\n- Объем/Параметры: ${selectedVolume} л\n- Количество: ${quantity} шт.\n- Логотип компании: ${hasLogo ? 'Да' : 'Нет'}\n- Повышенная плотность: ${highDensity ? 'Да' : 'Нет'}\n- Срочная отгрузка: ${isUrgent ? 'Да' : 'Нет'}\n- Общий литраж: ${totalLiters.toLocaleString()} л\n- Предварительная стоимость (с НДС): ${totalPrice.toLocaleString()} ₽`
+	);
 </script>
 
 <!-- Interactive B2B Custom Quote Calculator Section -->
@@ -315,7 +317,7 @@
 
 						<button
 							onclick={() => orderModal.open(calculatedSpec)}
-							class="group flex w-full items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-sm font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:bg-neutral-100 active:scale-[0.98] cursor-pointer"
+							class="group flex w-full cursor-pointer items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-sm font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:bg-neutral-100 active:scale-[0.98]"
 						>
 							<span>Отправить заявку</span>
 							<span

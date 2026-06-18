@@ -36,7 +36,7 @@
 									>
 								</div>
 								<h3 class="mb-3 font-serif text-2xl font-light text-brand-dark">
-									Пластиковые бочки и барабаны
+									Пластиковые бочки
 								</h3>
 								<p class="mb-6 text-sm leading-relaxed text-brand-gray">
 									Классическая промышленная упаковка объемом от 48 до 227 литров. Поставляется в
