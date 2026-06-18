@@ -103,7 +103,7 @@
 			<!-- City Phone Link -->
 			<a
 				href="tel:+74994906145"
-				class="group relative hidden cursor-pointer items-center gap-2 rounded-xl border border-white/10 bg-neutral-950 px-4 py-2 text-xs font-bold tracking-wider text-white transition-all duration-500 hover:bg-neutral-900 hover:border-white/20 active:scale-[0.98] md:flex"
+				class="group relative hidden cursor-pointer items-center gap-2 rounded-xl border border-white/10 bg-neutral-950 px-4 py-2 text-sm font-bold tracking-wider text-white transition-all duration-500 hover:bg-neutral-900 hover:border-white/20 active:scale-[0.98] md:flex"
 			>
 				<span>📞</span>
 				<span>8 (499) 490-61-45</span>
@@ -195,7 +195,7 @@
 
 			<!-- Bottom area with contact details -->
 			<div class="flex flex-col gap-6 border-t border-white/10 pt-6 mt-auto">
-				<div class="flex flex-col gap-2 text-xs text-neutral-400">
+				<div class="flex flex-col gap-2 text-sm text-neutral-400">
 					<div class="flex items-center gap-2">
 						<span>📞</span>
 						<a href="tel:+74994906145" class="font-semibold text-white hover:text-brand-accent">

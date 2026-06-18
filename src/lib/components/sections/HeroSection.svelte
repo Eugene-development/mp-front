@@ -160,7 +160,7 @@
 				>
 					<button
 						onclick={() => priceModal.open('Запрос цены с первого экрана главной страницы')}
-						class="group flex h-[52px] cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-xs font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
+						class="group flex h-[52px] cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 					>
 						<span>Узнать актуальную цену</span>
 						<span
@@ -184,7 +184,7 @@
 					</button>
 					<button
 						onclick={() => orderModal.open()}
-						class="flex h-[52px] cursor-pointer items-center justify-center rounded-xl border border-brand-accent/30 bg-brand-accent-light/70 px-6 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 hover:border-brand-accent/50 hover:bg-brand-accent-light"
+						class="flex h-[52px] cursor-pointer items-center justify-center rounded-xl border border-brand-accent/30 bg-brand-accent-light/70 px-6 text-sm font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 hover:border-brand-accent/50 hover:bg-brand-accent-light"
 					>
 						<span>Заказать тару</span>
 					</button>

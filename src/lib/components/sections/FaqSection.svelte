@@ -39,7 +39,7 @@
 		<h2 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-5xl">
 			Ответы на ваши вопросы
 		</h2>
-		<p class="mt-4 max-w-lg text-xs leading-relaxed text-brand-gray">
+		<p class="mt-4 max-w-lg text-sm leading-relaxed text-brand-gray">
 			Подробная информация о работе компании МегаПак, условиях поставок по безналичному расчету и
 			техническому сопровождению тары.
 		</p>
@@ -55,7 +55,7 @@
 					class="group flex w-full items-center justify-between py-6 text-left focus:outline-none"
 				>
 					<span
-						class="text-xs font-semibold text-brand-dark transition-colors duration-200 group-hover:text-brand-accent md:text-sm"
+						class="text-sm font-semibold text-brand-dark transition-colors duration-200 group-hover:text-brand-accent md:text-sm"
 						>{faq.q}</span
 					>
 					<span

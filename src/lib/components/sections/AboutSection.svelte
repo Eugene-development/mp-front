@@ -33,7 +33,7 @@
 			<div class="double-bezel">
 				<div class="double-bezel-inner p-6">
 					<div class="mb-2 text-2xl">🏭</div>
-					<h3 class="text-xs font-semibold tracking-wider text-brand-dark uppercase">
+					<h3 class="text-sm font-semibold tracking-wider text-brand-dark uppercase">
 						Мощности завода
 					</h3>
 					<p class="mt-2 text-[12px] leading-relaxed text-brand-gray">
@@ -46,7 +46,7 @@
 			<div class="double-bezel">
 				<div class="double-bezel-inner p-6">
 					<div class="mb-2 text-2xl">🛡️</div>
-					<h3 class="text-xs font-semibold tracking-wider text-brand-dark uppercase">
+					<h3 class="text-sm font-semibold tracking-wider text-brand-dark uppercase">
 						Стандарты ГОСТ
 					</h3>
 					<p class="mt-2 text-[12px] leading-relaxed text-brand-gray">
@@ -59,7 +59,7 @@
 			<div class="double-bezel">
 				<div class="double-bezel-inner p-6">
 					<div class="mb-2 text-2xl">🌿</div>
-					<h3 class="text-xs font-semibold tracking-wider text-brand-dark uppercase">
+					<h3 class="text-sm font-semibold tracking-wider text-brand-dark uppercase">
 						Чистое сырье
 					</h3>
 					<p class="mt-2 text-[12px] leading-relaxed text-brand-gray">
@@ -72,7 +72,7 @@
 			<div class="double-bezel">
 				<div class="double-bezel-inner p-6">
 					<div class="mb-2 text-2xl">💼</div>
-					<h3 class="text-xs font-semibold tracking-wider text-brand-dark uppercase">
+					<h3 class="text-sm font-semibold tracking-wider text-brand-dark uppercase">
 						B2B Условия
 					</h3>
 					<p class="mt-2 text-[12px] leading-relaxed text-brand-gray">

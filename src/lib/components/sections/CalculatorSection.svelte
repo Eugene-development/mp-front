@@ -117,7 +117,7 @@
 									<button
 										type="button"
 										onclick={() => (selectedProduct = prod.id)}
-										class="flex flex-col items-center justify-center rounded-xl border p-3 text-xs font-semibold transition-all duration-300 {selectedProduct ===
+										class="flex flex-col items-center justify-center rounded-xl border p-3 text-sm font-semibold transition-all duration-300 {selectedProduct ===
 										prod.id
 											? 'border-brand-accent bg-brand-accent-light/30 text-brand-accent shadow-sm'
 											: 'border-brand-divider bg-white text-brand-dark hover:bg-neutral-50'}"
@@ -139,7 +139,7 @@
 							<select
 								id="volume-select"
 								bind:value={selectedVolume}
-								class="w-full rounded-xl border border-brand-divider bg-white px-4 py-3 text-xs font-semibold text-brand-dark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent focus:outline-none"
+								class="w-full rounded-xl border border-brand-divider bg-white px-4 py-3 text-sm font-semibold text-brand-dark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent focus:outline-none"
 							>
 								{#each currentProductInfo.volumes as vol}
 									<option value={vol.val}>{vol.label}</option>
@@ -161,7 +161,7 @@
 										bind:value={quantity}
 										min="1"
 										max="10000"
-										class="w-20 rounded-lg border border-brand-divider bg-neutral-100 px-2 py-1 text-center font-mono text-xs font-bold focus:border-brand-accent focus:outline-none"
+										class="w-20 rounded-lg border border-brand-divider bg-neutral-100 px-2 py-1 text-center font-mono text-sm font-bold focus:border-brand-accent focus:outline-none"
 									/>
 									<span class="text-[10px] text-brand-gray">шт.</span>
 								</div>
@@ -198,7 +198,7 @@
 									/>
 									<div class="flex flex-col">
 										<span
-											class="text-xs font-semibold text-brand-dark transition-colors duration-200 group-hover:text-brand-accent"
+											class="text-sm font-semibold text-brand-dark transition-colors duration-200 group-hover:text-brand-accent"
 											>Нанесение логотипа компании</span
 										>
 										<span class="text-[11px] text-brand-gray"
@@ -215,7 +215,7 @@
 									/>
 									<div class="flex flex-col">
 										<span
-											class="text-xs font-semibold text-brand-dark transition-colors duration-200 group-hover:text-brand-accent"
+											class="text-sm font-semibold text-brand-dark transition-colors duration-200 group-hover:text-brand-accent"
 											>Повышенная плотность стенок (+15%)</span
 										>
 										<span class="text-[11px] text-brand-gray"
@@ -232,7 +232,7 @@
 									/>
 									<div class="flex flex-col">
 										<span
-											class="text-xs font-semibold text-brand-dark transition-colors duration-200 group-hover:text-brand-accent"
+											class="text-sm font-semibold text-brand-dark transition-colors duration-200 group-hover:text-brand-accent"
 											>Срочная отгрузка (в течение 24 часов)</span
 										>
 										<span class="text-[11px] text-brand-gray"
@@ -264,7 +264,7 @@
 						>
 						<h3 class="mb-6 font-serif text-xl font-light">Спецификация партии</h3>
 
-						<div class="mb-6 space-y-4 border-b border-white/10 pb-6 font-mono text-xs">
+						<div class="mb-6 space-y-4 border-b border-white/10 pb-6 font-mono text-sm">
 							<div class="flex justify-between">
 								<span class="text-neutral-400">Изделие:</span>
 								<span class="font-bold text-white">{currentProductInfo.name}</span>
@@ -315,7 +315,7 @@
 
 						<button
 							onclick={() => orderModal.open(calculatedSpec)}
-							class="group flex w-full items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-xs font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:bg-neutral-100 active:scale-[0.98] cursor-pointer"
+							class="group flex w-full items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-sm font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:bg-neutral-100 active:scale-[0.98] cursor-pointer"
 						>
 							<span>Отправить заявку</span>
 							<span

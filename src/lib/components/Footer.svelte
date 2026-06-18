@@ -11,19 +11,19 @@
 						class="h-8 w-auto invert transition-transform duration-300 group-hover:scale-[0.98]"
 					/>
 				</a>
-				<p class="max-w-xs text-xs leading-relaxed text-neutral-400">
+				<p class="max-w-xs text-sm leading-relaxed text-neutral-400">
 					Промышленная разработка, крупносерийный выдув и комплексная дистрибуция промышленной
 					полимерной тары по всей России.
 				</p>
-				<a href="/about" class="mt-4 inline-block text-xs font-semibold text-brand-accent-light hover:underline transition-colors duration-300">
+				<a href="/about" class="mt-4 inline-block text-sm font-semibold text-brand-accent-light hover:underline transition-colors duration-300">
 					Подробнее о нас →
 				</a>
 			</div>
 
 			<!-- Column 2: Products -->
 			<div class="md:col-span-3">
-				<h4 class="mb-4 text-xs font-bold tracking-wider text-white uppercase">НОМЕНКЛАТУРА</h4>
-				<ul class="space-y-2 text-xs text-neutral-400">
+				<h4 class="mb-4 text-sm font-bold tracking-wider text-white uppercase">НОМЕНКЛАТУРА</h4>
+				<ul class="space-y-2 text-sm text-neutral-400">
 					<li>
 						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
 							>Пластиковые бочки L-Ring</a
@@ -59,8 +59,8 @@
 
 			<!-- Column 3: Quality -->
 			<div class="md:col-span-2">
-				<h4 class="mb-4 text-xs font-bold tracking-wider text-white uppercase">РЕШЕНИЯ</h4>
-				<ul class="space-y-2 text-xs text-neutral-400">
+				<h4 class="mb-4 text-sm font-bold tracking-wider text-white uppercase">РЕШЕНИЯ</h4>
+				<ul class="space-y-2 text-sm text-neutral-400">
 					<li>
 						<a href="/about" class="transition-colors duration-200 hover:text-white"
 							>О компании МегаПак</a
@@ -96,8 +96,8 @@
 
 			<!-- Column 4: Contacts quick -->
 			<div class="md:col-span-3">
-				<h4 class="mb-4 text-xs font-bold tracking-wider text-white uppercase">ОФИС СБЫТА</h4>
-				<ul class="space-y-2 text-xs text-neutral-400">
+				<h4 class="mb-4 text-sm font-bold tracking-wider text-white uppercase">ОФИС СБЫТА</h4>
+				<ul class="space-y-2 text-sm text-neutral-400">
 					<li class="flex items-center gap-2">
 						<span>📞</span> <span class="font-bold text-white">8 (499) 490-61-45</span>
 					</li>

@@ -102,11 +102,11 @@
 			<!-- Quality Checklist -->
 			<div class="mt-8 space-y-4">
 				<div class="flex gap-4">
-					<div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-brand-accent font-bold text-xs">
+					<div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-brand-accent font-bold text-sm">
 						✓
 					</div>
 					<div>
-						<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">Входной контроль сырья</h4>
+						<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">Входной контроль сырья</h4>
 						<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
 							Каждая партия первичного полиэтилена HDPE Lupolen проходит лабораторный анализ на показатель текучести расплава (ПТР) и плотность для исключения неоднородности стенок.
 						</p>
@@ -114,11 +114,11 @@
 				</div>
 
 				<div class="flex gap-4">
-					<div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-brand-accent font-bold text-xs">
+					<div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-brand-accent font-bold text-sm">
 						✓
 					</div>
 					<div>
-						<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">Испытания на герметичность под давлением</h4>
+						<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">Испытания на герметичность под давлением</h4>
 						<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
 							100% канистр и бочек на конвейере тестируются автоматическими датчиками утечки воздуха методом вакуумного разрежения, исключая малейший микропрокол.
 						</p>
@@ -134,7 +134,7 @@
 				<div class="double-bezel-inner p-6 sm:p-8">
 					<h3 class="font-serif text-xl font-light text-brand-dark mb-4">Методология тестов</h3>
 					
-					<div class="space-y-4 text-xs text-brand-gray leading-relaxed">
+					<div class="space-y-4 text-sm text-brand-gray leading-relaxed">
 						<div>
 							<span class="font-bold text-brand-dark block">Тест на падение (Drop Test):</span>
 							Емкость заполняется водой с антифризом, охлаждается до -18°C и сбрасывается на бетонную плиту под разными углами. Протечки или растрескивания не допускаются.
@@ -175,7 +175,7 @@
 								type="text"
 								required
 								placeholder="ООО Промышленная Снабжение"
-								class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-xs focus:border-brand-accent focus:outline-none"
+								class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 							/>
 						</div>
 
@@ -188,13 +188,13 @@
 								type="email"
 								required
 								placeholder="snabs@prom-snab.ru"
-								class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-xs focus:border-brand-accent focus:outline-none"
+								class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 							/>
 						</div>
 
 						<button
 							type="submit"
-							class="group mt-2 flex w-full items-center justify-center gap-3 rounded-xl bg-brand-dark px-6 py-4 text-xs font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
+							class="group mt-2 flex w-full items-center justify-center gap-3 rounded-xl bg-brand-dark px-6 py-4 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 						>
 							<span>Выгрузить сертификаты</span>
 							<span class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1">

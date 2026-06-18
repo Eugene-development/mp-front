@@ -29,7 +29,7 @@
 	<!-- Breadcrumbs and Header -->
 	<div class="mb-16">
 		<div
-			class="mb-4 flex items-center gap-2 text-[10px] font-bold tracking-widest text-brand-gray uppercase"
+			class="mb-4 flex items-center gap-2 text-[14px] font-bold tracking-widest text-brand-gray uppercase"
 		>
 			<a href="/" class="transition-colors duration-300 hover:text-brand-dark">Главная</a>
 			<span>/</span>
@@ -73,7 +73,7 @@
 							<h2 class="font-serif text-2xl leading-snug font-light text-brand-dark md:text-3xl">
 								Пластиковые бочки и барабаны
 							</h2>
-							<p class="mt-4 text-xs leading-relaxed text-brand-gray">
+							<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 								Классическая промышленная упаковка объемом от 48 до 227 литров. Поставляется в двух
 								исполнениях: L-Ring с несъемной верхней крышкой (идеально для наливных грузов) и
 								Open Top с полностью открывающейся широкой горловиной под металлический стяжной
@@ -91,7 +91,7 @@
 							/>
 						</div>
 
-						<div class="mt-6 grid grid-cols-2 gap-4 text-[10px]">
+						<div class="mt-6 grid grid-cols-2 gap-4 text-[14px]">
 							<div class="flex flex-col border-l border-brand-divider pl-3">
 								<span class="mb-1 block tracking-wider text-brand-gray uppercase"
 									>Линейка объемов:</span
@@ -116,15 +116,15 @@
 								<!-- Food -->
 								<div class="flex gap-4 border-b border-brand-divider pb-4">
 									<div
-										class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-emerald-100 bg-emerald-50 text-sm text-emerald-700"
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-emerald-100 bg-emerald-50 text-xl text-emerald-700"
 									>
 										🍎
 									</div>
 									<div>
-										<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 											Пищевая промышленность
 										</h4>
-										<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Бочки с открытой горловиной (Open Top) с установленным пищевым полиэтиленовым
 											вкладышем используются для фасовки, длительного хранения и экспорта ягодных и
 											фруктовых пюре, томатной пасты, концентратов соков, повидла, патоки и меда.
@@ -135,15 +135,15 @@
 								<!-- Chemical -->
 								<div class="flex gap-4 border-b border-brand-divider pb-4">
 									<div
-										class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-amber-100 bg-amber-50 text-sm text-amber-700"
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-amber-100 bg-amber-50 text-xl text-amber-700"
 									>
 										🧪
 									</div>
 									<div>
-										<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 											Химическая промышленность
 										</h4>
-										<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Герметичные бесшовные бочки L-Ring (с двумя пробками) идеальны для
 											транспортировки агрессивных сред: кислот (соляной, серной, уксусной), щелочей,
 											гипохлорита натрия, жидкого сырья для бытовой химии, коагулянтов и растворов
@@ -155,15 +155,15 @@
 								<!-- Petrochemical -->
 								<div class="flex gap-4">
 									<div
-										class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-purple-100 bg-purple-50 text-sm text-purple-700"
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-purple-100 bg-purple-50 text-xl text-purple-700"
 									>
 										🛢️
 									</div>
 									<div>
-										<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 											Нефтехимия и ГСМ
 										</h4>
-										<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Обеспечивают безопасный розлив, складское хранение и логистику моторных,
 											трансмиссионных и индустриальных масел, технологических присадок,
 											антифрикционных пластичных смазок, парафинов и битумных эмульсий.
@@ -174,12 +174,13 @@
 						</div>
 
 						<div
-							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[10px] text-brand-gray"
+							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[14px] text-brand-gray"
 						>
 							<span>Сертификаты соответствия ГОСТ в наличии.</span>
 							<button
-								onclick={() => orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
-								class="font-bold text-brand-accent hover:underline cursor-pointer bg-transparent border-0 p-0"
+								onclick={() =>
+									orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
+								class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
 							>
 								Запросить счет с НДС ↗
 							</button>
@@ -213,7 +214,7 @@
 							<h2 class="font-serif text-2xl leading-snug font-light text-brand-dark md:text-3xl">
 								Полимерные канистры
 							</h2>
-							<p class="mt-4 text-xs leading-relaxed text-brand-gray">
+							<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 								Штабелируемые канистры емкостью от 1 до 31.5 литров. Имеют уникальную замковую
 								конфигурацию на дне и верхней ручке, которая позволяет устойчиво штабелировать их
 								без применения дополнительных прокладочных материалов.
@@ -230,7 +231,7 @@
 							/>
 						</div>
 
-						<div class="mt-6 grid grid-cols-2 gap-4 text-[10px]">
+						<div class="mt-6 grid grid-cols-2 gap-4 text-[14px]">
 							<div class="flex flex-col border-l border-brand-divider pl-3">
 								<span class="mb-1 block tracking-wider text-brand-gray uppercase"
 									>Диапазон литража:</span
@@ -257,15 +258,15 @@
 								<!-- Food -->
 								<div class="flex gap-4 border-b border-brand-divider pb-4">
 									<div
-										class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-emerald-100 bg-emerald-50 text-sm text-emerald-700"
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-emerald-100 bg-emerald-50 text-xl text-emerald-700"
 									>
 										🍎
 									</div>
 									<div>
-										<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 											Пищевая промышленность
 										</h4>
-										<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Белые и прозрачные канистры применяются для розлива питьевой воды, соков,
 											молочных сывороток, растительного масла, виноматериалов, соусов, маринадов и
 											пищевых эссенций.
@@ -276,15 +277,15 @@
 								<!-- Medical -->
 								<div class="flex gap-4 border-b border-brand-divider pb-4">
 									<div
-										class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-blue-100 bg-blue-50 text-sm text-blue-700"
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-blue-100 bg-blue-50 text-xl text-blue-700"
 									>
 										💊
 									</div>
 									<div>
-										<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 											Медицина и фармацевтика
 										</h4>
-										<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Используются для транспортировки дезинфицирующих и антисептических составов,
 											дистиллированной воды высокой очистки, жидких фармацевтических субстанций,
 											спиртов и растворов реагентов.
@@ -295,15 +296,15 @@
 								<!-- Chemical -->
 								<div class="flex gap-4 border-b border-brand-divider pb-4">
 									<div
-										class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-amber-100 bg-amber-50 text-sm text-amber-700"
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-amber-100 bg-amber-50 text-xl text-amber-700"
 									>
 										🧪
 									</div>
 									<div>
-										<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 											Химическая и агрохимическая
 										</h4>
-										<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Фасовка бытовой химии, жидкого мыла, профессиональных клининговых составов,
 											автомобильных антифризов, тосолов, стеклоомывателей, а также жидких
 											микроудобрений и гербицидов для агрокомплексов.
@@ -314,15 +315,15 @@
 								<!-- Petrochemical -->
 								<div class="flex gap-4">
 									<div
-										class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-purple-100 bg-purple-50 text-sm text-purple-700"
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-purple-100 bg-purple-50 text-xl text-purple-700"
 									>
 										🛢️
 									</div>
 									<div>
-										<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 											Нефтехимия и ГСМ
 										</h4>
-										<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Фасовка автомобильных моторных и трансмиссионных масел, бензина, керосина,
 											растворителей, тормозных жидкостей и специализированных присадок.
 										</p>
@@ -332,12 +333,12 @@
 						</div>
 
 						<div
-							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[10px] text-brand-gray"
+							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[14px] text-brand-gray"
 						>
 							<span>Канистры комплектуются герметичными крышками с уплотнительным кольцом.</span>
 							<button
 								onclick={() => orderModal.open('Запрос прайс-листа на полимерные канистры')}
-								class="font-bold text-brand-accent hover:underline cursor-pointer bg-transparent border-0 p-0"
+								class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
 							>
 								Получить прайс-лист ↗
 							</button>
@@ -371,7 +372,7 @@
 							<h2 class="font-serif text-2xl leading-snug font-light text-brand-dark md:text-3xl">
 								Еврокубы (IBC-контейнеры)
 							</h2>
-							<p class="mt-4 text-xs leading-relaxed text-brand-gray">
+							<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 								Крупногабаритная тара емкостью 1000 литров, состоящая из полиэтиленовой внутренней
 								колбы и прочной стальной оцинкованной обрешетки. Доступны на деревянном,
 								металлическом и пластиковом поддонах под любые технические требования.
@@ -388,7 +389,7 @@
 							/>
 						</div>
 
-						<div class="mt-6 grid grid-cols-2 gap-4 text-[10px]">
+						<div class="mt-6 grid grid-cols-2 gap-4 text-[14px]">
 							<div class="flex flex-col border-l border-brand-divider pl-3">
 								<span class="mb-1 block tracking-wider text-brand-gray uppercase"
 									>Комплектация:</span
@@ -413,15 +414,15 @@
 								<!-- Chemical -->
 								<div class="flex gap-4 border-b border-brand-divider pb-4">
 									<div
-										class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-amber-100 bg-amber-50 text-sm text-amber-700"
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-amber-100 bg-amber-50 text-xl text-amber-700"
 									>
 										🧪
 									</div>
 									<div>
-										<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 											Химическая промышленность
 										</h4>
-										<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Используются для безопасной транспортировки и хранения крупнотоннажных партий
 											агрессивных веществ: кислот, концентрированных щелочей, коагулянтов (сульфата
 											алюминия), клеевых составов, латекса и смол.
@@ -432,15 +433,15 @@
 								<!-- Food -->
 								<div class="flex gap-4 border-b border-brand-divider pb-4">
 									<div
-										class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-emerald-100 bg-emerald-50 text-sm text-emerald-700"
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-emerald-100 bg-emerald-50 text-xl text-emerald-700"
 									>
 										🍎
 									</div>
 									<div>
-										<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 											Пищевая промышленность
 										</h4>
-										<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Применяются для оптовой логистики пищевых жидкостей: виноматериалов, этилового
 											спирта, растительных и кондитерских масел, жидкого шоколада, мелассы, сиропов
 											и пищевых добавок.
@@ -451,15 +452,15 @@
 								<!-- Petrochemical -->
 								<div class="flex gap-4">
 									<div
-										class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-purple-100 bg-purple-50 text-sm text-purple-700"
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-purple-100 bg-purple-50 text-xl text-purple-700"
 									>
 										🛢️
 									</div>
 									<div>
-										<h4 class="text-xs font-bold tracking-wider text-brand-dark uppercase">
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 											Нефтехимия и ГСМ
 										</h4>
-										<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Используются на нефтебазах и АЗС для сбора отработанных индустриальных и
 											моторных масел, хранения дизельного топлива, мазута, присадок к топливу и
 											технологических растворителей.
@@ -470,12 +471,13 @@
 						</div>
 
 						<div
-							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[10px] text-brand-gray"
+							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[14px] text-brand-gray"
 						>
 							<span>Для вязких грузов рекомендуем термочехлы и ТЭНы подогрева.</span>
 							<button
-								onclick={() => orderModal.open('Запрос КП на еврокубы (IBC-контейнеры) 1000 литров')}
-								class="font-bold text-brand-accent hover:underline cursor-pointer bg-transparent border-0 p-0"
+								onclick={() =>
+									orderModal.open('Запрос КП на еврокубы (IBC-контейнеры) 1000 литров')}
+								class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
 							>
 								Запросить КП на еврокубы ↗
 							</button>
