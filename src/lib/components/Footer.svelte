@@ -124,7 +124,7 @@
 			>
 			<div class="mt-4 flex gap-4 sm:mt-0">
 				<a href="/specs" class="hover:text-neutral-300">Техническая документация</a>
-				<a href="/" class="hover:text-neutral-300">Политика конфиденциальности</a>
+				<a href="/privacy" class="hover:text-neutral-300">Политика конфиденциальности</a>
 			</div>
 		</div>
 	</div>

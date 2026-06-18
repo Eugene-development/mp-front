@@ -1,7 +1,29 @@
 <script>
 	import { orderModal } from '$lib/modalState.svelte.js';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+	import { fade, scale } from 'svelte/transition';
+
+	let activeImage = $state(null);
+	let activeImageAlt = $state('');
+
+	function openImageModal(src, alt) {
+		activeImage = src;
+		activeImageAlt = alt;
+	}
+
+	function closeImageModal() {
+		activeImage = null;
+		activeImageAlt = '';
+	}
+
+	function handleKeydown(event) {
+		if (event.key === 'Escape' && activeImage) {
+			closeImageModal();
+		}
+	}
 </script>
+
+<svelte:window onkeydown={handleKeydown} />
 
 <svelte:head>
 	<title>Каталог промышленной тары ООО «МегаПак» — Пластиковые бочки, канистры, еврокубы</title>
@@ -80,16 +102,28 @@
 						<div
 							class="mt-8 flex items-center justify-center space-x-4 rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-6"
 						>
-							<img
-								src="https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg"
-								alt="Пластиковые бочки"
-								class="h-[180px] object-contain drop-shadow-lg transition-transform duration-700 hover:scale-[1.03]"
-							/>
-							<img
-								src="https://storage.yandexcloud.net/megapak-top/products/bochka-2.jpg"
-								alt="Пластиковые бочки"
-								class="h-[180px] object-contain drop-shadow-lg transition-transform duration-700 hover:scale-[1.03]"
-							/>
+							<button
+								type="button"
+								class="cursor-zoom-in border-0 bg-transparent p-0 transition-transform duration-700 hover:scale-[1.03] focus:outline-none"
+								onclick={() => openImageModal('https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg', 'Пластиковая бочка L-Ring (несъемная крышка)')}
+							>
+								<img
+									src="https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg"
+									alt="Пластиковая бочка L-Ring"
+									class="h-[180px] object-contain drop-shadow-lg"
+								/>
+							</button>
+							<button
+								type="button"
+								class="cursor-zoom-in border-0 bg-transparent p-0 transition-transform duration-700 hover:scale-[1.03] focus:outline-none"
+								onclick={() => openImageModal('https://storage.yandexcloud.net/megapak-top/products/bochka-2.jpg', 'Пластиковая бочка Open Top (открытая крышка с хомутом)')}
+							>
+								<img
+									src="https://storage.yandexcloud.net/megapak-top/products/bochka-2.jpg"
+									alt="Пластиковая бочка Open Top"
+									class="h-[180px] object-contain drop-shadow-lg"
+								/>
+							</button>
 						</div>
 
 						<div class="mt-6 grid grid-cols-2 gap-4 text-[14px]">
@@ -233,11 +267,17 @@
 						<div
 							class="mt-8 flex items-center justify-center rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-6"
 						>
-							<img
-								src="https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg"
-								alt="Полимерные канистры"
-								class="h-[180px] object-contain drop-shadow-lg transition-transform duration-700 hover:scale-[1.03]"
-							/>
+							<button
+								type="button"
+								class="cursor-zoom-in border-0 bg-transparent p-0 transition-transform duration-700 hover:scale-[1.03] focus:outline-none"
+								onclick={() => openImageModal('https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg', 'Полимерная канистра')}
+							>
+								<img
+									src="https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg"
+									alt="Полимерная канистра"
+									class="h-[180px] object-contain drop-shadow-lg"
+								/>
+							</button>
 						</div>
 
 						<div class="mt-6 grid grid-cols-2 gap-4 text-[14px]">
@@ -365,7 +405,160 @@
 			</div>
 		</div>
 
-		<!-- Product 3: Eurocubes -->
+		<!-- Product 3: Plastic Buckets -->
+		<div class="double-bezel">
+			<div class="double-bezel-inner p-6 sm:p-8">
+				<div class="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12">
+					<!-- Left: Image and specs -->
+					<div
+						class="flex flex-col justify-between border-b border-brand-divider pb-8 lg:col-span-5 lg:border-r lg:border-b-0 lg:pr-8 lg:pb-0"
+					>
+						<div>
+							<div class="mb-4 flex items-center gap-2">
+								<span
+									class="rounded bg-brand-accent-light px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-accent uppercase"
+								>
+									ГОСТ Р 51760-2011
+								</span>
+								<span
+									class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase"
+								>
+									Герметичные
+								</span>
+							</div>
+							<h2 class="font-serif text-2xl leading-snug font-light text-brand-dark md:text-3xl">
+								Пластиковые вёдра
+							</h2>
+							<p class="mt-4 text-sm leading-relaxed text-brand-gray">
+								Универсальная полимерная тара объемом от 1 до 32 литров. Поставляется в комплекте с
+								плотно закрывающейся крышкой, оснащенной замком первого вскрытия (контрольной
+								пломбой) для защиты от несанкционированного доступа. Ведра комплектуются прочной
+								пластиковой или металлической ручкой и подходят для широкого спектра пищевой и
+								промышленной продукции.
+							</p>
+						</div>
+
+						<div
+							class="mt-8 flex items-center justify-center rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-6"
+						>
+							<button
+								type="button"
+								class="cursor-zoom-in border-0 bg-transparent p-0 transition-transform duration-700 hover:scale-[1.03] focus:outline-none"
+								onclick={() => openImageModal('https://storage.yandexcloud.net/megapak-top/products/vedro-1.jpg', 'Пластиковое ведро с герметичной крышкой')}
+							>
+								<img
+									src="https://storage.yandexcloud.net/megapak-top/products/vedro-1.jpg"
+									alt="Пластиковое ведро с герметичной крышкой"
+									class="h-[180px] object-contain drop-shadow-lg"
+								/>
+							</button>
+						</div>
+
+						<div class="mt-6 grid grid-cols-2 gap-4 text-[14px]">
+							<div class="flex flex-col border-l border-brand-divider pl-3">
+								<span class="mb-1 block tracking-wider text-brand-gray uppercase"
+									>Линейка объемов:</span
+								>
+								<span class="font-semibold text-brand-dark">1л, 3л, 5л, 10л, 20л, 32л</span>
+							</div>
+							<div class="flex flex-col border-l border-brand-divider pl-3">
+								<span class="mb-1 block tracking-wider text-brand-gray uppercase">Тип ручки:</span>
+								<span class="font-semibold text-brand-dark">Пластиковая / Металлическая</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Right: Detailed Applications -->
+					<div class="flex flex-col justify-between lg:col-span-7 lg:pl-4">
+						<div>
+							<h3 class="mb-6 font-serif text-lg font-light text-brand-dark">
+								Варианты применения по отраслям:
+							</h3>
+
+							<div class="space-y-6">
+								<!-- Food -->
+								<div class="flex gap-4 border-b border-brand-divider pb-4">
+									<div
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-emerald-100 bg-emerald-50 text-xl text-emerald-700"
+									>
+										🍎
+									</div>
+									<div>
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
+											Пищевая промышленность
+										</h4>
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
+											Герметичность и пищевой допуск сырья делают ведра идеальными для хранения и
+											транспортировки молочных продуктов, солений, майонеза, соусов, меда, джемов,
+											маринадов и кондитерских паст.
+										</p>
+									</div>
+								</div>
+
+								<!-- Paint -->
+								<div class="flex gap-4 border-b border-brand-divider pb-4">
+									<div
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-amber-100 bg-amber-50 text-xl text-amber-700"
+									>
+										🎨
+									</div>
+									<div>
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
+											Строительная и лакокрасочная
+										</h4>
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
+											Усиленная конструкция ведер обеспечивает надежное хранение водно-дисперсионных
+											красок, лаков, строительных клеев, мастик, жидкого стекла, грунтовок и готовых
+											штукатурок.
+										</p>
+									</div>
+								</div>
+
+								<!-- Chemical -->
+								<div class="flex gap-4">
+									<div
+										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-purple-100 bg-purple-50 text-xl text-purple-700"
+									>
+										🧪
+									</div>
+									<div>
+										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
+											Бытовая и промышленная химия
+										</h4>
+										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
+											Применяются для фасовки стиральных порошков, чистящих паст, удобрений,
+											автокосметики, химических реагентов и дезинфицирующих средств.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div
+							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[14px] text-brand-gray"
+						>
+							<span>Широкий выбор цветов и возможность нанесения IML-этикеток</span>
+							<div class="flex items-center gap-4">
+								<!-- <a
+									href="/specs"
+									class="font-bold text-brand-gray hover:text-brand-dark hover:underline"
+								>
+									Подробнее
+								</a> -->
+								<button
+									onclick={() => orderModal.open('Запрос счета с НДС на пластиковые ведра')}
+									class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
+								>
+									Запросить счет с НДС ↗
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Product 4: Eurocubes -->
 		<div class="double-bezel">
 			<div class="double-bezel-inner p-6 sm:p-8">
 				<div class="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12">
@@ -399,11 +592,17 @@
 						<div
 							class="mt-8 flex items-center justify-center rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-6"
 						>
-							<img
-								src="https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg"
-								alt="Еврокуб 1000л"
-								class="h-[180px] object-contain drop-shadow-lg transition-transform duration-700 hover:scale-[1.03]"
-							/>
+							<button
+								type="button"
+								class="cursor-zoom-in border-0 bg-transparent p-0 transition-transform duration-700 hover:scale-[1.03] focus:outline-none"
+								onclick={() => openImageModal('https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg', 'Еврокуб (IBC-контейнер) 1000 литров')}
+							>
+								<img
+									src="https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg"
+									alt="Еврокуб (IBC-контейнер) 1000 литров"
+									class="h-[180px] object-contain drop-shadow-lg"
+								/>
+							</button>
 						</div>
 
 						<div class="mt-6 grid grid-cols-2 gap-4 text-[14px]">
@@ -513,3 +712,55 @@
 		</div>
 	</div>
 </main>
+
+{#if activeImage}
+	<div
+		transition:fade={{ duration: 200 }}
+		class="fixed inset-0 z-[100] flex items-center justify-center bg-brand-dark/60 px-4 backdrop-blur-md"
+		onclick={closeImageModal}
+		onkeydown={(e) => {
+			if (e.key === 'Enter' || e.key === ' ') {
+				closeImageModal();
+			}
+		}}
+		role="button"
+		tabindex="0"
+	>
+		<!-- Animated Premium Image Container -->
+		<div
+			transition:scale={{ duration: 250, start: 0.95, opacity: 0 }}
+			class="double-bezel relative max-w-[90vw] max-h-[85vh] overflow-hidden shadow-2xl"
+			onclick={(e) => e.stopPropagation()}
+			onkeydown={(e) => e.stopPropagation()}
+			role="none"
+		>
+			<div class="double-bezel-inner p-2 sm:p-4 bg-white/95">
+				<!-- Close Button -->
+				<button
+					onclick={closeImageModal}
+					class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full border border-brand-divider bg-neutral-100 text-brand-gray transition-all duration-300 hover:bg-neutral-200 hover:text-brand-dark active:scale-95 z-10"
+					aria-label="Закрыть"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="currentColor"
+						class="h-4 w-4"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+					</svg>
+				</button>
+				<img
+					src={activeImage}
+					alt={activeImageAlt}
+					class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-inner"
+				/>
+				{#if activeImageAlt}
+					<p class="mt-4 text-center font-serif text-sm font-light tracking-wide text-brand-dark">{activeImageAlt}</p>
+				{/if}
+			</div>
+		</div>
+	</div>
+{/if}
