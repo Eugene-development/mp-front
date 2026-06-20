@@ -117,7 +117,7 @@
 						<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 							Входной контроль сырья
 						</h4>
-						<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+						<p class="mt-1 text-[12px] leading-relaxed text-brand-gray">
 							Каждая партия первичного полиэтилена HDPE Lupolen проходит лабораторный анализ на
 							показатель текучести расплава (ПТР) и плотность для исключения неоднородности стенок.
 						</p>
@@ -134,9 +134,25 @@
 						<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
 							Испытания на герметичность под давлением
 						</h4>
-						<p class="mt-1 text-[10px] leading-relaxed text-brand-gray">
+						<p class="mt-1 text-[12px] leading-relaxed text-brand-gray">
 							100% канистр и бочек на конвейере тестируются автоматическими датчиками утечки воздуха
 							методом вакуумного разрежения, исключая малейший микропрокол.
+						</p>
+					</div>
+				</div>
+				<div class="flex gap-4">
+					<div
+						class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-sm font-bold text-brand-accent"
+					>
+						✓
+					</div>
+					<div>
+						<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
+							Устойчивость к падению (Drop Test)
+						</h4>
+						<p class="mt-1 text-[12px] leading-relaxed text-brand-gray">
+							В соответствии с рекомендациями, каждая партия тары проходит испытания на падение с
+							высоты 1.2 метра, гарантируя сохранность содержимого при транспортировке.
 						</p>
 					</div>
 				</div>
@@ -181,7 +197,7 @@
 					</h3>
 					<p class="mb-6 text-[10px] text-brand-gray">
 						Укажите почту и название организации, чтобы получить полный комплект сертификатов
-						соответствия ГОСТ и UN.
+						соответствия ГОСТ.
 					</p>
 
 					<form
@@ -229,7 +245,7 @@
 							type="submit"
 							class="group mt-2 flex w-full items-center justify-center gap-3 rounded-xl bg-brand-dark px-6 py-4 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 						>
-							<span>Выгрузить сертификаты</span>
+							<span>Отправить</span>
 							<span
 								class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
 							>

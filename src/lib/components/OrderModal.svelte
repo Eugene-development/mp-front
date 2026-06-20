@@ -107,7 +107,7 @@
 		<!-- Animated Premium Modal Container -->
 		<div
 			transition:scale={{ duration: 300, start: 0.95, opacity: 0 }}
-			class="double-bezel relative w-full max-w-lg overflow-hidden shadow-2xl"
+			class="double-bezel relative w-full max-w-2xl overflow-hidden shadow-2xl"
 		>
 			<div class="double-bezel-inner p-6 sm:p-8">
 				<!-- Custom Close Button -->

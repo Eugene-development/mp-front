@@ -27,47 +27,34 @@
 				<h4 class="mb-4 text-sm font-bold tracking-wider text-white uppercase">НОМЕНКЛАТУРА</h4>
 				<ul class="space-y-2 text-sm text-neutral-400">
 					<li>
-						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
-							>Пластиковые бочки L-Ring</a
-						>
+						<a href="/catalog" class="transition-colors duration-200 hover:text-white">Бочки</a>
 					</li>
 					<li>
-						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
-							>Бочки с открытой горловиной</a
-						>
+						<a href="/catalog" class="transition-colors duration-200 hover:text-white">Вёдра</a>
 					</li>
 					<li>
-						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
-							>Штабелируемые канистры</a
-						>
+						<a href="/catalog" class="transition-colors duration-200 hover:text-white">Канистры</a>
 					</li>
 					<li>
-						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
-							>Канистры под ГСМ и масла</a
-						>
+						<a href="/catalog" class="transition-colors duration-200 hover:text-white">Тубы</a>
 					</li>
 					<li>
 						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
 							>Еврокубы IBC</a
 						>
 					</li>
-					<li>
+					<!-- <li>
 						<a href="/catalog" class="transition-colors duration-200 hover:text-white"
 							>Термочехлы и ТЭНы подогрева</a
 						>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 
 			<!-- Column 3: Quality -->
 			<div class="md:col-span-2">
-				<h4 class="mb-4 text-sm font-bold tracking-wider text-white uppercase">РЕШЕНИЯ</h4>
+				<h4 class="mb-4 text-sm font-bold tracking-wider text-white uppercase">ИНФОРМАЦИЯ</h4>
 				<ul class="space-y-2 text-sm text-neutral-400">
-					<li>
-						<a href="/about" class="transition-colors duration-200 hover:text-white"
-							>О компании МегаПак</a
-						>
-					</li>
 					<li>
 						<a href="/applications" class="transition-colors duration-200 hover:text-white"
 							>Применение тары</a
@@ -78,11 +65,11 @@
 							>ГОСТ Нормативы</a
 						>
 					</li>
-					<li>
+					<!-- <li>
 						<a href="/specs" class="transition-colors duration-200 hover:text-white"
 							>Контроль герметичности</a
 						>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 
@@ -107,7 +94,7 @@
 							href="/contacts"
 							class="inline-flex items-center gap-1 rounded bg-white/5 px-2.5 py-1 text-[10px] font-semibold text-brand-accent-light transition-colors duration-300 hover:bg-white/10"
 						>
-							Открыть страницу контактов →
+							Открыть страницу с картой →
 						</a>
 					</li>
 				</ul>

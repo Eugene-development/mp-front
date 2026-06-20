@@ -230,7 +230,7 @@
 								<button
 									onclick={() =>
 										orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
-									class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
+									class="inline-flex h-9 cursor-pointer items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 hover:border-brand-accent/50 hover:bg-brand-accent-light active:scale-[0.98]"
 								>
 									Запросить счет с НДС ↗
 								</button>
@@ -328,9 +328,9 @@
 											Пищевая промышленность
 										</h4>
 										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
-											Белые и прозрачные канистры применяются для розлива питьевой воды, соков,
-											молочных сывороток, растительного масла, виноматериалов, соусов, маринадов и
-											пищевых эссенций.
+											Штабелируемые канистры с усиленной конструкцией дна и крышки идеально подходят
+											для фасовки и транспортировки питьевой воды, соков, молочных сывороток,
+											растительных масел, виноматериалов, соусов, маринадов и пищевых эссенций.
 										</p>
 									</div>
 								</div>
@@ -368,7 +368,7 @@
 										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Фасовка бытовой химии, жидкого мыла, профессиональных клининговых составов,
 											автомобильных антифризов, тосолов, стеклоомывателей, а также жидких
-											микроудобрений и гербицидов для агрокомплексов.
+											микроудобрений и разного рода гербицидов для агрокомплексов.
 										</p>
 									</div>
 								</div>
@@ -385,8 +385,10 @@
 											Нефтехимия и ГСМ
 										</h4>
 										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
-											Фасовка автомобильных моторных и трансмиссионных масел, бензина, керосина,
-											растворителей, тормозных жидкостей и специализированных присадок.
+											Оптимальный вариант для фасовки автомобильных масел, бензина, керосина,
+											тормозных жидкостей, антифризов, растворителей, специализированных присадок и
+											технических жидкостей. Разработаны с учётом требований транспортной
+											безопасности для перевозки опасных грузов.
 										</p>
 									</div>
 								</div>
@@ -406,7 +408,7 @@
 								</a> -->
 								<button
 									onclick={() => orderModal.open('Запрос счета с НДС на полимерные канистры')}
-									class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
+									class="inline-flex h-9 cursor-pointer items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 hover:border-brand-accent/50 hover:bg-brand-accent-light active:scale-[0.98]"
 								>
 									Запросить счет с НДС ↗
 								</button>
@@ -506,7 +508,8 @@
 										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Герметичность и пищевой допуск сырья делают ведра идеальными для хранения и
 											транспортировки молочных продуктов, солений, майонеза, соусов, меда, джемов,
-											маринадов и кондитерских паст.
+											маринадов и кондитерских паст. Поставляются с крышкой, оснащенной замком
+											первого вскрытия.
 										</p>
 									</div>
 								</div>
@@ -524,8 +527,9 @@
 										</h4>
 										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Усиленная конструкция ведер обеспечивает надежное хранение водно-дисперсионных
-											красок, лаков, строительных клеев, мастик, жидкого стекла, грунтовок и готовых
-											штукатурок.
+											красок, лаков, строительных клеев, мастик, грунтовок и готовых штукатурок.
+											Обеспечивает защиту от просыпания и проливания сыпучей и жидкой строительной
+											продукции.
 										</p>
 									</div>
 								</div>
@@ -543,7 +547,9 @@
 										</h4>
 										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Применяются для фасовки стиральных порошков, чистящих паст, удобрений,
-											автокосметики, химических реагентов и дезинфицирующих средств.
+											автокосметики, химических реагентов и дезинфицирующих средств. Имеется защита
+											от просыпания и проливания сыпучей и жидкой химической продукции с крышкой,
+											оснащенной замком первого вскрытия.
 										</p>
 									</div>
 								</div>
@@ -563,7 +569,7 @@
 								</a> -->
 								<button
 									onclick={() => orderModal.open('Запрос счета с НДС на пластиковые ведра')}
-									class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
+									class="inline-flex h-9 cursor-pointer items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 hover:border-brand-accent/50 hover:bg-brand-accent-light active:scale-[0.98]"
 								>
 									Запросить счет с НДС ↗
 								</button>
@@ -680,7 +686,7 @@
 										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Применяются для оптовой логистики пищевых жидкостей: виноматериалов, этилового
 											спирта, растительных и кондитерских масел, жидкого шоколада, мелассы, сиропов
-											и пищевых добавок.
+											и пищевых добавок. Используются только новые еврокубы (пищевые).
 										</p>
 									</div>
 								</div>
@@ -699,7 +705,7 @@
 										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
 											Используются на нефтебазах и АЗС для сбора отработанных индустриальных и
 											моторных масел, хранения дизельного топлива, мазута, присадок к топливу и
-											технологических растворителей.
+											технологических растворителей. Возможно использование б/у еврокубов.
 										</p>
 									</div>
 								</div>
@@ -720,7 +726,7 @@
 								<button
 									onclick={() =>
 										orderModal.open('Запрос счета с НДС на еврокубы (IBC-контейнеры) 1000 литров')}
-									class="cursor-pointer border-0 bg-transparent p-0 font-bold text-brand-accent hover:underline"
+									class="inline-flex h-9 cursor-pointer items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 hover:border-brand-accent/50 hover:bg-brand-accent-light active:scale-[0.98]"
 								>
 									Запросить счет с НДС ↗
 								</button>

@@ -117,7 +117,7 @@
 		</svg>
 	</div>
 	<div
-		class="mx-auto flex min-h-[100dvh] max-w-[1440px] flex-col justify-center px-4 pt-32 pb-20 md:pt-40"
+		class="mx-auto flex min-h-[100dvh] max-w-[1440px] flex-col justify-center px-8 pt-32 pb-20 md:pt-40"
 	>
 		<div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
 			<!-- Left column text -->
@@ -132,7 +132,7 @@
 				</div>
 
 				<h1
-					class="mb-6 animate-fade-up font-serif text-5xl leading-[1.05] font-light tracking-tight text-brand-dark md:text-7xl"
+					class="mb-6 animate-fade-up font-serif text-4xl leading-[1.05] font-light tracking-tight text-brand-dark md:text-7xl"
 					style="animation-delay: 100ms;"
 				>
 					Сверхпрочная <br />
@@ -197,19 +197,19 @@
 				>
 					<div class="flex flex-col">
 						<span class="font-serif text-2xl font-light text-brand-dark">12+</span>
-						<span class="mt-1 text-[9px] tracking-wider text-brand-gray uppercase"
+						<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
 							>Лет на рынке</span
 						>
 					</div>
 					<div class="flex flex-col">
 						<span class="font-serif text-2xl font-light text-brand-dark">100%</span>
-						<span class="mt-1 text-[9px] tracking-wider text-brand-gray uppercase"
+						<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
 							>Контроль брака</span
 						>
 					</div>
 					<div class="flex flex-col">
 						<span class="font-serif text-2xl font-light text-brand-dark">&lt; 24 ч</span>
-						<span class="mt-1 text-[9px] tracking-wider text-brand-gray uppercase"
+						<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
 							>Отгрузка со склада</span
 						>
 					</div>
