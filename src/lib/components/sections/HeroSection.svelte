@@ -159,7 +159,7 @@
 					style="animation-delay: 300ms;"
 				>
 					<button
-						onclick={() => priceModal.open('Например, "Сколько стоит еврокуб?"')}
+						onclick={() => priceModal.open()}
 						class="group flex h-[52px] cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 					>
 						<span>Узнать актуальную цену</span>

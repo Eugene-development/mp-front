@@ -220,7 +220,7 @@
 								id="org-name-specs"
 								type="text"
 								required
-								placeholder="ООО Промышленная Снабжение"
+
 								class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 							/>
 						</div>
@@ -236,7 +236,7 @@
 								id="email-specs"
 								type="email"
 								required
-								placeholder="snabs@prom-snab.ru"
+
 								class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 							/>
 						</div>

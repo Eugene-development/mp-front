@@ -22,7 +22,7 @@
 
 	$effect(() => {
 		if (priceModal.isOpen) {
-			comment = priceModal.initialComment || 'Запрос цены на продукцию';
+			comment = priceModal.initialComment || '';
 		}
 	});
 
@@ -169,7 +169,6 @@
 								type="text"
 								required
 								bind:value={name}
-								placeholder="Иван Иванов"
 								class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 							/>
 						</div>
@@ -185,7 +184,6 @@
 								type="text"
 								required
 								bind:value={contact}
-								placeholder="+7 (999) 000-00-00 или email@mail.ru"
 								class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 							/>
 						</div>
@@ -200,7 +198,6 @@
 								id="modal-price-comment"
 								rows="3"
 								bind:value={comment}
-								placeholder="Какая тара вас интересует?"
 								class="resize-none rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 							></textarea>
 						</div>

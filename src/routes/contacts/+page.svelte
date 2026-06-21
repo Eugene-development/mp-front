@@ -192,13 +192,13 @@
 									for="company-name-page"
 									class="mb-2 text-[9px] font-bold tracking-wider text-brand-dark uppercase"
 								>
-									Название организации / ИНН
+									ИНН / Название организации
 								</label>
 								<input
 									id="company-name-page"
 									type="text"
 									required
-									placeholder="ООО &quot;Ромашка&quot;"
+
 									class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 								/>
 							</div>
@@ -213,7 +213,7 @@
 									id="contact-person-page"
 									type="text"
 									required
-									placeholder="Константин Александрович"
+
 									class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 								/>
 							</div>
@@ -231,7 +231,7 @@
 									id="contact-phone-page"
 									type="tel"
 									required
-									placeholder="+7 (999) 000-00-00"
+
 									class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 								/>
 							</div>
@@ -246,7 +246,7 @@
 									id="contact-email-page"
 									type="email"
 									required
-									placeholder="logistics@prom-chem.ru"
+
 									class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 								/>
 							</div>
@@ -262,7 +262,7 @@
 							<textarea
 								id="order-comment-page"
 								rows="3"
-								placeholder="Укажите необходимый объем продукции (например, 100 бочек L-Ring 227л) и адрес доставки."
+
 								class="resize-none rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 							></textarea>
 						</div>

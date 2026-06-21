@@ -21,8 +21,8 @@
 
 <main class="relative z-10">
 	<HeroSection />
-	<AboutSection />
 	<CatalogSection />
+	<AboutSection />
 	<SpecsSection />
 	<!-- <CalculatorSection /> -->
 	<FaqSection />

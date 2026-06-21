@@ -178,8 +178,7 @@
 							Направить запрос на КП
 						</h3>
 						<p class="mb-6 text-sm text-brand-gray">
-							Прикрепите реквизиты компании, и дежурный менеджер сбыта выставит официальный счет с
-							НДС.
+							Прикрепите реквизиты компании, и наш менеджер сбыта выставит официальный счет с НДС.
 						</p>
 
 						<form class="space-y-4" onsubmit={handleSubmit}>
@@ -188,14 +187,15 @@
 									<label
 										for="company-name"
 										class="mb-2 text-[9px] font-bold tracking-wider text-brand-dark uppercase"
-										>Название организации / ИНН</label
+									>
+										ИНН / Название организации</label
 									>
 									<input
 										id="company-name"
 										type="text"
 										required
 										bind:value={companyName}
-										placeholder="ООО &quot;Ромашка&quot;"
+
 										class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 									/>
 								</div>
@@ -210,7 +210,7 @@
 										type="text"
 										required
 										bind:value={contactPerson}
-										placeholder="ФИО"
+
 										class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 									/>
 								</div>
@@ -228,7 +228,7 @@
 										type="tel"
 										required
 										bind:value={contactPhone}
-										placeholder="+7 (999) 000-00-00"
+
 										class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 									/>
 								</div>
@@ -243,7 +243,7 @@
 										type="email"
 										required
 										bind:value={contactEmail}
-										placeholder="email@mail.ru"
+
 										class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 									/>
 								</div>
@@ -259,7 +259,7 @@
 									id="order-comment"
 									rows="3"
 									bind:value={orderComment}
-									placeholder="Комментарий к заказу"
+
 									class="resize-none rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 								></textarea>
 							</div>

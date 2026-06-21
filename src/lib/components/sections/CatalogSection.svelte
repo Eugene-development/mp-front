@@ -51,15 +51,23 @@
 								</p>
 							</div>
 
-							<div class="grid grid-cols-2 gap-4 pb-6 md:pb-0">
-								<div class="flex flex-col border-l border-brand-divider pl-3">
-									<span class="text-sm font-semibold text-brand-dark">48л, 127л, 227л</span>
-									<span class="mt-0.5 text-[9px] text-brand-gray uppercase">Линейка объемов</span>
+							<div class="flex flex-col gap-6">
+								<div class="grid grid-cols-2 gap-4">
+									<div class="flex flex-col border-l border-brand-divider pl-3">
+										<span class="text-sm font-semibold text-brand-dark">48л, 127л, 227л</span>
+										<span class="mt-0.5 text-[9px] text-brand-gray uppercase">Линейка объемов</span>
+									</div>
+									<div class="flex flex-col border-l border-brand-divider pl-3">
+										<span class="text-sm font-semibold text-brand-dark">Новые и Б/У</span>
+										<span class="mt-0.5 text-[9px] text-brand-gray uppercase">Категории тары</span>
+									</div>
 								</div>
-								<div class="flex flex-col border-l border-brand-divider pl-3">
-									<span class="text-sm font-semibold text-brand-dark">Новые и Б/У</span>
-									<span class="mt-0.5 text-[9px] text-brand-gray uppercase">Категории тары</span>
-								</div>
+								<a
+									href="/catalog"
+									class="flex items-center gap-1 text-sm font-bold tracking-wider text-brand-accent uppercase hover:underline"
+								>
+									Подробнее в каталоге ↗
+								</a>
 							</div>
 						</div>
 
@@ -109,10 +117,18 @@
 						</div>
 
 						<div
-							class="flex items-center justify-between border-t border-brand-divider pt-4 text-[10px]"
+							class="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-brand-divider pt-4 text-[10px]"
 						>
-							<span class="text-brand-gray">Опции ручки:</span>
-							<span class="font-bold text-brand-dark">пластиковая / металлическая</span>
+							<div class="flex items-center gap-2">
+								<span class="text-brand-gray">Опции ручки:</span>
+								<span class="font-bold text-brand-dark">пластиковая / металлическая</span>
+							</div>
+							<a
+								href="/catalog"
+								class="flex items-center gap-1 text-sm font-bold tracking-wider text-brand-accent uppercase hover:underline"
+							>
+								Подробнее в каталоге ↗
+							</a>
 						</div>
 					</div>
 				</div>
@@ -159,10 +175,18 @@
 						</div>
 
 						<div
-							class="flex items-center justify-between border-t border-brand-divider pt-4 text-[10px]"
+							class="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-brand-divider pt-4 text-[10px]"
 						>
-							<span class="text-brand-gray">Материал изделий:</span>
-							<span class="font-bold text-brand-dark">первичный HDPE / PET</span>
+							<div class="flex items-center gap-2">
+								<span class="text-brand-gray">Материал изделий:</span>
+								<span class="font-bold text-brand-dark">первичный HDPE / PET</span>
+							</div>
+							<a
+								href="/catalog"
+								class="flex items-center gap-1 text-sm font-bold tracking-wider text-brand-accent uppercase hover:underline"
+							>
+								Подробнее в каталоге ↗
+							</a>
 						</div>
 					</div>
 				</div>

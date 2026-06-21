@@ -124,10 +124,10 @@
 								>Прямой E-mail</span
 							>
 							<a
-								href="mailto:zakaz@megapaks.ru"
+								href="mailto:info@megapak.top"
 								class="mt-1 text-sm font-semibold text-brand-accent transition-colors duration-300 hover:underline"
 							>
-								zakaz@megapaks.ru
+								info@megapak.top
 							</a>
 						</div>
 					</div>
