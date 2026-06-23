@@ -139,7 +139,7 @@
 								<span class="mb-1 block tracking-wider text-brand-gray uppercase"
 									>Линейка объемов:</span
 								>
-								<span class="font-semibold text-brand-dark">48л, 127л, 227л</span>
+								<span class="font-semibold text-brand-dark">48л, 65, 127л, 227л</span>
 							</div>
 							<div class="flex flex-col border-l border-brand-divider pl-3">
 								<span class="mb-1 block tracking-wider text-brand-gray uppercase">Горловина:</span>
