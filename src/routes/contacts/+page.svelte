@@ -126,7 +126,7 @@
 									>Адрес комплекса</span
 								>
 								<span class="mt-1 text-sm leading-snug font-semibold text-brand-dark">
-									109429, г. Москва, ул. Верхние Поля, дом 61
+									109429, г. Москва, ул. Верхние Поля, дом 61, стр.1
 								</span>
 								<span class="mt-0.5 text-sm text-brand-gray">
 									Офис продаж и логистический комплекс на одной территории
@@ -192,7 +192,7 @@
 									>Режим работы</span
 								>
 								<span class="mt-1 text-sm font-semibold text-brand-dark">
-									Пн–Пт с 9:00 до 18:00 (МСК)
+									Пн–Пт с 9:00 до 17:00 (МСК)
 								</span>
 								<span class="mt-0.5 text-sm text-brand-gray">
 									Суббота, Воскресенье — выходные дни
@@ -221,7 +221,7 @@
 			<div class="double-bezel overflow-hidden">
 				<div class="double-bezel-inner h-[380px] overflow-hidden p-1">
 					<iframe
-						src="https://yandex.ru/map-widget/v1/?ll=37.822851%2C55.655938&z=15&l=map&pt=37.822851%2C55.655938%2Cpm2rdl"
+						src="https://yandex.ru/map-widget/v1/?ll=37.802922%2C55.658129&z=15&l=map&pt=37.802922%2C55.658129%2Cpm2rdl"
 						width="100%"
 						height="100%"
 						frameborder="0"
@@ -250,8 +250,8 @@
 								Запрос успешно отправлен!
 							</h3>
 							<p class="mb-8 max-w-sm text-sm leading-relaxed text-brand-gray">
-								Спасибо! Менеджер сбыта уже получил ваш запрос и подготовит коммерческое предложение.
-								Ожидайте звонка или письма.
+								Спасибо! Менеджер сбыта уже получил ваш запрос и подготовит коммерческое
+								предложение. Ожидайте звонка или письма.
 							</p>
 							<button
 								onclick={() => (isSuccess = false)}
