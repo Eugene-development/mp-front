@@ -178,7 +178,7 @@
 							Направить запрос на КП
 						</h3>
 						<p class="mb-6 text-sm text-brand-gray">
-							Прикрепите реквизиты компании, и наш менеджер сбыта выставит официальный счет с НДС.
+							Прикрепите реквизиты компании, и наш менеджер сбыта выставит официальный счет с НДС
 						</p>
 
 						<form class="space-y-4" onsubmit={handleSubmit}>
@@ -195,7 +195,6 @@
 										type="text"
 										required
 										bind:value={companyName}
-
 										class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 									/>
 								</div>
@@ -210,7 +209,6 @@
 										type="text"
 										required
 										bind:value={contactPerson}
-
 										class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 									/>
 								</div>
@@ -228,7 +226,6 @@
 										type="tel"
 										required
 										bind:value={contactPhone}
-
 										class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 									/>
 								</div>
@@ -243,7 +240,6 @@
 										type="email"
 										required
 										bind:value={contactEmail}
-
 										class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 									/>
 								</div>
@@ -259,7 +255,6 @@
 									id="order-comment"
 									rows="3"
 									bind:value={orderComment}
-
 									class="resize-none rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 								></textarea>
 							</div>

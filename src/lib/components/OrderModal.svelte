@@ -155,13 +155,13 @@
 						<span
 							class="mb-2 inline-block rounded-full border border-brand-divider bg-neutral-100 px-3 py-1 text-[9px] font-bold tracking-widest text-brand-gray uppercase"
 						>
-							Заявка на коммерческое предложение
+							Обрабатывается за 24 часа
 						</span>
 						<h3 class="font-serif text-3xl font-light tracking-tight text-brand-dark">
 							Получить счет <span class="font-normal text-brand-accent italic">с НДС</span>
 						</h3>
 						<p class="mt-2 text-sm text-brand-gray">
-							Прикрепите реквизиты компании, и наш менеджер сбыта выставит официальный счет.
+							Прикрепите реквизиты компании, и наш менеджер сбыта выставит официальный счет
 						</p>
 					</div>
 
@@ -180,7 +180,6 @@
 									type="text"
 									required
 									bind:value={companyName}
-
 									class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 								/>
 							</div>
@@ -195,7 +194,6 @@
 									type="text"
 									required
 									bind:value={contactPerson}
-
 									class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 								/>
 							</div>
@@ -213,7 +211,6 @@
 									type="tel"
 									required
 									bind:value={contactPhone}
-
 									class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 								/>
 							</div>
@@ -228,7 +225,6 @@
 									type="email"
 									required
 									bind:value={contactEmail}
-
 									class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 								/>
 							</div>
@@ -244,7 +240,6 @@
 								id="modal-order-comment"
 								rows="3"
 								bind:value={orderComment}
-
 								class="resize-none rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 text-sm focus:border-brand-accent focus:outline-none"
 							></textarea>
 						</div>

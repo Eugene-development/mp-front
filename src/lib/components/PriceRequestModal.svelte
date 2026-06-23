@@ -130,8 +130,7 @@
 						</div>
 						<h3 class="mb-3 font-serif text-2xl font-light text-brand-dark">Запрос отправлен!</h3>
 						<p class="mb-8 max-w-sm text-sm leading-relaxed text-brand-gray">
-							Спасибо! Менеджер свяжется с вами по указанным контактам для уточнения стоимости в
-							течение 15 минут.
+							Спасибо! Менеджер свяжется с вами по указанным контактам для уточнения стоимости.
 						</p>
 						<button
 							onclick={handleClose}
