@@ -139,11 +139,11 @@
 								<span class="mb-1 block tracking-wider text-brand-gray uppercase"
 									>Линейка объемов:</span
 								>
-								<span class="font-semibold text-brand-dark">48л, 65, 127л, 227л</span>
+								<span class="font-semibold text-brand-dark">48л, 65л, 127л, 227л</span>
 							</div>
 							<div class="flex flex-col border-l border-brand-divider pl-3">
 								<span class="mb-1 block tracking-wider text-brand-gray uppercase">Горловина:</span>
-								<span class="font-semibold text-brand-dark">Резьбовая (L-Ring), Открытая</span>
+								<span class="font-semibold text-brand-dark">L-Ring, OpenTop</span>
 							</div>
 						</div>
 					</div>
@@ -400,12 +400,12 @@
 						>
 							<span>Комплектуются крышками с уплотнительным кольцом</span>
 							<div class="flex items-center gap-4">
-								<!-- <a
-									href="/specs"
-									class="font-bold text-brand-gray hover:text-brand-dark hover:underline"
+								<a
+									href="/kanistry"
+									class="font-bold text-brand-gray transition-colors duration-300 hover:text-brand-dark hover:underline"
 								>
-									Подробнее
-								</a> -->
+									Подробнее о канистрах →
+								</a>
 								<button
 									onclick={() => orderModal.open('Запрос счета с НДС на полимерные канистры')}
 									class="inline-flex h-9 cursor-pointer items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 hover:border-brand-accent/50 hover:bg-brand-accent-light active:scale-[0.98]"

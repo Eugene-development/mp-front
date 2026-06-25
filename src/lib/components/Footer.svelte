@@ -32,9 +32,9 @@
 					<li>
 						<a href="/catalog" class="transition-colors duration-200 hover:text-white">Вёдра</a>
 					</li>
-					<li>
-						<a href="/catalog" class="transition-colors duration-200 hover:text-white">Канистры</a>
-					</li>
+						<li>
+							<a href="/kanistry" class="transition-colors duration-200 hover:text-white">Канистры</a>
+						</li>
 					<li>
 						<a href="/catalog" class="transition-colors duration-200 hover:text-white">Тубы</a>
 					</li>
