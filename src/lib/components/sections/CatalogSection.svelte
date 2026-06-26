@@ -34,6 +34,10 @@
 										class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase"
 										>ГОСТ 8728-88</span
 									>
+									<span
+										class="rounded bg-purple-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-purple-800 uppercase"
+										>ДОПОГ (227 л)</span
+									>
 								</div>
 								<h3 class="mb-3 font-serif text-2xl font-light text-brand-dark">
 									Пластиковые бочки
@@ -202,6 +206,10 @@
 									<span
 										class="rounded bg-amber-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-amber-800 uppercase"
 										>Сертификат ГОСТ</span
+									>
+									<span
+										class="rounded bg-purple-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-purple-800 uppercase"
+										>ДОПОГ</span
 									>
 									<span
 										class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase"

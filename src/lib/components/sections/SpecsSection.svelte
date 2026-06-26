@@ -47,7 +47,7 @@
 					<div class="space-y-4 font-mono text-[10px]">
 						<div class="flex justify-between border-b border-white/5 py-2">
 							<span class="text-neutral-400">ПОКАЗАТЕЛЬ / ТЕСТ</span>
-							<span class="text-neutral-400">НОРМА ГОСТ / UN</span>
+							<span class="text-neutral-400">НОРМА ГОСТ / ДОПОГ</span>
 							<span class="font-bold text-white">ПОКАЗАТЕЛИ МЕГАПАК</span>
 						</div>
 						<div class="flex justify-between border-b border-white/5 py-2">

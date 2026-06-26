@@ -206,7 +206,7 @@
 								Канистры МегаПак — геометрия и комплектация
 							</h3>
 
-							<div class="rounded-xl bg-brand-dark p-5 text-white">
+							<div class="rounded-xl bg-brand-dark p-6 text-white sm:p-8">
 								<div class="space-y-4 font-mono text-[11px] leading-relaxed">
 									<!-- Table Header -->
 									<div
@@ -521,11 +521,11 @@
 							</div>
 							<div>
 								<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
-									UN-маркировка
+									100% выходной контроль
 								</h4>
 								<p class="mt-1 text-[13px] leading-relaxed text-brand-gray">
-									Маркировка ООН для опасных грузов. Канистры прошли испытания на падение,
-									герметичность и гидравлическое давление в соответствии с требованиями ДОПОГ.
+									Каждая канистра проходит проверку на герметичность, геометрию корпуса и работу
+									резьбового соединения крышки с уплотнительным кольцом непосредственно на конвейере.
 								</p>
 							</div>
 						</div>
@@ -539,11 +539,6 @@
 				<div class="double-bezel-inner relative overflow-hidden p-8 sm:p-12">
 					<div class="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
 						<div>
-							<span
-								class="mb-3 inline-block rounded-full border border-brand-accent/20 bg-brand-accent-light px-3 py-1 text-[9px] font-bold tracking-widest text-brand-accent uppercase"
-							>
-								Обработка за 15 минут
-							</span>
 							<h3 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-4xl">
 								Запросить счёт с НДС <span class="font-normal text-brand-accent italic">на канистры</span>
 							</h3>
