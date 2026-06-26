@@ -182,7 +182,7 @@
 								<span class="font-bold text-brand-dark">первичный HDPE / PET</span>
 							</div>
 							<a
-								href="/catalog"
+								href="/catalog/kanistry"
 								class="flex items-center gap-1 text-sm font-bold tracking-wider text-brand-accent uppercase hover:underline"
 							>
 								Подробнее в каталоге ↗

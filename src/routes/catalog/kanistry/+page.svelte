@@ -51,12 +51,12 @@
 <main class="relative z-10 mx-auto max-w-[1440px] px-4 pt-32 pb-24 md:pt-36">
 	<!-- Breadcrumbs and Header -->
 	<div class="mb-16">
-		<Breadcrumbs items={[{ name: 'Канистры' }]} />
+		<Breadcrumbs items={[{ name: 'Каталог', href: '/catalog' }, { name: 'Канистры' }]} />
 		<h1
 			class="font-serif text-4xl leading-tight font-light tracking-tight text-brand-dark md:text-6xl"
 		>
 			Полимерные канистры <br />
-			<span class="font-normal text-brand-accent italic">1–31.5 литра из первичного HDPE</span>
+			<span class="font-normal text-brand-accent italic">из первичного HDPE</span>
 		</h1>
 		<p class="mt-4 max-w-2xl text-sm leading-relaxed text-brand-gray">
 			Штабелируемые канистры с замковой конфигурацией дна и верхней ручки, которая позволяет
@@ -92,7 +92,7 @@
 						</div>
 
 						<h2 class="font-serif text-3xl leading-snug font-light text-brand-dark md:text-4xl">
-							Сверхпрочная тара для наливных и сыпучих грузов
+							Канистры для наливных и сыпучих грузов
 						</h2>
 						<p class="mt-4 max-w-xl text-sm leading-relaxed text-brand-gray">
 							Усиленные стенки толщиной до 2.5&nbsp;мм, замковое соединение «дно–ручка» и крышки с
@@ -198,82 +198,82 @@
 			</div>
 
 			<div class="double-bezel">
-				<div
-					class="double-bezel-inner relative overflow-hidden rounded-2xl bg-brand-dark p-6 text-white sm:p-8"
-				>
-					<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
-						Матрица типоразмеров
-					</span>
-					<h3 class="mb-6 font-serif text-2xl font-light text-white">
-						Канистры МегаПак — геометрия и комплектация
-					</h3>
+						<div class="double-bezel-inner relative overflow-hidden p-6 sm:p-8">
+							<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
+								Матрица типоразмеров
+							</span>
+							<h3 class="mb-6 font-serif text-2xl font-light text-brand-dark">
+								Канистры МегаПак — геометрия и комплектация
+							</h3>
 
-					<div class="space-y-4 font-mono text-[11px] leading-relaxed">
-						<!-- Table Header -->
-						<div
-							class="flex justify-between border-b border-white/10 pb-3 font-bold text-neutral-450"
-						>
-							<span class="w-1/6">ЛИТРАЖ</span>
-							<span class="w-1/6">ТОЛЩИНА</span>
-							<span class="w-1/4">ТИП КРЫШКИ</span>
-							<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
+							<div class="rounded-xl bg-brand-dark p-5 text-white">
+								<div class="space-y-4 font-mono text-[11px] leading-relaxed">
+									<!-- Table Header -->
+									<div
+										class="flex justify-between border-b border-white/10 pb-3 font-bold"
+									>
+										<span class="w-1/6">ЛИТРАЖ</span>
+										<span class="w-1/6">ТОЛЩИНА</span>
+										<span class="w-1/4">ТИП КРЫШКИ</span>
+										<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
+									</div>
+
+									<!-- Rows -->
+									<div class="flex justify-between border-b border-white/5 py-2.5">
+										<span class="w-1/6 text-neutral-400">1 л</span>
+										<span class="w-1/6 text-neutral-400">1.8–2.0 мм</span>
+										<span class="w-1/4 text-neutral-400">Резьбовая 28 мм</span>
+										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+											>Сэмплы, дозы, фарма</span
+										>
+									</div>
+
+									<div class="flex justify-between border-b border-white/5 py-2.5">
+										<span class="w-1/6 text-neutral-400">5 л</span>
+										<span class="w-1/6 text-neutral-400">2.0–2.2 мм</span>
+										<span class="w-1/4 text-neutral-400">Резьбовая 38 мм + кольцо</span>
+										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+											>Антисептики, автохимия</span
+										>
+									</div>
+
+									<div class="flex justify-between border-b border-white/5 py-2.5">
+										<span class="w-1/6 text-neutral-400">10 л</span>
+										<span class="w-1/6 text-neutral-400">2.2–2.4 мм</span>
+										<span class="w-1/4 text-neutral-400">Резьбовая 48 мм + кольцо</span>
+										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+											>Масла, растворители, ГСМ</span
+										>
+									</div>
+
+									<div class="flex justify-between border-b border-white/5 py-2.5">
+										<span class="w-1/6 text-neutral-400">20 л</span>
+										<span class="w-1/6 text-neutral-400">2.3–2.5 мм</span>
+										<span class="w-1/4 text-neutral-400">Резьбовая 60 мм + кольцо</span>
+										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+											>Пищевые жидкости, химия</span
+										>
+									</div>
+
+									<div class="flex justify-between py-2.5">
+										<span class="w-1/6 text-neutral-400">31.5 л</span>
+										<span class="w-1/6 text-neutral-400">до 2.5 мм (усиленный)</span>
+										<span class="w-1/4 text-neutral-400">Резьбовая 70 мм + вентиляция</span>
+										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+											>Оптовая фасовка, экспорт</span
+										>
+									</div>
+								</div>
+
+								<div
+									class="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] text-neutral-400"
+								>
+									<span>*Толщина стенки указана по корпусу, в зоне выдувного шва — выше.</span>
+									<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
+								</div>
+							</div>
 						</div>
-
-						<!-- Rows -->
-						<div class="flex justify-between border-b border-white/5 py-2.5">
-							<span class="w-1/6 text-neutral-400">1 л</span>
-							<span class="w-1/6 text-neutral-400">1.8–2.0 мм</span>
-							<span class="w-1/4 text-neutral-400">Резьбовая 28 мм</span>
-							<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-								>Сэмплы, дозы, фарма</span
-							>
-						</div>
-
-						<div class="flex justify-between border-b border-white/5 py-2.5">
-							<span class="w-1/6 text-neutral-400">5 л</span>
-							<span class="w-1/6 text-neutral-400">2.0–2.2 мм</span>
-							<span class="w-1/4 text-neutral-400">Резьбовая 38 мм + кольцо</span>
-							<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-								>Антисептики, автохимия</span
-							>
-						</div>
-
-						<div class="flex justify-between border-b border-white/5 py-2.5">
-							<span class="w-1/6 text-neutral-400">10 л</span>
-							<span class="w-1/6 text-neutral-400">2.2–2.4 мм</span>
-							<span class="w-1/4 text-neutral-400">Резьбовая 48 мм + кольцо</span>
-							<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-								>Масла, растворители, ГСМ</span
-							>
-						</div>
-
-						<div class="flex justify-between border-b border-white/5 py-2.5">
-							<span class="w-1/6 text-neutral-400">20 л</span>
-							<span class="w-1/6 text-neutral-400">2.3–2.5 мм</span>
-							<span class="w-1/4 text-neutral-400">Резьбовая 60 мм + кольцо</span>
-							<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-								>Пищевые жидкости, химия</span
-							>
-						</div>
-
-						<div class="flex justify-between py-2.5">
-							<span class="w-1/6 text-neutral-400">31.5 л</span>
-							<span class="w-1/6 text-neutral-400">до 2.5 мм (усиленный)</span>
-							<span class="w-1/4 text-neutral-400">Резьбовая 70 мм + вентиляция</span>
-							<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-								>Оптовая фасовка, экспорт</span
-							>
-						</div>
-					</div>
-
-					<div
-						class="mt-8 flex items-center justify-between border-t border-white/10 pt-6 text-[10px] text-neutral-400"
-					>
-						<span>*Толщина стенки указана по корпусу, в зоне выдувного шва — выше.</span>
-						<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
-					</div>
 				</div>
-			</div>
 		</div>
 
 		<!-- Section 3: Industries -->
@@ -535,58 +535,51 @@
 		</div>
 
 		<!-- Section 5: CTA -->
-		<div class="double-bezel">
-			<div
-				class="double-bezel-inner relative overflow-hidden rounded-2xl bg-brand-dark p-8 text-white sm:p-12"
-			>
-				<div
-					class="pointer-events-none absolute inset-0 opacity-[0.04]"
-					style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 18px 18px;"
-				></div>
-
-				<div class="relative z-10 flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-					<div>
-						<span
-							class="mb-3 inline-block rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[9px] font-bold tracking-widest text-brand-accent-light uppercase"
-						>
-							Обработка за 15 минут
-						</span>
-						<h3 class="font-serif text-3xl font-light tracking-tight text-white md:text-4xl">
-							Запросить счёт с НДС <span class="font-normal text-brand-accent italic">на канистры</span>
-						</h3>
-						<p class="mt-3 max-w-xl text-sm leading-relaxed text-neutral-300">
-							Пришлите реквизиты организации и спецификацию по литражам — дежурный менеджер сбыта
-							подготовит официальный счёт с НДС и пакет закрывающих документов.
-						</p>
-					</div>
-
-					<button
-						onclick={() => orderModal.open('Запрос счета с НДС на полимерные канистры')}
-						class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl bg-white px-8 text-sm font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:bg-neutral-100 active:scale-[0.98]"
-					>
-						<span>Получить счёт</span>
-						<span
-							class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-dark/10 transition-transform duration-500 group-hover:translate-x-1"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="2.5"
-								stroke="currentColor"
-								class="h-3 w-3 text-brand-dark"
+			<div class="double-bezel">
+				<div class="double-bezel-inner relative overflow-hidden p-8 sm:p-12">
+					<div class="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
+						<div>
+							<span
+								class="mb-3 inline-block rounded-full border border-brand-accent/20 bg-brand-accent-light px-3 py-1 text-[9px] font-bold tracking-widest text-brand-accent uppercase"
 							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-								/>
-							</svg>
-						</span>
-					</button>
+								Обработка за 15 минут
+							</span>
+							<h3 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-4xl">
+								Запросить счёт с НДС <span class="font-normal text-brand-accent italic">на канистры</span>
+							</h3>
+							<p class="mt-3 max-w-xl text-sm leading-relaxed text-brand-gray">
+								Пришлите реквизиты организации и спецификацию по литражам — дежурный менеджер сбыта
+								подготовит официальный счёт с НДС и пакет закрывающих документов.
+							</p>
+						</div>
+
+						<button
+							onclick={() => orderModal.open('Запрос счета с НДС на полимерные канистры')}
+							class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
+						>
+							<span>Получить счёт</span>
+							<span
+								class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="2.5"
+									stroke="currentColor"
+									class="h-3 w-3 text-white"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+									/>
+								</svg>
+							</span>
+						</button>
+					</div>
 				</div>
 			</div>
-		</div>
 
 		<!-- Section 6: Cross-reference to full catalog -->
 		<div>

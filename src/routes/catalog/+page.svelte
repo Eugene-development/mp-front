@@ -241,183 +241,53 @@
 			</div>
 		</div>
 
-		<!-- Product 2: Canisters -->
-		<div class="double-bezel">
-			<div class="double-bezel-inner p-6 sm:p-8">
-				<div class="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12">
-					<!-- Left: Image and specs -->
-					<div
-						class="flex flex-col justify-between border-b border-brand-divider pb-8 lg:col-span-5 lg:border-r lg:border-b-0 lg:pr-8 lg:pb-0"
-					>
-						<div>
-							<div class="mb-4 flex items-center gap-2">
-								<span
-									class="rounded bg-emerald-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-emerald-800 uppercase"
-								>
-									Штабелируемые
-								</span>
-								<span
-									class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase"
-								>
-									Усиленные стенки
-								</span>
-							</div>
-							<h2 class="font-serif text-2xl leading-snug font-light text-brand-dark md:text-3xl">
-								Полимерные канистры
-							</h2>
-							<p class="mt-4 text-sm leading-relaxed text-brand-gray">
-								Штабелируемые канистры емкостью от 1 до 31.5 литров. Имеют уникальную замковую
-								конфигурацию на дне и верхней ручке, которая позволяет устойчиво штабелировать их
-								без применения дополнительных прокладочных материалов.
-							</p>
-						</div>
-
-						<div
-							class="mt-8 flex items-center justify-center rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-6"
-						>
-							<button
-								type="button"
-								class="cursor-zoom-in border-0 bg-transparent p-0 transition-transform duration-700 hover:scale-[1.03] focus:outline-none"
-								onclick={() =>
-									openImageModal(
-										'https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg',
-										'Полимерная канистра'
-									)}
-							>
+		<!-- Product 2: Canisters (Link Card) -->
+		<a href="/catalog/kanistry" class="group block">
+			<div class="double-bezel transition-transform duration-500 group-hover:scale-[1.005]">
+				<div class="double-bezel-inner p-6 sm:p-8">
+					<div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
+						<!-- Left: Image -->
+						<div class="flex items-center justify-center lg:col-span-4">
+							<div class="flex items-center justify-center rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-6 w-full transition-transform duration-700 group-hover:scale-[1.02]">
 								<img
 									src="https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg"
-									alt="Полимерная канистра"
+									alt="Полимерные канистры"
 									class="h-[180px] object-contain drop-shadow-lg"
 								/>
-							</button>
-						</div>
-
-						<div class="mt-6 grid grid-cols-2 gap-4 text-[14px]">
-							<div class="flex flex-col border-l border-brand-divider pl-3">
-								<span class="mb-1 block tracking-wider text-brand-gray uppercase"
-									>Диапазон литража:</span
-								>
-								<span class="font-semibold text-brand-dark">1л, 5л, 10л, 20л, 31.5л</span>
-							</div>
-							<div class="flex flex-col border-l border-brand-divider pl-3">
-								<span class="mb-1 block tracking-wider text-brand-gray uppercase"
-									>Толщина HDPE:</span
-								>
-								<span class="font-semibold text-brand-dark">До 2.5 мм (усиленный)</span>
 							</div>
 						</div>
-					</div>
-
-					<!-- Right: Detailed Applications -->
-					<div class="flex flex-col justify-between lg:col-span-7 lg:pl-4">
-						<div>
-							<h3 class="mb-6 font-serif text-lg font-light text-brand-dark">
-								Варианты применения по отраслям:
-							</h3>
-
-							<div class="space-y-6">
-								<!-- Food -->
-								<div class="flex gap-4 border-b border-brand-divider pb-4">
-									<div
-										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-emerald-100 bg-emerald-50 text-xl text-emerald-700"
-									>
-										🍎
-									</div>
-									<div>
-										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
-											Пищевая промышленность
-										</h4>
-										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
-											Штабелируемые канистры с усиленной конструкцией дна и крышки идеально подходят
-											для фасовки и транспортировки питьевой воды, соков, молочных сывороток,
-											растительных масел, виноматериалов, соусов, маринадов и пищевых эссенций.
-										</p>
-									</div>
+						<!-- Right: Info -->
+						<div class="flex flex-col justify-center lg:col-span-8">
+							<div class="mb-3 flex items-center gap-2">
+								<span class="rounded bg-emerald-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-emerald-800 uppercase">Штабелируемые</span>
+								<span class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase">Усиленные стенки</span>
+							</div>
+							<h2 class="font-serif text-2xl leading-snug font-light text-brand-dark md:text-3xl transition-colors duration-300 group-hover:text-brand-accent">
+								Полимерные канистры
+							</h2>
+							<p class="mt-3 text-sm leading-relaxed text-brand-gray">
+								Штабелируемые канистры емкостью от 1 до 31.5 литров из первичного HDPE. Замковая конфигурация дна и ручки, усиленные стенки до 2.5 мм. Применение в пищевой, медицинской, химической отраслях и ГСМ.
+							</p>
+							<div class="mt-4 grid grid-cols-2 gap-4 text-[14px]">
+								<div class="flex flex-col border-l border-brand-divider pl-3">
+									<span class="mb-1 block tracking-wider text-brand-gray uppercase">Диапазон литража:</span>
+									<span class="font-semibold text-brand-dark">1л, 5л, 10л, 20л, 31.5л</span>
 								</div>
-
-								<!-- Medical -->
-								<div class="flex gap-4 border-b border-brand-divider pb-4">
-									<div
-										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-blue-100 bg-blue-50 text-xl text-blue-700"
-									>
-										💊
-									</div>
-									<div>
-										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
-											Медицина и фармацевтика
-										</h4>
-										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
-											Используются для транспортировки дезинфицирующих и антисептических составов,
-											дистиллированной воды высокой очистки, жидких фармацевтических субстанций,
-											спиртов и растворов реагентов.
-										</p>
-									</div>
-								</div>
-
-								<!-- Chemical -->
-								<div class="flex gap-4 border-b border-brand-divider pb-4">
-									<div
-										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-amber-100 bg-amber-50 text-xl text-amber-700"
-									>
-										🧪
-									</div>
-									<div>
-										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
-											Химическая и агрохимическая
-										</h4>
-										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
-											Фасовка бытовой химии, жидкого мыла, профессиональных клининговых составов,
-											автомобильных антифризов, тосолов, стеклоомывателей, а также жидких
-											микроудобрений и разного рода гербицидов для агрокомплексов.
-										</p>
-									</div>
-								</div>
-
-								<!-- Petrochemical -->
-								<div class="flex gap-4">
-									<div
-										class="flex size-12 flex-shrink-0 items-center justify-center rounded-lg border border-purple-100 bg-purple-50 text-xl text-purple-700"
-									>
-										🛢️
-									</div>
-									<div>
-										<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
-											Нефтехимия и ГСМ
-										</h4>
-										<p class="mt-1 text-[14px] leading-relaxed text-brand-gray">
-											Оптимальный вариант для фасовки автомобильных масел, бензина, керосина,
-											тормозных жидкостей, антифризов, растворителей, специализированных присадок и
-											технических жидкостей. Разработаны с учётом требований транспортной
-											безопасности для перевозки опасных грузов.
-										</p>
-									</div>
+								<div class="flex flex-col border-l border-brand-divider pl-3">
+									<span class="mb-1 block tracking-wider text-brand-gray uppercase">Толщина HDPE:</span>
+									<span class="font-semibold text-brand-dark">До 2.5 мм (усиленный)</span>
 								</div>
 							</div>
-						</div>
-
-						<div
-							class="mt-8 flex items-center justify-between border-t border-brand-divider pt-4 text-[14px] text-brand-gray"
-						>
-							<span>Комплектуются крышками с уплотнительным кольцом</span>
-							<div class="flex items-center gap-4">
-								<a
-									href="/kanistry"
-									class="font-bold text-brand-gray transition-colors duration-300 hover:text-brand-dark hover:underline"
-								>
-									Подробнее о канистрах →
-								</a>
-								<button
-									onclick={() => orderModal.open('Запрос счета с НДС на полимерные канистры')}
-									class="inline-flex h-9 cursor-pointer items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 hover:border-brand-accent/50 hover:bg-brand-accent-light active:scale-[0.98]"
-								>
-									Запросить счет с НДС ↗
-								</button>
+							<div class="mt-6 flex items-center gap-4">
+								<span class="inline-flex h-9 items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 group-hover:border-brand-accent/50 group-hover:bg-brand-accent-light">
+									Подробнее в каталоге ↗
+								</span>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</a>
 
 		<!-- Product 3: Plastic Buckets -->
 		<div class="double-bezel">
