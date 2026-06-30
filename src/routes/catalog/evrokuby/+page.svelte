@@ -2,76 +2,53 @@
 	import { orderModal } from '$lib/modalState.svelte.js';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import ProductLineup from '$lib/components/ProductLineup.svelte';
-	import { fade, scale } from 'svelte/transition';
-
-	let activeImage = $state(null);
-	let activeImageAlt = $state('');
-
-	function openImageModal(src, alt) {
-		activeImage = src;
-		activeImageAlt = alt;
-	}
-
-	function closeImageModal() {
-		activeImage = null;
-		activeImageAlt = '';
-	}
-
-	function handleKeydown(event) {
-		if (event.key === 'Escape' && activeImage) {
-			closeImageModal();
-		}
-	}
+	import ProductVariantGallery from '$lib/components/ProductVariantGallery.svelte';
+	import AvailabilityNote from '$lib/components/AvailabilityNote.svelte';
 
 	const lineup = {
 		label: 'Линейка продукции',
 		title: 'Конфигурации',
 		titleAccent: 'еврокубов 1000 л',
 		subtitle:
-			'Единый объём 1000 литров — варианты по типу поддона и комплектации. Выберите конфигурацию, чтобы увидеть оснащение и назначение.',
+			'Единый объём 1000 литров — варианты по состоянию и комплектации. Выберите конфигурацию, чтобы увидеть оснащение и назначение.',
 		scaleHint: 'Единый объём 1000 л',
 		variants: [
 			{
-				chip: 'Дерево',
-				title: 'Дерево',
-				scaleLabel: 'поддон',
+				chip: 'Новый',
+				image: 'https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg',
+				alt: 'Еврокуб 1000 л новый',
+				title: 'Еврокуб',
+				scaleLabel: 'новый',
 				scale: 1000,
 				specs: [
-					{ label: 'Горловина', value: 'Ø 150 мм' },
-					{ label: 'Сливной кран', value: 'DN50' }
+					{ label: 'Горловина', value: 'Ø 150 / 225 мм' },
+					{ label: 'Сливной кран', value: 'DN50 / DN80' }
 				],
-				use: 'Химия, реагенты.'
+				use: 'Химия, пищевые жидкости, ГСМ.'
 			},
 			{
-				chip: 'Металл',
-				title: 'Металл',
-				scaleLabel: 'поддон',
+				chip: 'Б/У',
+				image: null, // TODO: подставить URL фото
+				alt: 'Еврокуб 1000 л бывший в употреблении',
+				title: 'Еврокуб Б/У',
+				scaleLabel: 'б/у',
 				scale: 1000,
 				specs: [
-					{ label: 'Горловина', value: 'Ø 225 мм' },
-					{ label: 'Сливной кран', value: 'DN50' }
+					{ label: 'Горловина', value: 'Ø 150 / 225 мм' },
+					{ label: 'Сливной кран', value: 'DN50 / DN80' }
 				],
-				use: 'Пищевые жидкости.'
-			},
-			{
-				chip: 'Пластик',
-				title: 'Пластик',
-				scaleLabel: 'поддон',
-				scale: 1000,
-				specs: [
-					{ label: 'Горловина', value: 'Ø 150 мм' },
-					{ label: 'Сливной кран', value: 'DN80' }
-				],
-				use: 'ГСМ, отработка.'
+				use: 'Технические жидкости, реагенты.'
 			},
 			{
 				chip: 'Термо',
-				title: 'Термо',
+				image: null, // TODO: подставить URL фото
+				alt: 'Еврокуб 1000 л с тэном и утеплителем',
+				title: 'Еврокуб с тэном и утеплителем',
 				tag: 'Опция',
-				scaleLabel: 'комплектация',
+				scaleLabel: 'с подогревом',
 				scale: 1000,
 				specs: [
-					{ label: 'Термоизоляция', value: 'Термочехол' },
+					{ label: 'Термоизоляция', value: 'Утеплитель' },
 					{ label: 'Подогрев', value: 'ТЭН' }
 				],
 				use: 'Вязкие и застывающие грузы.'
@@ -79,8 +56,6 @@
 		]
 	};
 </script>
-
-<svelte:window onkeydown={handleKeydown} />
 
 <svelte:head>
 	<title>Еврокубы (IBC) 1000 литров оптом — ООО «МегаПак» | В стальной обрешётке из HDPE</title>
@@ -105,7 +80,7 @@
 	></div>
 </div>
 
-<main class="relative z-10 mx-auto max-w-[1440px] px-4 pt-32 pb-24 md:pt-36">
+<main class="relative mx-auto max-w-[1440px] px-4 pt-32 pb-24 md:pt-36">
 	<!-- Breadcrumbs and Header -->
 	<div class="mb-16">
 		<Breadcrumbs items={[{ name: 'Каталог', href: '/catalog' }, { name: 'Еврокубы' }]} />
@@ -117,8 +92,8 @@
 		</h1>
 		<p class="mt-4 max-w-2xl text-sm leading-relaxed text-brand-gray">
 			Крупногабаритная тара объёмом 1000 литров, состоящая из полиэтиленовой внутренней колбы и
-			прочной стальной оцинкованной обрешётки. Поставляются на деревянном, металлическом и
-			пластиковом поддоне под любые технические требования. Доступны новые и б/у исполнения.
+			прочной стальной оцинкованной обрешётки. Доступны новые и б/у исполнения. Для вязких
+			грузов предлагаются еврокубы с тэном подогрева и утеплителем.
 		</p>
 	</div>
 
@@ -148,14 +123,14 @@
 						</div>
 
 						<h2 class="font-serif text-3xl leading-snug font-light text-brand-dark md:text-4xl">
-							IBC-контейнеры для крупнотоннажной логистики
+							IBC-контейнеры
 						</h2>
 						<p class="mt-4 max-w-xl text-sm leading-relaxed text-brand-gray">
 							Полипропиленовая колба выдувается из химически стойкого полиэтилена и помещается в
 							оцинкованную стальную сетчатую обрешётку. Сливной кран с защитным колпаком, верхняя
-							крышка 150 или 225 мм и возможность штабелирования делают еврокуб универсальным
-							решением для перевозки и хранения жидкостей. Для вязких грузов доступны термочехлы и
-							ТЭНы подогрева.
+							крышка и возможность штабелирования делают еврокуб универсальным
+							решением для перевозки и хранения жидкостей. Для вязких грузов доступны модели с
+							утеплителем и тэном подогрева.
 						</p>
 
 						<!-- Key USPs -->
@@ -169,9 +144,9 @@
 								>
 							</div>
 							<div class="flex flex-col">
-								<span class="font-serif text-2xl font-light text-brand-dark">3 поддона</span>
+								<span class="font-serif text-2xl font-light text-brand-dark">3 типа</span>
 								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
-									>Дерево / Металл / Пластик</span
+									>Новый / Б/У / С тэном</span
 								>
 							</div>
 							<div class="flex flex-col">
@@ -210,33 +185,23 @@
 							</button>
 						</div>
 					</div>
-
-					<!-- Right: image -->
+					<!-- Right: manager note -->
 					<div class="flex items-center justify-center lg:col-span-5">
-						<button
-							type="button"
-							class="group flex w-full cursor-zoom-in flex-col items-center justify-center rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-10 transition-transform duration-700 hover:scale-[1.02] focus:outline-none"
-							onclick={() =>
-								openImageModal(
-									'https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg',
-									'Еврокуб (IBC-контейнер) 1000 литров'
-								)}
-						>
-							<img
-								src="https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg"
-								alt="Еврокуб (IBC-контейнер) 1000 литров"
-								class="h-[280px] object-contain drop-shadow-lg transition-transform duration-700 group-hover:scale-105"
-							/>
-							<span
-								class="mt-4 text-[9px] font-bold tracking-widest text-brand-gray uppercase transition-colors duration-300 group-hover:text-brand-accent"
-							>
-								Нажмите, чтобы увеличить ↗
-							</span>
-						</button>
+						<AvailabilityNote />
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<!-- Gallery by configuration -->
+		<ProductVariantGallery
+			label="Галерея"
+			title="Изображения"
+			titleAccent="по типу"
+			selectorLabel="Тип еврокуба"
+			subtitle="Выберите тип еврокуба, чтобы рассмотреть конфигурацию. Для части вариантов фото ещё в подготовке."
+			variants={lineup.variants}
+		/>
 
 		<!-- Section 2: Technical specifications -->
 		<div>
@@ -250,8 +215,8 @@
 					Спецификации <span class="font-normal text-brand-accent italic">и комплектация</span>
 				</h2>
 				<p class="mt-3 max-w-2xl text-sm leading-relaxed text-brand-gray">
-					Полная матрица комплектаций: тип поддона, размер горловины, тип сливного крана и
-					дополнительные опции. Все еврокубы проходят проверку на герметичность и слив.
+					Полная матрица комплектаций: новые, б/у и с подогревом. Все еврокубы проходят проверку
+					на герметичность и слив.
 				</p>
 			</div>
 
@@ -270,7 +235,7 @@
 								<!-- Table Header -->
 								<div class="flex justify-between border-b border-white/10 pb-3 font-bold">
 									<span class="w-1/6">ОБЪЁМ</span>
-									<span class="w-1/6">ПОДДОН</span>
+									<span class="w-1/6">ТИП</span>
 									<span class="w-1/4">ГОРЛОВИНА / КРАН</span>
 									<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
 								</div>
@@ -278,35 +243,26 @@
 								<!-- Rows -->
 								<div class="flex justify-between border-b border-white/5 py-2.5">
 									<span class="w-1/6 text-neutral-400">1000 л</span>
-									<span class="w-1/6 text-neutral-400">Деревянный</span>
-									<span class="w-1/4 text-neutral-400">Ø 150 мм, кран DN50</span>
+									<span class="w-1/6 text-neutral-400">Новый</span>
+									<span class="w-1/4 text-neutral-400">Ø 150/225 мм, DN50/80</span>
 									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-										>Химия, реагенты</span
+										>Химия, пищевые, ГСМ</span
 									>
 								</div>
 
 								<div class="flex justify-between border-b border-white/5 py-2.5">
 									<span class="w-1/6 text-neutral-400">1000 л</span>
-									<span class="w-1/6 text-neutral-400">Металлический</span>
-									<span class="w-1/4 text-neutral-400">Ø 225 мм, кран DN50</span>
+									<span class="w-1/6 text-neutral-400">Б/У</span>
+									<span class="w-1/4 text-neutral-400">Ø 150/225 мм, DN50/80</span>
 									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-										>Пищевые жидкости</span
-									>
-								</div>
-
-								<div class="flex justify-between border-b border-white/5 py-2.5">
-									<span class="w-1/6 text-neutral-400">1000 л</span>
-									<span class="w-1/6 text-neutral-400">Пластиковый</span>
-									<span class="w-1/4 text-neutral-400">Ø 150 мм, кран DN80</span>
-									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-										>ГСМ, отработка</span
+										>Технические жидкости</span
 									>
 								</div>
 
 								<div class="flex justify-between py-2.5">
 									<span class="w-1/6 text-neutral-400">1000 л</span>
-									<span class="w-1/6 text-neutral-400">По запросу</span>
-									<span class="w-1/4 text-neutral-400">+ Термочехол / ТЭН</span>
+									<span class="w-1/6 text-neutral-400">С тэном</span>
+									<span class="w-1/4 text-neutral-400">+ Утеплитель / ТЭН</span>
 									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
 										>Вязкие, застывающие грузы</span
 									>
@@ -463,8 +419,8 @@
 						</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 							Для продуктов с высокой вязкостью или температурой кристаллизации (парафины, воски,
-							патока, глицерин, тяжелые смолы) еврокубы доукомплектовываются утеплённым термочехлом
-							и встроенным ТЭНом подогрева. Это поддерживает рабочую текучесть продукта и облегчает
+							патока, глицерин, тяжелые смолы) еврокубы доукомплектовываются утеплителем и
+							встроенным тэном подогрева. Это поддерживает рабочую текучесть продукта и облегчает
 							слив через нижний кран без дополнительного оборудования.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
@@ -666,57 +622,3 @@
 		</div>
 	</div>
 </main>
-
-{#if activeImage}
-	<div
-		transition:fade={{ duration: 200 }}
-		class="fixed inset-0 z-[100] flex items-center justify-center bg-brand-dark/60 px-4 backdrop-blur-md"
-		onclick={closeImageModal}
-		onkeydown={(e) => {
-			if (e.key === 'Enter' || e.key === ' ') {
-				closeImageModal();
-			}
-		}}
-		role="button"
-		tabindex="0"
-	>
-		<!-- Animated Premium Image Container -->
-		<div
-			transition:scale={{ duration: 250, start: 0.95, opacity: 0 }}
-			class="double-bezel relative max-h-[85vh] max-w-[90vw] overflow-hidden shadow-2xl"
-			onclick={(e) => e.stopPropagation()}
-			onkeydown={(e) => e.stopPropagation()}
-			role="none"
-		>
-			<div class="double-bezel-inner bg-white/95 p-2 sm:p-4">
-				<!-- Close Button -->
-				<button
-					onclick={closeImageModal}
-					class="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-brand-divider bg-neutral-100 text-brand-gray transition-all duration-300 hover:bg-neutral-200 hover:text-brand-dark active:scale-95"
-					aria-label="Закрыть"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="2"
-						stroke="currentColor"
-						class="h-4 w-4"
-					>
-						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-					</svg>
-				</button>
-				<img
-					src={activeImage}
-					alt={activeImageAlt}
-					class="max-h-[75vh] max-w-full rounded-lg object-contain shadow-inner"
-				/>
-				{#if activeImageAlt}
-					<p class="mt-4 text-center font-serif text-sm font-light tracking-wide text-brand-dark">
-						{activeImageAlt}
-					</p>
-				{/if}
-			</div>
-		</div>
-	</div>
-{/if}

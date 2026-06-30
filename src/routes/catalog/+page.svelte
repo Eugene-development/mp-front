@@ -168,8 +168,7 @@
 					</h2>
 					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
 						Штабелируемые канистры от 1 до 31.5 литра с замковым соединением дно–ручка и усиленными
-						стенками. Специальные канистры ГСМ с носиком (5, 10, 20 л). Крышки с уплотнительным
-						кольцом.
+						стенками. Специальные канистры ГСМ с носиком (5, 10, 20 л).
 					</p>
 
 					<div class="mt-5 grid grid-cols-2 gap-4 text-[13px]">
@@ -305,7 +304,7 @@
 					</h2>
 					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
 						Крупногабаритная тара 1000 литров: полиэтиленовая колба в стальной оцинкованной
-						обрешётке. Сливной кран, термочехлы и ТЭНы подогрева.
+						обрешётке. Новые, б/у и с тэном подогрева и утеплителем.
 					</p>
 
 					<div class="mt-5 grid grid-cols-2 gap-4 text-[13px]">
@@ -317,9 +316,9 @@
 						</div>
 						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
 							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
-								>Опции</span
+								>Типы</span
 							>
-							<span class="font-semibold text-brand-dark">Термочехлы · ТЭНы</span>
+							<span class="font-semibold text-brand-dark">Новый · Б/У · С тэном</span>
 						</div>
 					</div>
 

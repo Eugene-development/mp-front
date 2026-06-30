@@ -2,31 +2,13 @@
 	import { orderModal } from '$lib/modalState.svelte.js';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import ProductLineup from '$lib/components/ProductLineup.svelte';
-	import { fade, scale } from 'svelte/transition';
-
-	let activeImage = $state(null);
-	let activeImageAlt = $state('');
-
-	function openImageModal(src, alt) {
-		activeImage = src;
-		activeImageAlt = alt;
-	}
-
-	function closeImageModal() {
-		activeImage = null;
-		activeImageAlt = '';
-	}
-
-	function handleKeydown(event) {
-		if (event.key === 'Escape' && activeImage) {
-			closeImageModal();
-		}
-	}
+	import ProductVariantGallery from '$lib/components/ProductVariantGallery.svelte';
+	import AvailabilityNote from '$lib/components/AvailabilityNote.svelte';
 
 	const lineup = {
 		label: 'Линейка продукции',
 		title: 'Полный размерный ряд',
-		titleAccent: 'бочек МегаПак',
+		titleAccent: 'бочек',
 		subtitle:
 			'Четыре типоразмера — от лабораторной фасовки до экспортной тары для опасных грузов. Выберите объём, чтобы увидеть геометрию и назначение.',
 		scaleHint: 'Высота столбика пропорциональна объёму',
@@ -34,6 +16,8 @@
 			{
 				chip: '48',
 				chipUnit: 'л',
+				image: null, // TODO: подставить URL фото
+				alt: 'Пластиковая бочка 48 л',
 				title: '48 л',
 				scaleLabel: 'объём',
 				scale: 48,
@@ -46,6 +30,8 @@
 			{
 				chip: '65',
 				chipUnit: 'л',
+				image: null, // TODO: подставить URL фото
+				alt: 'Пластиковая бочка 65 л',
 				title: '65 л',
 				scaleLabel: 'объём',
 				scale: 65,
@@ -58,6 +44,8 @@
 			{
 				chip: '127',
 				chipUnit: 'л',
+				image: null, // TODO: подставить URL фото
+				alt: 'Пластиковая бочка 127 л',
 				title: '127 л',
 				scaleLabel: 'объём',
 				scale: 127,
@@ -70,6 +58,8 @@
 			{
 				chip: '227',
 				chipUnit: 'л',
+				image: 'https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg',
+				alt: 'Пластиковая бочка 227 л',
 				title: '227 л',
 				tag: 'ДОПОГ',
 				scaleLabel: 'объём',
@@ -83,8 +73,6 @@
 		]
 	};
 </script>
-
-<svelte:window onkeydown={handleKeydown} />
 
 <svelte:head>
 	<title>Пластиковые бочки 48–227 л оптом — ООО «МегаПак» | L-Ring и Open Top из HDPE</title>
@@ -109,7 +97,7 @@
 	></div>
 </div>
 
-<main class="relative z-10 mx-auto max-w-[1440px] px-4 pt-32 pb-24 md:pt-36">
+<main class="relative mx-auto max-w-[1440px] px-4 pt-32 pb-24 md:pt-36">
 	<!-- Breadcrumbs and Header -->
 	<div class="mb-16">
 		<Breadcrumbs items={[{ name: 'Каталог', href: '/catalog' }, { name: 'Бочки' }]} />
@@ -214,33 +202,23 @@
 							</button>
 						</div>
 					</div>
-
-					<!-- Right: image -->
+					<!-- Right: manager note -->
 					<div class="flex items-center justify-center lg:col-span-5">
-						<button
-							type="button"
-							class="group flex w-full cursor-zoom-in flex-col items-center justify-center rounded-2xl border border-brand-divider/40 bg-brand-bg/50 py-10 transition-transform duration-700 hover:scale-[1.02] focus:outline-none"
-							onclick={() =>
-								openImageModal(
-									'https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg',
-									'Пластиковая бочка L-Ring (несъемная крышка)'
-								)}
-						>
-							<img
-								src="https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg"
-								alt="Пластиковая бочка L-Ring"
-								class="h-[280px] object-contain drop-shadow-lg transition-transform duration-700 group-hover:scale-105"
-							/>
-							<span
-								class="mt-4 text-[9px] font-bold tracking-widest text-brand-gray uppercase transition-colors duration-300 group-hover:text-brand-accent"
-							>
-								Нажмите, чтобы увеличить ↗
-							</span>
-						</button>
+						<AvailabilityNote />
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<!-- Gallery by volume -->
+		<ProductVariantGallery
+			label="Галерея"
+			title="Изображения"
+			titleAccent="по литражу"
+			selectorLabel="Литраж"
+			subtitle="Выберите объём, чтобы рассмотреть бочку. Для части типоразмеров фото ещё в подготовке."
+			variants={lineup.variants}
+		/>
 
 		<!-- Section 2: Technical specifications -->
 		<div>
@@ -667,57 +645,3 @@
 		</div>
 	</div>
 </main>
-
-{#if activeImage}
-	<div
-		transition:fade={{ duration: 200 }}
-		class="fixed inset-0 z-[100] flex items-center justify-center bg-brand-dark/60 px-4 backdrop-blur-md"
-		onclick={closeImageModal}
-		onkeydown={(e) => {
-			if (e.key === 'Enter' || e.key === ' ') {
-				closeImageModal();
-			}
-		}}
-		role="button"
-		tabindex="0"
-	>
-		<!-- Animated Premium Image Container -->
-		<div
-			transition:scale={{ duration: 250, start: 0.95, opacity: 0 }}
-			class="double-bezel relative max-h-[85vh] max-w-[90vw] overflow-hidden shadow-2xl"
-			onclick={(e) => e.stopPropagation()}
-			onkeydown={(e) => e.stopPropagation()}
-			role="none"
-		>
-			<div class="double-bezel-inner bg-white/95 p-2 sm:p-4">
-				<!-- Close Button -->
-				<button
-					onclick={closeImageModal}
-					class="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-brand-divider bg-neutral-100 text-brand-gray transition-all duration-300 hover:bg-neutral-200 hover:text-brand-dark active:scale-95"
-					aria-label="Закрыть"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="2"
-						stroke="currentColor"
-						class="h-4 w-4"
-					>
-						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-					</svg>
-				</button>
-				<img
-					src={activeImage}
-					alt={activeImageAlt}
-					class="max-h-[75vh] max-w-full rounded-lg object-contain shadow-inner"
-				/>
-				{#if activeImageAlt}
-					<p class="mt-4 text-center font-serif text-sm font-light tracking-wide text-brand-dark">
-						{activeImageAlt}
-					</p>
-				{/if}
-			</div>
-		</div>
-	</div>
-{/if}

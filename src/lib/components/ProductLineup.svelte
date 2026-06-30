@@ -99,8 +99,9 @@
 				<h2
 					class="font-serif text-3xl leading-tight font-light tracking-tight text-brand-dark md:text-4xl"
 				>
-					{title}{#if titleAccent}
-						<span class="font-normal text-brand-accent italic">{titleAccent}</span>{/if}
+					{title}{#if titleAccent}&nbsp;<span class="font-normal text-brand-accent italic"
+							>{titleAccent}</span
+						>{/if}
 				</h2>
 				{#if subtitle}
 					<p class="mt-3 max-w-2xl text-sm leading-relaxed text-brand-gray">
