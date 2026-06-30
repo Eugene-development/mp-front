@@ -1,6 +1,7 @@
 <script>
 	import { orderModal } from '$lib/modalState.svelte.js';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+	import ProductLineup from '$lib/components/ProductLineup.svelte';
 	import { fade, scale } from 'svelte/transition';
 
 	let activeImage = $state(null);
@@ -21,15 +22,139 @@
 			closeImageModal();
 		}
 	}
+
+	const lineup = {
+		label: 'Линейка продукции',
+		title: 'Полный размерный ряд',
+		titleAccent: 'полимерных канистр',
+		subtitle:
+			'Девять типоразмеров в двух линиях — универсальные канистры и усиленные канистры ГСМ с носиком. Выберите объём, чтобы увидеть стенку, горловину и назначение.',
+		scaleHint: 'Высота столбика пропорциональна объёму',
+		variants: [
+			{
+				chip: '1',
+				chipUnit: 'л',
+				title: '1 л',
+				scaleLabel: 'объём',
+				scale: 1,
+				specs: [
+					{ label: 'Стенка', value: '1.8–2.0 мм' },
+					{ label: 'Горловина', value: 'резьб. 28 мм' }
+				],
+				use: 'Сэмплы, дозы, фармацевтика.'
+			},
+			{
+				chip: '3',
+				chipUnit: 'л',
+				title: '3 л',
+				scaleLabel: 'объём',
+				scale: 3,
+				specs: [
+					{ label: 'Стенка', value: '1.9–2.1 мм' },
+					{ label: 'Горловина', value: 'резьб. 32 мм + кольцо' }
+				],
+				use: 'Бытовая химия, антисептики.'
+			},
+			{
+				chip: '5',
+				chipUnit: 'л',
+				title: '5 л',
+				scaleLabel: 'объём',
+				scale: 5,
+				specs: [
+					{ label: 'Стенка', value: '2.0–2.2 мм' },
+					{ label: 'Горловина', value: 'резьб. 38 мм + кольцо' }
+				],
+				use: 'Антисептики, автохимия.'
+			},
+			{
+				chip: '5',
+				chipUnit: 'л',
+				title: '5 л',
+				tag: 'ГСМ',
+				scaleLabel: 'объём',
+				scale: 5,
+				specs: [
+					{ label: 'Стенка', value: '2.2–2.4 мм' },
+					{ label: 'Горловина', value: 'резьб. 45 мм + носик' }
+				],
+				use: 'Моторные масла, ГСМ.'
+			},
+			{
+				chip: '10',
+				chipUnit: 'л',
+				title: '10 л',
+				scaleLabel: 'объём',
+				scale: 10,
+				specs: [
+					{ label: 'Стенка', value: '2.2–2.4 мм' },
+					{ label: 'Горловина', value: 'резьб. 48 мм + кольцо' }
+				],
+				use: 'Масла, растворители.'
+			},
+			{
+				chip: '10',
+				chipUnit: 'л',
+				title: '10 л',
+				tag: 'ГСМ',
+				scaleLabel: 'объём',
+				scale: 10,
+				specs: [
+					{ label: 'Стенка', value: '2.4–2.6 мм' },
+					{ label: 'Горловина', value: 'резьб. 50 мм + носик' }
+				],
+				use: 'Моторные масла, ГСМ.'
+			},
+			{
+				chip: '20',
+				chipUnit: 'л',
+				title: '20 л',
+				tag: 'ГСМ',
+				scaleLabel: 'объём',
+				scale: 20,
+				specs: [
+					{ label: 'Стенка', value: '2.5–2.7 мм' },
+					{ label: 'Горловина', value: 'резьб. 60 мм + носик' }
+				],
+				use: 'Моторные масла, ГСМ.'
+			},
+			{
+				chip: '21.5',
+				chipUnit: 'л',
+				title: '21.5 л',
+				scaleLabel: 'объём',
+				scale: 21.5,
+				specs: [
+					{ label: 'Стенка', value: '2.3–2.5 мм' },
+					{ label: 'Горловина', value: 'резьб. 60 мм + кольцо' }
+				],
+				use: 'Пищевые жидкости, химия.'
+			},
+			{
+				chip: '31.5',
+				chipUnit: 'л',
+				title: '31.5 л',
+				scaleLabel: 'объём',
+				scale: 31.5,
+				specs: [
+					{ label: 'Стенка', value: 'до 2.5 мм (усиленный)' },
+					{ label: 'Горловина', value: 'резьб. 70 мм + вентиляция' }
+				],
+				use: 'Оптовая фасовка, экспорт.'
+			}
+		]
+	};
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
 
 <svelte:head>
-	<title>Полимерные канистры 1–31.5 л оптом — ООО «МегаПак» | Штабелируемые HDPE</title>
+	<title
+		>Полимерные канистры 1–31.5 л и канистры ГСМ оптом — ООО «МегаПак» | Штабелируемые HDPE</title
+	>
 	<meta
 		name="description"
-		content="Полимерные штабелируемые канистры объёмом от 1 до 31.5 литра из первичного HDPE. Технические характеристики, крышки с уплотнительным кольцом, применение в пищевой, медицинской, химической отраслях и ГСМ. Запрос счёта с НДС."
+		content="Полимерные штабелируемые канистры объёмом 1, 3, 5, 10, 21.5, 31.5 литра из первичного HDPE. Канистры ГСМ 5, 10, 20 л с носиком. Технические характеристики, крышки с уплотнительным кольцом, применение в пищевой, медицинской, химической отраслях и ГСМ. Запрос счёта с НДС."
 	/>
 	<meta
 		name="keywords"
@@ -43,7 +168,7 @@
 		class="absolute top-[10%] left-[15%] h-[55vw] w-[55vw] animate-ambient-slow rounded-full bg-brand-accent-light/10 blur-[130px]"
 	></div>
 	<div
-		class="absolute bottom-[5%] -right-[5%] h-[50vw] w-[50vw] rounded-full bg-amber-500/5 blur-[120px]"
+		class="absolute -right-[5%] bottom-[5%] h-[50vw] w-[50vw] rounded-full bg-amber-500/5 blur-[120px]"
 		style="animation-delay: -7s;"
 	></div>
 </div>
@@ -60,9 +185,9 @@
 		</h1>
 		<p class="mt-4 max-w-2xl text-sm leading-relaxed text-brand-gray">
 			Штабелируемые канистры с замковой конфигурацией дна и верхней ручки, которая позволяет
-			устойчиво штабелировать тару без применения дополнительных прокладочных материалов. Изготовлены
-			из химически стойкого высокомолекулярного полиэтилена низкого давления HDPE на высокотехнологичных
-			выдувных машинах.
+			устойчиво штабелировать тару без применения дополнительных прокладочных материалов.
+			Изготовлены из химически стойкого высокомолекулярного полиэтилена низкого давления HDPE на
+			высокотехнологичных выдувных машинах.
 		</p>
 	</div>
 
@@ -87,7 +212,7 @@
 							<span
 								class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase"
 							>
-								1–31.5 л
+								1–31.5 л + ГСМ
 							</span>
 						</div>
 
@@ -102,15 +227,17 @@
 						</p>
 
 						<!-- Key USPs -->
-						<div class="mt-8 grid w-full max-w-xl grid-cols-3 gap-6 border-t border-brand-divider pt-6">
+						<div
+							class="mt-8 grid w-full max-w-xl grid-cols-3 gap-6 border-t border-brand-divider pt-6"
+						>
 							<div class="flex flex-col">
-								<span class="font-serif text-2xl font-light text-brand-dark">1–31.5 л</span>
+								<span class="font-serif text-2xl font-light text-brand-dark">9 типоразмеров</span>
 								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
-									>Линейка объёмов</span
+									>Пластик + ГСМ</span
 								>
 							</div>
 							<div class="flex flex-col">
-								<span class="font-serif text-2xl font-light text-brand-dark">до 2.5 мм</span>
+								<span class="font-serif text-2xl font-light text-brand-dark">до 2.7 мм</span>
 								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
 									>Толщина стенки</span
 								>
@@ -181,9 +308,7 @@
 		<!-- Section 2: Technical specifications -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Технические характеристики
 				</span>
 				<h2
@@ -192,96 +317,157 @@
 					Спецификации <span class="font-normal text-brand-accent italic">по литражу</span>
 				</h2>
 				<p class="mt-3 max-w-2xl text-sm leading-relaxed text-brand-gray">
-					Полная матрица типоразмеров: объём, толщина стенки, тип крышки и рекомендованное назначение.
-					Все канистры отштампованы из первичного HDPE без добавления вторичного сырья.
+					Полная матрица типоразмеров: объём, толщина стенки, тип крышки и рекомендованное
+					назначение. Все канистры отштампованы из первичного HDPE без добавления вторичного сырья.
+					Представлены две линейки: пластиковые канистры (1, 3, 5, 10, 21.5, 31.5 л) и канистры ГСМ
+					(5, 10, 20 л) с усиленной конструкцией и носиком для розлива.
 				</p>
 			</div>
 
 			<div class="double-bezel">
-						<div class="double-bezel-inner relative overflow-hidden p-6 sm:p-8">
-							<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
-								Матрица типоразмеров
-							</span>
-							<h3 class="mb-6 font-serif text-2xl font-light text-brand-dark">
-								Канистры МегаПак — геометрия и комплектация
-							</h3>
+				<div class="double-bezel-inner relative overflow-hidden p-6 sm:p-8">
+					<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
+						Матрица типоразмеров
+					</span>
+					<h3 class="mb-6 font-serif text-2xl font-light text-brand-dark">
+						Канистры МегаПак — геометрия и комплектация
+					</h3>
 
-							<div class="rounded-xl bg-brand-dark p-6 text-white sm:p-8">
-								<div class="space-y-4 font-mono text-[11px] leading-relaxed">
-									<!-- Table Header -->
-									<div
-										class="flex justify-between border-b border-white/10 pb-3 font-bold"
-									>
-										<span class="w-1/6">ЛИТРАЖ</span>
-										<span class="w-1/6">ТОЛЩИНА</span>
-										<span class="w-1/4">ТИП КРЫШКИ</span>
-										<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
-									</div>
-
-									<!-- Rows -->
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">1 л</span>
-										<span class="w-1/6 text-neutral-400">1.8–2.0 мм</span>
-										<span class="w-1/4 text-neutral-400">Резьбовая 28 мм</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Сэмплы, дозы, фарма</span
-										>
-									</div>
-
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">5 л</span>
-										<span class="w-1/6 text-neutral-400">2.0–2.2 мм</span>
-										<span class="w-1/4 text-neutral-400">Резьбовая 38 мм + кольцо</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Антисептики, автохимия</span
-										>
-									</div>
-
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">10 л</span>
-										<span class="w-1/6 text-neutral-400">2.2–2.4 мм</span>
-										<span class="w-1/4 text-neutral-400">Резьбовая 48 мм + кольцо</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Масла, растворители, ГСМ</span
-										>
-									</div>
-
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">20 л</span>
-										<span class="w-1/6 text-neutral-400">2.3–2.5 мм</span>
-										<span class="w-1/4 text-neutral-400">Резьбовая 60 мм + кольцо</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Пищевые жидкости, химия</span
-										>
-									</div>
-
-									<div class="flex justify-between py-2.5">
-										<span class="w-1/6 text-neutral-400">31.5 л</span>
-										<span class="w-1/6 text-neutral-400">до 2.5 мм (усиленный)</span>
-										<span class="w-1/4 text-neutral-400">Резьбовая 70 мм + вентиляция</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Оптовая фасовка, экспорт</span
-										>
-									</div>
+					<div class="overflow-x-auto rounded-xl bg-brand-dark p-6 text-white sm:p-8">
+						<div class="min-w-[540px]">
+							<div class="space-y-4 font-mono text-[11px] leading-relaxed">
+								<!-- Section: Пластиковые канистры -->
+								<div class="mb-3 border-b border-white/20 pb-2">
+									<span class="font-bold tracking-wider text-brand-accent-light uppercase">
+										Пластиковые канистры
+									</span>
 								</div>
 
-								<div
-									class="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] text-neutral-400"
-								>
-									<span>*Толщина стенки указана по корпусу, в зоне выдувного шва — выше.</span>
-									<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
+								<!-- Table Header -->
+								<div class="flex justify-between border-b border-white/10 pb-3 font-bold">
+									<span class="w-1/6">ЛИТРАЖ</span>
+									<span class="w-1/6">ТОЛЩИНА</span>
+									<span class="w-1/4">ТИП КРЫШКИ</span>
+									<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
+								</div>
+
+								<!-- Rows -->
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">1 л</span>
+									<span class="w-1/6 text-neutral-400">1.8–2.0 мм</span>
+									<span class="w-1/4 text-neutral-400">Резьбовая 28 мм</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Сэмплы, дозы, фарма</span
+									>
+								</div>
+
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">3 л</span>
+									<span class="w-1/6 text-neutral-400">1.9–2.1 мм</span>
+									<span class="w-1/4 text-neutral-400">Резьбовая 32 мм + кольцо</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Бытовая химия, антисептики</span
+									>
+								</div>
+
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">5 л</span>
+									<span class="w-1/6 text-neutral-400">2.0–2.2 мм</span>
+									<span class="w-1/4 text-neutral-400">Резьбовая 38 мм + кольцо</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Антисептики, автохимия</span
+									>
+								</div>
+
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">10 л</span>
+									<span class="w-1/6 text-neutral-400">2.2–2.4 мм</span>
+									<span class="w-1/4 text-neutral-400">Резьбовая 48 мм + кольцо</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Масла, растворители</span
+									>
+								</div>
+
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">21.5 л</span>
+									<span class="w-1/6 text-neutral-400">2.3–2.5 мм</span>
+									<span class="w-1/4 text-neutral-400">Резьбовая 60 мм + кольцо</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Пищевые жидкости, химия</span
+									>
+								</div>
+
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">31.5 л</span>
+									<span class="w-1/6 text-neutral-400">до 2.5 мм (усиленный)</span>
+									<span class="w-1/4 text-neutral-400">Резьбовая 70 мм + вентиляция</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Оптовая фасовка, экспорт</span
+									>
+								</div>
+
+								<!-- Section: Канистры ГСМ -->
+								<div class="mt-6 mb-3 border-b border-white/20 pb-2">
+									<span class="font-bold tracking-wider text-purple-300 uppercase">
+										Канистры ГСМ
+									</span>
+								</div>
+
+								<!-- Table Header -->
+								<div class="flex justify-between border-b border-white/10 pb-3 font-bold">
+									<span class="w-1/6">ЛИТРАЖ</span>
+									<span class="w-1/6">ТОЛЩИНА</span>
+									<span class="w-1/4">ТИП КРЫШКИ</span>
+									<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
+								</div>
+
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">5 л</span>
+									<span class="w-1/6 text-neutral-400">2.2–2.4 мм</span>
+									<span class="w-1/4 text-neutral-400">Резьбовая 45 мм + носик</span>
+									<span class="w-1/3 text-right font-semibold text-purple-300"
+										>Моторные масла, ГСМ</span
+									>
+								</div>
+
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">10 л</span>
+									<span class="w-1/6 text-neutral-400">2.4–2.6 мм</span>
+									<span class="w-1/4 text-neutral-400">Резьбовая 50 мм + носик</span>
+									<span class="w-1/3 text-right font-semibold text-purple-300"
+										>Моторные масла, ГСМ</span
+									>
+								</div>
+
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">20 л</span>
+									<span class="w-1/6 text-neutral-400">2.5–2.7 мм</span>
+									<span class="w-1/4 text-neutral-400">Резьбовая 60 мм + носик</span>
+									<span class="w-1/3 text-right font-semibold text-purple-300"
+										>Моторные масла, ГСМ</span
+									>
 								</div>
 							</div>
+
+							<div
+								class="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] text-neutral-400"
+							>
+								<span>*Толщина стенки указана по корпусу, в зоне выдувного шва — выше.</span>
+								<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
+							</div>
 						</div>
+					</div>
 				</div>
+			</div>
 		</div>
+
+		<!-- Product line -->
+		<ProductLineup {...lineup} />
 
 		<!-- Section 3: Industries -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Отрасли применения
 				</span>
 				<h2
@@ -307,9 +493,7 @@
 								Пищевой допуск
 							</span>
 						</div>
-						<h3 class="font-serif text-2xl font-light text-brand-dark">
-							Пищевая промышленность
-						</h3>
+						<h3 class="font-serif text-2xl font-light text-brand-dark">Пищевая промышленность</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 							Штабелируемые канистры с усиленной конструкцией дна и крышки идеально подходят для
 							фасовки и транспортировки питьевой воды, натуральных соков и соковых концентратов,
@@ -320,7 +504,8 @@
 							тяжёлыми металлами.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -344,9 +529,7 @@
 								Фарма. чистота
 							</span>
 						</div>
-						<h3 class="font-serif text-2xl font-light text-brand-dark">
-							Медицина и фармацевтика
-						</h3>
+						<h3 class="font-serif text-2xl font-light text-brand-dark">Медицина и фармацевтика</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 							Применяются для транспортировки дезинфицирующих и антисептических составов на основе
 							спиртов, хлоргексидина и четвертичных аммонийных соединений, дистиллированной и
@@ -356,7 +539,8 @@
 							контаминацию продукта.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -392,7 +576,8 @@
 							до паспортных пределов.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -416,9 +601,7 @@
 								Опасные грузы
 							</span>
 						</div>
-						<h3 class="font-serif text-2xl font-light text-brand-dark">
-							Нефтехимия и ГСМ
-						</h3>
+						<h3 class="font-serif text-2xl font-light text-brand-dark">Нефтехимия и ГСМ</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 							Оптимальный вариант для фасовки и розлива моторных, трансмиссионных и индустриальных
 							масел, автомобильного бензина, керосина и дизельного топлива, тормозных жидкостей
@@ -429,7 +612,8 @@
 							вентиляции.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -447,15 +631,15 @@
 		<!-- Section 4: Certificates -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Сертификаты и соответствия
 				</span>
 				<h2
 					class="font-serif text-3xl leading-tight font-light tracking-tight text-brand-dark md:text-4xl"
 				>
-					Подтверждённое качество <span class="font-normal text-brand-accent italic">по стандартам</span>
+					Подтверждённое качество <span class="font-normal text-brand-accent italic"
+						>по стандартам</span
+					>
 				</h2>
 			</div>
 
@@ -525,7 +709,8 @@
 								</h4>
 								<p class="mt-1 text-[13px] leading-relaxed text-brand-gray">
 									Каждая канистра проходит проверку на герметичность, геометрию корпуса и работу
-									резьбового соединения крышки с уплотнительным кольцом непосредственно на конвейере.
+									резьбового соединения крышки с уплотнительным кольцом непосредственно на
+									конвейере.
 								</p>
 							</div>
 						</div>
@@ -535,52 +720,58 @@
 		</div>
 
 		<!-- Section 5: CTA -->
-			<div class="double-bezel">
-				<div class="double-bezel-inner relative overflow-hidden p-8 sm:p-12">
-					<div class="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-						<div>
-							<h3 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-4xl">
-								Запросить счёт с НДС <span class="font-normal text-brand-accent italic">на канистры</span>
-							</h3>
-							<p class="mt-3 max-w-xl text-sm leading-relaxed text-brand-gray">
-								Пришлите реквизиты организации и спецификацию по литражам — дежурный менеджер сбыта
-								подготовит официальный счёт с НДС и пакет закрывающих документов.
-							</p>
-						</div>
-
-						<button
-							onclick={() => orderModal.open('Запрос счета с НДС на полимерные канистры')}
-							class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
-						>
-							<span>Получить счёт</span>
-							<span
-								class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
+		<div class="double-bezel">
+			<div class="double-bezel-inner relative overflow-hidden p-8 sm:p-12">
+				<div
+					class="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left"
+				>
+					<div>
+						<h3 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-4xl">
+							Запросить счёт с НДС <span class="font-normal text-brand-accent italic"
+								>на канистры</span
 							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="2.5"
-									stroke="currentColor"
-									class="h-3 w-3 text-white"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-									/>
-								</svg>
-							</span>
-						</button>
+						</h3>
+						<p class="mt-3 max-w-xl text-sm leading-relaxed text-brand-gray">
+							Пришлите реквизиты организации и спецификацию по литражам — дежурный менеджер сбыта
+							подготовит официальный счёт с НДС и пакет закрывающих документов.
+						</p>
 					</div>
+
+					<button
+						onclick={() => orderModal.open('Запрос счета с НДС на полимерные канистры')}
+						class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
+					>
+						<span>Получить счёт</span>
+						<span
+							class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="2.5"
+								stroke="currentColor"
+								class="h-3 w-3 text-white"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+								/>
+							</svg>
+						</span>
+					</button>
 				</div>
 			</div>
+		</div>
 
 		<!-- Section 6: Cross-reference to full catalog -->
 		<div>
 			<a href="/catalog" class="group block">
 				<div class="double-bezel transition-transform duration-500 group-hover:scale-[1.005]">
-					<div class="double-bezel-inner flex flex-col items-center gap-6 p-8 sm:flex-row sm:justify-between sm:p-10">
+					<div
+						class="double-bezel-inner flex flex-col items-center gap-6 p-8 sm:flex-row sm:justify-between sm:p-10"
+					>
 						<div>
 							<span
 								class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"

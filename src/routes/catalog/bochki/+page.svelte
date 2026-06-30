@@ -1,6 +1,7 @@
 <script>
 	import { orderModal } from '$lib/modalState.svelte.js';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+	import ProductLineup from '$lib/components/ProductLineup.svelte';
 	import { fade, scale } from 'svelte/transition';
 
 	let activeImage = $state(null);
@@ -21,6 +22,66 @@
 			closeImageModal();
 		}
 	}
+
+	const lineup = {
+		label: 'Линейка продукции',
+		title: 'Полный размерный ряд',
+		titleAccent: 'бочек МегаПак',
+		subtitle:
+			'Четыре типоразмера — от лабораторной фасовки до экспортной тары для опасных грузов. Выберите объём, чтобы увидеть геометрию и назначение.',
+		scaleHint: 'Высота столбика пропорциональна объёму',
+		variants: [
+			{
+				chip: '48',
+				chipUnit: 'л',
+				title: '48 л',
+				scaleLabel: 'объём',
+				scale: 48,
+				specs: [
+					{ label: 'Тип горловины', value: 'L-Ring, 2 пробки (G3/4 и G2)' },
+					{ label: 'Ø корпуса', value: '380 мм' }
+				],
+				use: 'Реагенты, растворители, лабораторная фасовка.'
+			},
+			{
+				chip: '65',
+				chipUnit: 'л',
+				title: '65 л',
+				scaleLabel: 'объём',
+				scale: 65,
+				specs: [
+					{ label: 'Тип горловины', value: 'L-Ring / Open Top' },
+					{ label: 'Ø корпуса', value: '380 мм' }
+				],
+				use: 'Краски, клеи, пульпа.'
+			},
+			{
+				chip: '127',
+				chipUnit: 'л',
+				title: '127 л',
+				scaleLabel: 'объём',
+				scale: 127,
+				specs: [
+					{ label: 'Тип горловины', value: 'Open Top + стальной хомут' },
+					{ label: 'Ø корпуса', value: '455 мм' }
+				],
+				use: 'Пищевые пюре, пасты, концентраты.'
+			},
+			{
+				chip: '227',
+				chipUnit: 'л',
+				title: '227 л',
+				tag: 'ДОПОГ',
+				scaleLabel: 'объём',
+				scale: 227,
+				specs: [
+					{ label: 'Тип горловины', value: 'L-Ring / Open Top' },
+					{ label: 'Ø корпуса', value: '585 мм' }
+				],
+				use: 'Опасные грузы, экспорт, многоярусное складирование.'
+			}
+		]
+	};
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
@@ -43,7 +104,7 @@
 		class="absolute top-[10%] left-[15%] h-[55vw] w-[55vw] animate-ambient-slow rounded-full bg-brand-accent-light/10 blur-[130px]"
 	></div>
 	<div
-		class="absolute bottom-[5%] -right-[5%] h-[50vw] w-[50vw] rounded-full bg-amber-500/5 blur-[120px]"
+		class="absolute -right-[5%] bottom-[5%] h-[50vw] w-[50vw] rounded-full bg-amber-500/5 blur-[120px]"
 		style="animation-delay: -7s;"
 	></div>
 </div>
@@ -102,7 +163,9 @@
 						</p>
 
 						<!-- Key USPs -->
-						<div class="mt-8 grid w-full max-w-xl grid-cols-3 gap-6 border-t border-brand-divider pt-6">
+						<div
+							class="mt-8 grid w-full max-w-xl grid-cols-3 gap-6 border-t border-brand-divider pt-6"
+						>
 							<div class="flex flex-col">
 								<span class="font-serif text-2xl font-light text-brand-dark">48–227 л</span>
 								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
@@ -125,7 +188,8 @@
 
 						<div class="mt-8 flex flex-wrap items-center gap-4">
 							<button
-								onclick={() => orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
+								onclick={() =>
+									orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
 								class="group flex h-[52px] cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 							>
 								<span>Запросить счёт с НДС</span>
@@ -181,9 +245,7 @@
 		<!-- Section 2: Technical specifications -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Технические характеристики
 				</span>
 				<h2
@@ -198,81 +260,82 @@
 			</div>
 
 			<div class="double-bezel">
-						<div class="double-bezel-inner relative overflow-hidden p-6 sm:p-8">
-							<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
-								Матрица типоразмеров
-							</span>
-							<h3 class="mb-6 font-serif text-2xl font-light text-brand-dark">
-								Бочки МегаПак — геометрия и комплектация
-							</h3>
+				<div class="double-bezel-inner relative overflow-hidden p-6 sm:p-8">
+					<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
+						Матрица типоразмеров
+					</span>
+					<h3 class="mb-6 font-serif text-2xl font-light text-brand-dark">
+						Бочки МегаПак — геометрия и комплектация
+					</h3>
 
-							<div class="rounded-xl bg-brand-dark p-6 text-white sm:p-8">
-								<div class="space-y-4 font-mono text-[11px] leading-relaxed">
-									<!-- Table Header -->
-									<div
-										class="flex justify-between border-b border-white/10 pb-3 font-bold"
-									>
-										<span class="w-1/6">ЛИТРАЖ</span>
-										<span class="w-1/6">ДИАМЕТР</span>
-										<span class="w-1/4">ТИП ГОРЛОВИНЫ</span>
-										<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
-									</div>
-
-									<!-- Rows -->
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">48 л</span>
-										<span class="w-1/6 text-neutral-400">Ø 380 мм</span>
-										<span class="w-1/4 text-neutral-400">L-Ring, 2 пробки (G3/4 и G2)</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Реагенты, растворители</span
-										>
-									</div>
-
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">65 л</span>
-										<span class="w-1/6 text-neutral-400">Ø 380 мм</span>
-										<span class="w-1/4 text-neutral-400">L-Ring / Open Top</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Краски, клеи, пульпа</span
-										>
-									</div>
-
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">127 л</span>
-										<span class="w-1/6 text-neutral-400">Ø 455 мм</span>
-										<span class="w-1/4 text-neutral-400">Open Top + стальной хомут</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Пищевые пюре, пасты</span
-										>
-									</div>
-
-									<div class="flex justify-between py-2.5">
-										<span class="w-1/6 text-neutral-400">227 л</span>
-										<span class="w-1/6 text-neutral-400">Ø 585 мм</span>
-										<span class="w-1/4 text-neutral-400">L-Ring / Open Top</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Опасные грузы, экспорт</span
-										>
-									</div>
+					<div class="overflow-x-auto rounded-xl bg-brand-dark p-6 text-white sm:p-8">
+						<div class="min-w-[540px]">
+							<div class="space-y-4 font-mono text-[11px] leading-relaxed">
+								<!-- Table Header -->
+								<div class="flex justify-between border-b border-white/10 pb-3 font-bold">
+									<span class="w-1/6">ЛИТРАЖ</span>
+									<span class="w-1/6">ДИАМЕТР</span>
+									<span class="w-1/4">ТИП ГОРЛОВИНЫ</span>
+									<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
 								</div>
 
-								<div
-									class="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] text-neutral-400"
-								>
-									<span>*Бочки L-Ring укомплектованы двумя пробками с уплотнительными кольцами.</span>
-									<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
+								<!-- Rows -->
+								<div class="flex justify-between border-b border-white/5 py-2.5">
+									<span class="w-1/6 text-neutral-400">48 л</span>
+									<span class="w-1/6 text-neutral-400">Ø 380 мм</span>
+									<span class="w-1/4 text-neutral-400">L-Ring, 2 пробки (G3/4 и G2)</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Реагенты, растворители</span
+									>
+								</div>
+
+								<div class="flex justify-between border-b border-white/5 py-2.5">
+									<span class="w-1/6 text-neutral-400">65 л</span>
+									<span class="w-1/6 text-neutral-400">Ø 380 мм</span>
+									<span class="w-1/4 text-neutral-400">L-Ring / Open Top</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Краски, клеи, пульпа</span
+									>
+								</div>
+
+								<div class="flex justify-between border-b border-white/5 py-2.5">
+									<span class="w-1/6 text-neutral-400">127 л</span>
+									<span class="w-1/6 text-neutral-400">Ø 455 мм</span>
+									<span class="w-1/4 text-neutral-400">Open Top + стальной хомут</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Пищевые пюре, пасты</span
+									>
+								</div>
+
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">227 л</span>
+									<span class="w-1/6 text-neutral-400">Ø 585 мм</span>
+									<span class="w-1/4 text-neutral-400">L-Ring / Open Top</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Опасные грузы, экспорт</span
+									>
 								</div>
 							</div>
+
+							<div
+								class="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] text-neutral-400"
+							>
+								<span>*Бочки L-Ring укомплектованы двумя пробками с уплотнительными кольцами.</span>
+								<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
+							</div>
 						</div>
+					</div>
 				</div>
+			</div>
 		</div>
+
+		<!-- Product line -->
+		<ProductLineup {...lineup} />
 
 		<!-- Section 3: Industries -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Отрасли применения
 				</span>
 				<h2
@@ -298,17 +361,16 @@
 								Пищевой допуск
 							</span>
 						</div>
-						<h3 class="font-serif text-2xl font-light text-brand-dark">
-							Пищевая промышленность
-						</h3>
+						<h3 class="font-serif text-2xl font-light text-brand-dark">Пищевая промышленность</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
-							Бочки с открытой горловиной (Open Top) с установленным пищевым полиэтиленовым вкладышем
-							используются для фасовки, длительного хранения и экспорта ягодных и фруктовых пюре,
-							томатной пасты, концентратов соков, повидла, патоки и меда. Используется исключительно
-							100% первичный полиэтилен без добавления вторичного сырья.
+							Бочки с открытой горловиной (Open Top) с установленным пищевым полиэтиленовым
+							вкладышем используются для фасовки, длительного хранения и экспорта ягодных и
+							фруктовых пюре, томатной пасты, концентратов соков, повидла, патоки и меда.
+							Используется исключительно 100% первичный полиэтилен без добавления вторичного сырья.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -342,7 +404,8 @@
 							большинству агрессивных сред при концентрациях до паспортных пределов.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -366,17 +429,16 @@
 								Опасные грузы
 							</span>
 						</div>
-						<h3 class="font-serif text-2xl font-light text-brand-dark">
-							Нефтехимия и ГСМ
-						</h3>
+						<h3 class="font-serif text-2xl font-light text-brand-dark">Нефтехимия и ГСМ</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 							Обеспечивают безопасный розлив, складское хранение и логистику моторных,
 							трансмиссионных и индустриальных масел, технологических присадок, антифрикционных
-							пластичных смазок, парафинов и битумных эмульсий. Бочки разработаны с учётом требований
-							транспортной безопасности при перевозке опасных грузов по ДОПОГ.
+							пластичных смазок, парафинов и битумных эмульсий. Бочки разработаны с учётом
+							требований транспортной безопасности при перевозке опасных грузов по ДОПОГ.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -410,7 +472,8 @@
 							надёжно защищает продукт от высыхания и проливания.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -428,15 +491,15 @@
 		<!-- Section 4: Certificates -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Сертификаты и соответствия
 				</span>
 				<h2
 					class="font-serif text-3xl leading-tight font-light tracking-tight text-brand-dark md:text-4xl"
 				>
-					Подтверждённое качество <span class="font-normal text-brand-accent italic">по стандартам</span>
+					Подтверждённое качество <span class="font-normal text-brand-accent italic"
+						>по стандартам</span
+					>
 				</h2>
 			</div>
 
@@ -501,9 +564,7 @@
 								✓
 							</div>
 							<div>
-								<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
-									ДОПОГ
-								</h4>
+								<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">ДОПОГ</h4>
 								<p class="mt-1 text-[13px] leading-relaxed text-brand-gray">
 									Европейское соглашение о международной дорожной перевозке опасных грузов. Бочки
 									227 л прошли испытания на падение, герметичность и гидравлическое давление в
@@ -517,52 +578,57 @@
 		</div>
 
 		<!-- Section 5: CTA -->
-			<div class="double-bezel">
-				<div class="double-bezel-inner relative overflow-hidden p-8 sm:p-12">
-					<div class="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
+		<div class="double-bezel">
+			<div class="double-bezel-inner relative overflow-hidden p-8 sm:p-12">
+				<div
+					class="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left"
+				>
 					<div>
 						<h3 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-4xl">
-							Запросить счёт с НДС <span class="font-normal text-brand-accent italic">на бочки</span>
-						</h3>
-							<p class="mt-3 max-w-xl text-sm leading-relaxed text-brand-gray">
-								Пришлите реквизиты организации и спецификацию по литражам — дежурный менеджер сбыта
-								подготовит официальный счёт с НДС и пакет закрывающих документов.
-							</p>
-						</div>
-
-						<button
-							onclick={() => orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
-							class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
-						>
-							<span>Получить счёт</span>
-							<span
-								class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
+							Запросить счёт с НДС <span class="font-normal text-brand-accent italic">на бочки</span
 							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="2.5"
-									stroke="currentColor"
-									class="h-3 w-3 text-white"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-									/>
-								</svg>
-							</span>
-						</button>
+						</h3>
+						<p class="mt-3 max-w-xl text-sm leading-relaxed text-brand-gray">
+							Пришлите реквизиты организации и спецификацию по литражам — дежурный менеджер сбыта
+							подготовит официальный счёт с НДС и пакет закрывающих документов.
+						</p>
 					</div>
+
+					<button
+						onclick={() => orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
+						class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
+					>
+						<span>Получить счёт</span>
+						<span
+							class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="2.5"
+								stroke="currentColor"
+								class="h-3 w-3 text-white"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+								/>
+							</svg>
+						</span>
+					</button>
 				</div>
 			</div>
+		</div>
 
 		<!-- Section 6: Cross-reference to full catalog -->
 		<div>
 			<a href="/catalog" class="group block">
 				<div class="double-bezel transition-transform duration-500 group-hover:scale-[1.005]">
-					<div class="double-bezel-inner flex flex-col items-center gap-6 p-8 sm:flex-row sm:justify-between sm:p-10">
+					<div
+						class="double-bezel-inner flex flex-col items-center gap-6 p-8 sm:flex-row sm:justify-between sm:p-10"
+					>
 						<div>
 							<span
 								class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"

@@ -57,7 +57,7 @@
 				<ul class="space-y-2 text-sm text-neutral-400">
 					<li>
 						<a href="/applications" class="transition-colors duration-200 hover:text-white"
-							>Применение тары</a
+							>Применение</a
 						>
 					</li>
 					<li>

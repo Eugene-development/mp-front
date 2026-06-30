@@ -2,17 +2,46 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { afterNavigate } from '$app/navigation';
-	import { onDestroy } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import InfoBanner from '$lib/components/InfoBanner.svelte';
 	import ContactsModal from '$lib/components/ContactsModal.svelte';
 	import OrderModal from '$lib/components/OrderModal.svelte';
 	import PriceRequestModal from '$lib/components/PriceRequestModal.svelte';
+	import RegionGate from '$lib/components/Antibot/RegionGate.svelte';
+	import SmartCaptchaWidget from '$lib/components/Antibot/SmartCaptchaWidget.svelte';
+	import { trust } from '$lib/antibot/trust.svelte';
+	import { trackHumanSignal } from '$lib/antibot/useHumanSignal.svelte';
+	import { captcha } from '$lib/antibot/smartcaptcha.svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
 
 	let observer;
+	let stopHumanSignal = () => {};
+
+	onMount(() => {
+		// Антибот: восстанавливаем состояние доверия из localStorage.
+		// Если посетитель уже проходил барьер — Метрика инициализируется сразу,
+		// модалка региона не показывается.
+		trust.restore();
+
+		// Антибот: слушаем базовую активность (mouse/touch/scroll). При первом
+		// живом сигнале взводим невидимую SmartCaptcha — headless-боты, не
+		// генерирующие таких событий, никогда не получат токен.
+		stopHumanSignal = trackHumanSignal({
+			onSignal: () => {
+				if (!captcha.token) captcha.execute();
+			}
+		});
+	});
+
+	onDestroy(() => {
+		if (observer) {
+			observer.disconnect();
+		}
+		stopHumanSignal();
+	});
 
 	afterNavigate(() => {
 		if (observer) {
@@ -41,12 +70,6 @@
 
 		setTimeout(setupObserver, 100);
 	});
-
-	onDestroy(() => {
-		if (observer) {
-			observer.disconnect();
-		}
-	});
 </script>
 
 <svelte:head>
@@ -69,4 +92,8 @@
 	<ContactsModal />
 	<OrderModal />
 	<PriceRequestModal />
+
+	<!-- Антибот: модалка выбора региона (поведенческий барьер) и невидимая SmartCaptcha -->
+	<RegionGate geo={data.geo} />
+	<SmartCaptchaWidget />
 </div>

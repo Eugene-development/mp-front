@@ -1,6 +1,9 @@
 <script>
 	import { orderModal } from '../modalState.svelte.js';
 	import { fade, scale } from 'svelte/transition';
+	import Honeypot from './Antibot/Honeypot.svelte';
+	import { captcha } from '$lib/antibot/smartcaptcha.svelte';
+	import { reachGoal } from '$lib/antibot/metrika';
 
 	// Close on ESC key press
 	function handleKeydown(event) {
@@ -16,6 +19,9 @@
 	let contactEmail = $state('');
 	let orderComment = $state('');
 
+	// Honeypot: ботозащита. Заполняется только ботами → submit блокируется.
+	let hp = $state('');
+
 	let isSubmitting = $state(false);
 	let isSuccess = $state(false);
 	let error = $state('');
@@ -28,8 +34,35 @@
 
 	const authApiUrl = import.meta.env.VITE_AUTH_API_URL || 'http://localhost:8001/api';
 
+	/** Готова ли форма к отправке: капча пройдена (или не настроена). */
+	const canSubmit = $derived(
+		!!captcha.token || import.meta.env.VITE_SMARTCAPTCHA_SITE_KEY === undefined
+	);
+
 	async function handleSubmit(e) {
 		e.preventDefault();
+
+		// Антибот №1: honeypot. Если «скрытое» поле заполнено — это бот.
+		// Тихо имитируем успех, чтобы не давать сигнала, что защита сработала.
+		if (hp) {
+			isSuccess = true;
+			return;
+		}
+
+		// Антибот №2: токен SmartCaptcha обязателен. Обычно он уже получен
+		// заранее (по первой живой активности — см. +layout.svelte). Но если
+		// токена ещё нет (например, юзер не двигал мышью) — это подстраховка:
+		// дёргаем execute() прямо сейчас и ждём результата капчи.
+		if (!captcha.token) {
+			const result = await captcha.execute();
+			if (!result.token) {
+				// Капча не пройдена (бот не справился с челленджем или виджет не готов).
+				error = 'Не удалось пройти проверку. Попробуйте ещё раз.';
+				captcha.reset();
+				return;
+			}
+		}
+
 		error = '';
 		isSubmitting = true;
 
@@ -48,7 +81,8 @@
 					phone: contactPhone.trim(),
 					email: contactEmail.trim(),
 					comment: orderComment.trim() || null,
-					source_url: sourceUrl
+					source_url: sourceUrl,
+					captcha_token: captcha.token
 				})
 			});
 
@@ -62,6 +96,9 @@
 				throw new Error(result.message || 'Не удалось отправить запрос');
 			}
 
+			// Конверсия для Директа: цель «отправка заявки на счёт».
+			reachGoal('invoice_request_submit');
+
 			isSuccess = true;
 			// Reset form fields
 			companyName = '';
@@ -69,9 +106,13 @@
 			contactPhone = '';
 			contactEmail = '';
 			orderComment = '';
+			// Токен одноразовый — сбрасываем виджет для следующего раза.
+			captcha.reset();
 		} catch (err) {
 			console.error('Invoice request error:', err);
 			error = err.message || 'Не удалось отправить заявку. Попробуйте позже.';
+			// При ошибке тоже сбрасываем капчу — токен мог быть потрачен.
+			captcha.reset();
 		} finally {
 			isSubmitting = false;
 		}
@@ -139,8 +180,8 @@
 							Запрос успешно отправлен!
 						</h3>
 						<p class="mb-8 max-w-sm text-sm leading-relaxed text-brand-gray">
-							Спасибо! Дежурный менеджер сбыта уже получил вашу спецификацию и подготовит счёт с
-							НДС и пакет закрывающих документов.
+							Спасибо! Дежурный менеджер сбыта уже получил вашу спецификацию и подготовит счёт с НДС
+							и пакет закрывающих документов.
 						</p>
 						<button
 							onclick={handleClose}
@@ -167,6 +208,9 @@
 
 					<!-- Form -->
 					<form class="space-y-4" onsubmit={handleSubmit}>
+						<!-- Honeypot: скрытая ловушка для ботов (см. Honeypot.svelte) -->
+						<Honeypot bind:value={hp} />
+
 						<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 							<div class="flex flex-col">
 								<label
@@ -252,7 +296,7 @@
 
 						<button
 							type="submit"
-							disabled={isSubmitting}
+							disabled={isSubmitting || !canSubmit}
 							class="group mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-brand-dark px-6 py-4 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-75"
 						>
 							{#if isSubmitting}

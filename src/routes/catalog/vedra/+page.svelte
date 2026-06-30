@@ -1,6 +1,7 @@
 <script>
 	import { orderModal } from '$lib/modalState.svelte.js';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+	import ProductLineup from '$lib/components/ProductLineup.svelte';
 	import { fade, scale } from 'svelte/transition';
 
 	let activeImage = $state(null);
@@ -21,6 +22,77 @@
 			closeImageModal();
 		}
 	}
+
+	const lineup = {
+		label: 'Линейка продукции',
+		title: 'Полный размерный ряд',
+		titleAccent: 'пластиковых вёдер',
+		subtitle:
+			'Пять категорий объёмов — от лабораторных доз до оптовой тары. Все с герметичной крышкой и замком первого вскрытия. Выберите объём, чтобы увидеть диаметр и тип ручки.',
+		scaleHint: 'Высота столбика пропорциональна объёму',
+		variants: [
+			{
+				chip: '1',
+				chipUnit: 'л',
+				title: '1 л',
+				scaleLabel: 'объём',
+				scale: 1,
+				specs: [
+					{ label: 'Ø корпуса', value: '110 мм' },
+					{ label: 'Ручка', value: 'Пластиковая' }
+				],
+				use: 'Сэмплы, дозы, фармацевтика.'
+			},
+			{
+				chip: '3–5',
+				chipUnit: 'л',
+				title: '3–5 л',
+				scaleLabel: 'объём',
+				scale: 4,
+				specs: [
+					{ label: 'Ø корпуса', value: '180 мм' },
+					{ label: 'Ручка', value: 'Пластик / Металл' }
+				],
+				use: 'Мёд, соусы, краски.'
+			},
+			{
+				chip: '10',
+				chipUnit: 'л',
+				title: '10 л',
+				scaleLabel: 'объём',
+				scale: 10,
+				specs: [
+					{ label: 'Ø корпуса', value: '260 мм' },
+					{ label: 'Ручка', value: 'Металлическая' }
+				],
+				use: 'Майонез, шпаклёвки.'
+			},
+			{
+				chip: '20',
+				chipUnit: 'л',
+				title: '20 л',
+				scaleLabel: 'объём',
+				scale: 20,
+				specs: [
+					{ label: 'Ø корпуса', value: '300 мм' },
+					{ label: 'Ручка', value: 'Металлическая' }
+				],
+				use: 'Строительные смеси.'
+			},
+			{
+				chip: '32',
+				chipUnit: 'л',
+				title: '32 л',
+				scaleLabel: 'объём',
+				scale: 32,
+				specs: [
+					{ label: 'Ø корпуса', value: '350 мм' },
+					{ label: 'Ручка', value: 'Металлическая' }
+				],
+				use: 'Оптовая фасовка, химия.'
+			}
+		]
+	};
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
@@ -43,7 +115,7 @@
 		class="absolute top-[10%] left-[15%] h-[55vw] w-[55vw] animate-ambient-slow rounded-full bg-brand-accent-light/10 blur-[130px]"
 	></div>
 	<div
-		class="absolute bottom-[5%] -right-[5%] h-[50vw] w-[50vw] rounded-full bg-amber-500/5 blur-[120px]"
+		class="absolute -right-[5%] bottom-[5%] h-[50vw] w-[50vw] rounded-full bg-amber-500/5 blur-[120px]"
 		style="animation-delay: -7s;"
 	></div>
 </div>
@@ -97,12 +169,14 @@
 						<p class="mt-4 max-w-xl text-sm leading-relaxed text-brand-gray">
 							Усиленная конструкция корпуса в сочетании с герметичной крышкой и замком первого
 							вскрытия обеспечивают защиту от просыпания и проливания сыпучей и жидкой продукции.
-							Возможна широкая палитра цветов и нанесение IML-этикеток с фирменным дизайном заказчика
-							прямо в форме при формовании.
+							Возможна широкая палитра цветов и нанесение IML-этикеток с фирменным дизайном
+							заказчика прямо в форме при формовании.
 						</p>
 
 						<!-- Key USPs -->
-						<div class="mt-8 grid w-full max-w-xl grid-cols-3 gap-6 border-t border-brand-divider pt-6">
+						<div
+							class="mt-8 grid w-full max-w-xl grid-cols-3 gap-6 border-t border-brand-divider pt-6"
+						>
 							<div class="flex flex-col">
 								<span class="font-serif text-2xl font-light text-brand-dark">1–32 л</span>
 								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
@@ -181,9 +255,7 @@
 		<!-- Section 2: Technical specifications -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Технические характеристики
 				</span>
 				<h2
@@ -198,90 +270,91 @@
 			</div>
 
 			<div class="double-bezel">
-						<div class="double-bezel-inner relative overflow-hidden p-6 sm:p-8">
-							<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
-								Матрица типоразмеров
-							</span>
-							<h3 class="mb-6 font-serif text-2xl font-light text-brand-dark">
-								Вёдра МегаПак — геометрия и комплектация
-							</h3>
+				<div class="double-bezel-inner relative overflow-hidden p-6 sm:p-8">
+					<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
+						Матрица типоразмеров
+					</span>
+					<h3 class="mb-6 font-serif text-2xl font-light text-brand-dark">
+						Вёдра МегаПак — геометрия и комплектация
+					</h3>
 
-							<div class="rounded-xl bg-brand-dark p-6 text-white sm:p-8">
-								<div class="space-y-4 font-mono text-[11px] leading-relaxed">
-									<!-- Table Header -->
-									<div
-										class="flex justify-between border-b border-white/10 pb-3 font-bold"
-									>
-										<span class="w-1/6">ЛИТРАЖ</span>
-										<span class="w-1/6">ДИАМЕТР</span>
-										<span class="w-1/4">РУЧКА</span>
-										<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
-									</div>
-
-									<!-- Rows -->
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">1 л</span>
-										<span class="w-1/6 text-neutral-400">Ø 110 мм</span>
-										<span class="w-1/4 text-neutral-400">Пластиковая</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Сэмплы, дозы, фарма</span
-										>
-									</div>
-
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">3–5 л</span>
-										<span class="w-1/6 text-neutral-400">Ø 180 мм</span>
-										<span class="w-1/4 text-neutral-400">Пластиковая / Металлическая</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Мёд, соусы, краски</span
-										>
-									</div>
-
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">10 л</span>
-										<span class="w-1/6 text-neutral-400">Ø 260 мм</span>
-										<span class="w-1/4 text-neutral-400">Металлическая</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Майонез, шпаклёвки</span
-										>
-									</div>
-
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">20 л</span>
-										<span class="w-1/6 text-neutral-400">Ø 300 мм</span>
-										<span class="w-1/4 text-neutral-400">Металлическая</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Строительные смеси</span
-										>
-									</div>
-
-									<div class="flex justify-between py-2.5">
-										<span class="w-1/6 text-neutral-400">32 л</span>
-										<span class="w-1/6 text-neutral-400">Ø 350 мм</span>
-										<span class="w-1/4 text-neutral-400">Металлическая</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Оптовая фасовка, химия</span
-										>
-									</div>
+					<div class="overflow-x-auto rounded-xl bg-brand-dark p-6 text-white sm:p-8">
+						<div class="min-w-[540px]">
+							<div class="space-y-4 font-mono text-[11px] leading-relaxed">
+								<!-- Table Header -->
+								<div class="flex justify-between border-b border-white/10 pb-3 font-bold">
+									<span class="w-1/6">ЛИТРАЖ</span>
+									<span class="w-1/6">ДИАМЕТР</span>
+									<span class="w-1/4">РУЧКА</span>
+									<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
 								</div>
 
-								<div
-									class="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] text-neutral-400"
-								>
-									<span>*Все крышки оснащены замком первого вскрытия (контрольной пломбой).</span>
-									<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
+								<!-- Rows -->
+								<div class="flex justify-between border-b border-white/5 py-2.5">
+									<span class="w-1/6 text-neutral-400">1 л</span>
+									<span class="w-1/6 text-neutral-400">Ø 110 мм</span>
+									<span class="w-1/4 text-neutral-400">Пластиковая</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Сэмплы, дозы, фарма</span
+									>
+								</div>
+
+								<div class="flex justify-between border-b border-white/5 py-2.5">
+									<span class="w-1/6 text-neutral-400">3–5 л</span>
+									<span class="w-1/6 text-neutral-400">Ø 180 мм</span>
+									<span class="w-1/4 text-neutral-400">Пластиковая / Металлическая</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Мёд, соусы, краски</span
+									>
+								</div>
+
+								<div class="flex justify-between border-b border-white/5 py-2.5">
+									<span class="w-1/6 text-neutral-400">10 л</span>
+									<span class="w-1/6 text-neutral-400">Ø 260 мм</span>
+									<span class="w-1/4 text-neutral-400">Металлическая</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Майонез, шпаклёвки</span
+									>
+								</div>
+
+								<div class="flex justify-between border-b border-white/5 py-2.5">
+									<span class="w-1/6 text-neutral-400">20 л</span>
+									<span class="w-1/6 text-neutral-400">Ø 300 мм</span>
+									<span class="w-1/4 text-neutral-400">Металлическая</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Строительные смеси</span
+									>
+								</div>
+
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">32 л</span>
+									<span class="w-1/6 text-neutral-400">Ø 350 мм</span>
+									<span class="w-1/4 text-neutral-400">Металлическая</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Оптовая фасовка, химия</span
+									>
 								</div>
 							</div>
+
+							<div
+								class="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] text-neutral-400"
+							>
+								<span>*Все крышки оснащены замком первого вскрытия (контрольной пломбой).</span>
+								<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
+							</div>
 						</div>
+					</div>
 				</div>
+			</div>
 		</div>
+
+		<!-- Product line -->
+		<ProductLineup {...lineup} />
 
 		<!-- Section 3: Industries -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Отрасли применения
 				</span>
 				<h2
@@ -307,17 +380,16 @@
 								Пищевой допуск
 							</span>
 						</div>
-						<h3 class="font-serif text-2xl font-light text-brand-dark">
-							Пищевая промышленность
-						</h3>
+						<h3 class="font-serif text-2xl font-light text-brand-dark">Пищевая промышленность</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 							Герметичность и пищевой допуск сырья делают ведра идеальными для хранения и
-							транспортировки молочных продуктов, солений, майонеза, соусов, меда, джемов,
-							маринадов и кондитерских паст. Поставляются с крышкой, оснащенной замком первого
-							вскрытия, гарантирующим неизменность продукта с момента фасовки до потребителя.
+							транспортировки молочных продуктов, солений, майонеза, соусов, меда, джемов, маринадов
+							и кондитерских паст. Поставляются с крышкой, оснащенной замком первого вскрытия,
+							гарантирующим неизменность продукта с момента фасовки до потребителя.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -346,12 +418,13 @@
 						</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 							Усиленная конструкция ведер обеспечивает надежное хранение водно-дисперсионных красок,
-							лаков, строительных клеев, мастик, грунтовок и готовых штукатурок. Обеспечивается защита
-							от просыпания и проливания сыпучей и жидкой строительной продукции, а замок первого
-							вскрытия подтверждает целостность продукта покупателю.
+							лаков, строительных клеев, мастик, грунтовок и готовых штукатурок. Обеспечивается
+							защита от просыпания и проливания сыпучей и жидкой строительной продукции, а замок
+							первого вскрытия подтверждает целостность продукта покупателю.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -379,13 +452,14 @@
 							Бытовая и промышленная химия
 						</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
-							Применяются для фасовки стиральных порошков, чистящих паст, удобрений,
-							автокосметики, химических реагентов и дезинфицирующих средств. Имеется защита от
-							просыпания и проливания сыпучей и жидкой химической продукции с крышкой, оснащенной
-							замком первого вскрытия. HDPE стоек к большинству бытовых и промышленных составов.
+							Применяются для фасовки стиральных порошков, чистящих паст, удобрений, автокосметики,
+							химических реагентов и дезинфицирующих средств. Имеется защита от просыпания и
+							проливания сыпучей и жидкой химической продукции с крышкой, оснащенной замком первого
+							вскрытия. HDPE стоек к большинству бытовых и промышленных составов.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -409,9 +483,7 @@
 								Фарма. чистота
 							</span>
 						</div>
-						<h3 class="font-serif text-2xl font-light text-brand-dark">
-							Фармацевтика и косметика
-						</h3>
+						<h3 class="font-serif text-2xl font-light text-brand-dark">Фармацевтика и косметика</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 							Вёдра малого литража (1–5 л) с гладкой внутренней поверхностью применяются для фасовки
 							фармацевтических субстанций, косметических основ, кремов, гелей, БАДов и влажных
@@ -419,7 +491,8 @@
 							контрафакта на этапе реализации. Используется только 100% первичный полиэтилен.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -437,15 +510,15 @@
 		<!-- Section 4: Certificates -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Сертификаты и соответствия
 				</span>
 				<h2
 					class="font-serif text-3xl leading-tight font-light tracking-tight text-brand-dark md:text-4xl"
 				>
-					Подтверждённое качество <span class="font-normal text-brand-accent italic">по стандартам</span>
+					Подтверждённое качество <span class="font-normal text-brand-accent italic"
+						>по стандартам</span
+					>
 				</h2>
 			</div>
 
@@ -525,52 +598,57 @@
 		</div>
 
 		<!-- Section 5: CTA -->
-			<div class="double-bezel">
-				<div class="double-bezel-inner relative overflow-hidden p-8 sm:p-12">
-					<div class="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-						<div>
-							<h3 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-4xl">
-								Запросить счёт с НДС <span class="font-normal text-brand-accent italic">на вёдра</span>
-							</h3>
-							<p class="mt-3 max-w-xl text-sm leading-relaxed text-brand-gray">
-								Пришлите реквизиты организации и спецификацию по литражам и цветам — дежурный
-								менеджер сбыта подготовит официальный счёт с НДС и пакет закрывающих документов.
-							</p>
-						</div>
-
-						<button
-							onclick={() => orderModal.open('Запрос счета с НДС на пластиковые ведра')}
-							class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
-						>
-							<span>Получить счёт</span>
-							<span
-								class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
+		<div class="double-bezel">
+			<div class="double-bezel-inner relative overflow-hidden p-8 sm:p-12">
+				<div
+					class="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left"
+				>
+					<div>
+						<h3 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-4xl">
+							Запросить счёт с НДС <span class="font-normal text-brand-accent italic">на вёдра</span
 							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="2.5"
-									stroke="currentColor"
-									class="h-3 w-3 text-white"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-									/>
-								</svg>
-							</span>
-						</button>
+						</h3>
+						<p class="mt-3 max-w-xl text-sm leading-relaxed text-brand-gray">
+							Пришлите реквизиты организации и спецификацию по литражам и цветам — дежурный менеджер
+							сбыта подготовит официальный счёт с НДС и пакет закрывающих документов.
+						</p>
 					</div>
+
+					<button
+						onclick={() => orderModal.open('Запрос счета с НДС на пластиковые ведра')}
+						class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
+					>
+						<span>Получить счёт</span>
+						<span
+							class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="2.5"
+								stroke="currentColor"
+								class="h-3 w-3 text-white"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+								/>
+							</svg>
+						</span>
+					</button>
 				</div>
 			</div>
+		</div>
 
 		<!-- Section 6: Cross-reference to full catalog -->
 		<div>
 			<a href="/catalog" class="group block">
 				<div class="double-bezel transition-transform duration-500 group-hover:scale-[1.005]">
-					<div class="double-bezel-inner flex flex-col items-center gap-6 p-8 sm:flex-row sm:justify-between sm:p-10">
+					<div
+						class="double-bezel-inner flex flex-col items-center gap-6 p-8 sm:flex-row sm:justify-between sm:p-10"
+					>
 						<div>
 							<span
 								class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
@@ -581,8 +659,8 @@
 								Смотреть полный каталог
 							</h3>
 							<p class="mt-2 max-w-xl text-sm leading-relaxed text-brand-gray">
-								Помимо вёдер производим штабелируемые полимерные канистры 1–31.5 л, пластиковые бочки
-								L-Ring/Open Top 48–227 л и еврокубы (IBC) 1000 литров под любые технические
+								Помимо вёдер производим штабелируемые полимерные канистры 1–31.5 л, пластиковые
+								бочки L-Ring/Open Top 48–227 л и еврокубы (IBC) 1000 литров под любые технические
 								требования.
 							</p>
 						</div>

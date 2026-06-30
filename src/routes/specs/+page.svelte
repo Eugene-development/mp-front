@@ -46,64 +46,65 @@
 	<div class="grid grid-cols-1 items-stretch gap-12 lg:grid-cols-12">
 		<!-- Left: Comparison Matrix Table (col-span-7) -->
 		<div class="flex flex-col justify-between lg:col-span-7">
-			<div class="double-bezel">
-				<div
-					class="double-bezel-inner relative overflow-hidden rounded-2xl bg-brand-dark p-6 text-white sm:p-8"
-				>
-					<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
-						Результаты заводских испытаний
-					</span>
-					<h3 class="mb-6 font-serif text-2xl font-light text-white">
-						Технические нормативы тары МегаПак
-					</h3>
-
-					<div class="space-y-4 font-mono text-[11px] leading-relaxed">
-						<!-- Table Header -->
-						<div
-							class="text-neutral-450 flex justify-between border-b border-white/10 pb-3 font-bold"
-						>
-							<span class="w-2/5">ПОКАЗАТЕЛЬ / ТЕСТ</span>
-							<span class="w-1/3 text-left">НОРМА ГОСТ / ДОПОГ</span>
-							<span class="w-1/4 text-right text-brand-accent-light">МЕГАПАК</span>
-						</div>
-
-						<!-- Row 1 -->
-						<div class="flex justify-between border-b border-white/5 py-2.5">
-							<span class="w-2/5 text-neutral-400">Устойчивость к падению (высота)</span>
-							<span class="w-1/3 text-neutral-400">1.2 м (для класса II)</span>
-							<span class="w-1/4 text-right font-bold text-emerald-400">1.8 м (Пройден)</span>
-						</div>
-
-						<!-- Row 2 -->
-						<div class="flex justify-between border-b border-white/5 py-2.5">
-							<span class="w-2/5 text-neutral-400">Гидравлическое давление (тест)</span>
-							<span class="w-1/3 text-neutral-400">100 кПа / 30 мин</span>
-							<span class="w-1/4 text-right font-bold text-emerald-400">150 кПа / 60 мин</span>
-						</div>
-
-						<!-- Row 3 -->
-						<div class="flex justify-between border-b border-white/5 py-2.5">
-							<span class="w-2/5 text-neutral-400">Сопротивление сжатию (штабель)</span>
-							<span class="w-1/3 text-neutral-400">ГОСТ 25014-81 (3 ур.)</span>
-							<span class="w-1/4 text-right font-bold text-emerald-400">До 4 уровней</span>
-						</div>
-
-						<!-- Row 4 -->
-						<div class="flex justify-between py-2.5">
-							<span class="w-2/5 text-neutral-400">Рабочие температуры (предел)</span>
-							<span class="w-1/3 text-neutral-400">-30°C ... +60°C</span>
-							<span class="w-1/4 text-right font-bold text-emerald-400">-40°C ... +80°C</span>
-						</div>
-					</div>
-
+				<div class="double-bezel">
 					<div
-						class="mt-8 flex items-center justify-between border-t border-white/10 pt-6 text-[10px] text-neutral-400"
+						class="double-bezel-inner relative overflow-hidden rounded-2xl bg-brand-dark p-6 text-white sm:p-8"
+						style="background-color: var(--color-brand-dark);"
 					>
-						<span>*Испытания проведены в аккредитованной лаборатории.</span>
-						<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
+						<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
+							Результаты заводских испытаний
+						</span>
+						<h3 class="mb-6 font-serif text-2xl font-light text-white">
+							Технические нормативы тары МегаПак
+						</h3>
+
+						<div class="space-y-4 font-mono text-[11px] leading-relaxed">
+							<!-- Table Header -->
+							<div
+								class="flex justify-between border-b border-white/10 pb-3 font-bold"
+							>
+								<span class="w-2/5">ПОКАЗАТЕЛЬ / ТЕСТ</span>
+								<span class="w-1/3 text-left">НОРМА ГОСТ / ДОПОГ</span>
+								<span class="w-1/4 text-right text-brand-accent-light">МЕГАПАК</span>
+							</div>
+
+							<!-- Row 1 -->
+							<div class="flex justify-between border-b border-white/5 py-2.5">
+								<span class="w-2/5 text-neutral-400">Устойчивость к падению (высота)</span>
+								<span class="w-1/3 text-neutral-400">1.2 м (для класса II)</span>
+								<span class="w-1/4 text-right font-bold text-emerald-400">1.8 м (Пройден)</span>
+							</div>
+
+							<!-- Row 2 -->
+							<div class="flex justify-between border-b border-white/5 py-2.5">
+								<span class="w-2/5 text-neutral-400">Гидравлическое давление (тест)</span>
+								<span class="w-1/3 text-neutral-400">100 кПа / 30 мин</span>
+								<span class="w-1/4 text-right font-bold text-emerald-400">150 кПа / 60 мин</span>
+							</div>
+
+							<!-- Row 3 -->
+							<div class="flex justify-between border-b border-white/5 py-2.5">
+								<span class="w-2/5 text-neutral-400">Сопротивление сжатию (штабель)</span>
+								<span class="w-1/3 text-neutral-400">ГОСТ 25014-81 (3 ур.)</span>
+								<span class="w-1/4 text-right font-bold text-emerald-400">До 4 уровней</span>
+							</div>
+
+							<!-- Row 4 -->
+							<div class="flex justify-between py-2.5">
+								<span class="w-2/5 text-neutral-400">Рабочие температуры (предел)</span>
+								<span class="w-1/3 text-neutral-400">-30°C ... +60°C</span>
+								<span class="w-1/4 text-right font-bold text-emerald-400">-40°C ... +80°C</span>
+							</div>
+						</div>
+
+						<div
+							class="mt-8 flex items-center justify-between border-t border-white/10 pt-6 text-[10px] text-neutral-400"
+						>
+							<span>*Испытания проведены в аккредитованной лаборатории.</span>
+							<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
+						</div>
 					</div>
 				</div>
-			</div>
 
 			<!-- Quality Checklist -->
 			<div class="mt-8 space-y-4">

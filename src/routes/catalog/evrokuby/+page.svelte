@@ -1,6 +1,7 @@
 <script>
 	import { orderModal } from '$lib/modalState.svelte.js';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+	import ProductLineup from '$lib/components/ProductLineup.svelte';
 	import { fade, scale } from 'svelte/transition';
 
 	let activeImage = $state(null);
@@ -21,6 +22,62 @@
 			closeImageModal();
 		}
 	}
+
+	const lineup = {
+		label: 'Линейка продукции',
+		title: 'Конфигурации',
+		titleAccent: 'еврокубов 1000 л',
+		subtitle:
+			'Единый объём 1000 литров — варианты по типу поддона и комплектации. Выберите конфигурацию, чтобы увидеть оснащение и назначение.',
+		scaleHint: 'Единый объём 1000 л',
+		variants: [
+			{
+				chip: 'Дерево',
+				title: 'Дерево',
+				scaleLabel: 'поддон',
+				scale: 1000,
+				specs: [
+					{ label: 'Горловина', value: 'Ø 150 мм' },
+					{ label: 'Сливной кран', value: 'DN50' }
+				],
+				use: 'Химия, реагенты.'
+			},
+			{
+				chip: 'Металл',
+				title: 'Металл',
+				scaleLabel: 'поддон',
+				scale: 1000,
+				specs: [
+					{ label: 'Горловина', value: 'Ø 225 мм' },
+					{ label: 'Сливной кран', value: 'DN50' }
+				],
+				use: 'Пищевые жидкости.'
+			},
+			{
+				chip: 'Пластик',
+				title: 'Пластик',
+				scaleLabel: 'поддон',
+				scale: 1000,
+				specs: [
+					{ label: 'Горловина', value: 'Ø 150 мм' },
+					{ label: 'Сливной кран', value: 'DN80' }
+				],
+				use: 'ГСМ, отработка.'
+			},
+			{
+				chip: 'Термо',
+				title: 'Термо',
+				tag: 'Опция',
+				scaleLabel: 'комплектация',
+				scale: 1000,
+				specs: [
+					{ label: 'Термоизоляция', value: 'Термочехол' },
+					{ label: 'Подогрев', value: 'ТЭН' }
+				],
+				use: 'Вязкие и застывающие грузы.'
+			}
+		]
+	};
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
@@ -43,7 +100,7 @@
 		class="absolute top-[10%] left-[15%] h-[55vw] w-[55vw] animate-ambient-slow rounded-full bg-brand-accent-light/10 blur-[130px]"
 	></div>
 	<div
-		class="absolute bottom-[5%] -right-[5%] h-[50vw] w-[50vw] rounded-full bg-amber-500/5 blur-[120px]"
+		class="absolute -right-[5%] bottom-[5%] h-[50vw] w-[50vw] rounded-full bg-amber-500/5 blur-[120px]"
 		style="animation-delay: -7s;"
 	></div>
 </div>
@@ -59,9 +116,9 @@
 			<span class="font-normal text-brand-accent italic">1000 литров</span>
 		</h1>
 		<p class="mt-4 max-w-2xl text-sm leading-relaxed text-brand-gray">
-			Крупногабаритная тара объёмом 1000 литров, состоящая из полиэтиленовой внутренней колбы и прочной
-			стальной оцинкованной обрешётки. Поставляются на деревянном, металлическом и пластиковом поддоне
-			под любые технические требования. Доступны новые и б/у исполнения.
+			Крупногабаритная тара объёмом 1000 литров, состоящая из полиэтиленовой внутренней колбы и
+			прочной стальной оцинкованной обрешётки. Поставляются на деревянном, металлическом и
+			пластиковом поддоне под любые технические требования. Доступны новые и б/у исполнения.
 		</p>
 	</div>
 
@@ -96,13 +153,15 @@
 						<p class="mt-4 max-w-xl text-sm leading-relaxed text-brand-gray">
 							Полипропиленовая колба выдувается из химически стойкого полиэтилена и помещается в
 							оцинкованную стальную сетчатую обрешётку. Сливной кран с защитным колпаком, верхняя
-							крышка 150 или 225 мм и возможность штабелирования делают еврокуб универсальным решением
-							для перевозки и хранения жидкостей. Для вязких грузов доступны термочехлы и ТЭНы
-							подогрева.
+							крышка 150 или 225 мм и возможность штабелирования делают еврокуб универсальным
+							решением для перевозки и хранения жидкостей. Для вязких грузов доступны термочехлы и
+							ТЭНы подогрева.
 						</p>
 
 						<!-- Key USPs -->
-						<div class="mt-8 grid w-full max-w-xl grid-cols-3 gap-6 border-t border-brand-divider pt-6">
+						<div
+							class="mt-8 grid w-full max-w-xl grid-cols-3 gap-6 border-t border-brand-divider pt-6"
+						>
 							<div class="flex flex-col">
 								<span class="font-serif text-2xl font-light text-brand-dark">1000 л</span>
 								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
@@ -125,7 +184,8 @@
 
 						<div class="mt-8 flex flex-wrap items-center gap-4">
 							<button
-								onclick={() => orderModal.open('Запрос счета с НДС на еврокубы (IBC-контейнеры) 1000 литров')}
+								onclick={() =>
+									orderModal.open('Запрос счета с НДС на еврокубы (IBC-контейнеры) 1000 литров')}
 								class="group flex h-[52px] cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 							>
 								<span>Запросить счёт с НДС</span>
@@ -181,9 +241,7 @@
 		<!-- Section 2: Technical specifications -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Технические характеристики
 				</span>
 				<h2
@@ -198,81 +256,82 @@
 			</div>
 
 			<div class="double-bezel">
-						<div class="double-bezel-inner relative overflow-hidden p-6 sm:p-8">
-							<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
-								Матрица комплектаций
-							</span>
-							<h3 class="mb-6 font-serif text-2xl font-light text-brand-dark">
-								Еврокубы МегаПак — конструкция и опции
-							</h3>
+				<div class="double-bezel-inner relative overflow-hidden p-6 sm:p-8">
+					<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
+						Матрица комплектаций
+					</span>
+					<h3 class="mb-6 font-serif text-2xl font-light text-brand-dark">
+						Еврокубы МегаПак — конструкция и опции
+					</h3>
 
-							<div class="rounded-xl bg-brand-dark p-6 text-white sm:p-8">
-								<div class="space-y-4 font-mono text-[11px] leading-relaxed">
-									<!-- Table Header -->
-									<div
-										class="flex justify-between border-b border-white/10 pb-3 font-bold"
-									>
-										<span class="w-1/6">ОБЪЁМ</span>
-										<span class="w-1/6">ПОДДОН</span>
-										<span class="w-1/4">ГОРЛОВИНА / КРАН</span>
-										<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
-									</div>
-
-									<!-- Rows -->
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">1000 л</span>
-										<span class="w-1/6 text-neutral-400">Деревянный</span>
-										<span class="w-1/4 text-neutral-400">Ø 150 мм, кран DN50</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Химия, реагенты</span
-										>
-									</div>
-
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">1000 л</span>
-										<span class="w-1/6 text-neutral-400">Металлический</span>
-										<span class="w-1/4 text-neutral-400">Ø 225 мм, кран DN50</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Пищевые жидкости</span
-										>
-									</div>
-
-									<div class="flex justify-between border-b border-white/5 py-2.5">
-										<span class="w-1/6 text-neutral-400">1000 л</span>
-										<span class="w-1/6 text-neutral-400">Пластиковый</span>
-										<span class="w-1/4 text-neutral-400">Ø 150 мм, кран DN80</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>ГСМ, отработка</span
-										>
-									</div>
-
-									<div class="flex justify-between py-2.5">
-										<span class="w-1/6 text-neutral-400">1000 л</span>
-										<span class="w-1/6 text-neutral-400">По запросу</span>
-										<span class="w-1/4 text-neutral-400">+ Термочехол / ТЭН</span>
-										<span class="w-1/3 text-right font-semibold text-brand-accent-light"
-											>Вязкие, застывающие грузы</span
-										>
-									</div>
+					<div class="overflow-x-auto rounded-xl bg-brand-dark p-6 text-white sm:p-8">
+						<div class="min-w-[540px]">
+							<div class="space-y-4 font-mono text-[11px] leading-relaxed">
+								<!-- Table Header -->
+								<div class="flex justify-between border-b border-white/10 pb-3 font-bold">
+									<span class="w-1/6">ОБЪЁМ</span>
+									<span class="w-1/6">ПОДДОН</span>
+									<span class="w-1/4">ГОРЛОВИНА / КРАН</span>
+									<span class="w-1/3 text-right">НАЗНАЧЕНИЕ</span>
 								</div>
 
-								<div
-									class="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] text-neutral-400"
-								>
-									<span>*Возможна поставка новых и прошедших восстановление б/у еврокубов.</span>
-									<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
+								<!-- Rows -->
+								<div class="flex justify-between border-b border-white/5 py-2.5">
+									<span class="w-1/6 text-neutral-400">1000 л</span>
+									<span class="w-1/6 text-neutral-400">Деревянный</span>
+									<span class="w-1/4 text-neutral-400">Ø 150 мм, кран DN50</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Химия, реагенты</span
+									>
+								</div>
+
+								<div class="flex justify-between border-b border-white/5 py-2.5">
+									<span class="w-1/6 text-neutral-400">1000 л</span>
+									<span class="w-1/6 text-neutral-400">Металлический</span>
+									<span class="w-1/4 text-neutral-400">Ø 225 мм, кран DN50</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Пищевые жидкости</span
+									>
+								</div>
+
+								<div class="flex justify-between border-b border-white/5 py-2.5">
+									<span class="w-1/6 text-neutral-400">1000 л</span>
+									<span class="w-1/6 text-neutral-400">Пластиковый</span>
+									<span class="w-1/4 text-neutral-400">Ø 150 мм, кран DN80</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>ГСМ, отработка</span
+									>
+								</div>
+
+								<div class="flex justify-between py-2.5">
+									<span class="w-1/6 text-neutral-400">1000 л</span>
+									<span class="w-1/6 text-neutral-400">По запросу</span>
+									<span class="w-1/4 text-neutral-400">+ Термочехол / ТЭН</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Вязкие, застывающие грузы</span
+									>
 								</div>
 							</div>
+
+							<div
+								class="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] text-neutral-400"
+							>
+								<span>*Возможна поставка новых и прошедших восстановление б/у еврокубов.</span>
+								<span class="font-bold tracking-wider text-white uppercase">Паспорт качества</span>
+							</div>
 						</div>
+					</div>
 				</div>
+			</div>
 		</div>
+
+		<!-- Product line -->
+		<ProductLineup {...lineup} />
 
 		<!-- Section 3: Industries -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Отрасли применения
 				</span>
 				<h2
@@ -308,7 +367,8 @@
 							стойка к большинству агрессивных сред при концентрациях до паспортных пределов.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -332,17 +392,16 @@
 								Пищевой допуск
 							</span>
 						</div>
-						<h3 class="font-serif text-2xl font-light text-brand-dark">
-							Пищевая промышленность
-						</h3>
+						<h3 class="font-serif text-2xl font-light text-brand-dark">Пищевая промышленность</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
-							Применяются для оптовой логистики пищевых жидкостей: виноматериалов, этилового
-							спирта, растительных и кондитерских масел, жидкого шоколада, мелассы, сиропов и
-							пищевых добавок. Используются только новые еврокубы в пищевом исполнении с
-							соответствующим гигиеническим заключением.
+							Применяются для оптовой логистики пищевых жидкостей: виноматериалов, этилового спирта,
+							растительных и кондитерских масел, жидкого шоколада, мелассы, сиропов и пищевых
+							добавок. Используются только новые еврокубы в пищевом исполнении с соответствующим
+							гигиеническим заключением.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -366,9 +425,7 @@
 								Опасные грузы
 							</span>
 						</div>
-						<h3 class="font-serif text-2xl font-light text-brand-dark">
-							Нефтехимия и ГСМ
-						</h3>
+						<h3 class="font-serif text-2xl font-light text-brand-dark">Нефтехимия и ГСМ</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 							Используются на нефтебазах и АЗС для сбора отработанных индустриальных и моторных
 							масел, хранения дизельного топлива, мазута, присадок к топливу и технологических
@@ -376,7 +433,8 @@
 							ТЭНом подогрева. Возможно использование б/у еврокубов.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -405,12 +463,13 @@
 						</h3>
 						<p class="mt-4 text-sm leading-relaxed text-brand-gray">
 							Для продуктов с высокой вязкостью или температурой кристаллизации (парафины, воски,
-							патока, глицерин, тяжелые смолы) еврокубы доукомплектовываются утеплённым термочехлом и
-							встроенным ТЭНом подогрева. Это поддерживает рабочую текучесть продукта и облегчает
+							патока, глицерин, тяжелые смолы) еврокубы доукомплектовываются утеплённым термочехлом
+							и встроенным ТЭНом подогрева. Это поддерживает рабочую текучесть продукта и облегчает
 							слив через нижний кран без дополнительного оборудования.
 						</p>
 						<div class="mt-6 border-t border-brand-divider pt-4">
-							<span class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
+							<span
+								class="mb-2 block text-[12px] font-bold tracking-wider text-brand-dark uppercase"
 								>Хранение и транспортировка:</span
 							>
 							<ul class="space-y-1 text-sm text-brand-gray">
@@ -428,15 +487,15 @@
 		<!-- Section 4: Certificates -->
 		<div>
 			<div class="mb-8">
-				<span
-					class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-				>
+				<span class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase">
 					Сертификаты и соответствия
 				</span>
 				<h2
 					class="font-serif text-3xl leading-tight font-light tracking-tight text-brand-dark md:text-4xl"
 				>
-					Подтверждённое качество <span class="font-normal text-brand-accent italic">по стандартам</span>
+					Подтверждённое качество <span class="font-normal text-brand-accent italic"
+						>по стандартам</span
+					>
 				</h2>
 			</div>
 
@@ -450,13 +509,11 @@
 								✓
 							</div>
 							<div>
-								<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">
-									ДОПОГ
-								</h4>
+								<h4 class="text-sm font-bold tracking-wider text-brand-dark uppercase">ДОПОГ</h4>
 								<p class="mt-1 text-[13px] leading-relaxed text-brand-gray">
 									Европейское соглашение о международной дорожной перевозке опасных грузов. Еврокубы
-									прошли испытания на падение, герметичность и гидравлическое давление в соответствии
-									с требованиями ДОПОГ.
+									прошли испытания на падение, герметичность и гидравлическое давление в
+									соответствии с требованиями ДОПОГ.
 								</p>
 							</div>
 						</div>
@@ -489,8 +546,8 @@
 									Декларации ТР ТС
 								</h4>
 								<p class="mt-1 text-[13px] leading-relaxed text-brand-gray">
-									Декларации соответствия техническому регламенту Таможенного союза на крупногабаритную
-									тару для пищевой продукции и химически опасных грузов.
+									Декларации соответствия техническому регламенту Таможенного союза на
+									крупногабаритную тару для пищевой продукции и химически опасных грузов.
 								</p>
 							</div>
 						</div>
@@ -517,52 +574,59 @@
 		</div>
 
 		<!-- Section 5: CTA -->
-			<div class="double-bezel">
-				<div class="double-bezel-inner relative overflow-hidden p-8 sm:p-12">
-					<div class="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-						<div>
-							<h3 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-4xl">
-								Запросить счёт с НДС <span class="font-normal text-brand-accent italic">на еврокубы</span>
-							</h3>
-							<p class="mt-3 max-w-xl text-sm leading-relaxed text-brand-gray">
-								Пришлите реквизиты организации и спецификацию по поддонам и опциям — дежурный
-								менеджер сбыта подготовит официальный счёт с НДС и пакет закрывающих документов.
-							</p>
-						</div>
-
-						<button
-							onclick={() => orderModal.open('Запрос счета с НДС на еврокубы (IBC-контейнеры) 1000 литров')}
-							class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
-						>
-							<span>Получить счёт</span>
-							<span
-								class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
+		<div class="double-bezel">
+			<div class="double-bezel-inner relative overflow-hidden p-8 sm:p-12">
+				<div
+					class="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left"
+				>
+					<div>
+						<h3 class="font-serif text-3xl font-light tracking-tight text-brand-dark md:text-4xl">
+							Запросить счёт с НДС <span class="font-normal text-brand-accent italic"
+								>на еврокубы</span
 							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="2.5"
-									stroke="currentColor"
-									class="h-3 w-3 text-white"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-									/>
-								</svg>
-							</span>
-						</button>
+						</h3>
+						<p class="mt-3 max-w-xl text-sm leading-relaxed text-brand-gray">
+							Пришлите реквизиты организации и спецификацию по поддонам и опциям — дежурный менеджер
+							сбыта подготовит официальный счёт с НДС и пакет закрывающих документов.
+						</p>
 					</div>
+
+					<button
+						onclick={() =>
+							orderModal.open('Запрос счета с НДС на еврокубы (IBC-контейнеры) 1000 литров')}
+						class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
+					>
+						<span>Получить счёт</span>
+						<span
+							class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="2.5"
+								stroke="currentColor"
+								class="h-3 w-3 text-white"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+								/>
+							</svg>
+						</span>
+					</button>
 				</div>
 			</div>
+		</div>
 
 		<!-- Section 6: Cross-reference to full catalog -->
 		<div>
 			<a href="/catalog" class="group block">
 				<div class="double-bezel transition-transform duration-500 group-hover:scale-[1.005]">
-					<div class="double-bezel-inner flex flex-col items-center gap-6 p-8 sm:flex-row sm:justify-between sm:p-10">
+					<div
+						class="double-bezel-inner flex flex-col items-center gap-6 p-8 sm:flex-row sm:justify-between sm:p-10"
+					>
 						<div>
 							<span
 								class="mb-2 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"

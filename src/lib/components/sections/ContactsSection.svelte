@@ -1,5 +1,8 @@
 <script>
 	import { fade } from 'svelte/transition';
+	import Honeypot from '../Antibot/Honeypot.svelte';
+	import { captcha } from '$lib/antibot/smartcaptcha.svelte';
+	import { reachGoal } from '$lib/antibot/metrika';
 
 	// Svelte 5 states for the form
 	let companyName = $state('');
@@ -8,14 +11,40 @@
 	let contactEmail = $state('');
 	let orderComment = $state('');
 
+	// Honeypot: ботозащита. Заполняется только ботами → submit блокируется.
+	let hp = $state('');
+
 	let isSubmitting = $state(false);
 	let isSuccess = $state(false);
 	let error = $state('');
 
 	const authApiUrl = import.meta.env.VITE_AUTH_API_URL || 'http://localhost:8001/api';
 
+	/** Готова ли форма к отправке: капча пройдена (или не настроена). */
+	const canSubmit = $derived(
+		!!captcha.token || import.meta.env.VITE_SMARTCAPTCHA_SITE_KEY === undefined
+	);
+
 	async function handleSubmit(e) {
 		e.preventDefault();
+
+		// Антибот №1: honeypot. Тихий «успех» для бота.
+		if (hp) {
+			isSuccess = true;
+			return;
+		}
+
+		// Антибот №2: токен SmartCaptcha обязателен. Подстраховка: если ещё не
+		// получен (по активности) — дёргаем execute() сейчас и ждём результат.
+		if (!captcha.token) {
+			const result = await captcha.execute();
+			if (!result.token) {
+				error = 'Не удалось пройти проверку. Попробуйте ещё раз.';
+				captcha.reset();
+				return;
+			}
+		}
+
 		error = '';
 		isSubmitting = true;
 
@@ -34,7 +63,8 @@
 					phone: contactPhone.trim(),
 					email: contactEmail.trim(),
 					comment: orderComment.trim() || null,
-					source_url: sourceUrl
+					source_url: sourceUrl,
+					captcha_token: captcha.token
 				})
 			});
 
@@ -48,6 +78,9 @@
 				throw new Error(result.message || 'Не удалось отправить запрос');
 			}
 
+			// Конверсия для Директа: цель «заявка на КП со страницы контактов».
+			reachGoal('contacts_invoice_submit');
+
 			isSuccess = true;
 			// Reset form fields
 			companyName = '';
@@ -55,9 +88,12 @@
 			contactPhone = '';
 			contactEmail = '';
 			orderComment = '';
+			// Токен одноразовый — сбрасываем.
+			captcha.reset();
 		} catch (err) {
 			console.error('Invoice request error:', err);
 			error = err.message || 'Не удалось отправить заявку. Попробуйте позже.';
+			captcha.reset();
 		} finally {
 			isSubmitting = false;
 		}
@@ -131,7 +167,7 @@
 									>Прямой E-mail</span
 								>
 								<span class="mt-1 text-sm font-semibold text-brand-accent hover:underline"
-									>zakaz@megapak.top</span
+									>info@megapak.top</span
 								>
 							</div>
 						</div>
@@ -182,6 +218,9 @@
 						</p>
 
 						<form class="space-y-4" onsubmit={handleSubmit}>
+							<!-- Honeypot: скрытая ловушка для ботов (см. Honeypot.svelte) -->
+							<Honeypot bind:value={hp} />
+
 							<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 								<div class="flex flex-col">
 									<label
@@ -267,7 +306,7 @@
 
 							<button
 								type="submit"
-								disabled={isSubmitting}
+								disabled={isSubmitting || !canSubmit}
 								class="group mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-brand-dark px-6 py-4 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-75"
 							>
 								{#if isSubmitting}

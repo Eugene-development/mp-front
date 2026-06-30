@@ -34,10 +34,12 @@
 			activeSection = 'about';
 		} else if (page.url.pathname === '/applications') {
 			activeSection = 'applications';
-		} else if (page.url.pathname === '/catalog') {
+		} else if (page.url.pathname.startsWith('/catalog')) {
 			activeSection = 'catalog';
-		} else if (page.url.pathname === '/specs') {
+		} else if (page.url.pathname.startsWith('/specs')) {
 			activeSection = 'specs';
+		} else if (page.url.pathname === '/') {
+			activeSection = 'home';
 		} else {
 			activeSection = 'home';
 		}

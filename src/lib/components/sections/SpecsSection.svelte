@@ -34,54 +34,56 @@
 		<div class="lg:col-span-7">
 			<div class="double-bezel">
 				<div
-					class="double-bezel-inner relative overflow-hidden rounded-2xl bg-neutral-900 p-8 text-white"
+					class="double-bezel-inner relative overflow-hidden rounded-2xl p-8"
 				>
 					<!-- Matrix table for structural engineering quality -->
 					<span class="mb-4 block font-mono text-[8px] tracking-widest text-brand-accent uppercase"
 						>Данные по протоколу</span
 					>
-					<h3 class="mb-6 font-serif text-lg font-light text-white">
+					<h3 class="mb-6 font-serif text-lg font-light text-brand-dark">
 						Технические нормативы тары МегаПак
 					</h3>
 
-					<div class="space-y-4 font-mono text-[10px]">
-						<div class="flex justify-between border-b border-white/5 py-2">
-							<span class="text-neutral-400">ПОКАЗАТЕЛЬ / ТЕСТ</span>
-							<span class="text-neutral-400">НОРМА ГОСТ / ДОПОГ</span>
-							<span class="font-bold text-white">ПОКАЗАТЕЛИ МЕГАПАК</span>
-						</div>
-						<div class="flex justify-between border-b border-white/5 py-2">
-							<span class="text-neutral-400">Устойчивость к падению (высота)</span>
-							<span class="text-neutral-400">1.2 м (для класса II)</span>
-							<span class="font-bold text-emerald-400">1.8 м (Сертификат пройден)</span>
-						</div>
-						<div class="flex justify-between border-b border-white/5 py-2">
-							<span class="text-neutral-400">Гидравлическое давление (тест)</span>
-							<span class="text-neutral-400">100 кПа / 30 мин</span>
-							<span class="font-bold text-emerald-400">150 кПа / 60 мин без деформаций</span>
-						</div>
-						<div class="flex justify-between border-b border-white/5 py-2">
-							<span class="text-neutral-400">Сопротивление сжатию при штабелировании</span>
-							<span class="text-neutral-400">ГОСТ 25014-81 (3 уровня)</span>
-							<span class="font-bold text-emerald-400">До 4 уровней (канистры и бочки)</span>
-						</div>
-						<div class="flex justify-between py-2">
-							<span class="text-neutral-400">Диапазон рабочих температур</span>
-							<span class="text-neutral-400">-30°C ... +60°C</span>
-							<span class="font-bold text-emerald-400">-40°C ... +80°C (спецполимер)</span>
+					<div class="rounded-xl p-5 text-white" style="background-color: var(--color-brand-dark);">
+						<div class="space-y-4 font-mono text-[10px]">
+							<div class="flex justify-between border-b border-white/5 py-2">
+								<span class="text-neutral-400">ПОКАЗАТЕЛЬ / ТЕСТ</span>
+								<span class="text-neutral-400">НОРМА ГОСТ / ДОПОГ</span>
+								<span class="font-bold text-white">ПОКАЗАТЕЛИ МЕГАПАК</span>
+							</div>
+							<div class="flex justify-between border-b border-white/5 py-2">
+								<span class="text-neutral-400">Устойчивость к падению (высота)</span>
+								<span class="text-neutral-400">1.2 м (для класса II)</span>
+								<span class="font-bold text-emerald-400">1.8 м (Сертификат пройден)</span>
+							</div>
+							<div class="flex justify-between border-b border-white/5 py-2">
+								<span class="text-neutral-400">Гидравлическое давление (тест)</span>
+								<span class="text-neutral-400">100 кПа / 30 мин</span>
+								<span class="font-bold text-emerald-400">150 кПа / 60 мин без деформаций</span>
+							</div>
+							<div class="flex justify-between border-b border-white/5 py-2">
+								<span class="text-neutral-400">Сопротивление сжатию при штабелировании</span>
+								<span class="text-neutral-400">ГОСТ 25014-81 (3 уровня)</span>
+								<span class="font-bold text-emerald-400">До 4 уровней (канистры и бочки)</span>
+							</div>
+							<div class="flex justify-between py-2">
+								<span class="text-neutral-400">Диапазон рабочих температур</span>
+								<span class="text-neutral-400">-30°C ... +60°C</span>
+								<span class="font-bold text-emerald-400">-40°C ... +80°C (спецполимер)</span>
+							</div>
 						</div>
 					</div>
 
 					<!-- KBD visual shortcut UI element -->
-					<div class="mt-8 flex items-center gap-3 border-t border-white/5 pt-6">
-						<span class="text-[9px] text-neutral-400">Быстрый выгруз паспортов:</span>
+					<div class="mt-8 flex items-center gap-3 border-t border-brand-divider pt-6">
+						<span class="text-[9px] text-brand-gray">Быстрый выгруз паспортов:</span>
 						<kbd
-							class="rounded border border-white/10 bg-white/5 px-2 py-1 font-mono text-[9px] text-neutral-300"
+							class="rounded border border-brand-divider bg-neutral-100 px-2 py-1 font-mono text-[9px] text-brand-gray"
 							>Shift</kbd
 						>
-						<span class="text-[9px] text-neutral-500">+</span>
+						<span class="text-[9px] text-brand-gray">+</span>
 						<kbd
-							class="rounded border border-white/10 bg-white/5 px-2 py-1 font-mono text-[9px] text-neutral-300"
+							class="rounded border border-brand-divider bg-neutral-100 px-2 py-1 font-mono text-[9px] text-brand-gray"
 							>D</kbd
 						>
 					</div>
