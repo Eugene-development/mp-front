@@ -40,6 +40,15 @@
 	/** DOM-токен обфускации (некэшируемый — меняется при каждой отрисовке). */
 	let token = $state<string>('');
 
+	/**
+	 * Клиент готов к решению о показе: localStorage (флаг доверия) уже проверен.
+	 * До onMount→restore() модалка не рендерится — иначе при перезагрузке у
+	 * возвратного посетителя она вспыхивала на один кадр до проверки хранилища.
+	 * SSR и первичный клиентский рендер дают ready=false → блока нет в HTML,
+	 * гидратация совпадает, вспышки нет.
+	 */
+	let ready = $state(false);
+
 	/** Элемент для фокус-трапа. */
 	let dialogRef = $state<HTMLDivElement | null>(null);
 	let lastFocused: HTMLElement | null = null;
@@ -48,6 +57,7 @@
 		// trust.restore() уже должен был отработать в layout, но проверяем —
 		// если посетитель уже прошёл барьер (повторный визит), модалку не показываем.
 		trust.restore();
+		ready = true; // флаг доверия проверен — теперь {#if} корректно решит, показывать ли модалку
 		if (trust.verified) return;
 
 		token = generateToken();
@@ -145,7 +155,7 @@
 	}
 </script>
 
-{#if !trust.verified}
+{#if ready && !trust.verified}
 	<div
 		class="fixed inset-0 z-[200] flex items-center justify-center bg-brand-dark/60 px-4 backdrop-blur-md"
 		transition:fade={{ duration: 200 }}

@@ -2,7 +2,7 @@
 	import { priceModal } from '../modalState.svelte.js';
 	import { fade, scale } from 'svelte/transition';
 	import Honeypot from './Antibot/Honeypot.svelte';
-	import { captcha } from '$lib/antibot/smartcaptcha.svelte';
+	import { captcha, SITE_KEY } from '$lib/antibot/smartcaptcha.svelte';
 	import { reachGoal } from '$lib/antibot/metrika';
 
 	// Close on ESC key press
@@ -32,11 +32,6 @@
 		}
 	});
 
-	/** Готова ли форма к отправке: капча пройдена (или не настроена). */
-	const canSubmit = $derived(
-		!!captcha.token || import.meta.env.VITE_SMARTCAPTCHA_SITE_KEY === undefined
-	);
-
 	async function handleSubmit(e) {
 		e.preventDefault();
 
@@ -48,17 +43,19 @@
 
 		// Антибот №2: токен SmartCaptcha обязателен. Подстраховка: если ещё не
 		// получен (по активности) — дёргаем execute() сейчас и ждём результат.
-		if (!captcha.token) {
+		isSubmitting = true;
+
+		if (SITE_KEY && !captcha.token) {
 			const result = await captcha.execute();
 			if (!result.token) {
 				error = 'Не удалось пройти проверку. Попробуйте ещё раз.';
 				captcha.reset();
+				isSubmitting = false;
 				return;
 			}
 		}
 
 		error = '';
-		isSubmitting = true;
 
 		try {
 			const sourceUrl = typeof window !== 'undefined' ? window.location.href : '';
@@ -126,7 +123,8 @@
 			if (e.target === e.currentTarget) handleClose();
 		}}
 		onkeydown={(e) => {
-			if (e.key === 'Enter' || e.key === ' ') {
+			if (e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' ')) {
+				e.preventDefault();
 				handleClose();
 			}
 		}}
@@ -248,7 +246,7 @@
 
 						<button
 							type="submit"
-							disabled={isSubmitting || !canSubmit}
+							disabled={isSubmitting}
 							class="group mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-brand-dark px-6 py-4 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-75"
 						>
 							{#if isSubmitting}

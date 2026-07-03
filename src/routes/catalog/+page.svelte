@@ -14,7 +14,13 @@
 			{ src: `${CDN}/image-tank.jpg`, alt: 'Еврокуб 1000 л в стальной обрешётке' },
 			{ src: `${CDN}/image-tank-2.jpg`, alt: 'Еврокуб со сливным краном' }
 		],
-		kanistry: [{ src: `${CDN}/kanistra.jpg`, alt: 'Полимерные канистры' }], // TODO: добавить фото при появлении
+		kanistry: [
+			{ src: `${CDN}/kanistra.jpg`, alt: 'Полимерные канистры' },
+			{ src: `${CDN}/kanistra/kanistra-1-litr.jpg`, alt: 'Полимерные канистры' },
+			{ src: `${CDN}/kanistra/kanistra-1-litr.jpg`, alt: 'Полимерные канистры' },
+			{ src: `${CDN}/kanistra/kanistra-1-litr.jpg`, alt: 'Полимерные канистры' },
+			{ src: `${CDN}/kanistra/kanistra-1-litr.jpg`, alt: 'Полимерные канистры' },
+		], // TODO: добавить фото при появлении
 		vedra: [{ src: `${CDN}/vedro-1.jpg`, alt: 'Пластиковые вёдра' }] // TODO: добавить фото при появлении
 	};
 </script>

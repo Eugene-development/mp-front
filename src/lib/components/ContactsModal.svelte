@@ -20,7 +20,8 @@
 			if (e.target === e.currentTarget) contactsModal.close();
 		}}
 		onkeydown={(e) => {
-			if (e.key === 'Enter' || e.key === ' ') {
+			if (e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' ')) {
+				e.preventDefault();
 				contactsModal.close();
 			}
 		}}

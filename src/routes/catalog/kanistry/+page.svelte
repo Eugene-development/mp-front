@@ -16,7 +16,7 @@
 			{
 				chip: '1',
 				chipUnit: 'л',
-				image: null, // TODO: подставить URL фото
+				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-1-litr.jpg', 
 				alt: 'Полимерная канистра 1 л',
 				title: '1 л',
 				scaleLabel: 'объём',

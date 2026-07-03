@@ -2,7 +2,7 @@
 	import { orderModal } from '../modalState.svelte.js';
 	import { fade, scale } from 'svelte/transition';
 	import Honeypot from './Antibot/Honeypot.svelte';
-	import { captcha } from '$lib/antibot/smartcaptcha.svelte';
+	import { captcha, SITE_KEY } from '$lib/antibot/smartcaptcha.svelte';
 	import { reachGoal } from '$lib/antibot/metrika';
 
 	// Close on ESC key press
@@ -34,11 +34,6 @@
 
 	const authApiUrl = import.meta.env.VITE_AUTH_API_URL || 'http://localhost:8001/api';
 
-	/** Готова ли форма к отправке: капча пройдена (или не настроена). */
-	const canSubmit = $derived(
-		!!captcha.token || import.meta.env.VITE_SMARTCAPTCHA_SITE_KEY === undefined
-	);
-
 	async function handleSubmit(e) {
 		e.preventDefault();
 
@@ -53,18 +48,20 @@
 		// заранее (по первой живой активности — см. +layout.svelte). Но если
 		// токена ещё нет (например, юзер не двигал мышью) — это подстраховка:
 		// дёргаем execute() прямо сейчас и ждём результата капчи.
-		if (!captcha.token) {
+		isSubmitting = true;
+
+		if (SITE_KEY && !captcha.token) {
 			const result = await captcha.execute();
 			if (!result.token) {
 				// Капча не пройдена (бот не справился с челленджем или виджет не готов).
 				error = 'Не удалось пройти проверку. Попробуйте ещё раз.';
 				captcha.reset();
+				isSubmitting = false;
 				return;
 			}
 		}
 
 		error = '';
-		isSubmitting = true;
 
 		try {
 			const sourceUrl = typeof window !== 'undefined' ? window.location.href : '';
@@ -138,7 +135,8 @@
 			if (e.target === e.currentTarget) handleClose();
 		}}
 		onkeydown={(e) => {
-			if (e.key === 'Enter' || e.key === ' ') {
+			if (e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' ')) {
+				e.preventDefault();
 				handleClose();
 			}
 		}}
@@ -296,7 +294,7 @@
 
 						<button
 							type="submit"
-							disabled={isSubmitting || !canSubmit}
+							disabled={isSubmitting}
 							class="group mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-brand-dark px-6 py-4 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-75"
 						>
 							{#if isSubmitting}
