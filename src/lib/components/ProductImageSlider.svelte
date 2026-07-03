@@ -46,6 +46,12 @@
 	let transition = $derived(
 		transitionOn && !reduced ? 'transform 600ms cubic-bezier(0.32, 0.72, 0, 1)' : 'none'
 	);
+	// transition слайдов (opacity/scale) тоже глушим во время silentReset — иначе
+	// при сбросе с клона на реальный слот центральное фото успевалоfadeOut/fadeIn
+	// (мигало): клон уходил с opacity 1, а реальный слот въезжал с 0 и анимировался.
+	let slideTransition = $derived(
+		transitionOn && !reduced ? 'opacity 600ms ease, transform 600ms ease' : 'none'
+	);
 
 	$effect(() => {
 		if (!multi) return;
@@ -164,7 +170,7 @@
 					class="flex w-[60%] flex-shrink-0 items-center justify-center px-2"
 					style="opacity: {opacityFor(d)}; transform: scale({scaleFor(
 						d
-					)}); transition: opacity 600ms ease, transform 600ms ease;"
+					)}); transition: {slideTransition};"
 				>
 					<img
 						src={img.src}
