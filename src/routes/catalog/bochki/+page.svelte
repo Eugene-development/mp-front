@@ -1,5 +1,6 @@
 <script>
 	import { orderModal } from '$lib/modalState.svelte.js';
+	import { guardedClick } from '$lib/antibot/guardedClick';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import ProductLineup from '$lib/components/ProductLineup.svelte';
 	import ProductVariantGallery from '$lib/components/ProductVariantGallery.svelte';
@@ -176,8 +177,9 @@
 
 						<div class="mt-8 flex flex-wrap items-center gap-4">
 							<button
-								onclick={() =>
-									orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
+								onclick={guardedClick(() =>
+									orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')
+								)}
 								class="group flex h-[52px] cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 							>
 								<span>Запросить счёт с НДС</span>
@@ -573,7 +575,9 @@
 					</div>
 
 					<button
-						onclick={() => orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')}
+						onclick={guardedClick(() =>
+							orderModal.open('Запрос счета с НДС на пластиковые бочки и барабаны')
+						)}
 						class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 					>
 						<span>Получить счёт</span>

@@ -95,14 +95,27 @@
 				{/each}
 			</div>
 
-			<!-- City Phone Link -->
-			<a
-				href="tel:+74994906145"
-				class="group relative hidden cursor-pointer items-center gap-2 rounded-xl border border-white/10 bg-neutral-950 px-4 py-2 text-sm font-bold tracking-wider text-white transition-all duration-500 hover:border-white/20 hover:bg-neutral-900 active:scale-[0.98] md:flex"
-			>
-				<span>📞</span>
-				<span>8 (499) 490-61-45</span>
-			</a>
+				<!-- City Phone Link -->
+				<a
+					href="tel:+74994906145"
+					class="group relative hidden cursor-pointer items-center gap-2 rounded-xl border border-white/10 bg-neutral-950 px-4 py-2 text-sm font-bold tracking-wider text-white transition-all duration-500 hover:border-white/20 hover:bg-neutral-900 active:scale-[0.98] md:flex"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="h-4 w-4 text-[#e57373]"
+					>
+						<path
+							d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+						></path>
+					</svg>
+					<span>8 (499) 490-61-45</span>
+				</a>
 
 			<!-- Hamburger Button -->
 			<button
@@ -184,8 +197,21 @@
 			<div class="mt-auto flex flex-col gap-6 border-t border-white/10 pt-6">
 				<div class="flex flex-col gap-2 text-sm text-neutral-400">
 					<div class="flex items-center gap-2">
-						<span>📞</span>
-						<a href="tel:+74994906145" class="font-semibold text-white hover:text-brand-accent">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="h-4 w-4 text-[#e57373]"
+							>
+								<path
+									d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+								></path>
+							</svg>
+							<a href="tel:+74994906145" class="font-semibold text-white hover:text-brand-accent">
 							8 (499) 490-61-45
 						</a>
 					</div>
