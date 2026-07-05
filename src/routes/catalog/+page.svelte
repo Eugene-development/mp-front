@@ -15,11 +15,11 @@
 			{ src: `${CDN}/image-tank-2.jpg`, alt: 'Еврокуб со сливным краном' }
 		],
 		kanistry: [
-			{ src: `${CDN}/kanistra.jpg`, alt: 'Полимерные канистры' },
 			{ src: `${CDN}/kanistra/kanistra-1-litr.jpg`, alt: 'Полимерные канистры' },
-			{ src: `${CDN}/kanistra/kanistra-1-litr.jpg`, alt: 'Полимерные канистры' },
-			{ src: `${CDN}/kanistra/kanistra-1-litr.jpg`, alt: 'Полимерные канистры' },
-			{ src: `${CDN}/kanistra/kanistra-1-litr.jpg`, alt: 'Полимерные канистры' },
+			{ src: `${CDN}/kanistra/kanistra-3-litra.jpg`, alt: 'Полимерные канистры' },
+			{ src: `${CDN}/kanistra/kanistra-10-litrov.jpg`, alt: 'Полимерные канистры' },
+			{ src: `${CDN}/kanistra/kanistra-21.5-litra.jpg`, alt: 'Полимерные канистры' },
+			{ src: `${CDN}/kanistra/kanistra-31.5-litra.jpg`, alt: 'Полимерные канистры' }
 		], // TODO: добавить фото при появлении
 		vedra: [{ src: `${CDN}/vedro-1.jpg`, alt: 'Пластиковые вёдра' }] // TODO: добавить фото при появлении
 	};
@@ -74,75 +74,8 @@
 
 	<!-- Products Grid: 2 columns on desktop, 1 on mobile -->
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-		<!-- Product 1: Drums -->
-		<div class="group flex flex-col">
-			<div
-				class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
-			>
-				<div class="double-bezel-inner flex h-full flex-col p-6 sm:p-8">
-					<!-- Image area -->
-					<ProductImageSlider
-						images={images.bochki}
-						badge="ДОПОГ · 227 л"
-						badgeClass="rounded bg-purple-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-purple-800 uppercase"
-					/>
 
-					<!-- Badges -->
-					<div class="mb-3 flex flex-wrap items-center gap-2">
-						<span
-							class="rounded bg-brand-accent-light px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-							>ГОСТ 8728-88</span
-						>
-						<span
-							class="rounded bg-amber-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-amber-800 uppercase"
-							>Новые и Б/У</span
-						>
-					</div>
-
-					<h2
-						class="font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
-					>
-						Пластиковые бочки
-					</h2>
-					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
-						Промышленная упаковка от 48 до 227 литров в исполнениях L-Ring и Open Top.
-						Сертифицированы по ДОПОГ для перевозки опасных грузов.
-					</p>
-
-					<div class="mt-5 grid grid-cols-2 gap-4 text-[13px]">
-						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
-							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
-								>Объёмы</span
-							>
-							<span class="font-semibold text-brand-dark">48 / 65 / 127 / 227 л</span>
-						</div>
-						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
-							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
-								>Горловина</span
-							>
-							<span class="font-semibold text-brand-dark">L-Ring · Open Top</span>
-						</div>
-					</div>
-
-					<a
-						href="/catalog/bochki"
-						class="mt-6 flex items-center gap-2 border-t border-brand-divider pt-5 no-underline"
-					>
-						<span
-							class="inline-flex h-9 items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 group-hover:border-brand-accent/60 group-hover:bg-brand-accent-light"
-						>
-							Открыть карточку товара
-						</span>
-						<span
-							class="ml-auto text-brand-accent transition-transform duration-300 group-hover:translate-x-1"
-							>→</span
-						>
-					</a>
-				</div>
-			</div>
-		</div>
-
-		<!-- Product 2: Canisters -->
+		<!-- Product 1: Canisters -->
 		<div class="group flex flex-col">
 			<div
 				class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
@@ -199,7 +132,7 @@
 						<span
 							class="inline-flex h-9 items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 group-hover:border-brand-accent/60 group-hover:bg-brand-accent-light"
 						>
-							Открыть карточку товара
+							Ознакомиться подробнее
 						</span>
 						<span
 							class="ml-auto text-brand-accent transition-transform duration-300 group-hover:translate-x-1"
@@ -210,6 +143,73 @@
 			</div>
 		</div>
 
+		<!-- Product 2: Drums -->
+		<div class="group flex flex-col">
+			<div
+				class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
+			>
+				<div class="double-bezel-inner flex h-full flex-col p-6 sm:p-8">
+					<!-- Image area -->
+					<ProductImageSlider
+						images={images.bochki}
+						badge="ДОПОГ · 227 л"
+						badgeClass="rounded bg-purple-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-purple-800 uppercase"
+					/>
+
+					<!-- Badges -->
+					<div class="mb-3 flex flex-wrap items-center gap-2">
+						<span
+							class="rounded bg-brand-accent-light px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-accent uppercase"
+							>ГОСТ 8728-88</span
+						>
+						<span
+							class="rounded bg-amber-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-amber-800 uppercase"
+							>Новые и Б/У</span
+						>
+					</div>
+
+					<h2
+						class="font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
+					>
+						Пластиковые бочки
+					</h2>
+					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
+						Промышленная упаковка от 48 до 227 литров в исполнениях L-Ring и Open Top.
+						Сертифицированы по ДОПОГ для перевозки опасных грузов.
+					</p>
+
+					<div class="mt-5 grid grid-cols-2 gap-4 text-[13px]">
+						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
+							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
+								>Объёмы</span
+							>
+							<span class="font-semibold text-brand-dark">48 / 65 / 127 / 227 л</span>
+						</div>
+						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
+							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
+								>Горловина</span
+							>
+							<span class="font-semibold text-brand-dark">L-Ring · Open Top</span>
+						</div>
+					</div>
+
+					<a
+						href="/catalog/bochki"
+						class="mt-6 flex items-center gap-2 border-t border-brand-divider pt-5 no-underline"
+					>
+						<span
+							class="inline-flex h-9 items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 group-hover:border-brand-accent/60 group-hover:bg-brand-accent-light"
+						>
+							Ознакомиться подробнее
+						</span>
+						<span
+							class="ml-auto text-brand-accent transition-transform duration-300 group-hover:translate-x-1"
+							>→</span
+						>
+					</a>
+				</div>
+			</div>
+		</div>
 		<!-- Product 3: Buckets -->
 		<div class="group flex flex-col">
 			<div
@@ -267,7 +267,7 @@
 						<span
 							class="inline-flex h-9 items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 group-hover:border-brand-accent/60 group-hover:bg-brand-accent-light"
 						>
-							Открыть карточку товара
+							Ознакомиться подробнее
 						</span>
 						<span
 							class="ml-auto text-brand-accent transition-transform duration-300 group-hover:translate-x-1"
@@ -335,7 +335,7 @@
 						<span
 							class="inline-flex h-9 items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 group-hover:border-brand-accent/60 group-hover:bg-brand-accent-light"
 						>
-							Открыть карточку товара
+							Ознакомиться подробнее
 						</span>
 						<span
 							class="ml-auto text-brand-accent transition-transform duration-300 group-hover:translate-x-1"

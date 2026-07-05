@@ -31,7 +31,7 @@
 			{
 				chip: '3',
 				chipUnit: 'л',
-				image: null, // TODO: подставить URL фото
+				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-3-litra.jpg',
 				alt: 'Полимерная канистра 3 л',
 				title: '3 л',
 				scaleLabel: 'объём',
@@ -45,7 +45,7 @@
 			{
 				chip: '5',
 				chipUnit: 'л',
-				image: null, // TODO: подставить URL фото
+				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-5-litrov.jpg', // TODO: подставить URL фото
 				alt: 'Полимерная канистра 5 л',
 				title: '5 л',
 				scaleLabel: 'объём',
@@ -56,25 +56,25 @@
 				],
 				use: 'Антисептики, автохимия.'
 			},
-			{
-				chip: '5',
-				chipUnit: 'л',
-				image: null, // TODO: подставить URL фото
-				alt: 'Канистра ГСМ 5 л с носиком',
-				title: '5 л',
-				tag: 'ГСМ',
-				scaleLabel: 'объём',
-				scale: 5,
-				specs: [
-					{ label: 'Стенка', value: '2.2–2.4 мм' },
-					{ label: 'Горловина', value: 'резьб. 45 мм + носик' }
-				],
-				use: 'Моторные масла, ГСМ.'
-			},
+			// {
+			// 	chip: '5',
+			// 	chipUnit: 'л',
+			// 	image: null,
+			// 	alt: 'Канистра ГСМ 5 л с носиком',
+			// 	title: '5 л',
+			// 	tag: 'ГСМ',
+			// 	scaleLabel: 'объём',
+			// 	scale: 5,
+			// 	specs: [
+			// 		{ label: 'Стенка', value: '2.2–2.4 мм' },
+			// 		{ label: 'Горловина', value: 'резьб. 45 мм + носик' }
+			// 	],
+			// 	use: 'Моторные масла, ГСМ.'
+			// },
 			{
 				chip: '10',
 				chipUnit: 'л',
-				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg',
+				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-10-litrov.jpg',
 				alt: 'Полимерная канистра 10 л',
 				title: '10 л',
 				scaleLabel: 'объём',
@@ -85,40 +85,40 @@
 				],
 				use: 'Масла, растворители.'
 			},
-			{
-				chip: '10',
-				chipUnit: 'л',
-				image: null, // TODO: подставить URL фото
-				alt: 'Канистра ГСМ 10 л с носиком',
-				title: '10 л',
-				tag: 'ГСМ',
-				scaleLabel: 'объём',
-				scale: 10,
-				specs: [
-					{ label: 'Стенка', value: '2.4–2.6 мм' },
-					{ label: 'Горловина', value: 'резьб. 50 мм + носик' }
-				],
-				use: 'Моторные масла, ГСМ.'
-			},
-			{
-				chip: '20',
-				chipUnit: 'л',
-				image: null, // TODO: подставить URL фото
-				alt: 'Канистра ГСМ 20 л с носиком',
-				title: '20 л',
-				tag: 'ГСМ',
-				scaleLabel: 'объём',
-				scale: 20,
-				specs: [
-					{ label: 'Стенка', value: '2.5–2.7 мм' },
-					{ label: 'Горловина', value: 'резьб. 60 мм + носик' }
-				],
-				use: 'Моторные масла, ГСМ.'
-			},
+			// {
+			// 	chip: '10',
+			// 	chipUnit: 'л',
+			// 	image: null,
+			// 	alt: 'Канистра ГСМ 10 л с носиком',
+			// 	title: '10 л',
+			// 	tag: 'ГСМ',
+			// 	scaleLabel: 'объём',
+			// 	scale: 10,
+			// 	specs: [
+			// 		{ label: 'Стенка', value: '2.4–2.6 мм' },
+			// 		{ label: 'Горловина', value: 'резьб. 50 мм + носик' }
+			// 	],
+			// 	use: 'Моторные масла, ГСМ.'
+			// },
+			// {
+			// 	chip: '20',
+			// 	chipUnit: 'л',
+			// 	image: null,
+			// 	alt: 'Канистра ГСМ 20 л с носиком',
+			// 	title: '20 л',
+			// 	tag: 'ГСМ',
+			// 	scaleLabel: 'объём',
+			// 	scale: 20,
+			// 	specs: [
+			// 		{ label: 'Стенка', value: '2.5–2.7 мм' },
+			// 		{ label: 'Горловина', value: 'резьб. 60 мм + носик' }
+			// 	],
+			// 	use: 'Моторные масла, ГСМ.'
+			// },
 			{
 				chip: '21.5',
 				chipUnit: 'л',
-				image: null, // TODO: подставить URL фото
+				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-21.5-litra.jpg',
 				alt: 'Полимерная канистра 21.5 л',
 				title: '21.5 л',
 				scaleLabel: 'объём',
@@ -132,7 +132,7 @@
 			{
 				chip: '31.5',
 				chipUnit: 'л',
-				image: null, // TODO: подставить URL фото
+				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-31.5-litra.jpg',
 				alt: 'Полимерная канистра 31.5 л',
 				title: '31.5 л',
 				scaleLabel: 'объём',

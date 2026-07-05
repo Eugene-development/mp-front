@@ -62,13 +62,26 @@
 			}
 		);
 
-		// We use a small timeout to ensure elements are mounted and routes are fully loaded
+		/**
+		 * .reveal-on-scroll виден по умолчанию (см. layout.css) — это защита от
+		 * белых проплешин, если JS ещё не гидрировался/выполнился (медленная сеть,
+		 * слабый мобильный CPU). Анимацию появления теперь навешиваем сами, но
+		 * только на элементы, которые ЕЩЁ НЕ попали в вьюпорт на момент монтирования
+		 * — иначе контент выше/на экране мигнул бы (спрятался и тут же появился).
+		 */
 		const setupObserver = () => {
 			const elements = document.querySelectorAll('.reveal-on-scroll');
-			elements.forEach((el) => observer.observe(el));
+			elements.forEach((el) => {
+				const rect = el.getBoundingClientRect();
+				const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+				if (!alreadyVisible) {
+					el.classList.add('reveal-pending');
+				}
+				observer.observe(el);
+			});
 		};
 
-		setTimeout(setupObserver, 100);
+		setupObserver();
 	});
 </script>
 

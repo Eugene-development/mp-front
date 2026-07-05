@@ -68,18 +68,39 @@
 }
 
 @layer utilities {
-	/* Scroll Reveal */
+	/*
+	 * Scroll Reveal.
+	 *
+	 * ВАЖНО: контент видим по умолчанию (opacity: 1), без зависимости от JS.
+	 * Раньше .reveal-on-scroll был скрыт (opacity: 0) чистым CSS, и становился
+	 * видимым только после гидратации Svelte + монтирования IntersectionObserver
+	 * (см. +layout.svelte). На медленной сети/слабом мобильном CPU это давало
+	 * задержку в несколько секунд — пользователь видел белые проплешины на месте
+	 * секций (Catalog/About/Specs/FAQ), особенно при быстром скролле вниз, обгоняя
+	 * момент гидратации.
+	 *
+	 * Теперь скрытие — опциональное усиление: JS (см. +layout.svelte) добавляет
+	 * класс .reveal-pending только тем элементам, которые ещё не попали в экран
+	 * на момент монтирования. Если JS не успел загрузиться/выполниться — контент
+	 * остаётся видимым, поэтому белых пустых секций больше не возникает.
+	 */
 	.reveal-on-scroll {
-		opacity: 0;
-		transform: translateY(24px);
-		filter: blur(4px);
+		opacity: 1;
+		transform: translateY(0);
+		filter: blur(0);
 		transition:
 			opacity 0.8s var(--ease-spring),
 			transform 0.8s var(--ease-spring),
 			filter 0.8s var(--ease-spring);
 	}
 
-	.reveal-on-scroll.visible {
+	.reveal-on-scroll.reveal-pending {
+		opacity: 0;
+		transform: translateY(24px);
+		filter: blur(4px);
+	}
+
+	.reveal-on-scroll.reveal-pending.visible {
 		opacity: 1;
 		transform: translateY(0);
 		filter: blur(0);
@@ -116,5 +137,33 @@
 		z-index: 1;
 		pointer-events: none;
 		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+	}
+}
+
+/*
+ * .animate-ambient-slow — декоративные фоновые пятна с сильным blur (120-140px),
+ * бесконечно анимируемые (25s infinite) на КАЖДОЙ странице проекта. backdrop/filter
+ * blur пересчитывается каждый кадр анимации — на слабых мобильных GPU это создаёт
+ * постоянную фоновую нагрузку на compositor, из-за которой отклик на тапы (например,
+ * кнопка мобильного меню) и скролл становятся заметно медленнее. На маленьком экране
+ * это движение почти не заметно визуально, поэтому на мобильных отключаем анимацию —
+ * blur остаётся статичным (дешёвым после первого рендера), эффект сохраняется.
+ *
+ * ВАЖНО (Tailwind v4): эти правила НЕЛЬЗЯ помещать в @layer. Утилита .animate-ambient-slow
+ * генерируется в слое utilities, который в каскаде ВЫШЕ base/components — override внутри
+ * @layer base молча проигрывал бы, и тяжёлая анимация blur продолжала грузить мобильный GPU
+ * (корневая причина задержки мобильного меню в несколько секунд). Неслоеный (unlayered) CSS
+ * в каскаде всегда побеждает любой @layer — только так override реально срабатывает.
+ * НЕ переносите эти правила обратно в @layer.
+ */
+@media (max-width: 767px) {
+	.animate-ambient-slow {
+		animation: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.animate-ambient-slow {
+		animation: none;
 	}
 }

@@ -67,7 +67,7 @@
 >
 	<div class="pointer-events-auto mx-auto flex w-full max-w-[1440px] justify-center px-4">
 		<nav
-			class="flex w-full max-w-none items-center justify-between rounded-2xl border border-white/10 bg-brand-dark/90 px-6 py-3 backdrop-blur-2xl transition-all duration-500 {scrolled ||
+			class="flex w-full max-w-none items-center justify-between rounded-2xl border border-white/10 bg-brand-dark/95 px-6 py-3 transition-all duration-500 md:bg-brand-dark/90 md:backdrop-blur-2xl {scrolled ||
 			mobileMenuOpen
 				? 'border-white/20 bg-brand-dark/95 shadow-2xl shadow-black/50'
 				: 'shadow-xl shadow-black/30'}"
@@ -148,7 +148,7 @@
 		<!-- Mobile Menu Overlay -->
 		<div
 			transition:fade={{ duration: 200 }}
-			class="fixed inset-0 z-[100] flex flex-col justify-between bg-brand-dark/98 px-6 pt-16 pb-10 backdrop-blur-2xl md:hidden"
+			class="fixed inset-0 z-[100] flex flex-col justify-between bg-brand-dark/98 px-6 pt-16 pb-10 md:hidden"
 		>
 			<!-- Mobile Header Row -->
 			<div class="flex items-center justify-between border-b border-white/10 pb-6">
