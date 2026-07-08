@@ -10,7 +10,7 @@
 			<!-- Left: phone numbers -->
 			<div class="hidden items-center gap-6 sm:flex">
 				<a
-					href="tel:+78994906145"
+					href="+74994906145"
 					class="flex items-center gap-1.5 font-mono text-[11px] tracking-wide text-neutral-300 transition-colors duration-200 hover:text-white"
 				>
 					<svg

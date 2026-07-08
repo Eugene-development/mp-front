@@ -14,11 +14,13 @@
 	import { trust } from '$lib/antibot/trust.svelte';
 	import { trackHumanSignal } from '$lib/antibot/useHumanSignal.svelte';
 	import { captcha } from '$lib/antibot/smartcaptcha.svelte';
+	import { reachGoal } from '$lib/antibot/metrika';
 
 	let { children, data } = $props();
 
 	let observer;
 	let stopHumanSignal = () => {};
+	let stopPhoneClickTracking = () => {};
 
 	onMount(() => {
 		// Антибот: восстанавливаем состояние доверия из localStorage.
@@ -28,12 +30,25 @@
 
 		// Антибот: слушаем базовую активность (mouse/touch/scroll). При первом
 		// живом сигнале взводим невидимую SmartCaptcha — headless-боты, не
-		// генерирующие таких событий, никогда не получат токен.
+		// генерирующие таких событий, никогда не получят токен.
 		stopHumanSignal = trackHumanSignal({
 			onSignal: () => {
 				if (!captcha.token) captcha.execute();
 			}
 		});
+
+		// Цель Метрики phone_click — клик по любой ссылке tel: (тёплый лид,
+		// позвонивший напрямую). Глобальный делегированный слушатель покрывает
+		// шапку (все страницы), страницу контактов (оба номера), модалку и
+		// баннер единообразно; новые tel-ссылки учитываются автоматически.
+		// Фаза capture — срабатывает раньше любых stopPropagation на цели.
+		// reachGoal безопасен до init Метрики: цель буферизуется и уйдёт позже.
+		const handlePhoneClick = (event) => {
+			const link = event.target instanceof Element ? event.target.closest('a[href^="tel:"]') : null;
+			if (link) reachGoal('phone_click');
+		};
+		window.addEventListener('click', handlePhoneClick, true);
+		stopPhoneClickTracking = () => window.removeEventListener('click', handlePhoneClick, true);
 	});
 
 	onDestroy(() => {
@@ -41,6 +56,7 @@
 			observer.disconnect();
 		}
 		stopHumanSignal();
+		stopPhoneClickTracking();
 	});
 
 	afterNavigate(() => {

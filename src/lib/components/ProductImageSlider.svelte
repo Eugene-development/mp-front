@@ -1,4 +1,6 @@
 <script>
+	import { fade, scale } from 'svelte/transition';
+
 	/**
 	 * @typedef {Object} SliderImage
 	 * @property {string} src
@@ -26,6 +28,11 @@
 	// animating=true, пока едем на клон и ждём transitionend для сброса — блокирует навигацию.
 	let animating = $state(false);
 	let reduced = $state(false);
+
+	// Лайтбокс крупного фото (как в галерее категории): src/alt выбранного фото
+	// или null, когда оверлей закрыт. Body scroll блокируется на время показа.
+	let lightboxSrc = $state(/** @type {string | null} */ (null));
+	let lightboxAlt = $state('');
 
 	let count = $derived(images.length);
 	let multi = $derived(count > 1);
@@ -133,7 +140,50 @@
 			prev();
 		}
 	}
+
+	/** @param {SliderImage} img */
+	function openLightbox(img) {
+		lightboxSrc = img.src;
+		lightboxAlt = img.alt;
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeLightbox() {
+		lightboxSrc = null;
+		lightboxAlt = '';
+		document.body.style.overflow = '';
+	}
+
+	/** @param {KeyboardEvent} e */
+	function onWindowKeydown(e) {
+		if (e.key === 'Escape' && lightboxSrc) closeLightbox();
+	}
+
+	/**
+	 * Портал ноды лайтбокса в <body>: оверлей должен покрывать весь viewport
+	 * независимо от stacking-context/containment предков (карточка каталога
+	 * задаёт transform/scale → containing-block для fixed-детей).
+	 */
+	function teleport(node) {
+		document.body.appendChild(node);
+		return {
+			destroy() {
+				node.remove();
+			}
+		};
+	}
+
+	$effect(() => {
+		return () => {
+			// Cleanup: вернуть скролл body при размонтировании компонента.
+			if (lightboxSrc) {
+				document.body.style.overflow = '';
+			}
+		};
+	});
 </script>
+
+<svelte:window onkeydown={onWindowKeydown} />
 
 {#if !count}
 	<!-- Пустой массив: сохраняем геометрию карточки без изображения. -->
@@ -150,13 +200,20 @@
 		{#if badge}
 			<span class="absolute top-4 left-4 z-20 {badgeClass}">{badge}</span>
 		{/if}
-		<img
-			src={images[0].src}
-			alt={images[0].alt}
-			loading="eager"
-			draggable="false"
-			class="{imageHeight} w-auto object-contain drop-shadow-xl transition-transform duration-700 ease-spring group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-		/>
+		<button
+			type="button"
+			onclick={() => openLightbox(images[0])}
+			aria-label={`Увеличить фото: ${images[0].alt}`}
+			class="flex cursor-zoom-in items-center justify-center rounded-lg border-0 bg-transparent p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40"
+		>
+			<img
+				src={images[0].src}
+				alt={images[0].alt}
+				loading="eager"
+				draggable="false"
+				class="{imageHeight} w-auto object-contain drop-shadow-xl transition-transform duration-700 ease-spring group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+			/>
+		</button>
 	</div>
 {:else}
 	<!-- Бесконечная peek-карусель -->
@@ -182,18 +239,54 @@
 					class="flex flex-shrink-0 items-center justify-center"
 					style="width: {slideFrac * 100}%; opacity: {opacityFor(d)}; transform: scale({scaleFor(
 						d
-					)}); transition: opacity 600ms ease, transform 600ms ease;"
+					)}); transition: opacity 600ms ease, transform 600ms ease; pointer-events: {d <= 1
+						? 'auto'
+						: 'none'};"
 				>
-					<img
-						src={img.src}
-						alt={img.alt}
-						loading={i <= 1 ? 'eager' : 'lazy'}
-						draggable="false"
-						class="{imageHeight} w-auto object-contain drop-shadow-xl transition-transform duration-700 ease-spring {d ===
-						0
-							? 'group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100'
-							: 'motion-reduce:transition-none'}"
-					/>
+					{#if d === 0}
+						<!-- Центральное фото: клик открывает лайтбокс. -->
+						<button
+							type="button"
+							onclick={() => openLightbox(img)}
+							aria-label={`Увеличить фото: ${img.alt}`}
+							class="flex cursor-zoom-in items-center justify-center rounded-lg border-0 bg-transparent p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40"
+						>
+							<img
+								src={img.src}
+								alt={img.alt}
+								loading={i <= 1 ? 'eager' : 'lazy'}
+								draggable="false"
+								class="{imageHeight} w-auto object-contain drop-shadow-xl transition-transform duration-700 ease-spring group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+							/>
+						</button>
+					{:else if d === 1}
+						<!-- Боковое фото: клик прокручивает карусель к нему (как стрелки). -->
+						<button
+							type="button"
+							onclick={(e) => {
+								e.stopPropagation();
+								i < active ? prev() : next();
+							}}
+							aria-label={i < active ? 'Предыдущее фото' : 'Следующее фото'}
+							class="flex cursor-pointer items-center justify-center rounded-lg border-0 bg-transparent p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40"
+						>
+							<img
+								src={img.src}
+								alt={img.alt}
+								loading="lazy"
+								draggable="false"
+								class="{imageHeight} w-auto object-contain drop-shadow-xl transition-transform duration-500 ease-spring hover:scale-[1.05] motion-reduce:transition-none motion-reduce:hover:scale-100"
+							/>
+						</button>
+					{:else}
+						<img
+							src={img.src}
+							alt={img.alt}
+							loading="lazy"
+							draggable="false"
+							class="{imageHeight} w-auto object-contain drop-shadow-xl motion-reduce:transition-none"
+						/>
+					{/if}
 				</div>
 			{/each}
 		</div>
@@ -247,5 +340,58 @@
 		>
 			{realIndex + 1} / {count}
 		</span>
+	</div>
+{/if}
+
+{#if lightboxSrc}
+	<div
+		use:teleport
+		transition:fade={{ duration: 200 }}
+		class="fixed top-0 right-0 bottom-0 left-0 z-[10000] flex items-center justify-center bg-brand-dark px-4"
+		role="button"
+		tabindex="0"
+		onclick={closeLightbox}
+		onkeydown={(e) => {
+			if (e.key === 'Enter' || e.key === ' ') closeLightbox();
+		}}
+		style="position: fixed !important; backdrop-filter: blur(16px);"
+	>
+		<div
+			transition:scale={{ duration: 250, start: 0.95, opacity: 0 }}
+			class="double-bezel relative max-h-[85vh] max-w-[90vw] overflow-hidden shadow-2xl"
+			role="none"
+			onclick={(e) => e.stopPropagation()}
+			onkeydown={(e) => e.stopPropagation()}
+		>
+			<div class="double-bezel-inner bg-white/95 p-2 sm:p-4">
+				<button
+					type="button"
+					onclick={closeLightbox}
+					class="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-brand-divider bg-neutral-100 text-brand-gray transition-all duration-300 hover:bg-neutral-200 hover:text-brand-dark active:scale-95"
+					aria-label="Закрыть"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="currentColor"
+						class="h-4 w-4"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+					</svg>
+				</button>
+				<img
+					src={lightboxSrc}
+					alt={lightboxAlt}
+					class="max-h-[75vh] max-w-full rounded-lg object-contain shadow-inner"
+				/>
+				{#if lightboxAlt}
+					<p class="mt-4 text-center font-serif text-sm font-light tracking-wide text-brand-dark">
+						{lightboxAlt}
+					</p>
+				{/if}
+			</div>
+		</div>
 	</div>
 {/if}
