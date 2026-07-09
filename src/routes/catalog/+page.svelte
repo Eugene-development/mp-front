@@ -81,6 +81,12 @@
 				class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
 			>
 				<div class="double-bezel-inner flex h-full flex-col p-6 sm:p-8">
+					<h2
+						class="mb-5 font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
+					>
+						Полимерные канистры
+					</h2>
+
 					<!-- Image area -->
 					<ProductImageSlider
 						images={images.kanistry}
@@ -99,12 +105,6 @@
 							>до 2.7 мм</span
 						>
 					</div>
-
-					<h2
-						class="font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
-					>
-						Полимерные канистры
-					</h2>
 					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
 						Штабелируемые канистры от 1 до 31.5 литра с замковым соединением дно–ручка и усиленными
 						стенками. Специальные канистры ГСМ с носиком (5, 10, 20 л).
@@ -149,6 +149,12 @@
 				class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
 			>
 				<div class="double-bezel-inner flex h-full flex-col p-6 sm:p-8">
+					<h2
+						class="mb-5 font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
+					>
+						Пластиковые бочки
+					</h2>
+
 					<!-- Image area -->
 					<ProductImageSlider
 						images={images.bochki}
@@ -167,12 +173,6 @@
 							>Новые и Б/У</span
 						>
 					</div>
-
-					<h2
-						class="font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
-					>
-						Пластиковые бочки
-					</h2>
 					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
 						Промышленная упаковка от 48 до 227 литров в исполнениях L-Ring и Open Top.
 						Сертифицированы по ДОПОГ для перевозки опасных грузов.
@@ -216,6 +216,12 @@
 				class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
 			>
 				<div class="double-bezel-inner flex h-full flex-col p-6 sm:p-8">
+					<h2
+						class="mb-5 font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
+					>
+						Пластиковые вёдра
+					</h2>
+
 					<!-- Image area -->
 					<ProductImageSlider
 						images={images.vedra}
@@ -234,12 +240,6 @@
 							>Герметичные</span
 						>
 					</div>
-
-					<h2
-						class="font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
-					>
-						Пластиковые вёдра
-					</h2>
 					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
 						Универсальная тара от 1 до 32 литров с герметичной крышкой и замком первого вскрытия.
 						Пластиковая или металлическая ручка, IML-этикетирование.
@@ -284,6 +284,12 @@
 				class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
 			>
 				<div class="double-bezel-inner flex h-full flex-col p-6 sm:p-8">
+					<h2
+						class="mb-5 font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
+					>
+						Еврокубы (IBC)
+					</h2>
+
 					<!-- Image area -->
 					<ProductImageSlider
 						images={images.evrokuby}
@@ -302,12 +308,6 @@
 							>Стальная обрешётка</span
 						>
 					</div>
-
-					<h2
-						class="font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
-					>
-						Еврокубы (IBC)
-					</h2>
 					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
 						Крупногабаритная тара 1000 литров: полиэтиленовая колба в стальной оцинкованной
 						обрешётке. Новые, б/у и с тэном подогрева и утеплителем.

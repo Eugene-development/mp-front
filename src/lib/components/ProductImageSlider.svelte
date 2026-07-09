@@ -211,7 +211,7 @@
 				alt={images[0].alt}
 				loading="eager"
 				draggable="false"
-				class="{imageHeight} w-auto object-contain drop-shadow-xl transition-transform duration-700 ease-spring group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+				class="{imageHeight} w-auto rounded-lg object-contain drop-shadow-xl transition-transform duration-700 ease-spring group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
 			/>
 		</button>
 	</div>
@@ -256,7 +256,7 @@
 								alt={img.alt}
 								loading={i <= 1 ? 'eager' : 'lazy'}
 								draggable="false"
-								class="{imageHeight} w-auto object-contain drop-shadow-xl transition-transform duration-700 ease-spring group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+								class="{imageHeight} w-auto rounded-lg object-contain drop-shadow-xl transition-transform duration-700 ease-spring group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
 							/>
 						</button>
 					{:else if d === 1}
@@ -275,7 +275,7 @@
 								alt={img.alt}
 								loading="lazy"
 								draggable="false"
-								class="{imageHeight} w-auto object-contain drop-shadow-xl transition-transform duration-500 ease-spring hover:scale-[1.05] motion-reduce:transition-none motion-reduce:hover:scale-100"
+								class="{imageHeight} w-auto rounded-lg object-contain drop-shadow-xl transition-transform duration-500 ease-spring hover:scale-[1.05] motion-reduce:transition-none motion-reduce:hover:scale-100"
 							/>
 						</button>
 					{:else}
@@ -284,7 +284,7 @@
 							alt={img.alt}
 							loading="lazy"
 							draggable="false"
-							class="{imageHeight} w-auto object-contain drop-shadow-xl motion-reduce:transition-none"
+							class="{imageHeight} w-auto rounded-lg object-contain drop-shadow-xl motion-reduce:transition-none"
 						/>
 					{/if}
 				</div>
