@@ -317,7 +317,9 @@
 						</div>
 
 						<button
-							onclick={guardedClick(() => orderModal.open(calculatedSpec))}
+							onclick={guardedClick(() =>
+								orderModal.open(calculatedSpec, undefined, 'calc_submit')
+							)}
 							class="group flex w-full cursor-pointer items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-sm font-bold tracking-wider text-brand-dark uppercase transition-all duration-300 hover:bg-neutral-100 active:scale-[0.98]"
 						>
 							<span>Отправить заявку</span>

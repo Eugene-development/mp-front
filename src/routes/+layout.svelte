@@ -14,13 +14,14 @@
 	import { trust } from '$lib/antibot/trust.svelte';
 	import { trackHumanSignal } from '$lib/antibot/useHumanSignal.svelte';
 	import { captcha } from '$lib/antibot/smartcaptcha.svelte';
-	import { reachGoal } from '$lib/antibot/metrika';
+	import { startEngagementGuard, guardedGoal } from '$lib/antibot/engagementGuard.svelte';
 
 	let { children, data } = $props();
 
 	let observer;
 	let stopHumanSignal = () => {};
 	let stopPhoneClickTracking = () => {};
+	let stopEngagementGuard = () => {};
 
 	onMount(() => {
 		// Антибот: восстанавливаем состояние доверия из localStorage.
@@ -42,13 +43,19 @@
 		// шапку (все страницы), страницу контактов (оба номера), модалку и
 		// баннер единообразно; новые tel-ссылки учитываются автоматически.
 		// Фаза capture — срабатывает раньше любых stopPropagation на цели.
-		// reachGoal безопасен до init Метрики: цель буферизуется и уйдёт позже.
+		// Идёт через guardedGoal — поведенческий бюджет + серверный гейт
+		// (см. engagementGuard.svelte.ts), как и cta_click_*. Сам звонок
+		// (открытие дилера) не блокируется — гейтится только отправка цели.
 		const handlePhoneClick = (event) => {
 			const link = event.target instanceof Element ? event.target.closest('a[href^="tel:"]') : null;
-			if (link) reachGoal('phone_click');
+			if (link) guardedGoal('phone_click');
 		};
 		window.addEventListener('click', handlePhoneClick, true);
 		stopPhoneClickTracking = () => window.removeEventListener('click', handlePhoneClick, true);
+
+		// Антибот: поведенческий бюджет + rate-limit для клик-целей вовлечения
+		// (cta_click_* и phone_click). См. engagementGuard.svelte.ts.
+		stopEngagementGuard = startEngagementGuard();
 	});
 
 	onDestroy(() => {
@@ -57,6 +64,7 @@
 		}
 		stopHumanSignal();
 		stopPhoneClickTracking();
+		stopEngagementGuard();
 	});
 
 	afterNavigate(() => {

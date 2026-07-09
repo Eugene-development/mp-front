@@ -17,7 +17,7 @@
 			{
 				chip: '1',
 				chipUnit: 'л',
-				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-1-litr.jpg', 
+				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-1-litr.jpg',
 				alt: 'Полимерная канистра 1 л',
 				title: '1 л',
 				scaleLabel: 'объём',
@@ -45,7 +45,8 @@
 			{
 				chip: '5',
 				chipUnit: 'л',
-				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-5-litrov.jpg', // TODO: подставить URL фото
+				image:
+					'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-5-litrov.jpg', // TODO: подставить URL фото
 				alt: 'Полимерная канистра 5 л',
 				title: '5 л',
 				scaleLabel: 'объём',
@@ -74,7 +75,8 @@
 			{
 				chip: '10',
 				chipUnit: 'л',
-				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-10-litrov.jpg',
+				image:
+					'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-10-litrov.jpg',
 				alt: 'Полимерная канистра 10 л',
 				title: '10 л',
 				scaleLabel: 'объём',
@@ -118,7 +120,8 @@
 			{
 				chip: '21.5',
 				chipUnit: 'л',
-				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-21.5-litra.jpg',
+				image:
+					'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-21.5-litra.jpg',
 				alt: 'Полимерная канистра 21.5 л',
 				title: '21.5 л',
 				scaleLabel: 'объём',
@@ -132,7 +135,8 @@
 			{
 				chip: '31.5',
 				chipUnit: 'л',
-				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-31.5-litra.jpg',
+				image:
+					'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-31.5-litra.jpg',
 				alt: 'Полимерная канистра 31.5 л',
 				title: '31.5 л',
 				scaleLabel: 'объём',
@@ -252,7 +256,11 @@
 						<div class="mt-8 flex flex-wrap items-center gap-4">
 							<button
 								onclick={guardedClick(() =>
-									orderModal.open('Запрос счета с НДС на полимерные канистры')
+									orderModal.open(
+										'Запрос счета с НДС на полимерные канистры',
+										'cta_click_invoice_kanistry',
+										'invoice_submit_kanistry'
+									)
 								)}
 								class="group flex h-[52px] cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 							>
@@ -328,14 +336,14 @@
 						<div class="min-w-[540px]">
 							<div class="space-y-4 font-mono text-[11px] leading-relaxed">
 								<!-- Section: Пластиковые канистры -->
-								<div class="mb-3  border-white/20 pb-2">
-									<span class="font-bold text-xl tracking-wider text-red-300 uppercase">
+								<div class="mb-3 border-white/20 pb-2">
+									<span class="text-xl font-bold tracking-wider text-red-300 uppercase">
 										Пластиковые канистры
 									</span>
 								</div>
 
 								<!-- Table Header -->
-								<div class="flex justify-between  border-white/10 pb-3 font-bold">
+								<div class="flex justify-between border-white/10 pb-3 font-bold">
 									<span class="w-1/6">ЛИТРАЖ</span>
 									<span class="w-1/6">ТОЛЩИНА</span>
 									<span class="w-1/4">ТИП КРЫШКИ</span>
@@ -399,7 +407,7 @@
 
 								<!-- Section: Канистры ГСМ -->
 								<div class="mt-6 mb-3 border-white/20 pb-2">
-									<span class="font-bold text-xl tracking-wider text-red-300 uppercase">
+									<span class="text-xl font-bold tracking-wider text-red-300 uppercase">
 										Канистры ГСМ
 									</span>
 								</div>
@@ -730,7 +738,11 @@
 
 					<button
 						onclick={guardedClick(() =>
-							orderModal.open('Запрос счета с НДС на полимерные канистры')
+							orderModal.open(
+								'Запрос счета с НДС на полимерные канистры',
+								'cta_click_invoice_kanistry',
+								'invoice_submit_kanistry'
+							)
 						)}
 						class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 					>

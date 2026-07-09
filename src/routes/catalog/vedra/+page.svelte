@@ -191,7 +191,11 @@
 						<div class="mt-8 flex flex-wrap items-center gap-4">
 							<button
 								onclick={guardedClick(() =>
-									orderModal.open('Запрос счета с НДС на пластиковые ведра')
+									orderModal.open(
+										'Запрос счета с НДС на пластиковые ведра',
+										'cta_click_invoice_vedra',
+										'invoice_submit_vedra'
+									)
 								)}
 								class="group flex h-[52px] cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 							>
@@ -510,7 +514,7 @@
 					<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
 						<div class="flex gap-4 border-b border-brand-divider pb-6 md:border-b md:pb-6">
 							<div
-								class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-sm font-bold text-brand-accent"
+								class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-sm font-bold text-brand-accent"
 							>
 								✓
 							</div>
@@ -527,7 +531,7 @@
 
 						<div class="flex gap-4 border-b border-brand-divider pb-6 md:border-b md:pb-6">
 							<div
-								class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-sm font-bold text-brand-accent"
+								class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-sm font-bold text-brand-accent"
 							>
 								✓
 							</div>
@@ -544,7 +548,7 @@
 
 						<div class="flex gap-4 border-b border-brand-divider pb-6 md:border-b-0 md:pb-0">
 							<div
-								class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-sm font-bold text-brand-accent"
+								class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-sm font-bold text-brand-accent"
 							>
 								✓
 							</div>
@@ -561,7 +565,7 @@
 
 						<div class="flex gap-4">
 							<div
-								class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-sm font-bold text-brand-accent"
+								class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-accent-light text-sm font-bold text-brand-accent"
 							>
 								✓
 							</div>
@@ -599,9 +603,13 @@
 
 					<button
 						onclick={guardedClick(() =>
-							orderModal.open('Запрос счета с НДС на пластиковые ведра')
+							orderModal.open(
+								'Запрос счета с НДС на пластиковые ведра',
+								'cta_click_invoice_vedra',
+								'invoice_submit_vedra'
+							)
 						)}
-						class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
+						class="group flex h-[52px] shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 					>
 						<span>Получить счёт</span>
 						<span
@@ -650,7 +658,7 @@
 							</p>
 						</div>
 						<div
-							class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full border border-brand-divider bg-brand-bg text-brand-accent transition-all duration-300 group-hover:border-brand-accent group-hover:bg-brand-accent-light"
+							class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-brand-divider bg-brand-bg text-brand-accent transition-all duration-300 group-hover:border-brand-accent group-hover:bg-brand-accent-light"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

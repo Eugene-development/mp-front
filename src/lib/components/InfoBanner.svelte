@@ -3,7 +3,7 @@
 </script>
 
 {#if visible}
-	<div class="fixed inset-x-0 top-0 z-[60] flex justify-center px-4">
+	<div class="fixed inset-x-0 top-0 z-60 flex justify-center px-4">
 		<div
 			class="flex w-full max-w-7xl items-center justify-between gap-4 rounded-b-2xl border border-t-0 border-white/5 bg-brand-dark px-6 py-2 text-white shadow-lg"
 		>

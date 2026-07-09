@@ -93,8 +93,11 @@
 				throw new Error(result.message || 'Не удалось отправить запрос');
 			}
 
-			// Конверсия для Директа: цель «отправка заявки на счёт».
-			reachGoal('invoice_request_submit');
+			// Конверсия для Директа: цель отправки заявки. Имя задаёт opener-кнопка
+			// (order_submit — главная, invoice_submit_<product> — каталог, calc_submit —
+			// калькулятор), чтобы различать источник. Фолбэк на legacy-имя, если
+			// opener забыл передать submitGoal.
+			reachGoal(orderModal.submitGoal || 'invoice_request_submit');
 
 			isSuccess = true;
 			// Reset form fields

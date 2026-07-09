@@ -93,8 +93,8 @@
 		</h1>
 		<p class="mt-4 max-w-2xl text-sm leading-relaxed text-brand-gray">
 			Крупногабаритная тара объёмом 1000 литров, состоящая из полиэтиленовой внутренней колбы и
-			прочной стальной оцинкованной обрешётки. Доступны новые и б/у исполнения. Для вязких
-			грузов предлагаются еврокубы с тэном подогрева и утеплителем.
+			прочной стальной оцинкованной обрешётки. Доступны новые и б/у исполнения. Для вязких грузов
+			предлагаются еврокубы с тэном подогрева и утеплителем.
 		</p>
 	</div>
 
@@ -129,9 +129,9 @@
 						<p class="mt-4 max-w-xl text-sm leading-relaxed text-brand-gray">
 							Полипропиленовая колба выдувается из химически стойкого полиэтилена и помещается в
 							оцинкованную стальную сетчатую обрешётку. Сливной кран с защитным колпаком, верхняя
-							крышка и возможность штабелирования делают еврокуб универсальным
-							решением для перевозки и хранения жидкостей. Для вязких грузов доступны модели с
-							утеплителем и тэном подогрева.
+							крышка и возможность штабелирования делают еврокуб универсальным решением для
+							перевозки и хранения жидкостей. Для вязких грузов доступны модели с утеплителем и
+							тэном подогрева.
 						</p>
 
 						<!-- Key USPs -->
@@ -161,7 +161,11 @@
 						<div class="mt-8 flex flex-wrap items-center gap-4">
 							<button
 								onclick={guardedClick(() =>
-									orderModal.open('Запрос счета с НДС на еврокубы (IBC-контейнеры) 1000 литров')
+									orderModal.open(
+										'Запрос счета с НДС на еврокубы (IBC-контейнеры) 1000 литров',
+										'cta_click_invoice_evrokuby',
+										'invoice_submit_evrokuby'
+									)
 								)}
 								class="group flex h-[52px] cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-6 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 							>
@@ -217,8 +221,8 @@
 					Спецификации <span class="font-normal text-brand-accent italic">и комплектация</span>
 				</h2>
 				<p class="mt-3 max-w-2xl text-sm leading-relaxed text-brand-gray">
-					Полная матрица комплектаций: новые, б/у и с подогревом. Все еврокубы проходят проверку
-					на герметичность и слив.
+					Полная матрица комплектаций: новые, б/у и с подогревом. Все еврокубы проходят проверку на
+					герметичность и слив.
 				</p>
 			</div>
 
@@ -551,7 +555,11 @@
 
 					<button
 						onclick={guardedClick(() =>
-							orderModal.open('Запрос счета с НДС на еврокубы (IBC-контейнеры) 1000 литров')
+							orderModal.open(
+								'Запрос счета с НДС на еврокубы (IBC-контейнеры) 1000 литров',
+								'cta_click_invoice_evrokuby',
+								'invoice_submit_evrokuby'
+							)
 						)}
 						class="group flex h-[52px] flex-shrink-0 cursor-pointer items-center gap-3 rounded-xl border border-brand-dark bg-brand-dark px-8 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98]"
 					>

@@ -3,6 +3,8 @@
 	import Honeypot from '../Antibot/Honeypot.svelte';
 	import { captcha, SITE_KEY } from '$lib/antibot/smartcaptcha.svelte';
 	import { reachGoal } from '$lib/antibot/metrika';
+	import { guardedClick } from '$lib/antibot/guardedClick';
+	import { guardedGoal } from '$lib/antibot/engagementGuard.svelte';
 
 	// Svelte 5 states for the form
 	let companyName = $state('');
@@ -75,8 +77,8 @@
 				throw new Error(result.message || 'Не удалось отправить запрос');
 			}
 
-			// Конверсия для Директа: цель «заявка на КП со страницы контактов».
-			reachGoal('contacts_invoice_submit');
+			// Конверсия для Директа: цель «заявка на КП с главной страницы».
+			reachGoal('kp_home_submit');
 
 			isSuccess = true;
 			// Reset form fields
@@ -303,6 +305,7 @@
 
 							<button
 								type="submit"
+								onclick={guardedClick(() => guardedGoal('cta_click_kp_home'))}
 								disabled={isSubmitting}
 								class="group mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-brand-dark px-6 py-4 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-neutral-800 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-75"
 							>
@@ -326,7 +329,7 @@
 										Отправка...
 									</span>
 								{:else}
-									<span>Получить счет с НДС</span>
+									<span>Отправить запрос</span>
 									<span
 										class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-1"
 									>
