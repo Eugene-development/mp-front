@@ -41,6 +41,8 @@
 	} = $props();
 
 	let active = $state(0);
+	/** DOM-ноды кнопок-чипов боковой панели — для авто-скролла к активному варианту. */
+	let chipEls = $state(/** @type {HTMLButtonElement[]} */ ([]));
 	let lightboxSrc = $state(/** @type {string | null} */ (null));
 	let lightboxAlt = $state('');
 
@@ -61,6 +63,16 @@
 	/** @param {number} i */
 	function select(i) {
 		if (i >= 0 && i < count) active = i;
+	}
+
+	/** Следующий вариант с зацикливанием. */
+	function next() {
+		if (count > 1) active = (active + 1) % count;
+	}
+
+	/** Предыдущий вариант с зацикливанием. */
+	function prev() {
+		if (count > 1) active = (active - 1 + count) % count;
 	}
 
 	/** Сдвиг выделения и фокуса на соседний вариант. @param {KeyboardEvent} e @param {number} dir */
@@ -117,6 +129,14 @@
 			}
 		};
 	}
+
+	// При смене активного варианта (в т.ч. стрелками навигации) держим соответствующий
+	// чип в зоне видимости боковой панели — выделение всегда остаётся на экране.
+	$effect(() => {
+		const i = active;
+		const el = chipEls[i];
+		if (el) el.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+	});
 
 	$effect(() => {
 		return () => {
@@ -179,38 +199,90 @@
 								</span>
 							{/if}
 
-							{#key active}
-								<div in:fly={{ y: 12, duration: 300 }} class="relative">
-									{#if current.image}
-										<button
-											type="button"
-											onclick={openLightbox}
-											aria-label={`Увеличить фото: ${current.alt ?? chipLabel(current)}`}
-											class="flex w-full cursor-zoom-in items-center justify-center px-6 py-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40 focus-visible:ring-inset sm:py-14"
+							<div class="flex items-center justify-center gap-6 px-6 py-10 sm:gap-10 sm:py-14">
+								{#if count > 1}
+									<button
+										type="button"
+										onclick={(e) => {
+											e.stopPropagation();
+											prev();
+										}}
+										aria-label="Предыдущее фото"
+										class="flex h-12 w-12 flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-white text-brand-dark shadow-lg transition-all duration-300 hover:scale-105 hover:bg-neutral-50 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40 sm:h-14 sm:w-14"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width="2.5"
+											stroke="currentColor"
+											class="h-6 w-6 sm:h-7 sm:w-7"
 										>
-											<img
-												src={current.image}
-												alt={current.alt ?? chipLabel(current)}
-												loading="eager"
-												draggable="false"
-												class="h-[260px] w-auto object-contain drop-shadow-xl transition-transform duration-700 ease-spring group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100 sm:h-[340px]"
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M15.75 19.5 8.25 12l7.5-7.5"
 											/>
-										</button>
-									{:else}
-										{@render stagePlaceholder()}
-									{/if}
-								</div>
-							{/key}
+										</svg>
+									</button>
+								{/if}
 
-							{#if current.image}
-								<span
-									class="pointer-events-none absolute right-4 bottom-4 z-10 rounded-full bg-brand-dark/70 px-2.5 py-1 font-mono text-[9px] tracking-wider text-white backdrop-blur-sm"
-								>
-									Нажмите, чтобы увеличить ↗
-								</span>
-							{/if}
+								{#key active}
+									<div
+										in:fly={{ y: 12, duration: 300 }}
+										class="relative flex min-w-0 justify-center"
+									>
+										{#if current.image}
+											<button
+												type="button"
+												onclick={openLightbox}
+												aria-label={`Увеличить фото: ${current.alt ?? chipLabel(current)}`}
+												class="flex min-w-0 cursor-zoom-in items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40 focus-visible:ring-inset"
+											>
+												<img
+													src={current.image}
+													alt={current.alt ?? chipLabel(current)}
+													loading="eager"
+													draggable="false"
+													class="max-h-[260px] w-auto max-w-full rounded-lg object-contain drop-shadow-xl transition-transform duration-700 ease-spring group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100 sm:max-h-[340px]"
+												/>
+											</button>
+										{:else}
+											{@render stagePlaceholder()}
+										{/if}
+									</div>
+								{/key}
+
+								{#if count > 1}
+									<button
+										type="button"
+										onclick={(e) => {
+											e.stopPropagation();
+											next();
+										}}
+										aria-label="Следующее фото"
+										class="flex h-12 w-12 flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-white text-brand-dark shadow-lg transition-all duration-300 hover:scale-105 hover:bg-neutral-50 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40 sm:h-14 sm:w-14"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width="2.5"
+											stroke="currentColor"
+											class="h-6 w-6 sm:h-7 sm:w-7"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M8.25 4.5l7.5 7.5-7.5 7.5"
+											/>
+										</svg>
+									</button>
+								{/if}
+							</div>
+
 							<span
-								class="absolute bottom-4 left-4 z-10 rounded-full bg-white/80 px-2 py-0.5 font-mono text-[9px] tracking-wider text-brand-gray backdrop-blur-sm"
+								class="absolute top-4 right-4 z-10 rounded-full bg-white/80 px-2 py-0.5 font-mono text-[9px] tracking-wider text-brand-gray backdrop-blur-sm"
 							>
 								{active + 1} / {count}
 							</span>
@@ -241,6 +313,7 @@
 								<button
 									type="button"
 									onclick={() => select(i)}
+									bind:this={chipEls[i]}
 									onkeydown={onChipKeydown}
 									aria-pressed={i === active}
 									aria-label={chipLabel(v) + (v.tag ? ' · ' + v.tag : '')}
@@ -348,7 +421,7 @@
 	<div
 		use:teleport
 		transition:fade={{ duration: 200 }}
-		class="fixed left-0 top-0 right-0 bottom-0 z-[10000] flex items-center justify-center bg-brand-dark px-4"
+		class="fixed top-0 right-0 bottom-0 left-0 z-[10000] flex items-center justify-center bg-brand-dark px-4"
 		role="button"
 		tabindex="0"
 		onclick={closeLightbox}

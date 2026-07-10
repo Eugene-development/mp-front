@@ -31,7 +31,7 @@
 		</span>
 	</div>
 
-	<h3 class="font-serif text-2xl leading-snug font-light text-brand-dark">
+	<h3 class="font-serif text-xl sm:text-2xl leading-snug font-light text-brand-dark">
 		Уточняйте у менеджера
 	</h3>
 
@@ -42,7 +42,7 @@
 	<ul class="mt-5 space-y-2 border-t border-brand-divider pt-4">
 		<li class="flex items-center gap-2.5 text-sm text-brand-dark">
 			<span class="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-accent"></span>
-			Наличие на продукции на складе
+			Наличие продукции на складе
 		</li>
 		<li class="flex items-center gap-2.5 text-sm text-brand-dark">
 			<span class="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-accent"></span>

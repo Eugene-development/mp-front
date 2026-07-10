@@ -18,7 +18,12 @@
 	 *   imageHeight?: string;
 	 * }}
 	 */
-	let { images, badge = '', badgeClass = '', imageHeight = 'h-[200px] md:h-[240px]' } = $props();
+	let {
+		images,
+		badge = '',
+		badgeClass = '',
+		imageHeight = 'max-h-[200px] md:max-h-[240px] max-w-full'
+	} = $props();
 
 	// active — индекс слота в массиве `rendered` (0..count+1). Начинаем со слота 1
 	// (первое реальное фото). Слоты 0 и count+1 — клоны-«стражи» для бесшовного цикла.
@@ -190,12 +195,12 @@
 	<div
 		class="relative mb-6 flex items-center justify-center overflow-hidden rounded-xl border border-brand-divider/40 bg-gradient-to-b from-brand-bg/80 to-brand-bg/30 py-8"
 	>
-		<div class={imageHeight}></div>
+		<div class="h-[200px] md:h-[240px]"></div>
 	</div>
 {:else if !multi}
 	<!-- Одно фото: по центру, без навигации и цикла. -->
 	<div
-		class="relative mb-6 flex items-center justify-center overflow-hidden rounded-xl border border-brand-divider/40 bg-gradient-to-b from-brand-bg/80 to-brand-bg/30 py-8"
+		class="relative mb-6 flex items-center justify-center overflow-hidden rounded-xl border border-brand-divider/40 bg-gradient-to-b from-brand-bg/80 to-brand-bg/30 py-10 sm:py-14"
 	>
 		{#if badge}
 			<span class="absolute top-4 left-4 z-20 {badgeClass}">{badge}</span>
@@ -218,7 +223,7 @@
 {:else}
 	<!-- Бесконечная peek-карусель -->
 	<div
-		class="relative mb-6 overflow-hidden rounded-xl border border-brand-divider/40 bg-gradient-to-b from-brand-bg/80 to-brand-bg/30 py-8"
+		class="relative mb-6 overflow-hidden rounded-xl border border-brand-divider/40 bg-gradient-to-b from-brand-bg/80 to-brand-bg/30 py-10 sm:py-14"
 		role="region"
 		aria-roledescription="карусель"
 		aria-label="Фотографии товара"
@@ -336,7 +341,7 @@
 
 		<span
 			aria-hidden="true"
-			class="absolute right-4 bottom-3 z-10 rounded-full bg-brand-dark/70 px-2 py-0.5 font-mono text-[9px] tracking-wider text-white backdrop-blur-sm"
+			class="absolute top-4 right-4 z-10 rounded-full bg-brand-dark/70 px-2 py-0.5 font-mono text-[9px] tracking-wider text-white backdrop-blur-sm"
 		>
 			{realIndex + 1} / {count}
 		</span>

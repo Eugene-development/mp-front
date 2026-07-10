@@ -297,7 +297,7 @@
 		<!-- Gallery by volume -->
 		<ProductVariantGallery
 			label="Галерея"
-			title="Изображения "
+			title="Фото "
 			titleAccent="по литражу"
 			selectorLabel="Литраж"
 			subtitle="Выберите объём, чтобы рассмотреть канистру. Для части типоразмеров фото ещё в подготовке."
