@@ -34,7 +34,25 @@
 		// генерирующие таких событий, никогда не получят токен.
 		stopHumanSignal = trackHumanSignal({
 			onSignal: () => {
-				if (!captcha.token) captcha.execute();
+				if (captcha.token) return;
+				// Взводим невидимую SmartCaptcha ВНЕ синхронного цикла первого
+				// пользовательского события. На мобильных первый «живой» сигнал —
+				// это тап по кнопке-гамбургеру: если запускать execute() прямо в
+				// обработчике touchstart/mousedown, тяжёлая работа невидимого
+				// челленджа Яндекса (на проде, где домен валиден) блокирует главный
+				// поток и клик/переход открытия мобильного меню применяется лишь
+				// через 2–4 с. На localhost домен не авторизован — execute() падает
+				// в error-callback мгновенно, поэтому локально задержки нет.
+				// Откладываем через requestIdleCallback (с гарантированным timeout),
+				// чтобы браузер сначала обработал тап и отрисовал меню.
+				const armCaptcha = () => {
+					if (!captcha.token) captcha.execute();
+				};
+				if (typeof window.requestIdleCallback === 'function') {
+					window.requestIdleCallback(armCaptcha, { timeout: 1000 });
+				} else {
+					setTimeout(armCaptcha, 200);
+				}
 			}
 		});
 
