@@ -4,6 +4,7 @@
 	import { reachGoal } from '$lib/antibot/metrika';
 	import { guardedClick } from '$lib/antibot/guardedClick';
 	import { guardedGoal } from '$lib/antibot/engagementGuard.svelte';
+	import { getStoredUtm } from '$lib/utm';
 
 	// Svelte 5 states for the form
 	let companyName = $state('');
@@ -38,7 +39,8 @@
 					phone: contactPhone.trim(),
 					email: contactEmail.trim(),
 					comment: requestedProducts.trim() || null,
-					source_url: sourceUrl
+					source_url: sourceUrl,
+					utm: getStoredUtm()
 				})
 			});
 

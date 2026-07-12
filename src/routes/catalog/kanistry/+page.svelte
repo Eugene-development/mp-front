@@ -223,19 +223,19 @@
 							class="mt-8 grid w-full max-w-xl grid-cols-3 gap-6 border-t border-brand-divider pt-6"
 						>
 							<div class="flex flex-col">
-								<span class="font-serif text-2xl font-light text-brand-dark">9 типоразмеров</span>
+								<span class="font-serif text-xl font-light text-brand-dark">9 видов</span>
 								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
 									>Пластик + ГСМ</span
 								>
 							</div>
 							<div class="flex flex-col">
-								<span class="font-serif text-2xl font-light text-brand-dark">до 2.7 мм</span>
+								<span class="font-serif text-xl font-light text-brand-dark">до 2.7 мм</span>
 								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
-									>Толщина стенки</span
+									>Толщина</span
 								>
 							</div>
 							<div class="flex flex-col">
-								<span class="font-serif text-2xl font-light text-brand-dark">4 яруса</span>
+								<span class="font-serif text-xl font-light text-brand-dark">4 яруса</span>
 								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
 									>Штабелирование</span
 								>
@@ -318,7 +318,7 @@
 						Матрица типоразмеров
 					</span>
 					<h3 class="mb-6 font-serif text-2xl font-light text-brand-dark">
-						Канистры МегаПак — геометрия и комплектация
+						Таблица геометрии и комплектации
 					</h3>
 
 					<div class="overflow-x-auto rounded-xl bg-brand-dark p-6 text-white sm:p-8">
@@ -464,7 +464,7 @@
 					Варианты применения <span class="font-normal text-brand-accent italic">по отраслям</span>
 				</h2>
 				<p class="mt-3 max-w-2xl text-sm leading-relaxed text-brand-gray">
-					Полимерные канистры МегаПак разработаны с учётом физико-химических условий эксплуатации в
+					Полимерные канистры разработаны с учётом физико-химических условий эксплуатации в
 					конкретных отраслях. Ниже — ключевые направления с перечнями совместимых продуктов.
 				</p>
 			</div>
@@ -773,7 +773,7 @@
 								Полный ассортимент
 							</span>
 							<h3 class="font-serif text-2xl font-light text-brand-dark md:text-3xl">
-								Смотреть полный каталог
+								Смотреть весь каталог
 							</h3>
 							<p class="mt-2 max-w-xl text-sm leading-relaxed text-brand-gray">
 								Помимо канистр производим пластиковые бочки L-Ring/Open Top, вёдра с замком первого

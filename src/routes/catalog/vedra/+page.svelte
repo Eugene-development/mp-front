@@ -638,7 +638,7 @@
 								Полный ассортимент
 							</span>
 							<h3 class="font-serif text-2xl font-light text-brand-dark md:text-3xl">
-								Смотреть полный каталог
+								Смотреть весь каталог
 							</h3>
 							<p class="mt-2 max-w-xl text-sm leading-relaxed text-brand-gray">
 								Помимо вёдер производим штабелируемые полимерные канистры 1–31.5 л, пластиковые

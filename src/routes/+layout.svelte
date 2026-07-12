@@ -15,6 +15,7 @@
 	import { trackHumanSignal } from '$lib/antibot/useHumanSignal.svelte';
 	import { captcha } from '$lib/antibot/smartcaptcha.svelte';
 	import { startEngagementGuard, guardedGoal } from '$lib/antibot/engagementGuard.svelte';
+	import { captureUtm } from '$lib/utm';
 
 	let { children, data } = $props();
 
@@ -48,6 +49,10 @@
 	let stopEngagementGuard = () => {};
 
 	onMount(() => {
+		// Атрибуция: сохраняем UTM рекламного захода (Яндекс Директ и др.),
+		// чтобы заявка с любой страницы несла источник клика. См. $lib/utm.
+		captureUtm();
+
 		// Антибот: восстанавливаем состояние доверия из localStorage.
 		// Если посетитель уже проходил барьер — Метрика инициализируется сразу,
 		// модалка региона не показывается.

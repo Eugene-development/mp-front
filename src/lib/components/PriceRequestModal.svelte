@@ -4,6 +4,7 @@
 	import Honeypot from './Antibot/Honeypot.svelte';
 	import { captcha, SITE_KEY } from '$lib/antibot/smartcaptcha.svelte';
 	import { reachGoal } from '$lib/antibot/metrika';
+	import { getStoredUtm } from '$lib/utm';
 
 	// Close on ESC key press
 	function handleKeydown(event) {
@@ -71,6 +72,7 @@
 					contact: contact.trim(),
 					comment: comment.trim() || null,
 					source_url: sourceUrl,
+					utm: getStoredUtm(),
 					captcha_token: captcha.token
 				})
 			});

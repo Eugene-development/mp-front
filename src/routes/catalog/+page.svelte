@@ -23,6 +23,138 @@
 		], // TODO: добавить фото при появлении
 		vedra: [{ src: `${CDN}/vedro-1.jpg`, alt: 'Пластиковые вёдра' }] // TODO: добавить фото при появлении
 	};
+
+	/**
+	 * @typedef {Object} ProductChip
+	 * @property {string} text
+	 * @property {string} [class] — Tailwind-классы бейджа
+	 */
+
+	/**
+	 * @typedef {Object} ProductSpec
+	 * @property {string} label
+	 * @property {string} value
+	 */
+
+	/**
+	 * @typedef {Object} ProductCategory
+	 * @property {string} title
+	 * @property {{ src: string; alt: string }[]} images
+	 * @property {string} badge
+	 * @property {string} badgeClass
+	 * @property {ProductChip[]} chips
+	 * @property {string} description
+	 * @property {ProductSpec[]} specs
+	 * @property {string} href
+	 */
+
+	/** @type {ProductCategory[]} */
+	const products = [
+		{
+			title: 'Полимерные канистры',
+			images: images.kanistry,
+			badge: 'Штабелируемые',
+			badgeClass:
+				'rounded bg-emerald-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-emerald-800 uppercase',
+			chips: [
+				{
+					text: 'Первичный HDPE',
+					class:
+						'rounded bg-emerald-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-emerald-800 uppercase'
+				},
+				{
+					text: 'до 2.7 мм',
+					class:
+						'rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase'
+				}
+			],
+			description:
+				'Штабелируемые канистры от 1 до 31.5 литра с замковым соединением дно–ручка и усиленными стенками. Специальные канистры ГСМ с носиком.',
+			specs: [
+				{ label: 'Литраж', value: '1 / 3 / 5 / 10 / 21.5 / 31.5 л' },
+				{ label: 'Стенка', value: 'До 2.7 мм (ГСМ)' }
+			],
+			href: '/catalog/kanistry'
+		},
+		{
+			title: 'Пластиковые бочки',
+			images: images.bochki,
+			badge: 'ДОПОГ · 227 л',
+			badgeClass:
+				'rounded bg-purple-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-purple-800 uppercase',
+			chips: [
+				{
+					text: 'ГОСТ 8728-88',
+					class:
+						'rounded bg-brand-accent-light px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-accent uppercase'
+				},
+				{
+					text: 'Новые и Б/У',
+					class:
+						'rounded bg-amber-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-amber-800 uppercase'
+				}
+			],
+			description:
+				'Промышленная упаковка от 48 до 227 литров в исполнениях L-Ring и Open Top. Сертифицированы по ДОПОГ для перевозки опасных грузов.',
+			specs: [
+				{ label: 'Объёмы', value: '48 / 65 / 127 / 227 л' },
+				{ label: 'Горловина', value: 'L-Ring · Open Top' }
+			],
+			href: '/catalog/bochki'
+		},
+		{
+			title: 'Пластиковые вёдра',
+			images: images.vedra,
+			badge: 'Замок вскрытия',
+			badgeClass:
+				'rounded bg-blue-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-blue-800 uppercase',
+			chips: [
+				{
+					text: 'ГОСТ Р 51760-2011',
+					class:
+						'rounded bg-brand-accent-light px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-accent uppercase'
+				},
+				{
+					text: 'Герметичные',
+					class:
+						'rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase'
+				}
+			],
+			description:
+				'Универсальная тара от 1 до 32 литров с герметичной крышкой и замком первого вскрытия. Пластиковая или металлическая ручка, IML-этикетирование.',
+			specs: [
+				{ label: 'Объёмы', value: '1 / 3 / 5 / 10 / 20 / 32 л' },
+				{ label: 'Ручка', value: 'Пластик / Металл' }
+			],
+			href: '/catalog/vedra'
+		},
+		{
+			title: 'Еврокубы (IBC)',
+			images: images.evrokuby,
+			badge: 'ДОПОГ · 1000 л',
+			badgeClass:
+				'rounded bg-purple-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-purple-800 uppercase',
+			chips: [
+				{
+					text: '1000 литров',
+					class:
+						'rounded bg-amber-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-amber-800 uppercase'
+				},
+				{
+					text: 'Стальная обрешётка',
+					class:
+						'rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase'
+				}
+			],
+			description:
+				'Крупногабаритная тара 1000 литров: полиэтиленовая колба в стальной оцинкованной обрешётке. Новые, б/у и с тэном подогрева и утеплителем.',
+			specs: [
+				{ label: 'Комплектация', value: 'Кран, крышка 150/225 мм' },
+				{ label: 'Типы', value: 'Новый · Б/У · С тэном' }
+			],
+			href: '/catalog/evrokuby'
+		}
+	];
 </script>
 
 <svelte:head>
@@ -48,10 +180,10 @@
 				Промышленный ассортимент · HDPE
 			</span>
 			<h1
-				class="font-serif text-4xl leading-[1.05] font-light tracking-tight text-brand-dark md:text-7xl"
+				class="font-serif text-3xl leading-[1.05] font-light tracking-tight text-brand-dark md:text-7xl"
 			>
-				Промышленная тара
-				<span class="font-normal text-brand-accent italic">из первичного полиэтилена</span>
+				Промышленная
+				<span class="font-normal text-brand-accent italic">тара</span>
 			</h1>
 			<p class="mt-6 max-w-2xl text-sm leading-relaxed text-brand-gray md:text-base">
 				Вся продукция ООО «МегаПак» изготавливается на высокотехнологичных выдувных машинах из
@@ -63,276 +195,64 @@
 
 	<!-- Products Grid: 2 columns on desktop, 1 on mobile -->
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-		<!-- Product 1: Canisters -->
-		<div class="group flex flex-col">
-			<div
-				class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
-			>
-				<div class="double-bezel-inner flex h-full flex-col p-6 sm:p-8">
-					<h2
-						class="mb-5 font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
-					>
-						Полимерные канистры
-					</h2>
-
-					<!-- Image area -->
-					<ProductImageSlider
-						images={images.kanistry}
-						badge="Штабелируемые"
-						badgeClass="rounded bg-emerald-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-emerald-800 uppercase"
-					/>
-
-					<!-- Badges -->
-					<div class="mb-3 flex flex-wrap items-center gap-2">
-						<span
-							class="rounded bg-emerald-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-emerald-800 uppercase"
-							>Первичный HDPE</span
+		{#each products as product (product.href)}
+			<article class="group flex flex-col">
+				<div
+					class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
+				>
+					<div class="double-bezel-inner flex h-full flex-col p-6 sm:p-8">
+						<h2
+							class="mb-5 font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
 						>
-						<span
-							class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase"
-							>до 2.7 мм</span
-						>
-					</div>
-					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
-						Штабелируемые канистры от 1 до 31.5 литра с замковым соединением дно–ручка и усиленными
-						стенками. Специальные канистры ГСМ с носиком (5, 10, 20 л).
-					</p>
+							{product.title}
+						</h2>
 
-					<div class="mt-5 grid grid-cols-2 gap-4 text-[13px]">
-						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
-							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
-								>Литраж</span
-							>
-							<span class="font-semibold text-brand-dark">1 / 3 / 5 / 10 / 21.5 / 31.5 л</span>
+						<!-- Image area -->
+						<ProductImageSlider
+							images={product.images}
+							badge={product.badge}
+							badgeClass={product.badgeClass}
+						/>
+
+						<!-- Badges -->
+						<div class="mb-3 flex flex-wrap items-center gap-2">
+							{#each product.chips as chip (chip.text)}
+								<span class={chip.class}>{chip.text}</span>
+							{/each}
 						</div>
-						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
-							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
-								>Стенка</span
-							>
-							<span class="font-semibold text-brand-dark">До 2.7 мм (ГСМ усиленный)</span>
-						</div>
-					</div>
+						<p class="mt-2 text-sm leading-relaxed text-brand-gray">
+							{product.description}
+						</p>
 
-					<a
-						href="/catalog/kanistry"
-						class="mt-6 flex items-center gap-2 border-t border-brand-divider pt-5 no-underline"
-					>
-						<span
-							class="inline-flex h-9 items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 group-hover:border-brand-accent/60 group-hover:bg-brand-accent-light"
+						<div class="mt-5 grid grid-cols-2 gap-4 text-[9px]">
+							{#each product.specs as spec (spec.label)}
+								<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
+									<span class="mb-1 block tracking-wider text-brand-gray uppercase">
+										{spec.label}
+									</span>
+									<span class="font-semibold text-brand-dark">{spec.value}</span>
+								</div>
+							{/each}
+						</div>
+
+						<a
+							href={product.href}
+							class="mt-6 flex items-center gap-2 border-t border-brand-divider pt-5 no-underline"
 						>
-							Ознакомиться подробнее
-						</span>
-						<span
-							class="ml-auto text-brand-accent transition-transform duration-300 group-hover:translate-x-1"
-							>→</span
-						>
-					</a>
+							<span
+								class="inline-flex h-9 items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 group-hover:border-brand-accent/60 group-hover:bg-brand-accent-light"
+							>
+								Ознакомиться подробнее
+							</span>
+							<span
+								class="ml-auto text-brand-accent transition-transform duration-300 group-hover:translate-x-1"
+								>→</span
+							>
+						</a>
+					</div>
 				</div>
-			</div>
-		</div>
-
-		<!-- Product 2: Drums -->
-		<div class="group flex flex-col">
-			<div
-				class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
-			>
-				<div class="double-bezel-inner flex h-full flex-col p-6 sm:p-8">
-					<h2
-						class="mb-5 font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
-					>
-						Пластиковые бочки
-					</h2>
-
-					<!-- Image area -->
-					<ProductImageSlider
-						images={images.bochki}
-						badge="ДОПОГ · 227 л"
-						badgeClass="rounded bg-purple-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-purple-800 uppercase"
-					/>
-
-					<!-- Badges -->
-					<div class="mb-3 flex flex-wrap items-center gap-2">
-						<span
-							class="rounded bg-brand-accent-light px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-							>ГОСТ 8728-88</span
-						>
-						<span
-							class="rounded bg-amber-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-amber-800 uppercase"
-							>Новые и Б/У</span
-						>
-					</div>
-					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
-						Промышленная упаковка от 48 до 227 литров в исполнениях L-Ring и Open Top.
-						Сертифицированы по ДОПОГ для перевозки опасных грузов.
-					</p>
-
-					<div class="mt-5 grid grid-cols-2 gap-4 text-[13px]">
-						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
-							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
-								>Объёмы</span
-							>
-							<span class="font-semibold text-brand-dark">48 / 65 / 127 / 227 л</span>
-						</div>
-						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
-							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
-								>Горловина</span
-							>
-							<span class="font-semibold text-brand-dark">L-Ring · Open Top</span>
-						</div>
-					</div>
-
-					<a
-						href="/catalog/bochki"
-						class="mt-6 flex items-center gap-2 border-t border-brand-divider pt-5 no-underline"
-					>
-						<span
-							class="inline-flex h-9 items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 group-hover:border-brand-accent/60 group-hover:bg-brand-accent-light"
-						>
-							Ознакомиться подробнее
-						</span>
-						<span
-							class="ml-auto text-brand-accent transition-transform duration-300 group-hover:translate-x-1"
-							>→</span
-						>
-					</a>
-				</div>
-			</div>
-		</div>
-		<!-- Product 3: Buckets -->
-		<div class="group flex flex-col">
-			<div
-				class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
-			>
-				<div class="double-bezel-inner flex h-full flex-col p-6 sm:p-8">
-					<h2
-						class="mb-5 font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
-					>
-						Пластиковые вёдра
-					</h2>
-
-					<!-- Image area -->
-					<ProductImageSlider
-						images={images.vedra}
-						badge="Замок вскрытия"
-						badgeClass="rounded bg-blue-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-blue-800 uppercase"
-					/>
-
-					<!-- Badges -->
-					<div class="mb-3 flex flex-wrap items-center gap-2">
-						<span
-							class="rounded bg-brand-accent-light px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-accent uppercase"
-							>ГОСТ Р 51760-2011</span
-						>
-						<span
-							class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase"
-							>Герметичные</span
-						>
-					</div>
-					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
-						Универсальная тара от 1 до 32 литров с герметичной крышкой и замком первого вскрытия.
-						Пластиковая или металлическая ручка, IML-этикетирование.
-					</p>
-
-					<div class="mt-5 grid grid-cols-2 gap-4 text-[13px]">
-						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
-							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
-								>Объёмы</span
-							>
-							<span class="font-semibold text-brand-dark">1 / 3 / 5 / 10 / 20 / 32 л</span>
-						</div>
-						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
-							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
-								>Ручка</span
-							>
-							<span class="font-semibold text-brand-dark">Пластик / Металл</span>
-						</div>
-					</div>
-
-					<a
-						href="/catalog/vedra"
-						class="mt-6 flex items-center gap-2 border-t border-brand-divider pt-5 no-underline"
-					>
-						<span
-							class="inline-flex h-9 items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 group-hover:border-brand-accent/60 group-hover:bg-brand-accent-light"
-						>
-							Ознакомиться подробнее
-						</span>
-						<span
-							class="ml-auto text-brand-accent transition-transform duration-300 group-hover:translate-x-1"
-							>→</span
-						>
-					</a>
-				</div>
-			</div>
-		</div>
-
-		<!-- Product 4: Eurocubes -->
-		<div class="group flex flex-col">
-			<div
-				class="double-bezel transition-all duration-500 group-hover:scale-[1.008] group-hover:shadow-[0_35px_70px_-15px_rgba(17,17,24,0.18)]"
-			>
-				<div class="double-bezel-inner flex h-full flex-col p-6 sm:p-8">
-					<h2
-						class="mb-5 font-serif text-2xl leading-tight font-light text-brand-dark transition-colors duration-300 group-hover:text-brand-accent md:text-3xl"
-					>
-						Еврокубы (IBC)
-					</h2>
-
-					<!-- Image area -->
-					<ProductImageSlider
-						images={images.evrokuby}
-						badge="ДОПОГ · 1000 л"
-						badgeClass="rounded bg-purple-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-purple-800 uppercase"
-					/>
-
-					<!-- Badges -->
-					<div class="mb-3 flex flex-wrap items-center gap-2">
-						<span
-							class="rounded bg-amber-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-amber-800 uppercase"
-							>1000 литров</span
-						>
-						<span
-							class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-widest text-brand-gray uppercase"
-							>Стальная обрешётка</span
-						>
-					</div>
-					<p class="mt-3 text-sm leading-relaxed text-brand-gray">
-						Крупногабаритная тара 1000 литров: полиэтиленовая колба в стальной оцинкованной
-						обрешётке. Новые, б/у и с тэном подогрева и утеплителем.
-					</p>
-
-					<div class="mt-5 grid grid-cols-2 gap-4 text-[13px]">
-						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
-							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
-								>Комплектация</span
-							>
-							<span class="font-semibold text-brand-dark">Кран, крышка 150/225 мм</span>
-						</div>
-						<div class="flex flex-col border-l-2 border-brand-accent/30 pl-3">
-							<span class="mb-1 block text-[9px] tracking-wider text-brand-gray uppercase"
-								>Типы</span
-							>
-							<span class="font-semibold text-brand-dark">Новый · Б/У · С тэном</span>
-						</div>
-					</div>
-
-					<a
-						href="/catalog/evrokuby"
-						class="mt-6 flex items-center gap-2 border-t border-brand-divider pt-5 no-underline"
-					>
-						<span
-							class="inline-flex h-9 items-center justify-center rounded-lg border border-brand-accent/30 bg-brand-accent-light/50 px-4 text-xs font-bold tracking-wider text-brand-accent uppercase transition-all duration-300 group-hover:border-brand-accent/60 group-hover:bg-brand-accent-light"
-						>
-							Ознакомиться подробнее
-						</span>
-						<span
-							class="ml-auto text-brand-accent transition-transform duration-300 group-hover:translate-x-1"
-							>→</span
-						>
-					</a>
-				</div>
-			</div>
-		</div>
+			</article>
+		{/each}
 	</div>
 
 	<!-- Materials & Quality note -->
