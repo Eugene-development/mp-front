@@ -15,7 +15,7 @@
 {#if contactsModal.isOpen}
 	<div
 		transition:fade={{ duration: 250 }}
-		class="fixed inset-0 z-[100] flex items-center justify-center bg-brand-dark/50 px-4 backdrop-blur-md"
+		class="fixed inset-0 z-[100] flex items-center justify-center bg-brand-dark/70 px-4 md:bg-brand-dark/50 md:backdrop-blur-md"
 		onclick={(e) => {
 			if (e.target === e.currentTarget) contactsModal.close();
 		}}

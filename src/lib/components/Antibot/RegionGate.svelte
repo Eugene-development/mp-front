@@ -157,7 +157,7 @@
 
 {#if ready && !trust.verified}
 	<div
-		class="fixed inset-0 z-[200] flex items-center justify-center bg-brand-dark/60 px-4 backdrop-blur-md"
+		class="fixed inset-0 z-[200] flex items-center justify-center bg-brand-dark/75 px-4 md:bg-brand-dark/60 md:backdrop-blur-md"
 		transition:fade={{ duration: 200 }}
 	>
 		<div

@@ -37,17 +37,6 @@
 	/>
 </svelte:head>
 
-<!-- Background Ambient Lighting -->
-<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-	<div
-		class="absolute top-[8%] left-[10%] h-[50vw] w-[50vw] animate-ambient-slow rounded-full bg-brand-accent-light/10 blur-[140px]"
-	></div>
-	<div
-		class="absolute -right-[8%] bottom-[12%] h-[45vw] w-[45vw] rounded-full bg-amber-500/5 blur-[130px]"
-		style="animation-delay: -7s;"
-	></div>
-</div>
-
 <main class="relative z-10 mx-auto max-w-[1440px] px-4 pt-32 pb-24 md:pt-36">
 	<!-- Header -->
 	<div class="mb-14 md:mb-16">
@@ -74,7 +63,6 @@
 
 	<!-- Products Grid: 2 columns on desktop, 1 on mobile -->
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-
 		<!-- Product 1: Canisters -->
 		<div class="group flex flex-col">
 			<div

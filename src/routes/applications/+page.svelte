@@ -14,17 +14,6 @@
 	/>
 </svelte:head>
 
-<!-- Background Ambient Lighting -->
-<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-	<div
-		class="absolute top-[10%] left-[30%] h-[50vw] w-[50vw] animate-ambient-slow rounded-full bg-brand-accent-light/10 blur-[130px]"
-	></div>
-	<div
-		class="absolute bottom-[20%] left-[5%] h-[45vw] w-[45vw] rounded-full bg-amber-500/5 blur-[120px]"
-		style="animation-delay: -5s;"
-	></div>
-</div>
-
 <main class="relative z-10 mx-auto max-w-[1440px] px-4 pt-32 pb-24 md:pt-36">
 	<!-- Breadcrumbs and Header -->
 	<div class="mb-16">

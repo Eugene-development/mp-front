@@ -14,17 +14,6 @@
 	/>
 </svelte:head>
 
-<!-- Background Ambient Lighting -->
-<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-	<div
-		class="absolute top-[10%] left-[20%] h-[55vw] w-[55vw] animate-ambient-slow rounded-full bg-brand-accent-light/10 blur-[130px]"
-	></div>
-	<div
-		class="absolute right-[10%] bottom-[10%] h-[50vw] w-[50vw] rounded-full bg-amber-500/5 blur-[120px]"
-		style="animation-delay: -4s;"
-	></div>
-</div>
-
 <main class="relative z-10 mx-auto max-w-[1440px] px-4 pt-32 pb-24 md:pt-36">
 	<!-- Breadcrumbs and Header -->
 	<div class="mb-12">
@@ -85,10 +74,10 @@
 								</li>
 								<li>
 									Технические данные (IP-адрес, сведения о браузере и характере взаимодействия со
-									страницей), передаваемые сервису Yandex SmartCaptcha для защиты форм обратной связи
-									от автоматизированных запросов (ботов). Виджет сервиса на страницах сайта скрыт;
-									настоящее уведомление заменяет предусмотренный сервисом значок «Политика обработки
-									данных».
+									страницей), передаваемые сервису Yandex SmartCaptcha для защиты форм обратной
+									связи от автоматизированных запросов (ботов). Виджет сервиса на страницах сайта
+									скрыт; настоящее уведомление заменяет предусмотренный сервисом значок «Политика
+									обработки данных».
 								</li>
 							</ul>
 						</section>
