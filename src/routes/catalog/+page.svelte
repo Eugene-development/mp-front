@@ -19,7 +19,10 @@
 			{ src: `${CDN}/kanistra/kanistra-3-litra.jpg`, alt: 'Полимерные канистры' },
 			{ src: `${CDN}/kanistra/kanistra-10-litrov.jpg`, alt: 'Полимерные канистры' },
 			{ src: `${CDN}/kanistra/kanistra-21.5-litra.jpg`, alt: 'Полимерные канистры' },
-			{ src: `${CDN}/kanistra/kanistra-31.5-litra.jpg`, alt: 'Полимерные канистры' }
+			{ src: `${CDN}/kanistra/kanistra-31.5-litra.jpg`, alt: 'Полимерные канистры' },
+			{ src: `${CDN}/kanistra/kanistra-gsm-5.jpg`, alt: 'Канистра ГСМ 5 л' },
+			{ src: `${CDN}/kanistra/kanistra-gsm-10.jpg`, alt: 'Канистра ГСМ 10 л' },
+			{ src: `${CDN}/kanistra/kanistra-gsm-20.jpg`, alt: 'Канистра ГСМ 20 л' }
 		], // TODO: добавить фото при появлении
 		vedra: [{ src: `${CDN}/vedro-1.jpg`, alt: 'Пластиковые вёдра' }] // TODO: добавить фото при появлении
 	};

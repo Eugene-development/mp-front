@@ -41,6 +41,10 @@
 	} = $props();
 
 	let active = $state(0);
+	// Направление появления фото: +1 — выезжает справа (вперёд), −1 — слева (назад).
+	let enterDir = $state(1);
+	// Ширина сцены — для пропорционального горизонтального сдвига при появлении.
+	let stageWidth = $state(0);
 	/** DOM-ноды кнопок-чипов боковой панели — для авто-скролла к активному варианту. */
 	let chipEls = $state(/** @type {HTMLButtonElement[]} */ ([]));
 	let lightboxSrc = $state(/** @type {string | null} */ (null));
@@ -62,17 +66,28 @@
 
 	/** @param {number} i */
 	function select(i) {
-		if (i >= 0 && i < count) active = i;
+		if (i >= 0 && i < count && i !== active) {
+			// Кратчайшее кольцевое направление к выбранному варианту.
+			const forward = (i - active + count) % count <= count / 2;
+			enterDir = forward ? 1 : -1;
+			active = i;
+		}
 	}
 
-	/** Следующий вариант с зацикливанием. */
+	/** Следующий вариант с зацикливанием — новое фото выезжает справа. */
 	function next() {
-		if (count > 1) active = (active + 1) % count;
+		if (count > 1) {
+			enterDir = 1;
+			active = (active + 1) % count;
+		}
 	}
 
-	/** Предыдущий вариант с зацикливанием. */
+	/** Предыдущий вариант с зацикливанием — новое фото выезжает слева. */
 	function prev() {
-		if (count > 1) active = (active - 1 + count) % count;
+		if (count > 1) {
+			enterDir = -1;
+			active = (active - 1 + count) % count;
+		}
 	}
 
 	/** Сдвиг выделения и фокуса на соседний вариант. @param {KeyboardEvent} e @param {number} dir */
@@ -182,6 +197,7 @@
 					<!-- Stage -->
 					<div class="lg:col-span-8">
 						<div
+							bind:clientWidth={stageWidth}
 							class="group relative overflow-hidden rounded-2xl border border-brand-divider/40 bg-gradient-to-b from-brand-bg/80 to-brand-bg/30"
 							role="region"
 							aria-roledescription="галерея"
@@ -229,7 +245,7 @@
 
 								{#key active}
 									<div
-										in:fly={{ y: 12, duration: 300 }}
+										in:fly={{ x: enterDir * (stageWidth ? stageWidth * 0.4 : 160), duration: 300 }}
 										class="relative flex min-w-0 justify-center"
 									>
 										{#if current.image}

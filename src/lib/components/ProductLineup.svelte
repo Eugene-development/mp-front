@@ -132,12 +132,19 @@
 							></span>
 						</div>
 						<!-- Label -->
-						<span
-							class="font-mono text-[10px] tracking-wider sm:text-xs {i === active
-								? 'font-bold text-brand-dark'
-								: 'text-brand-gray'}"
-						>
-							{v.chip}<span class="text-[0.62em] text-brand-gray">{v.chipUnit ?? ''}</span>
+						<span class="flex flex-col items-center gap-0.5">
+							<span
+								class="font-mono text-[10px] tracking-wider sm:text-xs {i === active
+									? 'font-bold text-brand-dark'
+									: 'text-brand-gray'}"
+							>
+								{v.chip}<span class="text-[0.62em] text-brand-gray">{v.chipUnit ?? ''}</span>
+							</span>
+							{#if v.tag}
+								<span class="font-mono text-[8px] tracking-widest text-brand-accent uppercase">
+									{v.tag}
+								</span>
+							{/if}
 						</span>
 					</button>
 				{/each}

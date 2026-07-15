@@ -15,6 +15,51 @@
 		scaleHint: 'Высота столбика пропорциональна объёму',
 		variants: [
 			{
+				chip: '5',
+				chipUnit: 'л',
+				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-gsm-5.jpg',
+				alt: 'Канистра ГСМ 5 литров',
+				title: '5 л',
+				tag: 'ГСМ',
+				scaleLabel: 'объём',
+				scale: 5,
+				specs: [
+					{ label: 'Стенка', value: '2.2–2.4 мм' },
+					{ label: 'Горловина', value: 'резьб. 45 мм + носик' }
+				],
+				use: 'Моторные масла, ГСМ.'
+			},
+			{
+				chip: '10',
+				chipUnit: 'л',
+				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-gsm-10.jpg',
+				alt: 'Канистра ГСМ 10 литров',
+				title: '10 л',
+				tag: 'ГСМ',
+				scaleLabel: 'объём',
+				scale: 10,
+				specs: [
+					{ label: 'Стенка', value: '2.4–2.6 мм' },
+					{ label: 'Горловина', value: 'резьб. 50 мм + носик' }
+				],
+				use: 'Моторные масла, ГСМ.'
+			},
+			{
+				chip: '20',
+				chipUnit: 'л',
+				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-gsm-20.jpg',
+				alt: 'Канистра ГСМ 20 литров',
+				title: '20 л',
+				tag: 'ГСМ',
+				scaleLabel: 'объём',
+				scale: 20,
+				specs: [
+					{ label: 'Стенка', value: '2.5–2.7 мм' },
+					{ label: 'Горловина', value: 'резьб. 60 мм + носик' }
+				],
+				use: 'Моторные масла, ГСМ.'
+			},
+			{
 				chip: '1',
 				chipUnit: 'л',
 				image: 'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-1-litr.jpg',
@@ -57,21 +102,6 @@
 				],
 				use: 'Антисептики, автохимия.'
 			},
-			// {
-			// 	chip: '5',
-			// 	chipUnit: 'л',
-			// 	image: null,
-			// 	alt: 'Канистра ГСМ 5 л с носиком',
-			// 	title: '5 л',
-			// 	tag: 'ГСМ',
-			// 	scaleLabel: 'объём',
-			// 	scale: 5,
-			// 	specs: [
-			// 		{ label: 'Стенка', value: '2.2–2.4 мм' },
-			// 		{ label: 'Горловина', value: 'резьб. 45 мм + носик' }
-			// 	],
-			// 	use: 'Моторные масла, ГСМ.'
-			// },
 			{
 				chip: '10',
 				chipUnit: 'л',
@@ -87,36 +117,6 @@
 				],
 				use: 'Масла, растворители.'
 			},
-			// {
-			// 	chip: '10',
-			// 	chipUnit: 'л',
-			// 	image: null,
-			// 	alt: 'Канистра ГСМ 10 л с носиком',
-			// 	title: '10 л',
-			// 	tag: 'ГСМ',
-			// 	scaleLabel: 'объём',
-			// 	scale: 10,
-			// 	specs: [
-			// 		{ label: 'Стенка', value: '2.4–2.6 мм' },
-			// 		{ label: 'Горловина', value: 'резьб. 50 мм + носик' }
-			// 	],
-			// 	use: 'Моторные масла, ГСМ.'
-			// },
-			// {
-			// 	chip: '20',
-			// 	chipUnit: 'л',
-			// 	image: null,
-			// 	alt: 'Канистра ГСМ 20 л с носиком',
-			// 	title: '20 л',
-			// 	tag: 'ГСМ',
-			// 	scaleLabel: 'объём',
-			// 	scale: 20,
-			// 	specs: [
-			// 		{ label: 'Стенка', value: '2.5–2.7 мм' },
-			// 		{ label: 'Горловина', value: 'резьб. 60 мм + носик' }
-			// 	],
-			// 	use: 'Моторные масла, ГСМ.'
-			// },
 			{
 				chip: '21.5',
 				chipUnit: 'л',
@@ -149,6 +149,14 @@
 			}
 		]
 	};
+
+	// Порядок для блока «Полный размерный ряд»: сначала вся универсальная
+	// линейка по возрастанию, затем вся ГСМ. Отличается от галереи (там ГСМ
+	// идут первыми), поэтому размерный ряд получает отдельный список вариантов.
+	const lineupVariants = [
+		...lineup.variants.filter((v) => !v.tag),
+		...lineup.variants.filter((v) => v.tag)
+	];
 </script>
 
 <svelte:head>
@@ -450,7 +458,7 @@
 		</div>
 
 		<!-- Product line -->
-		<ProductLineup {...lineup} />
+		<ProductLineup {...lineup} variants={lineupVariants} />
 
 		<!-- Section 3: Industries -->
 		<div>
