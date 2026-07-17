@@ -177,20 +177,20 @@
 	<div class="mb-14 md:mb-16">
 		<Breadcrumbs items={[{ name: 'Каталог' }]} />
 		<div class="mt-6 max-w-4xl">
-			<span
+			<!-- <span
 				class="mb-5 inline-block rounded-full border border-brand-divider bg-white/60 px-3 py-1 font-mono text-[9px] tracking-widest text-brand-accent uppercase backdrop-blur-sm"
 			>
 				Промышленный ассортимент · HDPE
-			</span>
+			</span> -->
 			<h1
 				class="font-serif text-3xl leading-[1.05] font-light tracking-tight text-brand-dark md:text-7xl"
 			>
 				Промышленная
 				<span class="font-normal text-brand-accent italic">тара</span>
 			</h1>
-			<p class="mt-6 max-w-2xl text-sm leading-relaxed text-brand-gray md:text-base">
+			<p class="mt-6 max-w-3xl text-sm leading-relaxed text-brand-gray md:text-base">
 				Вся продукция ООО «МегаПак» изготавливается на высокотехнологичных выдувных машинах из
-				химически стойкого высокомолекулярного полиэтилена низкого давления HDPE. Четыре направления
+				химически стойкого высокомолекулярного полиэтилена низкого давления HDPE. Направления
 				производства — от лабораторной фасовки до тысячелитровых IBC-контейнеров.
 			</p>
 		</div>

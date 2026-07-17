@@ -17,7 +17,7 @@
 			{
 				chip: '48',
 				chipUnit: 'л',
-				image: null, // TODO: подставить URL фото
+				image: 'https://storage.yandexcloud.net/megapak-top/products/bochka/bochka-48.jpg',
 				alt: 'Пластиковая бочка 48 л',
 				title: '48 л',
 				scaleLabel: 'объём',
@@ -31,7 +31,7 @@
 			{
 				chip: '65',
 				chipUnit: 'л',
-				image: null, // TODO: подставить URL фото
+				image: 'https://storage.yandexcloud.net/megapak-top/products/bochka/bochka-65.jpg',
 				alt: 'Пластиковая бочка 65 л',
 				title: '65 л',
 				scaleLabel: 'объём',
