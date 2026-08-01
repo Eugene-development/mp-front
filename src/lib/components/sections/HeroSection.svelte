@@ -1,6 +1,36 @@
 <script>
 	import { orderModal, priceModal } from '../../modalState.svelte.js';
 	import { guardedClick } from '$lib/antibot/guardedClick';
+
+	let { isGsmCampaign = false } = $props();
+
+	let heroContent = $derived(
+		isGsmCampaign
+			? {
+				badge: 'Канистры для ГСМ',
+				title: 'Канистры',
+				titleAccent: 'для ГСМ',
+				description:
+					'Усиленные канистры из первичного HDPE для безопасного хранения и перевозки топлива, масел и других горюче-смазочных материалов.',
+				productTitle: 'Канистра ГСМ 20 л',
+				productImage:
+					'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-gsm-20.jpg',
+				productAlt: 'Канистра для ГСМ 20 литров',
+				volume: '20 л'
+			}
+			: {
+				badge: 'Сертификация ГОСТ',
+				title: 'Сверхпрочная',
+				titleAccent: 'полимерная тара',
+				description:
+					'ООО «МегаПак» — производство и прямые поставки сертифицированной упаковки высшего класса герметичности. Канистры, бочки и еврокубы для хранения нефтехимии, масел и пищевых сред.',
+				productTitle: 'Канистра 31,5 л',
+				productImage:
+					'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-31.5-litra.jpg',
+				productAlt: 'Канистра МегаПак',
+				volume: '31,5 л'
+			}
+	);
 </script>
 
 <section id="home" class="relative w-full overflow-hidden">
@@ -128,7 +158,7 @@
 				>
 					<span class="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-accent"></span>
 					<span class="text-[10px] font-semibold tracking-widest text-brand-accent uppercase"
-						>Сертификация ГОСТ</span
+						>{heroContent.badge}</span
 					>
 				</div>
 
@@ -136,16 +166,15 @@
 					class="mb-6 animate-fade-up font-serif text-4xl leading-[1.05] font-light tracking-tight text-brand-dark md:text-7xl"
 					style="animation-delay: 100ms;"
 				>
-					Сверхпрочная <br />
-					<span class="font-normal text-brand-accent italic">полимерная тара</span>
+					{heroContent.title} <br />
+					<span class="font-normal text-brand-accent italic">{heroContent.titleAccent}</span>
 				</h1>
 
 				<p
 					class="mb-4 max-w-xl animate-fade-up text-sm leading-relaxed text-brand-gray md:text-base"
 					style="animation-delay: 200ms;"
 				>
-					ООО «МегаПак» — производство и прямые поставки сертифицированной упаковки высшего класса
-					герметичности. Канистры, бочки и еврокубы для хранения нефтехимии, масел и пищевых сред.
+					{heroContent.description}
 				</p>
 
 				<p
@@ -239,7 +268,7 @@
 									>Лидер продаж</span
 								>
 								<h3 class="mt-1 font-serif text-lg font-light text-brand-dark">
-									Еврокуб IBC 1000L
+									{heroContent.productTitle}
 								</h3>
 							</div>
 							<span
@@ -251,9 +280,9 @@
 						<!-- Centered main product graphics -->
 						<div class="relative z-10 flex h-full max-h-[420px] items-center justify-center py-6">
 							<img
-								src="https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg"
-								alt="Еврокуб МегаПак"
-								class="h-full max-h-[380px] object-contain drop-shadow-xl transition-transform duration-700 ease-spring hover:scale-105"
+								src={heroContent.productImage}
+								alt={heroContent.productAlt}
+								class="h-full max-h-[380px] rounded-lg object-contain drop-shadow-xl transition-transform duration-700 ease-spring hover:scale-105"
 							/>
 						</div>
 
@@ -263,7 +292,7 @@
 								<span class="h-1.5 w-1.5 rounded-full bg-brand-accent"></span>
 								<div class="flex flex-col">
 									<span class="text-[8px] tracking-wider text-brand-gray uppercase"
-										>Материал колбы</span
+										>Материал</span
 									>
 									<span class="text-[10px] font-semibold text-brand-dark">HDPE (ПНД первичный)</span
 									>
@@ -272,10 +301,8 @@
 							<div class="flex items-center gap-2">
 								<span class="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
 								<div class="flex flex-col">
-									<span class="text-[8px] tracking-wider text-brand-gray uppercase">Поддоны</span>
-									<span class="text-[10px] font-semibold text-brand-dark"
-										>Металл, дерево, пластик</span
-									>
+									<span class="text-[8px] tracking-wider text-brand-gray uppercase">Объём</span>
+									<span class="text-[10px] font-semibold text-brand-dark">{heroContent.volume}</span>
 								</div>
 							</div>
 						</div>

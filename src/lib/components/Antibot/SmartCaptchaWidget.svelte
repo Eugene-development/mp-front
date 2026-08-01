@@ -4,12 +4,14 @@
 	 *
 	 * Монтируется один раз в корневом layout. Сам по себе ничего не показывает:
 	 * рендерит invisible-виджет и регистрирует его в общем сторе (smartcaptcha.svelte.ts).
-	 * Запуск проверки (execute) инициируется формами после первого живого
-	 * пользовательского сигнала (useHumanSignal) или при попытке сабмита.
+	 * Запуск проверки (execute) инициируют формы: captcha.arm() при открытии
+	 * модалки / фокусе на первом поле и captcha.execute() при сабмите.
 	 *
-	 * Скрипт виджета грузится лениво (через svelte:head) и только если задан
+	 * Скрипт виджета грузится лениво и только если задан
 	 * VITE_SMARTCAPTCHA_SITE_KEY. Без ключа компонент ничего не делает (fail-open),
-	 * чтобы не ломать сабмит на стейджинге/локальной разработке.
+	 * чтобы не ломать сабмит на стейджинге/локальной разработке. Если скрипт не
+	 * загрузился (ad-block, сбой CDN), стор помечается unavailable — формы уходят
+	 * без токена, а решение принимает сервер (жёсткий лимит по IP).
 	 *
 	 * @see https://yandex.cloud/en/docs/smartcaptcha/concepts/invisible-captcha
 	 */
@@ -30,16 +32,22 @@
 		if (typeof window === 'undefined') return;
 
 		// eslint-disable-next-line @typescript-eslint/no-use-before-define
-		waitForScript().then(() => {
-			renderWidget();
-		});
+		waitForScript()
+			.then(() => {
+				renderWidget();
+			})
+			.catch(() => {
+				// Скрипт не загрузился — фиксируем недоступность, чтобы формы не
+				// ждали токен вечно и не блокировали живых пользователей.
+				captcha.markUnavailable();
+			});
 	});
 
 	/** Загружает captcha.js один раз (с защитой от повторной вставки). */
 	function waitForScript(): Promise<void> {
 		if (scriptLoaded && window.smartCaptcha) return Promise.resolve();
 
-		return new Promise((resolve) => {
+		return new Promise((resolve, reject) => {
 			const SRC = 'https://smartcaptcha.yandexcloud.net/captcha.js';
 			const existing = document.querySelector<HTMLScriptElement>(`script[src^="${SRC}"]`);
 			if (existing) {
@@ -53,6 +61,7 @@
 					scriptLoaded = true;
 					resolve();
 				});
+				existing.addEventListener('error', () => reject(new Error('captcha-script-error')));
 				return;
 			}
 
@@ -66,13 +75,19 @@
 			const script = document.createElement('script');
 			script.src = `${SRC}?render=onload&onload=onloadSmartCaptchaScript`;
 			script.async = true;
+			// Ad-block режет домен капчи → событие error. Без этого обработчика
+			// промис не резолвился бы никогда и сабмит висел бы до таймаута.
+			script.addEventListener('error', () => reject(new Error('captcha-script-blocked')));
 			document.head.appendChild(script);
 		});
 	}
 
 	/** Рендерит invisible-виджет в контейнер и регистрирует его в сторе. */
 	function renderWidget(): void {
-		if (!container || !window.smartCaptcha || !SITE_KEY) return;
+		if (!container || !window.smartCaptcha || !SITE_KEY) {
+			captcha.markUnavailable();
+			return;
+		}
 
 		const widgetId = window.smartCaptcha.render(container, {
 			sitekey: SITE_KEY,

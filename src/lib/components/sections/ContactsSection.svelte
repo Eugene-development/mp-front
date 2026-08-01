@@ -32,13 +32,15 @@
 			return;
 		}
 
-		// Антибот №2: токен SmartCaptcha обязателен. Подстраховка: если ещё не
-		// получен (по активности) — дёргаем execute() сейчас и ждём результат.
+		// Антибот №2: токен SmartCaptcha. Обычно уже получен (капча взведена по
+		// первому фокусу в форме); иначе дёргаем execute() сейчас и ждём результат.
 		isSubmitting = true;
 
 		if (SITE_KEY && !captcha.token) {
 			const result = await captcha.execute();
-			if (!result.token) {
+			// Виджет недоступен (ad-block/сбой CDN) → requireToken() === false:
+			// отправляем без токена, дальше решает сервер (лимит по IP).
+			if (!result.token && captcha.requireToken()) {
 				error = 'Не удалось пройти проверку. Попробуйте ещё раз.';
 				captcha.reset();
 				isSubmitting = false;
@@ -218,7 +220,12 @@
 							Прикрепите реквизиты компании, и наш менеджер сбыта выставит официальный счет с НДС
 						</p>
 
-						<form class="space-y-4" onsubmit={handleSubmit}>
+						<!--
+							Антибот: капча взводится по первому фокусу в форме (onfocusin
+							всплывает с любого поля). Форма не в модалке, поэтому «момент
+							подхода к форме» — это фокус, а не открытие. См. captcha.arm().
+						-->
+						<form class="space-y-4" onsubmit={handleSubmit} onfocusin={() => captcha.arm()}>
 							<!-- Honeypot: скрытая ловушка для ботов (см. Honeypot.svelte) -->
 							<Honeypot bind:value={hp} />
 

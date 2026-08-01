@@ -12,39 +12,12 @@
 	import RegionGate from '$lib/components/Antibot/RegionGate.svelte';
 	import SmartCaptchaWidget from '$lib/components/Antibot/SmartCaptchaWidget.svelte';
 	import { trust } from '$lib/antibot/trust.svelte';
-	import { trackHumanSignal } from '$lib/antibot/useHumanSignal.svelte';
-	import { captcha } from '$lib/antibot/smartcaptcha.svelte';
 	import { startEngagementGuard, guardedGoal } from '$lib/antibot/engagementGuard.svelte';
 	import { captureUtm } from '$lib/utm';
 
 	let { children, data } = $props();
 
-	/**
-	 * Кросс-браузерный «запусти, когда поток свободен».
-	 *
-	 * Chromium/Android: requestIdleCallback выполнит колбэк в простое (после
-	 * открытия/анимации меню). Safari (macOS/iOS) requestIdleCallback по умолчанию
-	 * НЕ поддерживает (спрятан за флагом) — там ждём два кадра отрисовки (двойной
-	 * rAF гарантирует, что вставка и первый paint мобильного меню уже произошли),
-	 * затем короткий макротаск, чтобы 200-мс fade успел завершиться. Только после
-	 * этого запускаем блокирующий execute() — к этому моменту меню уже видно, и
-	 * заморозка rAF на время челленджа не мешает пользователю.
-	 */
-	function scheduleWhenIdle(cb) {
-		if (typeof window === 'undefined') return;
-		if (typeof window.requestIdleCallback === 'function') {
-			window.requestIdleCallback(cb, { timeout: 2000 });
-			return;
-		}
-		requestAnimationFrame(() => {
-			requestAnimationFrame(() => {
-				setTimeout(cb, 300);
-			});
-		});
-	}
-
 	let observer;
-	let stopHumanSignal = () => {};
 	let stopPhoneClickTracking = () => {};
 	let stopEngagementGuard = () => {};
 
@@ -58,25 +31,12 @@
 		// модалка региона не показывается.
 		trust.restore();
 
-		// Антибот: слушаем базовую активность (mouse/touch/scroll). При первом
-		// живом сигнале взводим невидимую SmartCaptcha — headless-боты, не
-		// генерирующие таких событий, никогда не получят токен.
-		stopHumanSignal = trackHumanSignal({
-			onSignal: () => {
-				if (captcha.token) return;
-				// Взводим невидимую SmartCaptcha ВНЕ синхронного цикла первого
-				// пользовательского события. На мобильных первый «живой» сигнал —
-				// это тап по кнопке-гамбургеру: если запускать execute() прямо в
-				// обработчике touchstart/mousedown, тяжёлая (proof-of-work) работа
-				// невидимого челленджа Яндекса блокирует главный поток, замораживает
-				// requestAnimationFrame и fade-переход меню зависает на opacity:0 —
-				// на проде меню «появляется» лишь через 2–4 с. На localhost домен не
-				// авторизован, execute() мгновенно падает в error-callback — задержки нет.
-				scheduleWhenIdle(() => {
-					if (!captcha.token) captcha.execute();
-				});
-			}
-		});
+		// Капчу здесь НЕ взводим. Раньше execute() запускался по первой активности
+		// (mousemove/scroll/tap), из-за чего Яндекс показывал всплывающий челлендж
+		// на произвольной странице, вне контекста формы — посетитель закрывал его
+		// кликом мимо, а на мобильных proof-of-work подвешивал анимацию меню.
+		// Теперь капча взводится в момент подхода к форме: captcha.arm() в
+		// OrderModal/PriceRequestModal (при открытии) и ContactsSection (по фокусу).
 
 		// Цель Метрики phone_click — клик по любой ссылке tel: (тёплый лид,
 		// позвонивший напрямую). Глобальный делегированный слушатель покрывает
@@ -102,7 +62,6 @@
 		if (observer) {
 			observer.disconnect();
 		}
-		stopHumanSignal();
 		stopPhoneClickTracking();
 		stopEngagementGuard();
 	});

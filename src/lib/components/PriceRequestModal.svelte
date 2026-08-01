@@ -30,6 +30,10 @@
 	$effect(() => {
 		if (priceModal.isOpen) {
 			comment = priceModal.initialComment || '';
+			// Антибот: взводим невидимую SmartCaptcha при открытии формы (в простое
+			// главного потока), чтобы к сабмиту токен уже был, а челлендж — если
+			// Яндекс его покажет — появился в контексте заявки. См. smartcaptcha.arm().
+			captcha.arm();
 		}
 	});
 
@@ -42,13 +46,15 @@
 			return;
 		}
 
-		// Антибот №2: токен SmartCaptcha обязателен. Подстраховка: если ещё не
-		// получен (по активности) — дёргаем execute() сейчас и ждём результат.
+		// Антибот №2: токен SmartCaptcha. Обычно уже получен (капча взведена при
+		// открытии модалки); иначе дёргаем execute() сейчас и ждём результат.
 		isSubmitting = true;
 
 		if (SITE_KEY && !captcha.token) {
 			const result = await captcha.execute();
-			if (!result.token) {
+			// Виджет недоступен (ad-block/сбой CDN) → requireToken() === false:
+			// отправляем без токена, дальше решает сервер (лимит по IP).
+			if (!result.token && captcha.requireToken()) {
 				error = 'Не удалось пройти проверку. Попробуйте ещё раз.';
 				captcha.reset();
 				isSubmitting = false;

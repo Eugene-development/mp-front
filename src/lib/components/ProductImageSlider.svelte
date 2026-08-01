@@ -5,24 +5,34 @@
 	 * @typedef {Object} SliderImage
 	 * @property {string} src
 	 * @property {string} alt
+	 * @property {string} [label] — подпись активного фото (например литраж). Если
+	 *   задана, показывается в левом верхнем углу вместо статичного `badge`.
 	 */
 
 	/**
 	 * Бесконечная карусель «заглядывания» (peek): активное фото по центру во весь
 	 * размер, соседние — видны по бокам с угасанием opacity. Зациклена бесшовно.
 	 *
+	 * onNavigate/onImageOpen — необязательные колбэки для аналитики. Сам слайдер
+	 * ничего в Метрику не шлёт: решение принимает вызывающая сторона
+	 * (см. docs/analytics/yandex-metrika-goals.md).
+	 *
 	 * @type {{
 	 *   images: SliderImage[];
 	 *   badge?: string;
 	 *   badgeClass?: string;
 	 *   imageHeight?: string;
+	 *   onNavigate?: () => void;
+	 *   onImageOpen?: () => void;
 	 * }}
 	 */
 	let {
 		images,
 		badge = '',
 		badgeClass = '',
-		imageHeight = 'max-h-[200px] md:max-h-[240px] max-w-full'
+		imageHeight = 'max-h-[200px] md:max-h-[240px] max-w-full',
+		onNavigate,
+		onImageOpen
 	} = $props();
 
 	// active — индекс слота в массиве `rendered` (0..count+1). Начинаем со слота 1
@@ -59,6 +69,9 @@
 	// самого трека, разрешается против ширины контейнера, и формула не зависит от
 	// count. Корректна сразу на SSR без измерения DOM. Центрирует слот `active`.
 	let offsetPct = $derived(multi ? (peekFrac - slideFrac * active) * 100 : 0);
+	// Метка в левом верхнем углу: подпись текущего фото (литраж), если она есть,
+	// иначе статичный badge категории. Меняется вместе с активным слайдом.
+	let cornerLabel = $derived(images[realIndex]?.label || badge);
 	let transition = $derived(
 		transitionOn && !reduced ? 'transform 600ms cubic-bezier(0.32, 0.72, 0, 1)' : 'none'
 	);
@@ -96,6 +109,9 @@
 
 	function next() {
 		if (!multi || animating) return;
+		// Навигация вперёд любым способом: стрелка «вправо», клик по правому
+		// соседнему фото, ArrowRight с клавиатуры.
+		onNavigate?.();
 		if (reduced) {
 			active = ((realIndex + 1) % count) + 1;
 			return;
@@ -106,6 +122,8 @@
 
 	function prev() {
 		if (!multi || animating) return;
+		// Симметрично next(): стрелка «влево», левое соседнее фото, ArrowLeft.
+		onNavigate?.();
 		if (reduced) {
 			active = ((((realIndex - 1) % count) + count) % count) + 1;
 			return;
@@ -148,6 +166,7 @@
 
 	/** @param {SliderImage} img */
 	function openLightbox(img) {
+		onImageOpen?.();
 		lightboxSrc = img.src;
 		lightboxAlt = img.alt;
 		document.body.style.overflow = 'hidden';
@@ -202,8 +221,8 @@
 	<div
 		class="relative mb-6 flex items-center justify-center overflow-hidden rounded-xl border border-brand-divider/40 bg-gradient-to-b from-brand-bg/80 to-brand-bg/30 py-10 sm:py-14"
 	>
-		{#if badge}
-			<span class="absolute top-4 left-4 z-20 {badgeClass}">{badge}</span>
+		{#if cornerLabel}
+			<span class="absolute top-4 left-4 z-20 {badgeClass}">{cornerLabel}</span>
 		{/if}
 		<button
 			type="button"
@@ -228,10 +247,24 @@
 		aria-roledescription="карусель"
 		aria-label="Фотографии товара"
 	>
-		{#if badge}
-			<span class="absolute top-4 left-4 z-20 {badgeClass}">{badge}</span>
+		{#if cornerLabel}
+			<!--
+				#key перезапускает fade при смене подписи: на переключении слайда
+				литраж плавно подменяется, а не мигает текстом на месте.
+			-->
+			{#key cornerLabel}
+				<span
+					in:fade={{ duration: 220 }}
+					out:fade={{ duration: 120 }}
+					class="absolute top-4 left-4 z-20 {badgeClass}">{cornerLabel}</span
+				>
+			{/key}
 		{/if}
-		<span class="sr-only" aria-live="polite">Фото {realIndex + 1} из {count}</span>
+		<span class="sr-only" aria-live="polite">
+			Фото {realIndex + 1} из {count}{images[realIndex]?.label
+				? `, ${images[realIndex].label}`
+				: ''}
+		</span>
 
 		<div
 			class="flex"

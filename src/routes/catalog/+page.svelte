@@ -1,10 +1,65 @@
 <script>
+	import { onMount } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import ProductImageSlider from '$lib/components/ProductImageSlider.svelte';
+	import {
+		markArrivedFromHome,
+		markScrolledDown,
+		markSliderEngaged,
+		resetCatalogFunnel
+	} from '$lib/analytics/catalogFunnel';
 
 	const CDN = 'https://storage.yandexcloud.net/megapak-top/products';
 
-	/** @type {Record<string, { src: string; alt: string }[]>} */
+	// --- Шаги цели catalog_kanistry_interest ---
+	// Последовательность проверяет catalogFunnel.ts; в Метрику уходит одна цель,
+	// только когда пройдены все три шага по порядку.
+	// Полное описание: docs/analytics/yandex-metrika-goals.md.
+
+	afterNavigate((nav) => {
+		// Каждый вход на страницу начинает последовательность заново: состояние
+		// воронки живёт в модуле и переживает размонтирование компонента.
+		resetCatalogFunnel();
+
+		// Шаг 1. Клиентский переход внутри приложения: SvelteKit знает предыдущий URL.
+		if (nav.from) {
+			if (nav.from.url.pathname === '/') markArrivedFromHome();
+			return;
+		}
+		// Полная загрузка страницы (прямой заход, F5, открытие в новой вкладке):
+		// предыдущий URL берём из referrer и учитываем только свой origin.
+		if (!document.referrer) return;
+		try {
+			const ref = new URL(document.referrer);
+			if (ref.origin === location.origin && ref.pathname === '/') markArrivedFromHome();
+		} catch {
+			/* невалидный referrer — шаг просто не засчитываем */
+		}
+	});
+
+	// Шаг 2: любой скролл вниз по странице каталога.
+	onMount(() => {
+		let lastY = window.scrollY;
+		let done = false;
+
+		const onScroll = () => {
+			const y = window.scrollY;
+			// Только движение вниз и только ниже нулевой позиции: восстановление
+			// скролла браузером при возврате назад не должно считаться за шаг.
+			if (!done && y > lastY && y > 0) {
+				done = true;
+				markScrolledDown();
+				window.removeEventListener('scroll', onScroll);
+			}
+			lastY = y;
+		};
+
+		window.addEventListener('scroll', onScroll, { passive: true });
+		return () => window.removeEventListener('scroll', onScroll);
+	});
+
+	/** @type {Record<string, { src: string; alt: string; label?: string }[]>} */
 	const images = {
 		bochki: [
 			{ src: `${CDN}/bochka-1.jpg`, alt: 'Пластиковая бочка L-Ring 227 л' },
@@ -14,16 +69,38 @@
 			{ src: `${CDN}/image-tank.jpg`, alt: 'Еврокуб 1000 л в стальной обрешётке' },
 			{ src: `${CDN}/image-tank-2.jpg`, alt: 'Еврокуб со сливным краном' }
 		],
+		// label — литраж вида канистры: слайдер показывает его в левом верхнем углу
+		// вместо статичного бейджа категории и обновляет при переключении фото.
 		kanistry: [
-			{ src: `${CDN}/kanistra/kanistra-1-litr.jpg`, alt: 'Полимерные канистры' },
-			{ src: `${CDN}/kanistra/kanistra-3-litra.jpg`, alt: 'Полимерные канистры' },
-			{ src: `${CDN}/kanistra/kanistra-10-litrov.jpg`, alt: 'Полимерные канистры' },
-			{ src: `${CDN}/kanistra/kanistra-21.5-litra.jpg`, alt: 'Полимерные канистры' },
-			{ src: `${CDN}/kanistra/kanistra-31.5-litra.jpg`, alt: 'Полимерные канистры' },
-			{ src: `${CDN}/kanistra/kanistra-gsm-5.jpg`, alt: 'Канистра ГСМ 5 л' },
-			{ src: `${CDN}/kanistra/kanistra-gsm-10.jpg`, alt: 'Канистра ГСМ 10 л' },
-			{ src: `${CDN}/kanistra/kanistra-gsm-20.jpg`, alt: 'Канистра ГСМ 20 л' }
-		], // TODO: добавить фото при появлении
+			{ src: `${CDN}/kanistra/kanistra-1-litr.jpg`, alt: 'Канистра 1 л', label: '1 литр' },
+			{ src: `${CDN}/kanistra/kanistra-3-litra.jpg`, alt: 'Канистра 3 л', label: '3 литра' },
+			{ src: `${CDN}/kanistra/kanistra-10-litrov.jpg`, alt: 'Канистра 10 л', label: '10 литров' },
+			{
+				src: `${CDN}/kanistra/kanistra-21.5-litra.jpg`,
+				alt: 'Канистра 21.5 л',
+				label: '21.5 литра'
+			},
+			{
+				src: `${CDN}/kanistra/kanistra-31.5-litra.jpg`,
+				alt: 'Канистра 31.5 л',
+				label: '31.5 литра'
+			},
+			{
+				src: `${CDN}/kanistra/kanistra-gsm-5.jpg`,
+				alt: 'Канистра ГСМ 5 л',
+				label: 'ГСМ · 5 литров'
+			},
+			{
+				src: `${CDN}/kanistra/kanistra-gsm-10.jpg`,
+				alt: 'Канистра ГСМ 10 л',
+				label: 'ГСМ · 10 литров'
+			},
+			{
+				src: `${CDN}/kanistra/kanistra-gsm-20.jpg`,
+				alt: 'Канистра ГСМ 20 л',
+				label: 'ГСМ · 20 литров'
+			}
+		],
 		vedra: [{ src: `${CDN}/vedro-1.jpg`, alt: 'Пластиковые вёдра' }] // TODO: добавить фото при появлении
 	};
 
@@ -42,7 +119,7 @@
 	/**
 	 * @typedef {Object} ProductCategory
 	 * @property {string} title
-	 * @property {{ src: string; alt: string }[]} images
+	 * @property {{ src: string; alt: string; label?: string }[]} images
 	 * @property {string} badge
 	 * @property {string} badgeClass
 	 * @property {ProductChip[]} chips
@@ -211,10 +288,16 @@
 						</h2>
 
 						<!-- Image area -->
+						<!--
+							Шаг 3: навигация по карусели любой категории ИЛИ клик по фото
+							канистры (открытие лайтбокса) — оба варианта закрывают один шаг.
+						-->
 						<ProductImageSlider
 							images={product.images}
 							badge={product.badge}
 							badgeClass={product.badgeClass}
+							onNavigate={markSliderEngaged}
+							onImageOpen={product.href === '/catalog/kanistry' ? markSliderEngaged : undefined}
 						/>
 
 						<!-- Badges -->
