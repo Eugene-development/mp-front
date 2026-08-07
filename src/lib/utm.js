@@ -19,9 +19,35 @@ export const UTM_FIELDS = [
 	'utm_medium',
 	'utm_campaign',
 	'utm_campaign_id',
+	'utm_ad_id',
 	'utm_content',
 	'utm_term'
 ];
+
+const YANDEX_SOURCE_PATTERN = /(?:^|[._-])(yandex|ya|direct)(?:$|[._-])/i;
+const AD_ID_PATTERN = /(?:^|[|;,:\s])(?:ad_id|aid)[|=:._-](\d{1,32})(?:$|[|;,:\s])/i;
+
+/**
+ * ID объявления Яндекс Директа из сохранённых UTM.
+ *
+ * Рекомендуемый шаблон ссылки — `utm_ad_id={ad_id}`. Для уже используемых
+ * шаблонов поддерживаем `utm_content={ad_id}` и составной вид
+ * `utm_content=...|aid|{ad_id}|...`.
+ */
+export function extractYandexAdId(utm) {
+	if (!utm || typeof utm !== 'object') return null;
+
+	const source = typeof utm.utm_source === 'string' ? utm.utm_source.trim() : '';
+	if (!YANDEX_SOURCE_PATTERN.test(source)) return null;
+
+	const explicit = typeof utm.utm_ad_id === 'string' ? utm.utm_ad_id.trim() : '';
+	if (/^\d{1,32}$/.test(explicit)) return explicit;
+
+	const content = typeof utm.utm_content === 'string' ? utm.utm_content.trim() : '';
+	if (/^\d{1,32}$/.test(content)) return content;
+
+	return content.match(AD_ID_PATTERN)?.[1] ?? null;
+}
 
 function isBrowser() {
 	return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
@@ -86,4 +112,9 @@ export function getStoredUtm() {
 	} catch {
 		return null;
 	}
+}
+
+/** ID объявления текущего рекламного захода или null для не-Директ трафика. */
+export function getStoredAdId() {
+	return extractYandexAdId(getStoredUtm());
 }

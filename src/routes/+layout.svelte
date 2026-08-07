@@ -11,6 +11,7 @@
 	import PriceRequestModal from '$lib/components/PriceRequestModal.svelte';
 	import RegionGate from '$lib/components/Antibot/RegionGate.svelte';
 	import SmartCaptchaWidget from '$lib/components/Antibot/SmartCaptchaWidget.svelte';
+	import AdIdBadge from '$lib/components/AdIdBadge.svelte';
 	import { trust } from '$lib/antibot/trust.svelte';
 	import { startEngagementGuard, guardedGoal } from '$lib/antibot/engagementGuard.svelte';
 	import { captureUtm } from '$lib/utm';
@@ -132,4 +133,5 @@
 	<!-- Антибот: модалка выбора региона (поведенческий барьер) и невидимая SmartCaptcha -->
 	<RegionGate geo={data.geo} />
 	<SmartCaptchaWidget />
+	<AdIdBadge />
 </div>

@@ -2,10 +2,10 @@
 	import { orderModal, priceModal } from '../../modalState.svelte.js';
 	import { guardedClick } from '$lib/antibot/guardedClick';
 
-	let { isGsmCampaign = false } = $props();
+	let { isGsmGroup = false } = $props();
 
 	let heroContent = $derived(
-		isGsmCampaign
+		isGsmGroup
 			? {
 				badge: 'Канистры для ГСМ',
 				title: 'Канистры',
@@ -16,7 +16,7 @@
 				productImage:
 					'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-gsm-20.jpg',
 				productAlt: 'Канистра для ГСМ 20 литров',
-				volume: '20 л'
+				catalogHref: '/catalog/kanistry'
 			}
 			: {
 				badge: 'Сертификация ГОСТ',
@@ -28,7 +28,7 @@
 				productImage:
 					'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-31.5-litra.jpg',
 				productAlt: 'Канистра МегаПак',
-				volume: '31,5 л'
+				catalogHref: '/catalog'
 			}
 	);
 </script>
@@ -298,13 +298,12 @@
 									>
 								</div>
 							</div>
-							<div class="flex items-center gap-2">
-								<span class="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
-								<div class="flex flex-col">
-									<span class="text-[8px] tracking-wider text-brand-gray uppercase">Объём</span>
-									<span class="text-[10px] font-semibold text-brand-dark">{heroContent.volume}</span>
-								</div>
-							</div>
+							<a
+								href={heroContent.catalogHref}
+								class="flex items-center justify-center rounded-lg bg-brand-dark px-4 py-2 text-[10px] font-bold tracking-wider text-white uppercase transition-colors duration-300 hover:bg-brand-accent"
+							>
+								Подробнее
+							</a>
 						</div>
 					</div>
 				</div>

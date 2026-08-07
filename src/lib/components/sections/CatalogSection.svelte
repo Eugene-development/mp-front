@@ -67,7 +67,7 @@
 									</div>
 								</div>
 								<a
-									href="/catalog"
+									href="/catalog/bochki"
 									class="flex items-center gap-1 text-sm font-bold tracking-wider text-brand-accent uppercase hover:underline"
 								>
 									Подробнее в каталоге ↗
@@ -128,7 +128,7 @@
 								<span class="font-bold text-brand-dark">пластиковая / металлическая</span>
 							</div>
 							<a
-								href="/catalog"
+								href="/catalog/vedra"
 								class="flex items-center gap-1 text-sm font-bold tracking-wider text-brand-accent uppercase hover:underline"
 							>
 								Подробнее в каталоге ↗
@@ -256,7 +256,7 @@
 								<span class="font-bold text-brand-dark">Новые, Б/У, С подогревом</span>
 							</div>
 							<a
-								href="/catalog"
+								href="/catalog/evrokuby"
 								class="flex items-center gap-1 text-sm font-bold tracking-wider text-brand-accent uppercase hover:underline"
 							>
 								Подробнее в каталоге ↗

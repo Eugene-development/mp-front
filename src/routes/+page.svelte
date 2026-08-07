@@ -8,13 +8,14 @@
 	import FaqSection from '$lib/components/sections/FaqSection.svelte';
 	import ContactsSection from '$lib/components/sections/ContactsSection.svelte';
 
-	let isGsmCampaign = $derived(
-		page.url.searchParams.get('utm_campaign')?.toLowerCase().includes('gsm') ?? false
+	const GSM_GROUP = 'kanistry_gsm';
+	let isGsmGroup = $derived(
+		page.url.searchParams.get('group')?.trim().toLowerCase() === GSM_GROUP
 	);
 </script>
 
 <main class="relative z-10">
-	<HeroSection {isGsmCampaign} />
+	<HeroSection {isGsmGroup} />
 	<CatalogSection />
 	<AboutSection />
 	<SpecsSection />
