@@ -1,4 +1,5 @@
 <script>
+	import Image from '$lib/components/Image.svelte';
 	import { onMount } from 'svelte';
 	import { contactsModal } from '../modalState.svelte.js';
 	import { fade } from 'svelte/transition';
@@ -73,10 +74,11 @@
 				: 'shadow-xl shadow-black/30'}"
 		>
 			<a href="/" class="group flex items-center gap-2">
-				<img
+				<Image
+					imageClass="invert"
 					src="/images/megapack-logo.svg"
 					alt="МЕГАПАК"
-					class="h-8 w-auto invert transition-transform duration-300 group-hover:scale-[0.98]"
+					class="h-8 w-auto transition-transform duration-300 group-hover:scale-[0.98]"
 				/>
 			</a>
 
@@ -153,10 +155,11 @@
 			<!-- Mobile Header Row -->
 			<div class="flex items-center justify-between border-b border-white/10 pb-6">
 				<a href="/" onclick={closeMobileMenu} class="group flex items-center gap-2">
-					<img
+					<Image
+					imageClass="invert"
 						src="/images/megapack-logo.svg"
 						alt="МЕГАПАК"
-						class="h-8 w-auto invert transition-transform duration-300"
+						class="h-8 w-auto transition-transform duration-300"
 					/>
 				</a>
 				<button

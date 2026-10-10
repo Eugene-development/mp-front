@@ -76,7 +76,7 @@
 	<title>Контакты ООО «МегаПак» — Офис продаж и склад в Москве</title>
 	<meta
 		name="description"
-		content="Официальные контакты компании ООО «МегаПак». Отдел сбыта, адрес комплекса, телефоны и email. Офис продаж и центральный склад на одной территории: Москва, ул. Верхние Поля, 61."
+		content="Официальные контакты компании ООО «МегаПак». Отдел сбыта, адрес комплекса, телефоны и email. Офис продаж и центральный склад на одной территории: Москва, улица Карьер ЗИЛ, 14."
 	/>
 	<meta
 		name="keywords"
@@ -122,7 +122,7 @@
 									>Адрес комплекса</span
 								>
 								<span class="mt-1 text-sm leading-snug font-semibold text-brand-dark">
-									109429, г. Москва, ул. Верхние Поля, дом 61, стр.1
+									140093, г. Москва, улица Карьер ЗИЛ, 14
 								</span>
 								<span class="mt-0.5 text-sm text-brand-gray">
 									Офис продаж и логистический комплекс на одной территории
@@ -217,7 +217,7 @@
 			<div class="double-bezel overflow-hidden">
 				<div class="double-bezel-inner h-[380px] overflow-hidden p-1">
 					<iframe
-						src="https://yandex.ru/map-widget/v1/?ll=37.802922%2C55.658129&z=15&l=map&pt=37.802922%2C55.658129%2Cpm2rdl"
+						src="https://yandex.ru/map-widget/v1/?ll=37.875910%2C55.620286&z=16&l=map&pt=37.875910%2C55.620286%2Cpm2rdl"
 						width="100%"
 						height="100%"
 						frameborder="0"

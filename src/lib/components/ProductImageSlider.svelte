@@ -1,4 +1,5 @@
 <script>
+	import Image from '$lib/components/Image.svelte';
 	import { fade, scale } from 'svelte/transition';
 
 	/**
@@ -230,7 +231,7 @@
 			aria-label={`Увеличить фото: ${images[0].alt}`}
 			class="flex cursor-zoom-in items-center justify-center rounded-lg border-0 bg-transparent p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40"
 		>
-			<img
+			<Image
 				src={images[0].src}
 				alt={images[0].alt}
 				loading="eager"
@@ -289,7 +290,7 @@
 							aria-label={`Увеличить фото: ${img.alt}`}
 							class="flex cursor-zoom-in items-center justify-center rounded-lg border-0 bg-transparent p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40"
 						>
-							<img
+							<Image
 								src={img.src}
 								alt={img.alt}
 								loading={i <= 1 ? 'eager' : 'lazy'}
@@ -308,7 +309,7 @@
 							aria-label={i < active ? 'Предыдущее фото' : 'Следующее фото'}
 							class="flex cursor-pointer items-center justify-center rounded-lg border-0 bg-transparent p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40"
 						>
-							<img
+							<Image
 								src={img.src}
 								alt={img.alt}
 								loading="lazy"
@@ -317,7 +318,7 @@
 							/>
 						</button>
 					{:else}
-						<img
+						<Image
 							src={img.src}
 							alt={img.alt}
 							loading="lazy"
@@ -419,7 +420,7 @@
 						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
 					</svg>
 				</button>
-				<img
+				<Image
 					src={lightboxSrc}
 					alt={lightboxAlt}
 					class="max-h-[75vh] max-w-full rounded-lg object-contain shadow-inner"

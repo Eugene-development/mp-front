@@ -1,0 +1,50 @@
+export const previewLeads = [
+	{
+		id: 'preview-online',
+		channel: 'online',
+		type: 'invoice',
+		delivery_status: 'sent',
+		ad_id: '187654321',
+		name: null,
+		company_name: 'ООО «ПромТара»',
+		contact_person: 'Алексей Смирнов',
+		phone: '+7 999 123-45-67',
+		email: 'supply@example.ru',
+		contact: null,
+		comment: 'Нужен счёт на партию канистр 20 л.',
+		source_url: 'http://localhost:5173/catalog/kanistry',
+		created_at: new Date().toISOString()
+	},
+	{
+		id: 'preview-offline',
+		channel: 'offline',
+		type: 'offline_call',
+		delivery_status: 'recorded',
+		ad_id: '187650042',
+		name: 'Иван Петров',
+		company_name: null,
+		contact_person: null,
+		phone: null,
+		email: null,
+		contact: '+7 916 555-12-34',
+		comment: 'Позвонил по бочкам Open Top.',
+		source_url: null,
+		created_at: new Date(Date.now() - 45 * 60 * 1000).toISOString()
+	},
+	{
+		id: 'preview-offline-email',
+		channel: 'offline',
+		type: 'offline_email',
+		delivery_status: 'recorded',
+		ad_id: '187640017',
+		name: 'ООО «ХимСнаб»',
+		company_name: null,
+		contact_person: null,
+		phone: null,
+		email: null,
+		contact: 'purchase@example.ru',
+		comment: 'Запросили прайс-лист по электронной почте.',
+		source_url: null,
+		created_at: new Date(Date.now() - 90 * 60 * 1000).toISOString()
+	}
+];

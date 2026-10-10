@@ -1,3 +1,7 @@
+<script>
+	import Image from '$lib/components/Image.svelte';
+</script>
+
 <!-- Catalog Bento Grid Section -->
 <section id="catalog" class="border-y border-brand-divider bg-white/40 py-24">
 	<div class="mx-auto max-w-[1440px] px-4">
@@ -78,12 +82,12 @@
 						<div
 							class="flex h-[240px] min-w-[200px] flex-row items-center justify-center gap-4 rounded-2xl border border-brand-divider/50 bg-brand-bg/50 p-6 md:h-auto md:flex-col"
 						>
-							<img
+							<Image
 								src="https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg"
 								alt="Бочка МегаПак"
 								class="h-full max-h-[180px] object-contain drop-shadow-lg transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
 							/>
-							<img
+							<Image
 								src="https://storage.yandexcloud.net/megapak-top/products/bochka-2.jpg"
 								alt="Бочка МегаПак"
 								class="h-full max-h-[180px] object-contain drop-shadow-lg transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
@@ -113,7 +117,7 @@
 						</div>
 
 						<div class="flex items-center justify-center py-6">
-							<img
+							<Image
 								src="https://storage.yandexcloud.net/megapak-top/products/vedro-1.jpg"
 								alt="Ведро МегаПак"
 								class="h-[200px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
@@ -160,18 +164,18 @@
 						</div>
 
 						<div class="flex flex-row items-center justify-center gap-3 py-6 md:gap-4">
-							<img
+							<Image
 								src="https://storage.yandexcloud.net/megapak-top/products/kanistra.jpg"
 								alt="Канистра"
 								class="h-[90px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03] md:h-[140px]"
 							/>
 
-							<img
+							<Image
 								src="https://storage.yandexcloud.net/megapak-top/products/banka.jpg"
 								alt="Банка"
 								class="h-[90px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03] md:h-[140px]"
 							/>
-							<img
+							<Image
 								src="https://storage.yandexcloud.net/megapak-top/products/tuba.jpg"
 								alt="Туба"
 								class="h-[90px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03] md:h-[140px]"
@@ -235,12 +239,12 @@
 							<div
 								class="flex h-[180px] min-w-[180px] flex-row items-center justify-center gap-3 rounded-2xl border border-brand-divider/50 bg-brand-bg/50 p-4 md:h-auto md:flex-col md:gap-4"
 							>
-								<img
+								<Image
 									src="https://storage.yandexcloud.net/megapak-top/products/image-tank.jpg"
 									alt="Еврокуб МегаПак"
 									class="h-full max-h-[140px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03] md:max-h-[160px]"
 								/>
-								<img
+								<Image
 									src="https://storage.yandexcloud.net/megapak-top/products/image-tank-2.jpg"
 									alt="Еврокуб МегаПак"
 									class="h-full max-h-[140px] object-contain drop-shadow-md transition-transform duration-700 ease-spring group-hover:scale-[1.03] md:max-h-[160px]"

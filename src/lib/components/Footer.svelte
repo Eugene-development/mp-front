@@ -1,3 +1,7 @@
+<script>
+	import Image from '$lib/components/Image.svelte';
+</script>
+
 <!-- High-End Editorial Multi-column Footer -->
 <footer class="relative z-10 border-t border-white/5 bg-brand-dark py-16 text-white">
 	<div class="mx-auto max-w-7xl px-4">
@@ -5,10 +9,11 @@
 			<!-- Column 1: Brand -->
 			<div class="flex flex-col items-start md:col-span-4">
 				<a href="/" class="group mb-6 flex items-center gap-2">
-					<img
+					<Image
+						imageClass="invert"
 						src="/images/megapack-logo.svg"
 						alt="МЕГАПАК"
-						class="h-8 w-auto invert transition-transform duration-300 group-hover:scale-[0.98]"
+						class="h-8 w-auto transition-transform duration-300 group-hover:scale-[0.98]"
 					/>
 				</a>
 				<p class="max-w-xs text-sm leading-relaxed text-neutral-400">
@@ -115,7 +120,7 @@
 						<span>✉️</span> <span class="font-bold text-white">info@megapak.top</span>
 					</li>
 					<li class="flex items-center gap-2">
-						<span>📍</span> <span>Москва, ул. Верхние Поля, 61</span>
+						<span>📍</span> <span>Москва, ул. Карьер ЗИЛ, 14</span>
 					</li>
 					<li class="pt-2">
 						<a
@@ -137,7 +142,7 @@
 				>© 2026 ООО «МегаПак». Все права защищены. Производственная площадка полимерной тары в
 				Москве.</span
 			>
-			<div class="mt-4 flex gap-4 sm:mt-0">
+			<div class="mt-4 flex items-center gap-4 sm:mt-0">
 				<a href="/specs" class="hover:text-neutral-300">Техническая документация</a>
 				<a href="/privacy" class="hover:text-neutral-300">Политика конфиденциальности</a>
 				<a

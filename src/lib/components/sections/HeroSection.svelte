@@ -1,4 +1,5 @@
 <script>
+	import Image from '$lib/components/Image.svelte';
 	import { orderModal, priceModal } from '../../modalState.svelte.js';
 	import { guardedClick } from '$lib/antibot/guardedClick';
 
@@ -279,7 +280,7 @@
 
 						<!-- Centered main product graphics -->
 						<div class="relative z-10 flex h-full max-h-[420px] items-center justify-center py-6">
-							<img
+							<Image
 								src={heroContent.productImage}
 								alt={heroContent.productAlt}
 								class="h-full max-h-[380px] rounded-lg object-contain drop-shadow-xl transition-transform duration-700 ease-spring hover:scale-105"

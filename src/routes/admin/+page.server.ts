@@ -2,60 +2,15 @@ import { dev } from '$app/environment';
 import { env } from '$env/dynamic/private';
 import { fail } from '@sveltejs/kit';
 import { adminApi, readApiJson } from '$lib/server/adminApi';
+import { previewLeads } from '$lib/server/adminPreview';
+import {
+	normalizeYandexEmail,
+	normalizeYandexPhone,
+	yandexExportSettings
+} from '$lib/server/yandexOfflineExport';
 import type { Actions, PageServerLoad } from './$types';
 
 const COOKIE_NAME = 'mp_admin_jwt';
-
-const previewLeads = [
-	{
-		id: 'preview-online',
-		channel: 'online',
-		type: 'invoice',
-		delivery_status: 'sent',
-		ad_id: '187654321',
-		name: null,
-		company_name: 'ООО «ПромТара»',
-		contact_person: 'Алексей Смирнов',
-		phone: '+7 999 123-45-67',
-		email: 'supply@example.ru',
-		contact: null,
-		comment: 'Нужен счёт на партию канистр 20 л.',
-		source_url: 'http://localhost:5173/catalog/kanistry',
-		created_at: new Date().toISOString()
-	},
-	{
-		id: 'preview-offline',
-		channel: 'offline',
-		type: 'offline_call',
-		delivery_status: 'recorded',
-		ad_id: '187650042',
-		name: 'Иван Петров',
-		company_name: null,
-		contact_person: null,
-		phone: null,
-		email: null,
-		contact: '+7 916 555-12-34',
-		comment: 'Позвонил по бочкам Open Top.',
-		source_url: null,
-		created_at: new Date(Date.now() - 45 * 60 * 1000).toISOString()
-	},
-	{
-		id: 'preview-offline-email',
-		channel: 'offline',
-		type: 'offline_email',
-		delivery_status: 'recorded',
-		ad_id: '187640017',
-		name: 'ООО «ХимСнаб»',
-		company_name: null,
-		contact_person: null,
-		phone: null,
-		email: null,
-		contact: 'purchase@example.ru',
-		comment: 'Запросили прайс-лист по электронной почте.',
-		source_url: null,
-		created_at: new Date(Date.now() - 90 * 60 * 1000).toISOString()
-	}
-];
 
 function isPreviewMode(): boolean {
 	return dev && env.DEV_ADMIN_BYPASS === 'true';
@@ -68,6 +23,7 @@ function previewData() {
 	return {
 		authenticated: true,
 		previewMode: true,
+		exportSettings: yandexExportSettings(),
 		leads: {
 			data: previewLeads,
 			current_page: 1,
@@ -98,6 +54,7 @@ export const load: PageServerLoad = async ({ cookies, url }) => {
 	}
 
 	const page = safePage(url.searchParams.get('page'));
+	const exportSettings = yandexExportSettings();
 
 	try {
 		const response = await adminApi(`/admin/leads?page=${page}&per_page=50`, {
@@ -113,6 +70,7 @@ export const load: PageServerLoad = async ({ cookies, url }) => {
 		if (!response.ok) {
 			return {
 				authenticated: true,
+				exportSettings,
 				leads: null,
 				summary: null,
 				apiError: result.message || 'Не удалось загрузить заявки.'
@@ -121,12 +79,14 @@ export const load: PageServerLoad = async ({ cookies, url }) => {
 
 		return {
 			authenticated: true,
+			exportSettings,
 			leads: result.leads,
 			summary: result.summary
 		};
 	} catch {
 		return {
 			authenticated: true,
+			exportSettings,
 			leads: null,
 			summary: null,
 			apiError: 'Сервис заявок временно недоступен.'
@@ -214,10 +174,25 @@ export const actions: Actions = {
 			});
 		}
 
-		if (payload.ad_id && !/^\d{1,32}$/.test(payload.ad_id)) {
+		const validContact =
+			payload.offline_type === 'call'
+				? normalizeYandexPhone(payload.contact)
+				: normalizeYandexEmail(payload.contact);
+		if (!validContact) {
 			return fail(422, {
 				action: 'createOffline',
-				message: 'Номер визита должен состоять из цифр.',
+				message:
+					payload.offline_type === 'call'
+						? 'Укажите номер телефона с кодом страны.'
+						: 'Укажите корректный адрес электронной почты.',
+				values: payload
+			});
+		}
+
+		if (payload.ad_id && !/^[0-9]{1,32}$/.test(payload.ad_id)) {
+			return fail(422, {
+				action: 'createOffline',
+				message: 'Номер визита должен содержать от 1 до 32 цифр.',
 				values: payload
 			});
 		}

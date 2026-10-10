@@ -138,7 +138,7 @@
 									>Адрес комплекса</span
 								>
 								<span class="mt-1 text-sm font-semibold text-brand-dark"
-									>109429, г. Москва, ул. Верхние Поля, дом 61</span
+									>140093, г. Москва, улица Карьер ЗИЛ, 14</span
 								>
 							</div>
 						</div>

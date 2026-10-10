@@ -1,4 +1,5 @@
 <script>
+	import Image from '$lib/components/Image.svelte';
 	import { fade, fly, scale } from 'svelte/transition';
 
 	/**
@@ -255,7 +256,7 @@
 												aria-label={`Увеличить фото: ${current.alt ?? chipLabel(current)}`}
 												class="flex min-w-0 cursor-zoom-in items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40 focus-visible:ring-inset"
 											>
-												<img
+												<Image
 													src={current.image}
 													alt={current.alt ?? chipLabel(current)}
 													loading="eager"
@@ -342,7 +343,7 @@
 										class="flex h-12 w-12 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg border border-brand-divider/60 bg-gradient-to-b from-brand-bg to-brand-card"
 									>
 										{#if v.image}
-											<img
+											<Image
 												src={v.image}
 												alt=""
 												loading="lazy"
@@ -471,7 +472,7 @@
 						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
 					</svg>
 				</button>
-				<img
+				<Image
 					src={lightboxSrc}
 					alt={lightboxAlt}
 					class="max-h-[75vh] max-w-full rounded-lg object-contain shadow-inner"

@@ -213,7 +213,8 @@
 					<input
 						name="ad_id"
 						inputmode="numeric"
-						pattern={'[0-9]{1,32}'}
+						pattern="[0-9]+"
+						maxlength="32"
 						placeholder="Номер визита"
 						value={form?.action === 'createOffline' ? form.values?.ad_id || '' : ''}
 						class="rounded-xl border border-brand-divider bg-brand-bg px-4 py-3 font-mono text-sm focus:border-brand-accent focus:outline-none"
@@ -240,6 +241,70 @@
 						{form.message}
 					</p>
 				{/if}
+			</section>
+
+			<section class="mb-8 rounded-2xl border border-brand-divider bg-white p-5 shadow-sm md:p-6">
+				<div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
+					<div class="max-w-3xl">
+						<h2 class="font-serif text-2xl font-light text-brand-dark">
+							Выгрузка офлайн-конверсий
+						</h2>
+						<p class="mt-1 text-sm leading-relaxed text-brand-gray">
+							CSV для Центра конверсий Яндекс Директа: UTF-8, разделитель — точка с запятой. В файл
+							попадут только офлайн-заявки с корректным телефоном или email.
+						</p>
+					</div>
+
+					<form
+						method="GET"
+						action="/admin/export"
+						class="grid grid-cols-1 gap-3 sm:grid-cols-[minmax(150px,1fr)_minmax(170px,1fr)_auto]"
+					>
+						<label class="block">
+							<span
+								class="mb-2 block text-[9px] font-bold tracking-wider text-brand-gray uppercase"
+							>
+								Период
+							</span>
+							<select
+								name="period"
+								class="h-11 w-full rounded-xl border border-brand-divider bg-brand-bg px-4 text-sm focus:border-brand-accent focus:outline-none"
+							>
+								<option value="day">День</option>
+								<option value="week">Неделя</option>
+								<option value="month">Месяц</option>
+								<option value="quarter">Квартал</option>
+								<option value="year">Год</option>
+							</select>
+						</label>
+						<label class="block">
+							<span
+								class="mb-2 block text-[9px] font-bold tracking-wider text-brand-gray uppercase"
+							>
+								Дата внутри периода
+							</span>
+							<input
+								name="date"
+								type="date"
+								required
+								min={data.exportSettings.minDate}
+								max={data.exportSettings.today}
+								value={data.exportSettings.today}
+								class="h-11 w-full rounded-xl border border-brand-divider bg-brand-bg px-4 text-sm focus:border-brand-accent focus:outline-none"
+							/>
+						</label>
+						<button
+							type="submit"
+							class="h-11 self-end rounded-xl bg-brand-accent px-5 text-xs font-bold tracking-wider text-white uppercase transition hover:bg-brand-dark"
+						>
+							Скачать CSV
+						</button>
+					</form>
+				</div>
+				<p class="mt-4 text-xs leading-relaxed text-brand-gray">
+					Яндекс принимает конверсии не старше 113 дней. Для недели, месяца, квартала и года
+					выгружается календарный период, содержащий выбранную дату, в пределах этого окна.
+				</p>
 			</section>
 
 			{#if data.apiError}
