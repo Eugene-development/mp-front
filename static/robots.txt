@@ -1,3 +1,7 @@
 # allow crawling everything by default
 User-agent: *
 Disallow:
+
+# Tracking parameters do not change page content. Keep them for visit attribution,
+# but merge their URL variants into the clean page in Yandex search.
+Clean-param: utm_source&utm_medium&utm_campaign&utm_campaign_id&utm_term&utm_content&utm_id&yclid&ysclid&ybaip /

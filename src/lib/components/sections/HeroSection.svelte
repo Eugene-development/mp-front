@@ -8,29 +8,27 @@
 	let heroContent = $derived(
 		isGsmGroup
 			? {
-				badge: 'Канистры для ГСМ',
-				title: 'Канистры',
-				titleAccent: 'для ГСМ',
-				description:
-					'Усиленные канистры из первичного HDPE для безопасного хранения и перевозки топлива, масел и других горюче-смазочных материалов.',
-				productTitle: 'Канистра ГСМ 20 л',
-				productImage:
-					'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-gsm-20.jpg',
-				productAlt: 'Канистра для ГСМ 20 литров',
-				catalogHref: '/catalog/kanistry'
-			}
+					badge: 'Канистры для ГСМ',
+					title: 'Канистры',
+					titleAccent: 'для ГСМ',
+					description:
+						'Усиленные канистры из первичного HDPE для безопасного хранения и перевозки топлива, масел и других горюче-смазочных материалов.',
+					productTitle: 'Канистра ГСМ 20 л',
+					productImage: '/images/products/kanistra-gsm-20l.webp',
+					productAlt: 'Канистра для ГСМ 20 литров',
+					catalogHref: '/catalog/kanistry'
+				}
 			: {
-				badge: 'Сертификация ГОСТ',
-				title: 'Сверхпрочная',
-				titleAccent: 'полимерная тара',
-				description:
-					'ООО «МегаПак» — производство и прямые поставки сертифицированной упаковки высшего класса герметичности. Канистры, бочки и еврокубы для хранения нефтехимии, масел и пищевых сред.',
-				productTitle: 'Канистра 31,5 л',
-				productImage:
-					'https://storage.yandexcloud.net/megapak-top/products/kanistra/kanistra-31.5-litra.jpg',
-				productAlt: 'Канистра МегаПак',
-				catalogHref: '/catalog'
-			}
+					badge: 'Сертификация ГОСТ',
+					title: 'Сверхпрочная',
+					titleAccent: 'полимерная тара',
+					description:
+						'ООО «МегаПак» — производство и прямые поставки сертифицированной упаковки высшего класса герметичности. Канистры, бочки и еврокубы для хранения нефтехимии, масел и пищевых сред.',
+					productTitle: 'Канистра ГСМ 20 л',
+					productImage: '/images/products/kanistra-gsm-20l.webp',
+					productAlt: 'Красная канистра для ГСМ 20 литров с гибким носиком',
+					catalogHref: '/catalog/kanistry'
+				}
 	);
 </script>
 
@@ -273,8 +271,8 @@
 								</h3>
 							</div>
 							<span
-								class="rounded border border-brand-divider bg-neutral-100 px-2 py-0.5 font-mono text-[8px] tracking-wider text-brand-dark uppercase"
-								>ГОСТ</span
+								class="rounded border border-red-200 bg-red-50 px-3 py-1 font-mono text-xs font-bold tracking-wider whitespace-nowrap text-red-600 uppercase"
+								>В НАЛИЧИИ</span
 							>
 						</div>
 
@@ -292,9 +290,7 @@
 							<div class="flex items-center gap-2">
 								<span class="h-1.5 w-1.5 rounded-full bg-brand-accent"></span>
 								<div class="flex flex-col">
-									<span class="text-[8px] tracking-wider text-brand-gray uppercase"
-										>Материал</span
-									>
+									<span class="text-[8px] tracking-wider text-brand-gray uppercase">Материал</span>
 									<span class="text-[10px] font-semibold text-brand-dark">HDPE (ПНД первичный)</span
 									>
 								</div>

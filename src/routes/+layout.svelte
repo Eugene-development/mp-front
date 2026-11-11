@@ -2,6 +2,7 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 	import { onMount, onDestroy } from 'svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -17,6 +18,8 @@
 	import { captureUtm } from '$lib/utm';
 
 	let { children, data } = $props();
+	// Единый адрес для индексации: метки остаются в URL посетителя для аналитики.
+	const canonicalUrl = $derived(`https://megapak.top${page.url.pathname}`);
 
 	let observer;
 	let stopPhoneClickTracking = () => {};
@@ -111,6 +114,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<link rel="canonical" href={canonicalUrl} />
 	<title>МегаПак — Высокоточная Промышленная Пластиковая Тара</title>
 	<meta
 		name="description"

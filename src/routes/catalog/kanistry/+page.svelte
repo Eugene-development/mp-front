@@ -11,7 +11,7 @@
 		title: 'Полный размерный ряд',
 		titleAccent: 'полимерных канистр',
 		subtitle:
-			'Девять типоразмеров в двух линиях — универсальные канистры и усиленные канистры ГСМ с носиком. Выберите объём, чтобы увидеть стенку, горловину и назначение.',
+			'Десять моделей в двух линиях — универсальные канистры и усиленные канистры ГСМ с носиком. Выберите объём, чтобы увидеть стенку, горловину и назначение.',
 		scaleHint: 'Высота столбика пропорциональна объёму',
 		variants: [
 			{
@@ -58,6 +58,21 @@
 					{ label: 'Горловина', value: 'резьб. 60 мм + носик' }
 				],
 				use: 'Моторные масла, ГСМ.'
+			},
+			{
+				chip: '20',
+				chipUnit: 'л',
+				image: '/images/products/kanistra-gsm-20l.webp',
+				alt: 'Красная канистра для ГСМ 20 литров с гибким носиком',
+				title: '20 л · красная',
+				tag: 'ГСМ · красная',
+				scaleLabel: 'объём',
+				scale: 20,
+				specs: [
+					{ label: 'Объём', value: '20 л' },
+					{ label: 'Комплектация', value: 'гибкий носик' }
+				],
+				use: 'Для ГСМ. Гибкий носик хранится в нише корпуса.'
 			},
 			{
 				chip: '1',
@@ -231,15 +246,14 @@
 							class="mt-8 grid w-full max-w-xl grid-cols-3 gap-6 border-t border-brand-divider pt-6"
 						>
 							<div class="flex flex-col">
-								<span class="font-serif text-xl font-light text-brand-dark">9 видов</span>
+								<span class="font-serif text-xl font-light text-brand-dark">10 моделей</span>
 								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
 									>Пластик + ГСМ</span
 								>
 							</div>
 							<div class="flex flex-col">
 								<span class="font-serif text-xl font-light text-brand-dark">до 2.7 мм</span>
-								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase"
-									>Толщина</span
+								<span class="mt-1 text-[8px] tracking-wider text-brand-gray uppercase">Толщина</span
 								>
 							</div>
 							<div class="flex flex-col">

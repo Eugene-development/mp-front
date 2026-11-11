@@ -72,6 +72,11 @@
 		// label — литраж вида канистры: слайдер показывает его в левом верхнем углу
 		// вместо статичного бейджа категории и обновляет при переключении фото.
 		kanistry: [
+			{
+				src: '/images/products/kanistra-gsm-20l.webp',
+				alt: 'Красная канистра для ГСМ 20 литров с гибким носиком',
+				label: 'ГСМ · 20 литров · красная'
+			},
 			{ src: `${CDN}/kanistra/kanistra-1-litr.jpg`, alt: 'Канистра 1 л', label: '1 литр' },
 			{ src: `${CDN}/kanistra/kanistra-3-litra.jpg`, alt: 'Канистра 3 л', label: '3 литра' },
 			{ src: `${CDN}/kanistra/kanistra-10-litrov.jpg`, alt: 'Канистра 10 л', label: '10 литров' },
