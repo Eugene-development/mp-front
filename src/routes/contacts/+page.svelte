@@ -73,10 +73,10 @@
 </script>
 
 <svelte:head>
-	<title>Контакты ООО «МегаПак» — Офис продаж и склад в Москве</title>
+	<title>Контакты ООО «МегаПак» — Офис продаж и склад в Дзержинском</title>
 	<meta
 		name="description"
-		content="Официальные контакты компании ООО «МегаПак». Отдел сбыта, адрес комплекса, телефоны и email. Офис продаж и центральный склад на одной территории: Москва, улица Карьер ЗИЛ, 14."
+		content="Официальные контакты компании ООО «МегаПак». Отдел сбыта, адрес комплекса, телефоны и email. Офис продаж и центральный склад на одной территории: Московская область, г.Дзержинский, ул. карьер ЗИЛ, д.14."
 	/>
 	<meta
 		name="keywords"
@@ -122,7 +122,7 @@
 									>Адрес комплекса</span
 								>
 								<span class="mt-1 text-sm leading-snug font-semibold text-brand-dark">
-									140093, г. Москва, улица Карьер ЗИЛ, 14
+									Московская область, г.Дзержинский, ул. карьер ЗИЛ, д.14
 								</span>
 								<span class="mt-0.5 text-sm text-brand-gray">
 									Офис продаж и логистический комплекс на одной территории
@@ -217,12 +217,12 @@
 			<div class="double-bezel overflow-hidden">
 				<div class="double-bezel-inner h-[380px] overflow-hidden p-1">
 					<iframe
-						src="https://yandex.ru/map-widget/v1/?ll=37.875910%2C55.620286&z=16&l=map&pt=37.875910%2C55.620286%2Cpm2rdl"
+						src="https://yandex.ru/map-widget/v1/?ll=37.876134%2C55.620200&z=17&l=map&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoyMDMxMDIxNjY2EpsB0KDQvtGB0YHQuNGPLCDQnNC-0YHQutC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0LPQvtGA0L7QtNGB0LrQvtC5INC-0LrRgNGD0LMg0JvRjtCx0LXRgNGG0YssINCU0LfQtdGA0LbQuNC90YHQutC40LksINGD0LvQuNGG0LAg0JrQsNGA0YzQtdGAINCX0JjQmywgMTQiCg3ugBdCFS17XkI%2C"
 						width="100%"
 						height="100%"
 						frameborder="0"
 						allowfullscreen="true"
-						title="Схема проезда к ООО «МегаПак»"
+						title="Схема проезда к ООО «МегаПак»: Московская область, г.Дзержинский, ул. карьер ЗИЛ, д.14"
 						class="h-full w-full rounded-[1.25rem] border-0"
 						style="filter: contrast(1.05) saturate(0.95);"
 					></iframe>

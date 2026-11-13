@@ -120,7 +120,7 @@
 						<span>✉️</span> <span class="font-bold text-white">info@megapak.top</span>
 					</li>
 					<li class="flex items-center gap-2">
-						<span>📍</span> <span>Москва, ул. Карьер ЗИЛ, 14</span>
+						<span>📍</span> <span>Московская область, г.Дзержинский, ул. карьер ЗИЛ, д.14</span>
 					</li>
 					<li class="pt-2">
 						<a
@@ -140,7 +140,7 @@
 		>
 			<span
 				>© 2026 ООО «МегаПак». Все права защищены. Производственная площадка полимерной тары в
-				Москве.</span
+				Дзержинском.</span
 			>
 			<div class="mt-4 flex items-center gap-4 sm:mt-0">
 				<a href="/specs" class="hover:text-neutral-300">Техническая документация</a>

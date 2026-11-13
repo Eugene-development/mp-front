@@ -20,10 +20,11 @@
 				image: 'https://storage.yandexcloud.net/megapak-top/products/bochka/bochka-48.jpg',
 				alt: 'Пластиковая бочка 48 л',
 				title: '48 л',
+				tag: 'OpenTop',
 				scaleLabel: 'объём',
 				scale: 48,
 				specs: [
-					{ label: 'Тип горловины', value: 'L-Ring, 2 пробки (G3/4 и G2)' },
+					{ label: 'Тип горловины', value: 'OpenTop' },
 					{ label: 'Ø корпуса', value: '380 мм' }
 				],
 				use: 'Реагенты, растворители, лабораторная фасовка.'
@@ -34,10 +35,11 @@
 				image: 'https://storage.yandexcloud.net/megapak-top/products/bochka/bochka-65.jpg',
 				alt: 'Пластиковая бочка 65 л',
 				title: '65 л',
+				tag: 'OpenTop',
 				scaleLabel: 'объём',
 				scale: 65,
 				specs: [
-					{ label: 'Тип горловины', value: 'L-Ring / Open Top' },
+					{ label: 'Тип горловины', value: 'Open Top' },
 					{ label: 'Ø корпуса', value: '380 мм' }
 				],
 				use: 'Краски, клеи, пульпа.'
@@ -45,9 +47,10 @@
 			{
 				chip: '127',
 				chipUnit: 'л',
-				image: null, // TODO: подставить URL фото
+				image: 'https://storage.yandexcloud.net/megapak-top/products/bochka/bochka-127.webp',
 				alt: 'Пластиковая бочка 127 л',
 				title: '127 л',
+				tag: 'OpenTop',
 				scaleLabel: 'объём',
 				scale: 127,
 				specs: [
@@ -59,14 +62,29 @@
 			{
 				chip: '227',
 				chipUnit: 'л',
-				image: 'https://storage.yandexcloud.net/megapak-top/products/bochka-1.jpg',
-				alt: 'Пластиковая бочка 227 л',
+				image: '/images/bochka-227-lring.webp',
+				alt: 'Пластиковая бочка 227 л L-Ring',
 				title: '227 л',
-				tag: 'ДОПОГ',
+				tag: 'L-Ring',
 				scaleLabel: 'объём',
 				scale: 227,
 				specs: [
-					{ label: 'Тип горловины', value: 'L-Ring / Open Top' },
+					{ label: 'Тип горловины', value: 'L-Ring' },
+					{ label: 'Ø корпуса', value: '585 мм' }
+				],
+				use: 'Опасные грузы, экспорт, многоярусное складирование.'
+			},
+			{
+				chip: '227',
+				chipUnit: 'л',
+				image: '/images/bochka-227-opentop.webp',
+				alt: 'Пластиковая бочка 227 л OpenTop',
+				title: '227 л',
+				tag: 'OpenTop',
+				scaleLabel: 'объём',
+				scale: 227,
+				specs: [
+					{ label: 'Тип горловины', value: 'OpenTop + стальной хомут' },
 					{ label: 'Ø корпуса', value: '585 мм' }
 				],
 				use: 'Опасные грузы, экспорт, многоярусное складирование.'
@@ -211,7 +229,7 @@
 			title="Фото"
 			titleAccent="по литражу"
 			selectorLabel="Литраж"
-			subtitle="Выберите объём, чтобы рассмотреть бочку. Для части типоразмеров фото ещё в подготовке."
+			subtitle="Выберите объём и тип крышки, чтобы рассмотреть бочку."
 			variants={lineup.variants}
 		/>
 
@@ -256,7 +274,7 @@
 								<div class="flex justify-between border-b border-white/5 py-2.5">
 									<span class="w-1/6 text-neutral-400">48 л</span>
 									<span class="w-1/6 text-neutral-400">Ø 380 мм</span>
-									<span class="w-1/4 text-neutral-400">L-Ring, 2 пробки (G3/4 и G2)</span>
+									<span class="w-1/4 text-neutral-400">OpenTop</span>
 									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
 										>Реагенты, растворители</span
 									>
@@ -265,7 +283,7 @@
 								<div class="flex justify-between border-b border-white/5 py-2.5">
 									<span class="w-1/6 text-neutral-400">65 л</span>
 									<span class="w-1/6 text-neutral-400">Ø 380 мм</span>
-									<span class="w-1/4 text-neutral-400">L-Ring / Open Top</span>
+									<span class="w-1/4 text-neutral-400">Open Top</span>
 									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
 										>Краски, клеи, пульпа</span
 									>
@@ -280,10 +298,19 @@
 									>
 								</div>
 
+								<div class="flex justify-between border-b border-white/5 py-2.5">
+									<span class="w-1/6 text-neutral-400">227 л</span>
+									<span class="w-1/6 text-neutral-400">Ø 585 мм</span>
+									<span class="w-1/4 text-neutral-400">L-Ring</span>
+									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
+										>Опасные грузы, экспорт</span
+									>
+								</div>
+
 								<div class="flex justify-between py-2.5">
 									<span class="w-1/6 text-neutral-400">227 л</span>
 									<span class="w-1/6 text-neutral-400">Ø 585 мм</span>
-									<span class="w-1/4 text-neutral-400">L-Ring / Open Top</span>
+									<span class="w-1/4 text-neutral-400">OpenTop + стальной хомут</span>
 									<span class="w-1/3 text-right font-semibold text-brand-accent-light"
 										>Опасные грузы, экспорт</span
 									>
